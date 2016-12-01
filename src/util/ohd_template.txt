@@ -8,6 +8,7 @@
 @prefix patient_role: <patient-role/> .
 @prefix provider: <provider/> .
 @prefix provider_role: <provider-role/> .
+@prefix office_staff_role: <office-staff-role/> .
 @prefix gender_role: <gender-role/> .
 @prefix female_gender_role: <female-gender-role/> .
 @prefix male_gender_role: <male-gender-role/> .
@@ -100,6 +101,9 @@
 
 'provider role uri by prefix':
 """provider_role:{provider_id}""",
+
+'office staff role uri by prefix':
+"""office_staff_role:{provider_id}""",
 
 'practice uri':
 """practice:{practice_id}""",
