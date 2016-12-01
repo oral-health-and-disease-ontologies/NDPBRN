@@ -86,7 +86,7 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
 
     # extract just the patient and gender columns for convience
     #patient_df = df[['patient_id', 'gender', 'birth_date']]
-    patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'PATIENT_STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID']]
+    patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'PATIENT_STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID', 'FIRST_VISIT_DATE', 'LAST_DATE_SEEN']]
 
     # testing...
     # print patient_df
@@ -110,59 +110,76 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
         # print ttl for each patient
-        for (idx, pid, gender, birth_date, pstatus, practiceId, locationId) in patient_df.itertuples():
-            if pstatus.lower() == 'y':
-                try:
-                    birth_date_str = birth_date.strftime('%Y-%m-%d')
-                    id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
-                    patient_role_type = label2uri['dental patient role']
+        for (idx, pid, gender, birth_date, pstatus, practiceId, locationId, first_visit_date, last_visit_date) in patient_df.itertuples():
+#            if pstatus.lower() == 'y':
+            try:
+                birth_date_str = birth_date.strftime('%Y-%m-%d')
+                first_visit_date_str = first_visit_date.strftime('%Y-%m-%d')
+                last_visit_date_str = last_visit_date.strftime('%Y-%m-%d')
+                id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                patient_role_type = label2uri['dental patient role']
 
-                    if gender == 'M':
-                        patient_type = label2uri['male dental patient']
-                        gender_role_type = label2uri['male gender role']
-                    else:
-                        patient_type = label2uri['female dental patient']
-                        gender_role_type = label2uri['female gender role']
+                if gender == 'M':
+                    patient_type = label2uri['male dental patient']
+                    gender_role_type = label2uri['male gender role']
+                else:
+                    patient_type = label2uri['female dental patient']
+                    gender_role_type = label2uri['female gender role']
 
-                    birth_date_type = label2uri['birth_date'].rsplit('/', 1)[-1]
+                birth_date_type = label2uri['birth_date'].rsplit('/', 1)[-1]
 
-                    # define uri
-                    patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
-                    role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=id)
-                    gender_uri = ohd_ttl['gender role uri by prefix'].format(patient_id=id, gender_code=gender)
-                    # try:
-                    #    birth_date_str = birth_date.strftime('%Y-%m-%d')
-                    # except Exception:
-                    #    birth_date_str = ''
-                    #    print("patient " + str(pid) + " has not birth date!!!")
-                    # if pds.isnull(birth_date):
-                    #    birth_date_str = ''
-                    # else:
-                    #    birth_date_str = birth_date.strftime('%Y-%m-%d')
+                patient_activity_status_type = label2uri['has patient activity status'].rsplit('/', 1)[-1]
 
-                    # define labels
-                    patient_label = "patient " + id
-                    role_label = "patient " + id + " patient role"
-                    gender_label = "patient " + id + " gender role " + gender
+                patient_first_visit_date_type = label2uri['first dental visit date'].rsplit('/', 1)[-1]
 
-                    # delcare individuals
-                    output(ohd_ttl['declare individual uri'].format(uri=patient_uri, type=patient_type,
-                                                                    label=patient_label))
-                    output(ohd_ttl['declare individual uri'].format(uri=role_uri, type=patient_role_type,
-                                                                    label=role_label))
-                    output(ohd_ttl['declare individual uri'].format(uri=gender_uri, type=gender_role_type,
-                                                                    label=gender_label))
+                patient_last_visit_date_type = label2uri['last dental visit date'].rsplit('/', 1)[-1]
 
-                    output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=birth_date_type,
-                                                                       date=birth_date_str))
+                # define uri
+                patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+                role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=id)
+                gender_uri = ohd_ttl['gender role uri by prefix'].format(patient_id=id, gender_code=gender)
+                # try:
+                #    birth_date_str = birth_date.strftime('%Y-%m-%d')
+                # except Exception:
+                #    birth_date_str = ''
+                #    print("patient " + str(pid) + " has not birth date!!!")
+                # if pds.isnull(birth_date):
+                #    birth_date_str = ''
+                # else:
+                #    birth_date_str = birth_date.strftime('%Y-%m-%d')
 
-                    # relate individuals
-                    output(ohd_ttl['uri1 is bearer of uri2'].format(uri1=patient_uri, uri2=gender_uri))
-                    output(ohd_ttl['uri1 has role uri2'].format(uri1=patient_uri, uri2=role_uri))
-                    output(ohd_ttl['ur1 member of uri2'].format(uri1=patient_uri, uri2=practice_uri))
-                except Exception as ex:
-                    print("patient " + str(pid) + " has problems!!!")
-                    logging.exception("message")
+                # define labels
+                patient_label = "patient " + id
+                role_label = "patient " + id + " patient role"
+                gender_label = "patient " + id + " gender role " + gender
+
+                # delcare individuals
+                output(ohd_ttl['declare individual uri'].format(uri=patient_uri, type=patient_type,
+                                                                label=patient_label))
+                output(ohd_ttl['declare individual uri'].format(uri=role_uri, type=patient_role_type,
+                                                                label=role_label))
+                output(ohd_ttl['declare individual uri'].format(uri=gender_uri, type=gender_role_type,
+                                                                label=gender_label))
+
+                output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=birth_date_type,
+                                                                   date=birth_date_str))
+
+                output(ohd_ttl['declare string property uri'].format(uri=patient_uri, type=patient_activity_status_type,
+                                                                   string_value=pstatus))
+
+                output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=patient_first_visit_date_type,
+                                                                   date=first_visit_date_str))
+
+                output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=patient_last_visit_date_type,
+                                                                   date=last_visit_date_str))
+
+                # relate individuals
+                output(ohd_ttl['uri1 is bearer of uri2'].format(uri1=patient_uri, uri2=gender_uri))
+                output(ohd_ttl['uri1 has role uri2'].format(uri1=patient_uri, uri2=role_uri))
+                output(ohd_ttl['ur1 member of uri2'].format(uri1=patient_uri, uri2=practice_uri))
+            except Exception as ex:
+                print("patient " + str(pid) + " has problems!!!")
+                logging.exception("message")
 
 # translate_patient_to_ttl()
 translate_patient_to_ttl_1(practice_id='1')
