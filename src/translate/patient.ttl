@@ -1,0 +1,130 @@
+
+@prefix : <http://purl.regenstrief.org/NDPBRN/practice/3/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix iao: <http://purl.obolibrary.org/obo/iao/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://purl.regenstrief.org/NDPBRN/practice/3/> .
+
+<patient/3_10001> rdf:type <http://purl.obolibrary.org/obo/OHD_0000054> .
+<patient/3_10001> rdf:type owl:NamedIndividual .
+<patient/3_10001> rdfs:label "patient 3_10001"^^xsd:string .
+
+<patient/3_10001/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10001/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10001/patient-role> rdfs:label "patient 3_10001 patient role"^^xsd:string .
+
+<patient/3_10001/gender-role/M> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000008> .
+<patient/3_10001/gender-role/M> rdf:type owl:NamedIndividual .
+<patient/3_10001/gender-role/M> rdfs:label "patient 3_10001 gender role M"^^xsd:string .
+<patient/3_10001> obo:BFO_0000053 <patient/3_10001/gender-role/M> . <patient/3_10001> obo:BFO_0000087 <patient/3_10001/patient-role> . 
+<patient/3_10002> rdf:type <http://purl.obolibrary.org/obo/OHD_0000049> .
+<patient/3_10002> rdf:type owl:NamedIndividual .
+<patient/3_10002> rdfs:label "patient 3_10002"^^xsd:string .
+
+<patient/3_10002/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10002/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10002/patient-role> rdfs:label "patient 3_10002 patient role"^^xsd:string .
+
+<patient/3_10002/gender-role/F> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000009> .
+<patient/3_10002/gender-role/F> rdf:type owl:NamedIndividual .
+<patient/3_10002/gender-role/F> rdfs:label "patient 3_10002 gender role F"^^xsd:string .
+<patient/3_10002> obo:BFO_0000053 <patient/3_10002/gender-role/F> . <patient/3_10002> obo:BFO_0000087 <patient/3_10002/patient-role> . 
+<patient/3_10003> rdf:type <http://purl.obolibrary.org/obo/OHD_0000054> .
+<patient/3_10003> rdf:type owl:NamedIndividual .
+<patient/3_10003> rdfs:label "patient 3_10003"^^xsd:string .
+
+<patient/3_10003/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10003/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10003/patient-role> rdfs:label "patient 3_10003 patient role"^^xsd:string .
+
+<patient/3_10003/gender-role/M> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000008> .
+<patient/3_10003/gender-role/M> rdf:type owl:NamedIndividual .
+<patient/3_10003/gender-role/M> rdfs:label "patient 3_10003 gender role M"^^xsd:string .
+<patient/3_10003> obo:BFO_0000053 <patient/3_10003/gender-role/M> . <patient/3_10003> obo:BFO_0000087 <patient/3_10003/patient-role> . 
+<patient/3_10004> rdf:type <http://purl.obolibrary.org/obo/OHD_0000049> .
+<patient/3_10004> rdf:type owl:NamedIndividual .
+<patient/3_10004> rdfs:label "patient 3_10004"^^xsd:string .
+
+<patient/3_10004/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10004/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10004/patient-role> rdfs:label "patient 3_10004 patient role"^^xsd:string .
+
+<patient/3_10004/gender-role/F> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000009> .
+<patient/3_10004/gender-role/F> rdf:type owl:NamedIndividual .
+<patient/3_10004/gender-role/F> rdfs:label "patient 3_10004 gender role F"^^xsd:string .
+<patient/3_10004> obo:BFO_0000053 <patient/3_10004/gender-role/F> . <patient/3_10004> obo:BFO_0000087 <patient/3_10004/patient-role> . 
+<patient/3_10005> rdf:type <http://purl.obolibrary.org/obo/OHD_0000054> .
+<patient/3_10005> rdf:type owl:NamedIndividual .
+<patient/3_10005> rdfs:label "patient 3_10005"^^xsd:string .
+
+<patient/3_10005/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10005/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10005/patient-role> rdfs:label "patient 3_10005 patient role"^^xsd:string .
+
+<patient/3_10005/gender-role/M> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000008> .
+<patient/3_10005/gender-role/M> rdf:type owl:NamedIndividual .
+<patient/3_10005/gender-role/M> rdfs:label "patient 3_10005 gender role M"^^xsd:string .
+<patient/3_10005> obo:BFO_0000053 <patient/3_10005/gender-role/M> . <patient/3_10005> obo:BFO_0000087 <patient/3_10005/patient-role> . 
+<patient/3_10006> rdf:type <http://purl.obolibrary.org/obo/OHD_0000049> .
+<patient/3_10006> rdf:type owl:NamedIndividual .
+<patient/3_10006> rdfs:label "patient 3_10006"^^xsd:string .
+
+<patient/3_10006/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10006/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10006/patient-role> rdfs:label "patient 3_10006 patient role"^^xsd:string .
+
+<patient/3_10006/gender-role/F> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000009> .
+<patient/3_10006/gender-role/F> rdf:type owl:NamedIndividual .
+<patient/3_10006/gender-role/F> rdfs:label "patient 3_10006 gender role F"^^xsd:string .
+<patient/3_10006> obo:BFO_0000053 <patient/3_10006/gender-role/F> . <patient/3_10006> obo:BFO_0000087 <patient/3_10006/patient-role> . 
+<patient/3_10007> rdf:type <http://purl.obolibrary.org/obo/OHD_0000054> .
+<patient/3_10007> rdf:type owl:NamedIndividual .
+<patient/3_10007> rdfs:label "patient 3_10007"^^xsd:string .
+
+<patient/3_10007/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10007/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10007/patient-role> rdfs:label "patient 3_10007 patient role"^^xsd:string .
+
+<patient/3_10007/gender-role/M> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000008> .
+<patient/3_10007/gender-role/M> rdf:type owl:NamedIndividual .
+<patient/3_10007/gender-role/M> rdfs:label "patient 3_10007 gender role M"^^xsd:string .
+<patient/3_10007> obo:BFO_0000053 <patient/3_10007/gender-role/M> . <patient/3_10007> obo:BFO_0000087 <patient/3_10007/patient-role> . 
+<patient/3_10008> rdf:type <http://purl.obolibrary.org/obo/OHD_0000049> .
+<patient/3_10008> rdf:type owl:NamedIndividual .
+<patient/3_10008> rdfs:label "patient 3_10008"^^xsd:string .
+
+<patient/3_10008/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10008/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10008/patient-role> rdfs:label "patient 3_10008 patient role"^^xsd:string .
+
+<patient/3_10008/gender-role/F> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000009> .
+<patient/3_10008/gender-role/F> rdf:type owl:NamedIndividual .
+<patient/3_10008/gender-role/F> rdfs:label "patient 3_10008 gender role F"^^xsd:string .
+<patient/3_10008> obo:BFO_0000053 <patient/3_10008/gender-role/F> . <patient/3_10008> obo:BFO_0000087 <patient/3_10008/patient-role> . 
+<patient/3_10009> rdf:type <http://purl.obolibrary.org/obo/OHD_0000054> .
+<patient/3_10009> rdf:type owl:NamedIndividual .
+<patient/3_10009> rdfs:label "patient 3_10009"^^xsd:string .
+
+<patient/3_10009/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10009/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10009/patient-role> rdfs:label "patient 3_10009 patient role"^^xsd:string .
+
+<patient/3_10009/gender-role/M> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000008> .
+<patient/3_10009/gender-role/M> rdf:type owl:NamedIndividual .
+<patient/3_10009/gender-role/M> rdfs:label "patient 3_10009 gender role M"^^xsd:string .
+<patient/3_10009> obo:BFO_0000053 <patient/3_10009/gender-role/M> . <patient/3_10009> obo:BFO_0000087 <patient/3_10009/patient-role> . 
+<patient/3_10010> rdf:type <http://purl.obolibrary.org/obo/OHD_0000049> .
+<patient/3_10010> rdf:type owl:NamedIndividual .
+<patient/3_10010> rdfs:label "patient 3_10010"^^xsd:string .
+
+<patient/3_10010/patient-role> rdf:type <http://purl.obolibrary.org/obo/OHD_0000190> .
+<patient/3_10010/patient-role> rdf:type owl:NamedIndividual .
+<patient/3_10010/patient-role> rdfs:label "patient 3_10010 patient role"^^xsd:string .
+
+<patient/3_10010/gender-role/F> rdf:type <http://purl.obolibrary.org/obo/OMRSE_00000009> .
+<patient/3_10010/gender-role/F> rdf:type owl:NamedIndividual .
+<patient/3_10010/gender-role/F> rdfs:label "patient 3_10010 gender role F"^^xsd:string .
+<patient/3_10010> obo:BFO_0000053 <patient/3_10010/gender-role/F> . <patient/3_10010> obo:BFO_0000087 <patient/3_10010/patient-role> . 

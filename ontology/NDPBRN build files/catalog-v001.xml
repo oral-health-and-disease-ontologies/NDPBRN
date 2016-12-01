@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="imports" prefer="public" xml:base="">
+    		<uri name="http://purl.obolibrary.org/obo/ohd/NDPBRN-anatomy-classes.owl" uri="imports/NDPBRN-anatomy-classes.owl"/>
+    
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl" uri="ohd.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd.owl" uri="ohd.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/ncbi-imports.owl" uri="imports/ncbi-imports.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/caro-imports.owl" uri="imports/caro-imports.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/iao-imports.owl" uri="imports/iao-imports.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/obi-imports.owl" uri="imports/obi-imports.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/cdt-imports.owl" uri="imports/cdt-imports.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ogms.owl" uri="imports/ogms.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/ohd/dev/omrse-imports.owl" uri="imports/omrse-imports.owl"/>
+        <uri name="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl" uri="imports/protege-dc.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl" uri="imports/ontology-metadata.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo.owl" uri="imports/BFO2/bfo2.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo/core-relations.owl" uri="imports/BFO2/bfo2-relations.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo/core-classes.owl" uri="imports/BFO2/bfo2-classes.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo/2010-05-25/ruttenberg-relations.owl" uri="imports/BFO2/bfo2-relations.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo/2010-05-25/ruttenberg-classes.owl" uri="imports/BFO2/bfo2-classes.owl"/>
+        <uri name="http://purl.obolibrary.org/obo/bfo/2010-05-25/ruttenberg-regions.owl" uri="imports/BFO2/bfo2-regions.owl"/>
+    </group>
+</catalog>

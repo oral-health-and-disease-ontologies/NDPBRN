@@ -1,0 +1,97 @@
+
+@prefix : <http://purl.regenstrief.org/NDPBRN/practice/3/>
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+@prefix owl: <http://www.w3.org/2002/07/owl#>
+@prefix obo: <http://purl.obolibrary.org/obo/>
+@prefix iao: <http://purl.obolibrary.org/obo/iao/>
+
+:patient/10001 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10001/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10001/gender-role/M a obo:http://purl.obolibrary.org/obo/OMRSE_00000008
+:patient/10001 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10001/patient-role .
+:patient/10001 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10001/gender-role/M .
+:provider/1 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/1/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/1 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10002 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10002/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10002/gender-role/F a obo:http://purl.obolibrary.org/obo/OMRSE_00000009
+:patient/10002 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10002/patient-role .
+:patient/10002 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10002/gender-role/F .
+:provider/2 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/2/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/2 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10003 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10003/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10003/gender-role/M a obo:http://purl.obolibrary.org/obo/OMRSE_00000008
+:patient/10003 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10003/patient-role .
+:patient/10003 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10003/gender-role/M .
+:provider/3 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/3/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/3 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10004 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10004/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10004/gender-role/F a obo:http://purl.obolibrary.org/obo/OMRSE_00000009
+:patient/10004 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10004/patient-role .
+:patient/10004 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10004/gender-role/F .
+:provider/1 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/1/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/1 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10005 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10005/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10005/gender-role/M a obo:http://purl.obolibrary.org/obo/OMRSE_00000008
+:patient/10005 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10005/patient-role .
+:patient/10005 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10005/gender-role/M .
+:provider/2 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/2/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/2 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10006 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10006/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10006/gender-role/F a obo:http://purl.obolibrary.org/obo/OMRSE_00000009
+:patient/10006 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10006/patient-role .
+:patient/10006 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10006/gender-role/F .
+:provider/3 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/3/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/3 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10007 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10007/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10007/gender-role/M a obo:http://purl.obolibrary.org/obo/OMRSE_00000008
+:patient/10007 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10007/patient-role .
+:patient/10007 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10007/gender-role/M .
+:provider/1 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/1/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/1 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10008 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10008/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10008/gender-role/F a obo:http://purl.obolibrary.org/obo/OMRSE_00000009
+:patient/10008 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10008/patient-role .
+:patient/10008 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10008/gender-role/F .
+:provider/2 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/2/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/2 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10009 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10009/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10009/gender-role/M a obo:http://purl.obolibrary.org/obo/OMRSE_00000008
+:patient/10009 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10009/patient-role .
+:patient/10009 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10009/gender-role/M .
+:provider/3 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/3/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/3 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+
+:patient/10010 a obo:http://purl.obolibrary.org/obo/OHD_0000012 .
+:patient/10010/patient-role a obo:http://purl.obolibrary.org/obo/OHD_0000190 .
+:patient/10010/gender-role/F a obo:http://purl.obolibrary.org/obo/OMRSE_00000009
+:patient/10010 obo:http://purl.obolibrary.org/obo/BFO_0000087 :patient/10010/patient-role .
+:patient/10010 obo:http://purl.obolibrary.org/obo/BFO_0000053 :patient/10010/gender-role/F .
+:provider/1 a obo:http://purl.obolibrary.org/obo/OHD_0000051 .
+:provider/1/provider-role a obo:http://purl.obolibrary.org/obo/OHD_0000052 .
+:provider/1 obo:http://purl.obolibrary.org/obo/BFO_0000087 obo:http://purl.obolibrary.org/obo/OHD_0000051 .

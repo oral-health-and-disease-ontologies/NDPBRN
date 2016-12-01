@@ -1,0 +1,142 @@
+Turtle syntax document: https://www.w3.org/TR/turtle/, https://www.w3.org/TeamSubmission/turtle/
+-----------------------
+
+prefixes:
+@base <http://purl.regenstrief.org/NDPBRN/dental-practice/{practice_id}/> .
+@prefix practice: <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+@prefix location: <location/> .
+@prefix patient: <patient/> .
+@prefix patient_role: <patient-role/>
+@prefix provider: <provider/> .
+@prefix provider_role: <provider-role/> .
+@prefix gender_role: <gender-role/> .
+@prefix female_gender_role: <female-gender-role/> .
+@prefix male_gender_role: <male-gender-role/> .
+@prefix dental_visit: <dental-visit/> .
+@prefix restoration_material_role: <dental-restoration-material-role/> .
+@prefix restoration_material: <dental-restoration-material/> .
+@prefix resin: <dental-restoration-material/resin/> .
+@prefix ceramic: <dental-restoration-material/ceramic/> .
+@prefix porcelain: <dental-restoration-material/porcelain/> .
+@prefix metal: <dental-restoration-material/metal/> .
+@prefix amalgam: <dental-restoration-material/amalgam/> .
+@prefix gold: <dental-restoration-material/gold/> .
+@prefix noble_metal: <dental-restoration-material/noble-metal/> .
+@prefix high_noble_metal: <dental-restoration-material/high-noble-metal/> .
+@prefix predominantly_base_metal: <dental-restoration-material/predominantly-base-metal/> .
+@prefix stainless_steel: <dental-restoration-material/stainless-steel/> .
+@prefix titanium: <dental-restoration-material/titanium/> .
+@prefix tooth: <tooth/> .
+@prefix surface: <tooth/surface/> .
+@prefix root: <tooth/root/> .
+@prefix cdt_code: <cdt-code/> .
+@prefix tooth_restoring_role: <restoration-procedure/tooth-to-be-restored-role/> .
+@prefix filling_role: <restoration-procedure/tooth-to-be-filled-role/> .
+@prefix surfacing_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
+@prefix restoration_procedure: <restoration-procedure/> .
+@prefix crown_procedure: <restoration-procedure/crown-procedure/> .
+@prefix filling_procedure: <restoration-procedure/filling-procedure/> .
+@prefix inlay: <restoration-procedure/inlay-procedure/> .
+@prefix onlay: <restoration-procedure/onlay-procedure/> .
+@prefix veneer: <restoration-procedure/veneer-procedure/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix iao: <http://purl.obolibrary.org/obo/iao/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+----------------------
+dental practice:
+
+practice:{practice_id} rdf:type 'dental health care organization' .
+
+for each practice location:
+	location:{location_id} rdf:type 'dental health care organization' .
+	location:{location_id} 'member of' :practice/{practice_id} .
+
+-------------------
+
+dental visit:
+
+visit_id = {practice_id}_{location_id}_{patient_id}_{date_of_visit}
+
+dental_visit:{visit_id} rdf:type 'dental visit' .
+
+dental_visit:{visit_id} realizes provider role  . # see below for provider role
+dental_visit:{visit_id} realizes patient role . # see below for patient role
+dental_visit:{visit_id}:{occurrence_date} 'occruent_date' "{date}"^^xsd:dateTime
+
+--------------------
+
+provider:
+
+provider_id = {practice_id}_{location}_{provider_id}
+
+provider:{provider_id} rdf:type 'dental health care provider' .
+provider_role:{provider_id} rdf:type 'dental health care provider role' .
+
+provider:{provider_id} 'has role' provider_role:{provider_id} .
+provider:{provider_id} 'member of' :location/{location_id} .
+provider:{provider_id} 'member of' practice:{practice_id} . # the reasoner should handle this
+
+--------------------
+
+patient:
+patient_id = {practice_id}_{location}_{patient_id}
+gender_role_id = {practice_id}_{location}_{patient_id}_{gender_code} 
+
+patient:{patient_id} rdf:type 'human dental patient' # adjust for specific gender
+patient_role:{patient_id} rdf:type 'dental patient role' .
+gender_role rdf:type 'gender role' . # adjust for specific gender
+
+patient:{patient_id} 'has role' patient_role:{patient_id} .
+patient:{patient_id} 'has role' gender_role:{gender-role-id} .
+patient:{patient_id} birth_date "{birth_date}"^^xsd:dateTime .
+# patient:{patient_id} 'member of' :location/{location_id} .
+patient:{patient_id} 'member of' practice:{practice_id} . # the reasoner should handle this
+
+------------------------
+
+fillings:
+
+tooth_id = {practice_id}_{location}_{patient_id}_{tooth_num}
+surface_id = {tooth_id}_{surface_letter}
+cdt_code_id = {tooth_id}_{cdt_code}_{procedure_date}
+filling_role_id = {tooth_id}_{cdt_code_id}_{procedure_date}
+surface_filling_role_id = {surface_id}_{cdt_code}_{procedure_date}
+
+tooth:{tooth_id} rdf:type 'Tooth' . # adjust for each type of tooth
+tooth:{tooth_id} rdf:type 'restored tooth' .
+surface:{surface_id} rdf:type 'Surface enamel of tooth' . # adjust for each type of surface
+surface:{surface_id} rdf:type 'restored tooth surface' .
+filling_role:{filling_role_id} rdf:type 'tooth to be filled role' .
+surfacing_role:{surface_filling_role_id} rdf:type 'tooth surface to be restored role' .
+restoration_procedure:{cdt_code_id} rdf:type 'tooth restoration procedure' . # adjust for type of procedure
+restoration_material:{cdt_code_id} rdf:type 'dental restoration procedure' . # adjust for type of material
+restoration_material_role:{cdt_code_id} rdf:type 'dental restoration material role' .
+cdt_code:{cdt_code_id} rdf:type 'billing code for restorative' . # adjust for type of restorative code
+
+
+tooth:{tooth_id} 'is part of' patient:{patient_id} .
+surface:{suface_id} is part of' tooth:{tooth_id} . # for each surface
+restoration_material:{cdt_code_id} 'is located in' tooth:{tooth_id} .
+
+filling_role:{filling_role_id} 'inheres in' tooth:{tooth_id} .
+surfacing_role:{surface_id} 'inheres in' tooth:{tooth_id} . # for each surface; note: shouldn't inhere in surface
+restoration_material_role:{cdt_code_id} 'inheres in' restoration_material:{cdt_code_id} .
+ 
+restoration_procedure:{cdt_code_id} realizes patient_role:{patient_id} .
+restoration_procedure:{cdt_code_id} realizes provider_role:{provider_id} .
+restoration_procedure:{cdt_code_id} realizes filling_role:{filling_role_id} .
+restoration_procedure:{cdt_code_id} realizes surfacing_role:{surface_id} . # for each surface
+restoration_procedure:{cdt_code_id} realizes restoration_material_role:{cdt_code_id} .
+restoration_procedure:{cdt_code_id} has_specified_output tooth:{tooth_id} .
+restoration_procedure:{cdt_code_id} has_specified_output surface:{suface_id} .
+restoration_procedure:{cdt_code_id} has_specified_input tooth:{tooth_id} .
+restoration_procedure:{cdt_code_id} has_specified_input restoration_material:{cdt_code_id} .
+
+cdt_code:{cdt_code_id} 'is about' restoration_procedure:{cdt_code_id} .
+restoration_material:{cdt_code_id} 'is dental restoration of' surface:{suface_id} . # for each surface
+
+

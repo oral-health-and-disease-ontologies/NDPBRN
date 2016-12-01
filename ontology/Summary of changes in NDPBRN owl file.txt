@@ -1,0 +1,15 @@
+For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is tailored to the project. The file is meant to provide a list of the difference between NDPBRN.owl and OHD.owl.
+
+- The OHD has a number of anatomy classes (e.g., jaw, neck, tongue) that aren't gemain to the NDPBRN poject. Thus, we are using only a subset of antomy classes.
+  The import of these classes is found in NDPBRN-anatomy-classes.owl. It contains mostly classes for teeth, tooth surfaces, tooth roots, and the dentition.
+
+- Added the 'has role' relation to hold between a patient and a gender role. OHD used 'is bearer of'.
+
+- Removed duplication of labels in the independent continuant and material entity classes.
+
+- Removed the "owl:Class" class.
+
+- Removed the axioms that related hard/soft tissues exams to anatomical parts.
+
+- Made 'member of' relation transitive.
+

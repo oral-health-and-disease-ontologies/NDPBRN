@@ -1,0 +1,15 @@
+OHD import list
+
+imports/caro-imports.owl
+imports/ogms.owl
+imports/ontology-metadata.owl
+imports/cdt-imports.owl
+imports/iao-imports.owl
+imports/ncbi-imports.owl
+imports/obi-imports.owl
+imports/omrse-imports.owl
+imports/NDPBRN-anatomy-classes.owl
+imports/BFO2/bfo2-classes.owl
+imports/BFO2/bfo2-regions.owl
+imports/BFO2/bfo2-relations.owl
+imports/protege-dc.owl

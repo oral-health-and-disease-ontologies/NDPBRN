@@ -1,0 +1,317 @@
+{
+'prefix':
+"""
+@base <http://purl.regenstrief.org/NDPBRN/dental-practice/{practice_id}/> .
+@prefix practice: <http://purl.regenstrief.org/NDPBRN/dental-practice/> .
+@prefix location: <location/> .
+@prefix patient: <patient/> .
+@prefix patient_role: <patient-role/> .
+@prefix provider: <provider/> .
+@prefix provider_role: <provider-role/> .
+@prefix gender_role: <gender-role/> .
+@prefix female_gender_role: <female-gender-role/> .
+@prefix male_gender_role: <male-gender-role/> .
+@prefix dental_visit: <dental-visit/> .
+@prefix restoration_material_role: <dental-restoration-material-role/> .
+@prefix restoration_material: <dental-restoration-material/> .
+@prefix resin: <dental-restoration-material/resin/> .
+@prefix ceramic: <dental-restoration-material/ceramic/> .
+@prefix porcelain: <dental-restoration-material/porcelain/> .
+@prefix metal: <dental-restoration-material/metal/> .
+@prefix amalgam: <dental-restoration-material/amalgam/> .
+@prefix gold: <dental-restoration-material/gold/> .
+@prefix noble_metal: <dental-restoration-material/noble-metal/> .
+@prefix high_noble_metal: <dental-restoration-material/high-noble-metal/> .
+@prefix predominantly_base_metal: <dental-restoration-material/predominantly-base-metal/> .
+@prefix stainless_steel: <dental-restoration-material/stainless-steel/> .
+@prefix titanium: <dental-restoration-material/titanium/> .
+@prefix tooth: <tooth/> .
+@prefix surface: <tooth/surface/> .
+@prefix root: <tooth/root/> .
+@prefix cdt_code: <cdt-code/> .
+@prefix tooth_restoring_role: <restoration-procedure/tooth-to-be-restored-role/> .
+@prefix filling_role: <restoration-procedure/tooth-to-be-filled-role/> .
+@prefix surfacing_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
+@prefix restoration_procedure: <restoration-procedure/> .
+@prefix crown_procedure: <restoration-procedure/crown-procedure/> .
+@prefix filling_procedure: <restoration-procedure/filling-procedure/> .
+@prefix inlay: <restoration-procedure/inlay-procedure/> .
+@prefix onlay: <restoration-procedure/onlay-procedure/> .
+@prefix veneer: <restoration-procedure/veneer-procedure/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix iao: <http://purl.obolibrary.org/obo/iao/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+""",
+
+'prefix for practice':
+"""
+@base <http://purl.regenstrief.org/NDPBRN/dental-practice/{practice_id}/> .
+@prefix practice: <http://purl.regenstrief.org/NDPBRN/dental-practice/> .
+@prefix location: <location/> .
+@prefix provider: <provider/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix iao: <http://purl.obolibrary.org/obo/iao/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+""",
+
+#### uri patterns
+
+'patient uri':
+"""<patient/{patient_id}>""",
+
+'patient role uri':
+"""<patient/{patient_id}/patient-role>""",
+
+'gender role uri':
+"""<patient/{patient_id}/gender-role/{gender_code}>""",
+
+'provider uri':
+"""<provider/{provider_id}>""",
+
+'provider role uri':
+"""<provider/{provider_id}/provider-role>""",
+
+'tooth uri':
+"""<patient/{patient_id}/tooth/{tooth_num}>""",
+
+'surface uri':
+"""<patient/{patient_id}/tooth/{tooth_num}/surface/{surface}>""",
+
+'prodecure uri':
+"""<patient/{patient_id}/tooth/{tooth_num}/surface/{surface}/procedure/{procedure}>""",
+
+'patient uri by prefix':
+"""patient:{patient_id}""",
+
+'patient role uri by prefix':
+"""patient_role:{patient_id}""",
+
+'gender role uri by prefix':
+"""gender_role:{patient_id}_{gender_code}""",
+
+'provider uri by prefix':
+"""provider:{provider_id}""",
+
+'provider role uri by prefix':
+"""provider_role:{provider_id}""",
+
+'practice uri':
+"""practice:{practice_id}""",
+
+'location uri':
+"""location:{location_id}""",
+
+'visit uri':
+"""dental_visit:{visit_id}""",
+
+#### patterns for declaring individuals
+
+'declare individual uri':
+"""
+{uri} rdf:type <{type}> .
+{uri} rdf:type owl:NamedIndividual .
+{uri} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare date property uri':
+"""
+{uri} obo:{type} "{date}"^^xsd:datetime .
+""",
+
+'declare patient':
+"""
+<patient/{patient_id}> rdf:type <{dental_patient}>, owl:NamedIndividual .
+<patient/{patient_id}> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare patient role':
+"""
+<patient/{patient_id}/patient-role> rdf:type <{patient_role}>, owl:NamedIndividual .
+<patient/{patient_id}/patient-role> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare gender role':
+"""
+<patient/{patient_id}/gender-role/{gender_code}> a <{gender_role}>, owl:NamedIndividual .
+<patient/{patient_id}/gender-role/{gender_code}> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare provider':
+"""
+<provider/{provider_id}> rdf:type <{dental_health_care_provider}>, owl:NamedIndividual .
+<provider/{provider_id}> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare provider role':
+"""
+<provider/{provider_id}/provider-role> rdf:type <{dental_health_care_provider_role}>, owl:NamedIndividual .
+<provider/{provider_id}/provider-role> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare tooth':
+"""
+<patient/{patient_id}/tooth/{tooth_num}> rdf:type <{tooth_type}>, owl:NamedIndividual .
+<patient/{patient_id}/tooth/{tooth_num}> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare tooth by prefix':
+"""
+tooth:{tooth_id} rdf:type <{specific_tooth}> .
+tooth:{tooth_id} rdf:type <{restored_tooth}> .
+tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare surface':
+"""
+<patient/{patient_id}/tooth/{tooth_num}/surface/{surface}> rdf:type <{surface_type}>, owl:NamedIndividual .
+<patient/{patient_id}/tooth/{tooth_num}/surface/{surface}> rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare surface by prefix':
+"""
+surface:{surface_id} rdf:type <{surface_of_tooth}> .
+surface:{surface_id} rdf:type <{restored_tooth_surface}> .
+surface:{surface_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare practice':
+"""
+{uri} rdf:type <{type}> .
+{uri} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare obo type with label':
+"""
+{uri} rdf:type obo:{type} .
+{uri} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare obo type':
+"""
+{uri} rdf:type obo:{type} .
+""",
+
+'declare filling role':
+"""
+filling_role:{filling_role_id} rdf:type obo:{tooth_to_be_filled_role} .
+filling_role:{filling_role_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare surfacing role':
+"""
+surfacing_role:{surface_filling_role_id} rdf:type obo:{tooth_surface_to_be_restored_role} .
+surfacing_role:{surface_filling_role_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare restoration procedure':
+"""
+restoration_procedure:{cdt_code_id} rdf:type obo:{tooth_restoration_procedure} .
+restoration_procedure:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare restoration material':
+"""
+restoration_material:{cdt_code_id} rdf:type obo:{tooth_restoration_material} .
+restoration_material:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare restoration material role':
+"""
+restoration_material_role:{cdt_code_id} rdf:type obo:{dental_restoration_material_role} .
+restoration_material_role:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare billing code':
+"""
+cdt_code:{cdt_code_id} rdf:type obo:{billing_code_for_restorative} .
+cdt_code:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+#### patterns for relating individuals
+
+'relate patient to role':
+"""
+<patient/{patient_id}> <{has_role}> <patient/{patient_id}/patient-role> .
+""",
+
+'relate patient to gender':
+"""
+<patient/{patient_id}> <{is_bearer_of}> <patient/{patient_id}/gender-role/{gender_code}> .
+""",
+
+'relate provider to role':
+"""
+<provider/{provider_id}> <{has_role}> <provider/{provider_id}/provider-role> .
+""",
+
+'relate tooth to patient':
+"""
+<patient/{patient_id}/tooth/{tooth_num}> <{is_part_of}> <patient/{patient_id}> .
+""",
+
+'relate surface to tooth':
+"""
+<patient/{patient_id}/tooth/{tooth_num}/surface/{surface}> <{is_part_of}> <tooth/{patient_id}/tooth/{tooth_num}> .
+""",
+
+#### patterns for modeling relationships
+'uri1 prop uri2':
+"""{uri1} {prop} {uri2} . """,
+
+'uri1 is part of uri2':
+"""{uri1} obo:BFO_0000050 {uri2} . """,
+
+'uri1 has part uri2':
+"""{uri1} obo:BFO_0000051 {uri2} . """,
+
+'uri1 is located in uri2':
+"""{uri1} obo:BFO_0000082 {uri2} . """,
+
+'uri1 realizes uri2':
+"""{uri1} obo:BFO_0000055 {uri2} . """,
+
+'uri1 is realized by uri2':
+"""{uri1} obo:BFO_0000054 {uri2} . """,
+
+'uri1 participates in uri2':
+"""{uri1} obo:BFO_0000056 {uri2} . """,
+
+'uri1 has participant uri2':
+"""{uri1} obo:BFO_0000057 {uri2} . """,
+
+'uri1 inheres in uri2':
+"""{uri1} obo:BFO_0000052 {uri2} . """,
+
+'uri1 is bearer of uri2':
+"""{uri1} obo:BFO_0000053 {uri2} .
+""",
+
+'uri1 has role uri2':
+"""{uri1} obo:BFO_0000087 {uri2} .
+""",
+
+'uri1 is about uri2':
+"""{uri1} obo:IAO_0000136 {uri2} . """,
+
+'uri label':
+"""{uri} rfds:label "{label}"^^xsd:string . """,
+
+'uri1 has specified input uri2':
+"""{uri1} obo:OBI_0000293 {uri2} . """,
+
+'uri1 has specified output uri2':
+"""{uri1} obo:OBI_0000299 {uri2} . """,
+
+'ur1 member of uri2':
+"""{uri1} obo:FMA_85868 {uri2} . """,
+
+'ur1 is dental restoration of uri2':
+"""{uri1} obo:OHD_0000091 {uri2} . """,
+
+}

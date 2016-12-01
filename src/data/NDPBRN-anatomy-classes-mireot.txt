@@ -1,0 +1,31 @@
+[URI of the OWL(RDF/XML) output file]
+http://purl.obolibrary.org/obo/ohd/NDPBRN-anatomy-classes.owl
+
+[Source ontology]
+OHD
+
+[Low level source term URIs]
+http://purl.obolibrary.org/obo/FMA_12516 #Tooth
+includeAllChildren
+http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth #Surface enamel of tooth
+includeAllChildren
+http://purl.obolibrary.org/obo/FMA_55642 #Surface of tooth
+includeAllChildren
+http://purl.obolibrary.org/obo/FMA_55622 #Segment of tooth
+includeAllChildren
+http://purl.obolibrary.org/obo/FMA_75150 #Dentition
+includeAllChildren
+http://example.com/left #Sum of left of bilateral anatomical entity
+http://example.com/right #Sum of right of bilateral anatomical entity
+
+[Top level source term URIs and target direct superclass URIs]
+http://purl.obolibrary.org/obo/BFO_0000004 #independent continuant
+subClassOf
+
+[Source term retrieval setting]
+includeAllIntermediates
+
+[Source annotation URIs]
+includeAllAnnotationProperties
+
+[Source annotation URIs to be excluded]
