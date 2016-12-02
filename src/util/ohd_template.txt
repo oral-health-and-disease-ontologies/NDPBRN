@@ -8,6 +8,7 @@
 @prefix patient_role: <patient-role/> .
 @prefix provider: <provider/> .
 @prefix provider_role: <provider-role/> .
+@prefix office_staff_role: <office-staff-role/> .
 @prefix gender_role: <gender-role/> .
 @prefix female_gender_role: <female-gender-role/> .
 @prefix male_gender_role: <male-gender-role/> .
@@ -31,7 +32,7 @@
 @prefix cdt_code: <cdt-code/> .
 @prefix tooth_restoring_role: <restoration-procedure/tooth-to-be-restored-role/> .
 @prefix filling_role: <restoration-procedure/tooth-to-be-filled-role/> .
-@prefix surfacing_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
+@prefix surface_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
 @prefix restoration_procedure: <restoration-procedure/> .
 @prefix crown_procedure: <restoration-procedure/crown-procedure/> .
 @prefix filling_procedure: <restoration-procedure/filling-procedure/> .
@@ -101,6 +102,9 @@
 'provider role uri by prefix':
 """provider_role:{provider_id}""",
 
+'office staff role uri by prefix':
+"""office_staff_role:{provider_id}""",
+
 'practice uri':
 """practice:{practice_id}""",
 
@@ -122,6 +126,11 @@
 'declare date property uri':
 """
 {uri} obo:{type} "{date}"^^xsd:datetime .
+""",
+
+'declare string property uri':
+"""
+{uri} obo:{type} "{string_value}"^^xsd:string .
 """,
 
 'declare patient':
@@ -203,10 +212,10 @@ filling_role:{filling_role_id} rdf:type obo:{tooth_to_be_filled_role} .
 filling_role:{filling_role_id} rdfs:label "{label}"^^xsd:string .
 """,
 
-'declare surfacing role':
+'declare surface role':
 """
-surfacing_role:{surface_filling_role_id} rdf:type obo:{tooth_surface_to_be_restored_role} .
-surfacing_role:{surface_filling_role_id} rdfs:label "{label}"^^xsd:string .
+surface_role:{surface_filling_role_id} rdf:type obo:{tooth_surface_to_be_restored_role} .
+surface_role:{surface_filling_role_id} rdfs:label "{label}"^^xsd:string .
 """,
 
 'declare restoration procedure':

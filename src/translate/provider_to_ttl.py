@@ -82,25 +82,37 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
             id = str(row.PBRN_PRACTICE) + "_" + str(row.DB_PRACTICE_ID) + "_" + str(row.PROVIDER_ID)
             provider_type = label2uri['dental health care provider']
             provider_role_type = label2uri['dental health care provider role']
+            office_staff_role_type = label2uri['health care office staff role']
             has_role = label2uri['has role']
 
             # define uri
             provider_uri = ohd_ttl['provider uri by prefix'].format(provider_id=id)
             role_uri = ohd_ttl['provider role uri by prefix'].format(provider_id=id)
+            office_staff_role_uri = ohd_ttl['office staff role uri by prefix'].format(provider_id=id)
 
             # define labels
             provider_label = "provider " + id
             role_label = "provider " + id + " provider role"
+            office_staff_role_label = "office staff " + id + " office staff role"
 
             # delcare individuals
             output(ohd_ttl['declare individual uri'].
                    format(uri=provider_uri, type=provider_type, label=provider_label))
+
             output(ohd_ttl['declare individual uri'].
-                   format(uri=role_uri, type=provider_role_type, label=role_label))
+                format(uri=role_uri, type=provider_role_type, label=role_label))
+
+            # if provider_id is not integer (like 'bs', 'ss', etc), print office staff role and relate it to the provider:
+            if not isinstance(row.PROVIDER_ID, int):
+                output(ohd_ttl['declare individual uri'].
+                    format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label))
+                output(ohd_ttl['uri1 has role uri2'].
+                    format(uri1=provider_uri, uri2=office_staff_role_uri))
 
             # relate individuals
             output(ohd_ttl['uri1 has role uri2'].
-                   format(uri1=provider_uri, uri2=role_uri))
+                format(uri1=provider_uri, uri2=role_uri))
+
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
 #translate_provider_to_ttl()

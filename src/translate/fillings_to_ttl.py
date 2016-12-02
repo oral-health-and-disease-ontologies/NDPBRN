@@ -77,7 +77,7 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
                                     surface_char = list(surface)
 
                                     #filling role
-                                    filling_role_label = "filling role for " + tooth_label  # "filling role for tooth 13 of patient 1"
+                                    filling_role_label = "tooth to be restored role for " + tooth_label  # "tooth to be restored role for tooth 13 of patient 1"
                                     filling_role = ohd_ttl['declare filling role'].format(filling_role_id=filling_role_id,
                                                                                           tooth_to_be_filled_role=label2uri['tooth to be filled role'].rsplit('/', 1)[-1],
                                                                                           label=filling_role_label)
@@ -136,12 +136,12 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
                                                                                                       label=surface_label)
                                             output(surface_str)
 
-                                            # surfacing role
-                                            surfacing_role_label = "surface role for " + surface_label  # "surface role for surface M for tooth 13 of patient 1"
-                                            surfacing_role = ohd_ttl['declare surfacing role'].format(surface_filling_role_id=surface_filling_role_id,
+                                            # surface role
+                                            surface_role_label = "surface to be restored role for " + surface_label  # "surface to be restored role for surface M for tooth 13 of patient 1"
+                                            surface_role = ohd_ttl['declare surface role'].format(surface_filling_role_id=surface_filling_role_id,
                                                                                                       tooth_surface_to_be_restored_role=label2uri['tooth surface to be restored role'].rsplit('/', 1)[-1],
-                                                                                                      label=surfacing_role_label)
-                                            output(surfacing_role)
+                                                                                                      label=surface_role_label)
+                                            output(surface_role)
 
                                             #relation: surface part of tooth
                                             surface_uri = "surface:" + str(surface_id)
@@ -149,14 +149,14 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
                                             output(surface_tooth_relation_str)
                                             output("\n")
 
-                                            #relation: surfacing role inheres in tooth
-                                            surfacing_role_uri = "surfacing_role:" + str(surface_filling_role_id)
-                                            surfacing_role_tooth_relation_str = ohd_ttl['uri1 inheres in uri2'].format(uri1=surfacing_role_uri, uri2=tooth_uri)
-                                            output(surfacing_role_tooth_relation_str)
+                                            #relation: surface role inheres in tooth
+                                            surface_role_uri = "surface_role:" + str(surface_filling_role_id)
+                                            surface_role_tooth_relation_str = ohd_ttl['uri1 inheres in uri2'].format(uri1=surface_role_uri, uri2=tooth_uri)
+                                            output(surface_role_tooth_relation_str)
                                             output("\n")
 
-                                            #relation: restoration procedure realizes surfacing role
-                                            procedure_filling_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=restoration_procedure_uri, uri2=surfacing_role_uri)
+                                            #relation: restoration procedure realizes surface role
+                                            procedure_filling_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=restoration_procedure_uri, uri2=surface_role_uri)
                                             output(procedure_filling_role_relation_str)
                                             output("\n")
 
