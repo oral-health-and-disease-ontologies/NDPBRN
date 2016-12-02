@@ -1,6 +1,6 @@
 For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is tailored to the project. The file is meant to provide a list of the difference between NDPBRN.owl and OHD.owl.
 
-- The OHD has a number of anatomy classes (e.g., jaw, neck, tongue) that aren't gemain to the NDPBRN poject. Thus, we are using only a subset of antomy classes.
+- The OHD has a number of anatomy classes (e.g., jaw, neck, tongue) that aren't germane to the NDPBRN project. Thus, we are using only a subset of anatomy classes.
   The import of these classes is found in NDPBRN-anatomy-classes.owl. It contains mostly classes for teeth, tooth surfaces, tooth roots, and the dentition.
 
 - Added the 'has role' relation to hold between a patient and a gender role. OHD used 'is bearer of'.
@@ -12,4 +12,14 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 - Removed the axioms that related hard/soft tissues exams to anatomical parts.
 
 - Made 'member of' relation transitive.
+
+- Added data properties:
+	* has patient activity status: takes values "active"/"inactive"; used to indicate if the patient is active in the practice; there is a Y/N field in the patient table that shows this
+	* first dental visit date: the date of patient's first dental visit
+	* last dental visit date: the last date on which a patient had a dental visit
+
+- Added classes: 
+  * dental facility: a physical building in which dentistry is practiced; we probably won't use this
+  * health care organization employee role: used for employees of the practice; probably won't need this
+  * health care office staff role: might need this for records that provider ids for office personell
 
