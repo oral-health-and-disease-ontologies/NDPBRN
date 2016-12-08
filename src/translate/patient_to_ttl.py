@@ -86,7 +86,7 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
 
     # extract just the patient and gender columns for convience
     #patient_df = df[['patient_id', 'gender', 'birth_date']]
-    patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'PATIENT_STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID', 'FIRST_VISIT_DATE', 'LAST_DATE_SEEN']]
+    patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID']]
 
     # testing...
     # print patient_df
@@ -110,12 +110,10 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
         # print ttl for each patient
-        for (idx, pid, gender, birth_date, pstatus, practiceId, locationId, first_visit_date, last_visit_date) in patient_df.itertuples():
+        for (idx, pid, gender, birth_date, pstatus, practiceId, locationId) in patient_df.itertuples():
 #            if pstatus.lower() == 'y':
             try:
                 birth_date_str = birth_date.strftime('%Y-%m-%d')
-                first_visit_date_str = first_visit_date.strftime('%Y-%m-%d')
-                last_visit_date_str = last_visit_date.strftime('%Y-%m-%d')
                 id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                 patient_role_type = label2uri['dental patient role']
 
@@ -166,12 +164,6 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
 
                 output(ohd_ttl['declare string property uri'].format(uri=patient_uri, type=patient_activity_status_type,
                                                                    string_value=pstatus))
-
-                output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=patient_first_visit_date_type,
-                                                                   date=first_visit_date_str))
-
-                output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=patient_last_visit_date_type,
-                                                                   date=last_visit_date_str))
 
                 # relate individuals
                 output(ohd_ttl['uri1 is bearer of uri2'].format(uri1=patient_uri, uri2=gender_uri))
