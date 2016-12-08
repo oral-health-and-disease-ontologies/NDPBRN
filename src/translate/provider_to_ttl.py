@@ -102,8 +102,8 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
             output(ohd_ttl['declare individual uri'].
                 format(uri=role_uri, type=provider_role_type, label=role_label))
 
-            # if provider_id is not integer (like 'bs', 'ss', etc), print office staff role and relate it to the provider:
-            if not isinstance(row.PROVIDER_ID, int):
+            # if string "office" is in position string, print office staff role and relate it to the provider:
+            if "office" in row.POSITION.lower():
                 output(ohd_ttl['declare individual uri'].
                     format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label))
                 output(ohd_ttl['uri1 has role uri2'].
