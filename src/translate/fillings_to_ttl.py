@@ -5,11 +5,14 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, 
 
 def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True):
 
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
+#    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
     #df = pds.read_csv(df_path)
 
-    patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH_DATA', 'BILLED_SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH_DATA', 'BILLED_SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    #change columns for using history spreadsheet instead of fillings spreadsheet
+    patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -43,19 +46,27 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
             output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
             # print ttl for each patient
-            for (idx, practiceId, locationId, pid, tooth_data, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
+            for (idx, practiceId, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
                 if tableName.lower() == 'transactions':
                     ada_code = str(ada_code)
                     #sometimes it has 'D' in front of numbers, sometimes there's no D
                     if not ada_code.startswith('D'):
                         ada_code = str('D') + ada_code
 
-                    tooth_char = list(tooth_data)
+                    #refactor to use tooth column with one integer number (tooth_num) instead of calculating
+                    #tooth_char = list(tooth_data)
 
-                    tooth_idx = 0;
-                    for (tooth_yn) in tooth_char:
-                        if tooth_yn.lower() == 'y':
-                            tooth_num = tooth_idx + 1
+                    #tooth_idx = 0;
+                    #for (tooth_yn) in tooth_char:
+                        #if tooth_yn.lower() == 'y':
+                            #tooth_num = tooth_idx + 1
+                    if pds.notnull(surface):
+                        surface = surface.strip()
+
+                    # try/catch here for filter in filling procedures
+                    try:
+                        load_ada_material_map[ada_code]
+                        if pds.notnull(tooth_num):
                             tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
                             try:
                                 procedure_date_str = p_date.strftime('%Y-%m-%d')
@@ -71,9 +82,12 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
                                                                                       specific_tooth=label2uri['tooth ' + str(tooth_num)],
                                                                                       restored_tooth=label2uri['restored tooth'],
                                                                                       label=tooth_label)
-                                output(tooth_str)
+                                #move into next "if" section for only printing out with valid surface
+                                #output(tooth_str)
 
-                                if pds.notnull(surface):
+                                if pds.notnull(surface) and surface:
+                                    output(tooth_str)
+
                                     surface_char = list(surface)
 
                                     #filling role
@@ -233,7 +247,10 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
                                 output_err("Problem tooth_id: " + tooth_id)
                                 print("Problem tooth_id: " + tooth_id )
                                 logging.exception("message")
+                    except Exception as ex1:
+                        print("Info -- pid: " + str(pid) + " procedure not filling procedure: " + str(ada_code))
+                        logging.exception("message")
 
-                        tooth_idx = tooth_idx + 1
+                    #    tooth_idx = tooth_idx + 1
 
 print_filling_ttl(practice_id='1')
