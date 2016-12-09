@@ -8,7 +8,7 @@ import numpy as np
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, load_ada_procedure_map
 
-def visit_date_test(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True):
+def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
@@ -82,4 +82,76 @@ def visit_date_test(practice_id='1', filename='visit_dates.ttl', print_ttl=True,
                 #print(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=last_visit_date_type,
                 #                                                   date=last_visit_date))
 
-visit_date_test(practice_id='1')
+
+def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=True, save_ttl=True):
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    df = pds.ExcelFile(df_path).parse()
+
+    visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+
+    with open(filename, 'w') as f:
+        with open('next_visit_date_err.txt', 'w') as f_err:
+
+            def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
+                if print_ttl == True: print value_str
+                if save_ttl == True: f.write(value_str)
+
+            def output_err(value_str):
+                f_err.write(value_str)
+                f_err.write('\n')
+
+            results = []
+
+            for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+                if tableName.lower() == 'transactions':
+                    try:
+                        id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+
+                        date_str = visitDate.strftime('%Y-%m-%d')
+
+                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                        # uri
+                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                        patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+
+                        results.append([patient_uri] + [visit_uri] + [date_str])
+
+                    except Exception as ex:
+                        print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
+                        logging.exception("message")
+
+            visit_uri_with_dates_df = pds.DataFrame(results, columns=['patient_uri', 'visit_uri', 'visit_date']).drop_duplicates()
+
+            sorted_df = visit_uri_with_dates_df.sort_values(['patient_uri', 'visit_uri', 'visit_date'], ascending=True)
+
+            #print(sorted_df.head(100))
+
+            next_visit_list = []
+
+            patient_last_visit = ''
+            current_patient_uri = ''
+
+            for (idx, patient_uri, visit_uri, visit_date) in sorted_df.itertuples():
+                if current_patient_uri.lower() == patient_uri.lower() and pds.notnull(patient_last_visit) and patient_last_visit:
+                    next_visit_list.append([patient_uri] + [patient_last_visit] + [visit_uri])
+
+                current_patient_uri = patient_uri
+                patient_last_visit = visit_uri
+
+            #print(next_visit_list)
+
+            next_visit_df = pds.DataFrame(next_visit_list, columns=['patient_uri', 'visit_uri',
+                                                                      'next_visit'])
+
+            #print(next_visit_df.head(100))
+
+            next_visit_type = label2uri['next visit'].rsplit('/', 1)[-1]
+
+            for (idx, patient_uri, visit_uri, next_visit) in next_visit_df.itertuples():
+                #print(ohd_ttl['declare string property uri'].format(uri=visit_uri, type=next_visit_type,
+                #                                                    string_value=next_visit))
+                output(ohd_ttl['declare string property uri'].format(uri=visit_uri, type=next_visit_type,
+                                                                    string_value=next_visit))
+
+next_visit_ttl(practice_id='1')
