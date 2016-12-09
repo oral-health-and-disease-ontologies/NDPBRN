@@ -48,7 +48,7 @@ def visit_date_test(practice_id='1', filename='visit_dates.ttl', print_ttl=True,
 
             patient_uri_with_visit_dates_df = pds.DataFrame(results, columns=['patient_uri', 'visit_date'])
 
-            #debugging:
+            #debugging...:
             #patient_uri_first_visit_dates_df = reduce((lambda x, y: x * y), patient_uri_with_visit_dates_df)
             #grouped_df = pds.DataFrame(data=patient_uri_with_visit_dates_df, columns=['patient_uri', 'visit_date']) \
             #    .groupby('patient_uri')
