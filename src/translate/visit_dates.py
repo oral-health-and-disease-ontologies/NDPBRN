@@ -101,6 +101,9 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 f_err.write(value_str)
                 f_err.write('\n')
 
+            prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
+            output(prefix_str)
+
             results = []
 
             for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
