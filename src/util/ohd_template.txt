@@ -133,6 +133,11 @@
 {uri} obo:{type} "{string_value}"^^xsd:string .
 """,
 
+'declare object property uri':
+"""
+{obj1} obo:{type} {obj2} .
+""",
+
 'declare patient':
 """
 <patient/{patient_id}> rdf:type <{dental_patient}>, owl:NamedIndividual .

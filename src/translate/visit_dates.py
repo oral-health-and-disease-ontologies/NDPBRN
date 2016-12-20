@@ -26,6 +26,9 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
                 f_err.write(value_str)
                 f_err.write('\n')
 
+            prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
+            output(prefix_str)
+
             results = []
 
             for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
@@ -154,7 +157,8 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
             for (idx, patient_uri, visit_uri, next_visit) in next_visit_df.itertuples():
                 #print(ohd_ttl['declare string property uri'].format(uri=visit_uri, type=next_visit_type,
                 #                                                    string_value=next_visit))
-                output(ohd_ttl['declare string property uri'].format(uri=visit_uri, type=next_visit_type,
-                                                                    string_value=next_visit))
+                output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
+                                                                     obj2=next_visit))
 
-next_visit_ttl(practice_id='1')
+#next_visit_ttl(practice_id='1')
+first_last_visit_date_ttl(practice_id='1')
