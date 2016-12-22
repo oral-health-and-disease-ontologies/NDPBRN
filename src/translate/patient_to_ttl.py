@@ -80,7 +80,8 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
 def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.xlsx')
     df = pds.ExcelFile(df_path).parse()
     #df = pds.read_csv(df_path)
 
@@ -174,4 +175,4 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
                 logging.exception("message")
 
 # translate_patient_to_ttl()
-translate_patient_to_ttl_1(practice_id='1')
+translate_patient_to_ttl_1(practice_id='2')

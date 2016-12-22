@@ -10,7 +10,8 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, 
 
 def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
     visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
@@ -88,7 +89,8 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
 
 def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=True, save_ttl=True):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
     visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
@@ -160,5 +162,5 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
-#next_visit_ttl(practice_id='1')
-first_last_visit_date_ttl(practice_id='1')
+next_visit_ttl(practice_id='2')
+#first_last_visit_date_ttl(practice_id='2')

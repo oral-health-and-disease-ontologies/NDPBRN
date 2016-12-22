@@ -54,7 +54,8 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.csv')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.xlsx')
     df = pds.ExcelFile(df_path).parse()
     #df = pds.read_csv(df_path)
 
@@ -116,4 +117,4 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
 #translate_provider_to_ttl()
-translate_provider_to_ttl_1(practice_id='1')
+translate_provider_to_ttl_1(practice_id='2')

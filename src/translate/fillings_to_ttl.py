@@ -6,7 +6,8 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, 
 def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True):
 
 #    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
     #df = pds.read_csv(df_path)
 
@@ -253,4 +254,4 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
 
                     #    tooth_idx = tooth_idx + 1
 
-print_filling_ttl(practice_id='1')
+print_filling_ttl(practice_id='2')

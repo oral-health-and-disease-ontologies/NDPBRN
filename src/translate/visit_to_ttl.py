@@ -5,7 +5,8 @@ from load_resources import curr_dir, ohd_ttl, label2uri
 
 def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True, save_ttl=True):
     # get data from RI-demo-data
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
     visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
@@ -65,4 +66,4 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                     logging.exception("message")
 
-translate_visit_to_ttl(practice_id='1')
+translate_visit_to_ttl(practice_id='2')
