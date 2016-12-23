@@ -11,7 +11,7 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Removed the axioms that related hard/soft tissues exams to anatomical parts.
 
-- Made 'member of' relation transitive.
+- Made 'member of' relation transitive. -> Changed back on non-transitive on 12/22/2016
 
 - Added data properties:
 	* has patient activity status: takes values "active"/"inactive"; used to indicate if the patient is active in the practice; there is a Y/N field in the patient table that shows this
