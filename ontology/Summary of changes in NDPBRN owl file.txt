@@ -23,3 +23,6 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
   * health care organization employee role: used for employees of the practice; probably won't need this
   * health care office staff role: might need this for records that provider ids for office personell
 
+- Removed assertion that 'surface of tooth' was a subclass of enamel. As per FMA, this is a immaterial anatomical entity, not enamel. This needs to be fixed in OHD proper. 
+
+- Added FMA classes for immaterial anatomical entity, anatomical boundary entity, anatomical surface, surface of organ. 
