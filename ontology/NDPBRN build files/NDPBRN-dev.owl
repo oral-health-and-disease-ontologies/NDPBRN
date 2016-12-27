@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.regenstrief.org/dev/NDPBRN.owl#"
-     xml:base="http://purl.regenstrief.org/dev/NDPBRN.owl"
+<rdf:RDF xmlns="http://purl.regenstrief.org/dev/NDPBRN.owl/"
+     xml:base="http://purl.regenstrief.org/dev/NDPBRN.owl/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
@@ -3591,6 +3591,23 @@ Professional prophylaxis, radiographs, sealants, and nonsurgical periodontal the
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>metallic inlay restoration</obo:IAO_0000118>
         <rdfs:label>metallic inlay restoration procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000023 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000023">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000189"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a dental finding that a tooth has been restored</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored tooth finding</rdfs:label>
     </owl:Class>
     
 
@@ -7261,6 +7278,31 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
         <obo:IAO_0000115>a health care organization employee role borne by a person who responsible for performing administrative duties</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">health care office staff role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000220 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000220">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <obo:IAO_0000115>a dental finding that one or more surfaces of a tooth have been restored</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored tooth surface finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000221 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000221">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <obo:IAO_0000115>a dental finding that a dental procedure has been performed on a patient&apos;s mouth</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/27/2016:
+
+This finding can indicate that a procedure was performed even when the output is not observable. For example, by looking a dental record, a provider may find that the last time a patient&apos;s teeth were cleaned was two years ago.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">dental procedure finding</rdfs:label>
     </owl:Class>
     
 
