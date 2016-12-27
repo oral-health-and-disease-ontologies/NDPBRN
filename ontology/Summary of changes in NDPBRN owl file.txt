@@ -28,3 +28,5 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 - Added FMA classes for immaterial anatomical entity, anatomical boundary entity, anatomical surface, surface of organ. 
 
 - Add classes for restored tooth finding, restored tooth surface finding, dental procedure finding.
+
+- Add classes for each type of restored tooth surface (e.g., restored occlusal surface).

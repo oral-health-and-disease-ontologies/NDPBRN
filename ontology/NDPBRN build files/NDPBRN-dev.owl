@@ -7178,8 +7178,13 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000208">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <obo:IAO_0000115>a processed material that is part of a restored tooth and forms the part of a restored tooth where a the surface enamel of the restored tooth used to be</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/27/2016:
+
+Added definition</obo:IAO_0000116>
         <obo:IAO_0000116>dental material that is bonded to and fills the site where some tooth surface or part thereof used to be. Always part of a restored tooth.</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored tooth surface</rdfs:label>
     </owl:Class>
     
@@ -7303,6 +7308,83 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
 This finding can indicate that a procedure was performed even when the output is not observable. For example, by looking a dental record, a provider may find that the last time a patient&apos;s teeth were cleaned was two years ago.</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">dental procedure finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000222 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000222">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the buccal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored buccal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000223 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000223">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the distal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored distal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000224 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000224">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the incisal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored incisal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000225 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000225">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the labial surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored labial surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000226 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000226">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the lingual surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored lingual surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000227 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000227">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the mesial surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored mesial surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000228 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000228">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the occlusal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored occlusal surface</rdfs:label>
     </owl:Class>
     
 
