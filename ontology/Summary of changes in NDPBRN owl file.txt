@@ -32,3 +32,18 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 - Add classes for each type of restored tooth surface (e.g., restored occlusal surface).
 
 - Removed axiom for tooth restoration procedure that has specified output some "has_part some  (Tooth and ('has role' some 'tooth to be restored role'))". My reasons for doing this are 1) the 'has role' axiom looks wrong. The restoration process realizes the role, but it sounds odd for the process to output the role; 2) since the tooth restoration process outputs a restored tooth, a restored tooth by definition/axiom has part some (tooth and dental restoration material).
+
+- Updated definition for restored tooth.
+
+- Added classes for pulpal debridement procedure, hemisection procedure, endodontic treatment procedure, surgically modified tooth, and extracted tooth.
+
+- Removed redundant axioms for subclasses of tooth restoration procedure.
+
+- Added axiom "realizes some 'tooth surface to be restored role'" to intracoronal restoration procedure.
+
+- Added axiom "realizes some 'dental patient role'" to dental procedure.
+
+- Added axiom "has_specified_output some 'extracted tooth'" to tooth extraction procedure.
+
+- Make endodontic procedure a defined class.
+
