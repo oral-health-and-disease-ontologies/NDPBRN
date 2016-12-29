@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.regenstrief.org/2016-11-30/NDPBRN.owl#"
-     xml:base="http://purl.regenstrief.org/2016-11-30/NDPBRN.owl"
+<rdf:RDF xmlns="http://purl.regenstrief.org/NDPBRN.owl#"
+     xml:base="http://purl.regenstrief.org/NDPBRN.owl"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
@@ -10,7 +10,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://purl.regenstrief.org/2016-11-30/NDPBRN.owl">
+    <owl:Ontology rdf:about="http://purl.regenstrief.org/NDPBRN.owl">
         <dc:contributor>Titus Schleyer</dc:contributor>
         <dc:contributor>Dan Caplan</dc:contributor>
         <dc:contributor>Amit Acharya</dc:contributor>
@@ -293,7 +293,7 @@ Attribution is satisfied by using the URIs defined in this file when using terms
 
     <!-- http://purl.org/dc/elements/1.1/date -->
 
-    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date">
         <dc:description xml:lang="en-us">Typically, Date will be associated with the creation or
          availability of the resource.  Recommended best practice
          for encoding the date value is defined in a profile of
@@ -302,7 +302,7 @@ Attribution is satisfied by using the URIs defined in this file when using terms
          resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <rdfs:label xml:lang="en-us">Date</rdfs:label>
-    </rdf:Description>
+    </owl:AnnotationProperty>
     
 
 
@@ -2280,6 +2280,14 @@ There is a problem with occurrence date.  The date on which an event occurred an
         <obo:IAO_0000116 xml:lang="en">Examples: collection of random bacteria, a chair, dorsal surface of the body</obo:IAO_0000116>
         <obo:IAO_0000116 xml:lang="en">Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">material entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000141 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000141">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
     </owl:Class>
     
 
@@ -5788,6 +5796,26 @@ includes complete root canal therapy.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/FMA_24137 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_24137">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_50705"/>
+        <obo:IAO_0000115>Anatomical boundary entity which has two spatial dimensions. Examples: body surface, epigastrium, precordium, right iliac fossa.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Anatomical surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FMA_24208 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_24208">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_242980"/>
+        <obo:IAO_0000115>Anatomical surface, which is the internal or external surface of an organ. Examples: surface of heart, internal surface of stomach, surface of skin.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Surface of organ</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/FMA_24218 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_24218">
@@ -5795,6 +5823,16 @@ includes complete root canal therapy.
         <obo:IAO_0000118>Head region</obo:IAO_0000118>
         <dc:source>Foundational Model of Anatomy (FMA)</dc:source>
         <rdfs:label>Subdivision of head</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FMA_242980 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_242980">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_24137"/>
+        <obo:IAO_0000115>Anatomical surface which marks a physical discontinuity between two or more anatomical structures or is an interface between an anatomical space and one more anatomical structures. Examples: surface of head, costal surface of lung, luminal surface of epithelium, P-face of plasma membrane.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Bona fide anatomical surface</rdfs:label>
     </owl:Class>
     
 
@@ -5826,6 +5864,16 @@ includes complete root canal therapy.
         <obo:IAO_0000118>Oral region</obo:IAO_0000118>
         <dc:source>Foundational Model of Anatomy (FMA)</dc:source>
         <rdfs:label>Mouth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FMA_50705 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_50705">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_67112"/>
+        <obo:IAO_0000115>Immaterial anatomical entity of one less dimension than the anatomical entity it bounds or demarcates from another anatomical entity. Examples: surface of heart, surface of epithelial cell, cervicothoracic plane, supra-orbital notch, costal margin, apex beat, Sylvian point.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Anatomical boundary entity</rdfs:label>
     </owl:Class>
     
 
@@ -5917,7 +5965,7 @@ includes complete root canal therapy.
     <!-- http://purl.obolibrary.org/obo/FMA_55642 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_55642">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_55629"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_24208"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Surface of tooth</rdfs:label>
     </owl:Class>
@@ -6748,7 +6796,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56171">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56159"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of upper incisor tooth</rdfs:label>
     </owl:Class>
@@ -6759,7 +6806,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56172">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56159"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper incisor tooth</rdfs:label>
     </owl:Class>
@@ -6770,7 +6816,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56173">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56159"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper incisor tooth</rdfs:label>
     </owl:Class>
@@ -6781,7 +6826,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56174">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56159"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper incisor tooth</rdfs:label>
     </owl:Class>
@@ -6792,7 +6836,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56175">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56159"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Incisal surface of upper incisor tooth</rdfs:label>
     </owl:Class>
@@ -6803,7 +6846,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56176">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56171"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6814,7 +6856,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56177">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56171"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6826,7 +6867,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56178">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56177"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6838,7 +6878,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56179">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56177"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6850,7 +6889,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56180">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56176"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6862,7 +6900,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56181">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56176"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6873,7 +6910,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56182">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56172"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6884,7 +6920,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56183">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56172"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6896,7 +6931,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56184">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56183"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6908,7 +6942,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56185">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56183"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6920,7 +6953,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56186">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56182"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6932,7 +6964,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56187">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56182"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6943,7 +6974,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56188">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56173"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -6954,7 +6984,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56189">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56173"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6966,7 +6995,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56190">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56189"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6978,7 +7006,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56191">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56189"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -6990,7 +7017,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56192">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56188"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7002,7 +7028,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56193">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56188"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7013,7 +7038,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56194">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56174"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7024,7 +7048,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56195">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56174"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7036,7 +7059,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56196">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56195"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7048,7 +7070,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56197">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56195"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7060,7 +7081,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56198">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56194"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7072,7 +7092,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56199">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56194"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7147,7 +7166,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56206">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56160"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of lower incisor tooth</rdfs:label>
     </owl:Class>
@@ -7158,7 +7176,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56207">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56160"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower incisor tooth</rdfs:label>
     </owl:Class>
@@ -7169,7 +7186,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56208">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56160"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower incisor tooth</rdfs:label>
     </owl:Class>
@@ -7180,7 +7196,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56209">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56160"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower incisor tooth</rdfs:label>
     </owl:Class>
@@ -7191,7 +7206,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56210">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56160"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Incisal surface of lower incisor tooth</rdfs:label>
     </owl:Class>
@@ -7266,7 +7280,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56217">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56209"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7277,7 +7290,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56218">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56209"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7289,7 +7301,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56219">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56218"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7301,7 +7312,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56220">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56218"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7312,8 +7322,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56221">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56217"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7324,8 +7332,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56222">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56217"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7336,7 +7342,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56223">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56208"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7347,7 +7352,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56224">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56208"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7359,7 +7363,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56225">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56224"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7371,7 +7374,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56226">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56224"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7383,7 +7385,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56227">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56223"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7395,7 +7396,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56228">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56223"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7406,7 +7406,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56229">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56207"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7417,7 +7416,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56230">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56207"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7429,7 +7427,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56231">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56230"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7441,7 +7438,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56232">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56230"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7453,7 +7449,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56233">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56229"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7465,7 +7460,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56234">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56229"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7476,7 +7470,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56235">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56206"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7487,7 +7480,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56236">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56206"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7499,7 +7491,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56237">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56236"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7511,7 +7502,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56238">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56236"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left lower lateral incisor tooth</rdfs:label>
     </owl:Class>
@@ -7523,7 +7513,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56239">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56235"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7535,7 +7524,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56240">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56235"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left lower central incisor tooth</rdfs:label>
     </owl:Class>
@@ -7546,7 +7534,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56241">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56161"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of upper canine tooth</rdfs:label>
     </owl:Class>
@@ -7557,7 +7544,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56242">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56161"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper canine tooth</rdfs:label>
     </owl:Class>
@@ -7568,7 +7554,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56243">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56161"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper canine tooth</rdfs:label>
     </owl:Class>
@@ -7579,7 +7564,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56244">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56161"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper canine tooth</rdfs:label>
     </owl:Class>
@@ -7590,7 +7574,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56245">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56161"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Incisal surface of upper canine tooth</rdfs:label>
     </owl:Class>
@@ -7601,7 +7584,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56246">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56162"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7612,7 +7594,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56247">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56162"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7623,7 +7604,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56248">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56162"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7634,7 +7614,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56249">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56162"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7645,7 +7624,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56250">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56162"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Incisal surface of lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7679,7 +7657,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56253">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56249"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7691,7 +7668,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56254">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56249"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7703,7 +7679,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56255">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56248"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7715,7 +7690,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56256">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56248"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7727,7 +7701,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56257">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56247"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7739,7 +7712,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56258">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56247"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7751,7 +7723,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56259">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56246"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7763,7 +7734,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56260">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56246"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left lower canine tooth</rdfs:label>
     </owl:Class>
@@ -7794,7 +7764,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56263">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56261"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -7805,7 +7774,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56264">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56261"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -7816,7 +7784,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56265">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56261"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -7827,7 +7794,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56266">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56261"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -7838,7 +7804,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56267">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56261"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -7849,7 +7814,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56268">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56262"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7860,7 +7824,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56269">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56262"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7871,7 +7834,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56270">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56262"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7882,7 +7844,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56271">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56262"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7893,7 +7854,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56272">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56262"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7905,7 +7865,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56273">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56272"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7917,7 +7876,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56274">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56272"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7929,7 +7887,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56275">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56271"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7941,7 +7898,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56276">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56271"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7953,7 +7909,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56277">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56270"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7965,7 +7920,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56278">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56270"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7977,7 +7931,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56279">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56269"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -7989,7 +7942,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56280">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56269"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8001,7 +7953,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56281">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56268"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8013,7 +7964,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56282">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56268"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left upper second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8025,7 +7975,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56283">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56267"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8037,7 +7986,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56284">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56267"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8049,7 +7997,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56285">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56266"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8061,7 +8008,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56286">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56266"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8073,7 +8019,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56287">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56265"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8085,7 +8030,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56288">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56265"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8097,7 +8041,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56289">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56264"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8109,7 +8052,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56290">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56264"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8121,7 +8063,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56291">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56263"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8133,7 +8074,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56292">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56263"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left upper first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8164,7 +8104,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56295">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56293"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8175,7 +8114,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56296">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56293"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8186,7 +8124,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56297">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56293"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8197,7 +8134,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56298">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56293"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8208,7 +8144,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56299">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56293"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8220,7 +8155,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56300">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56299"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8232,7 +8166,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56301">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56299"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8244,7 +8177,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56302">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56298"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8256,7 +8188,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56303">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56298"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8268,7 +8199,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56304">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56297"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8280,7 +8210,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56305">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56297"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8292,7 +8221,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56306">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56296"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8304,7 +8232,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56307">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56296"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8316,7 +8243,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56308">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56295"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8328,7 +8254,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56309">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56295"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left lower first premolar tooth</rdfs:label>
     </owl:Class>
@@ -8339,7 +8264,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56310">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56294"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8350,7 +8274,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56311">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56294"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8361,7 +8284,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56312">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56294"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8372,7 +8294,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56313">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56294"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8383,7 +8304,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56314">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56294"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8395,7 +8315,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56315">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56314"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8407,7 +8326,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56316">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56314"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8419,7 +8337,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56317">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56313"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8431,7 +8348,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56318">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56313"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8443,7 +8359,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56319">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56312"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8455,7 +8370,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56320">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56312"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8467,7 +8381,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56321">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56311"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8479,7 +8392,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56322">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56311"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8491,7 +8403,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56323">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56310"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8503,7 +8414,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56324">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56310"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left lower second premolar tooth</rdfs:label>
     </owl:Class>
@@ -8544,7 +8454,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56328">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56169"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8555,7 +8464,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56329">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56169"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8566,7 +8474,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56330">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56169"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8577,7 +8484,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56331">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56169"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8588,7 +8494,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56332">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56169"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8600,7 +8505,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56333">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56332"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8612,7 +8516,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56334">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56332"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8624,7 +8527,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56335">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56331"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8636,7 +8538,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56336">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56331"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8648,7 +8549,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56337">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56330"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8660,7 +8560,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56338">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56330"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8672,7 +8571,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56339">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56329"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8684,7 +8582,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56340">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56329"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8696,7 +8593,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56341">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56328"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8708,7 +8604,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56342">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56328"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left lower third molar tooth</rdfs:label>
     </owl:Class>
@@ -8719,7 +8614,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56343">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56168"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8730,7 +8624,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56344">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56168"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8741,7 +8634,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56345">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56168"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8752,7 +8644,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56346">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56168"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8763,7 +8654,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56347">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56168"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8775,7 +8665,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56348">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56347"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8787,7 +8676,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56349">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56347"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8799,7 +8687,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56350">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56346"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8811,7 +8698,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56351">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56346"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8823,7 +8709,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56352">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56345"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8835,7 +8720,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56353">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56345"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8847,7 +8731,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56354">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56344"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8859,7 +8742,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56355">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56344"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8871,7 +8753,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56356">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56343"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8883,7 +8764,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56357">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56343"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left lower second molar tooth</rdfs:label>
     </owl:Class>
@@ -8894,7 +8774,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56358">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56167"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8905,7 +8784,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56359">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56167"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8916,7 +8794,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56360">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56167"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8927,7 +8804,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56361">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56167"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8938,7 +8814,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56362">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56167"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8950,7 +8825,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56363">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56362"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8962,7 +8836,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56364">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56362"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8974,7 +8847,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56365">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56361"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8986,7 +8858,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56366">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56361"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -8998,7 +8869,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56367">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56360"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9010,7 +8880,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56368">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56360"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9022,7 +8891,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56369">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56359"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9034,7 +8902,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56370">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56359"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9046,7 +8913,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56371">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56358"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9058,7 +8924,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56372">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56358"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left lower first molar tooth</rdfs:label>
     </owl:Class>
@@ -9069,7 +8934,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56373">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56327"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9080,7 +8944,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56374">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56327"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9091,7 +8954,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56375">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56327"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9102,7 +8964,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56376">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56327"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9113,7 +8974,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56377">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56327"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9125,7 +8985,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56378">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56377"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9137,7 +8996,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56379">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56377"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9149,7 +9007,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56380">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56376"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9161,7 +9018,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56381">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56376"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9173,7 +9029,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56382">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56375"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9185,7 +9040,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56383">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56375"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9197,7 +9051,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56384">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56374"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9209,7 +9062,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56385">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56374"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9221,7 +9073,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56386">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56373"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9233,7 +9084,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56387">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56373"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left upper third molar tooth</rdfs:label>
     </owl:Class>
@@ -9244,7 +9094,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56388">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56326"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9255,7 +9104,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56389">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56326"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9266,7 +9114,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56390">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56326"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9277,7 +9124,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56391">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56326"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9288,7 +9134,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56392">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56326"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9300,7 +9145,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56393">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56392"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9312,7 +9156,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56394">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56392"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9324,7 +9167,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56395">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56391"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9336,7 +9178,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56396">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56391"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9348,7 +9189,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56397">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56390"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9360,7 +9200,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56398">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56390"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9372,7 +9211,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56399">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56389"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9384,7 +9222,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56400">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56389"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9396,7 +9233,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56401">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56388"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9408,7 +9244,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56402">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56388"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left upper second molar tooth</rdfs:label>
     </owl:Class>
@@ -9419,7 +9254,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56403">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56325"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9430,7 +9264,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56404">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56325"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9441,7 +9274,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56405">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56325"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9452,7 +9284,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56406">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56325"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9463,7 +9294,6 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56407">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56325"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9475,7 +9305,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56408">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56407"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of right upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9487,7 +9316,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56409">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56407"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Occlusal surface of left upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9499,7 +9327,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56410">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56406"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9511,7 +9338,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56411">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56406"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9521,9 +9347,7 @@ includes complete root canal therapy.
     <!-- http://purl.obolibrary.org/obo/FMA_56412 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56412">
-        <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56405"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9535,7 +9359,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56413">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56405"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9547,7 +9370,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56414">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56404"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9559,7 +9381,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56415">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56404"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9571,7 +9392,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56416">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56403"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of right upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -9583,7 +9403,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_56417">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56403"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface of left upper first molar tooth</rdfs:label>
     </owl:Class>
@@ -11089,7 +10908,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57663">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56241"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of right upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11101,7 +10919,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57664">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56241"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface of left upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11113,7 +10930,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57665">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56242"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of right upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11125,7 +10941,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57666">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56242"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Lingual surface of left upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11137,7 +10952,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57667">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56243"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of right upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11149,7 +10963,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57668">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56243"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Mesial surface of left upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11161,7 +10974,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57669">
         <rdfs:subClassOf rdf:resource="http://example.com/right"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56244"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of right upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11173,7 +10985,6 @@ includes complete root canal therapy.
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_57670">
         <rdfs:subClassOf rdf:resource="http://example.com/left"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_56244"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Distal surface of left upper canine tooth</rdfs:label>
     </owl:Class>
@@ -11242,6 +11053,17 @@ includes complete root canal therapy.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/FMA_67112 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_67112">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000141"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_62955"/>
+        <obo:IAO_0000115>Physical anatomical entity which is a three-dimensional space, surface, line or point associated with a material anatomical entity. Examples: body space, surface of heart, costal margin, apex of right lung, anterior compartment of right arm.</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">Immaterial anatomical entity</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/FMA_67135 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_67135">
@@ -11256,6 +11078,7 @@ includes complete root canal therapy.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_67165">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_62955"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Material anatomical entity</rdfs:label>
     </owl:Class>
@@ -13914,6 +13737,12 @@ for now.</obo:IAO_0000116>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000052"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000190"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A heath care encounter in which a dental patient undergoes a diagnostic or therapeutic process.</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 5/12/2015:
 
@@ -13928,19 +13757,21 @@ Changed &quot;A specific healthcare activity&quot; to &quot;A health care encoun
     <!-- http://purl.obolibrary.org/obo/OHD_0000003 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000003">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000002"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000229"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000230"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000232"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000002"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A dental procedure that is performed on the pulp chamber and/or root canal of a tooth, or a part thereof</obo:IAO_0000115>
         <obo:IAO_0000116>Titus Schleyer 1/14/2014: adapted definition</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PERSON:Pedro Cott</obo:IAO_0000117>
@@ -13976,32 +13807,6 @@ Changed &quot;A specific healthcare activity&quot; to &quot;A health care encoun
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000007"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000189"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
-                                <owl:someValuesFrom>
-                                    <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
-                                            <owl:Restriction>
-                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
-                                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000007"/>
-                                            </owl:Restriction>
-                                        </owl:intersectionOf>
-                                    </owl:Class>
-                                </owl:someValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -14050,25 +13855,7 @@ A tooth restoration procedure achieves some tooth restoration objective specific
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000190"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000000"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000207"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -14397,6 +14184,23 @@ Professional prophylaxis, radiographs, sealants, and nonsurgical periodontal the
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000023 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000023">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000189"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a dental finding that a tooth has been restored</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored tooth finding</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000024 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000024">
@@ -14577,18 +14381,6 @@ The uri was changed for backward compatabilty in the r21 study.</obo:IAO_0000116
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000033">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115>A tooth restoration procedure whereby an artificial crown replaces all or part of the natural dental crown.</obo:IAO_0000115>
         <obo:IAO_0000116>Titus Schleyer 1/14/2014: adapted definition</obo:IAO_0000116>
         <rdfs:label xml:lang="en">crown restoration procedure</rdfs:label>
@@ -15059,14 +14851,14 @@ A material combination in which a rigid restoration, such as a gold inlay, is at
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/NCBITaxon_9606"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000233"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000115>A surgical dental procedure that removes a tooth from the oral cavity.
@@ -17616,7 +17408,17 @@ There is not a dental restoration material of this kind. The class needs to be m
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>An entity that is the combination of a tooth and a dental restoration material. Typically results when a tooth with some type of pathological defect is restored. Always the output of a dental restoration</obo:IAO_0000115>
+        <obo:IAO_0000115>a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/29/2017:
+A restored tooth typically results when a tooth with some type of pathological defect is restored.</obo:IAO_0000116>
+        <obo:IAO_0000116>Bill Duncan 12/29/2017:
+edited definition from:
+
+An entity that is the combination of a tooth and a dental restoration material. Typically results when a tooth with some type of pathological defect is restored. It is always the output of a tooth restoration procedure.
+
+to:
+
+a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000116>
         <obo:IAO_0000116>Titus Schleyer 1/1/2014: updated definition</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored tooth</rdfs:label>
@@ -18044,8 +17846,13 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000208">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <obo:IAO_0000115>a processed material that is part of a restored tooth and forms the part of a restored tooth where a the surface enamel of the restored tooth used to be</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/27/2016:
+
+Added definition</obo:IAO_0000116>
         <obo:IAO_0000116>dental material that is bonded to and fills the site where some tooth surface or part thereof used to be. Always part of a restored tooth.</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored tooth surface</rdfs:label>
     </owl:Class>
     
@@ -18146,6 +17953,222 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
         <obo:IAO_0000115>a health care organization employee role borne by a person who responsible for performing administrative duties</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">health care office staff role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000220 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000220">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <obo:IAO_0000115>a dental finding that one or more surfaces of a tooth have been restored</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored tooth surface finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000221 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000221">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000010"/>
+        <obo:IAO_0000115>a dental finding that a dental procedure has been performed on a patient&apos;s mouth</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/27/2016:
+
+This finding can indicate that a procedure was performed even when the output is not observable. For example, by looking a dental record, a provider may find that the last time a patient&apos;s teeth were cleaned was two years ago.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">dental procedure finding</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000222 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000222">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the buccal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored buccal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000223 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000223">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the distal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored distal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000224 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000224">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the incisal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored incisal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000225 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000225">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the labial surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored labial surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000226 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000226">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the lingual surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored lingual surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000227 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000227">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the mesial surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored mesial surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000228 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000228">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the occlusal surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored occlusal surface</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000229 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000229">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a surgical dental procedure involving a multrooted tooth in which the decayed root and its related coronal portion are removed to the furcation (area of bone loss)</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/29/2016:
+Typically the removal of root/crown/bone is followed by the placement of an indirect restoration.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://medical-dictionary.thefreedictionary.com/hemisection</obo:IAO_0000119>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:52:14Z</dc:date>
+        <rdfs:label xml:lang="en">hemisection procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000230 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000230">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1483044587020</dc:date>
+        <rdfs:label xml:lang="en">endodontic treatment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000231 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000231">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <obo:IAO_0000112>a tooth in which inflamed pulp has been removed by a pulp debridement procedure</obo:IAO_0000112>
+        <obo:IAO_0000116>Bill Duncan 12/29/2016:
+The intent of this class is to represent teeth that have undergone some kind of surgical procedure, but which are not restored in the sense of having dental restoration material placed in them; e.g, a pulp debridement procedure</obo:IAO_0000116>
+        <obo:IAO_0000116>a processed material that is formed as a result of a surgical dental procedure modifying the tooth in some way</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:52:14Z</dc:date>
+        <rdfs:label xml:lang="en">surgically modified tooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000232 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000232">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000003"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a surgical dental procedure in which infected pulp is removed from a tooth in order to give the remaining pulp room to swell</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/29/2016:
+This procedure relieves some of the pain, allowing a root canal patient to wait longer before having the full procedure performed.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://www.ehow.com/facts_7478434_pulpal-debridement.html</obo:IAO_0000119>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:54:29Z</dc:date>
+        <rdfs:label xml:lang="en">pulpal debridement procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000233 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000233">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000047"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000057"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
+        <obo:IAO_0000115>a processed material that is a tooth which has been surgically extracted from a patient&apos;s mouth</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 12/29/2016:
+This class represents those teeth which are extracted from a patient. After all, an extracted tooth is still a tooth. It just isn&apos;t part of the patient anymore.
+
+This class provides us with a convient way to represent those teeth that have been extracted.</obo:IAO_0000116>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T22:05:15Z</dc:date>
+        <rdfs:label xml:lang="en">extracted tooth</rdfs:label>
     </owl:Class>
     
 
@@ -20383,8 +20406,8 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
-        <rdfs:label xml:lang="en-us">Title</rdfs:label>
         <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
+        <rdfs:label xml:lang="en-us">Title</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dc:description xml:lang="en-us">
         Typically, a Title will be a name by which the resource is
@@ -20593,5 +20616,5 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
 
 
 
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
 
