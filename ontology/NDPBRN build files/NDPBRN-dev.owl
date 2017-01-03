@@ -166,6 +166,28 @@ Attribution is satisfied by using the URIs defined in this file when using terms
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OBI_0000293 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000293">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000293"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OBI_0000295 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000295">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000295"/>
+        </owl:propertyChainAxiom>
+    </rdf:Description>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000091 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OHD_0000091">

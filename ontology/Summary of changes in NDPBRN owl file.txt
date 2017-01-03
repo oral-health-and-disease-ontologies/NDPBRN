@@ -55,6 +55,11 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Remove unused relations: begins to exist during, ceases to exist during, has course, has participant beginning to exist, has participant ceasing to exist, is course of
 
+- Remove unused relations: has site of, occurs in
+
+- Add property chain to has_specified_input: has_specified_input o 'is part of'
+
+- Add property chain to is_specified_input_of: 'has part' o is_specified_input_of
 
 
 
