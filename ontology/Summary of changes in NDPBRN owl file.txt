@@ -57,9 +57,35 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Remove unused relations: has site of, occurs in
 
-- Add property chain to has_specified_input: has_specified_input o 'is part of'
+- Remove RO relations has_part, 
 
-- Add property chain to is_specified_input_of: 'has part' o is_specified_input_of
+- Add data property missing tooth number
+
+- Change missing tooth 14 finding axiom "has_part value 14" to "'has part' value 14"
+
+- Remove axiom "has_part some 'CRID symbol'" from CRID class in iao-imports.
+
+- Remove has_part relation from iao-imports.
+
+- Change "has_part some occurrent" to "'has part' some occurrent" in *disjoint with* assertion for continuant class.
+
+- Add property chain "has_specified_input o 'is part of'" to has participant.
+
+- Add property chain "'has part' o is_specified_input_of" to participates_in.
+
+TODO:
+- Make 'restored tooth' a defined class: Tooth that 'has part' some 'dental restoration material'
+- Add axiom that a 'restored tooth surface' 'is part of' some 'restored tooth'
+- Make 'extracted tooth' a defined class: Tooth that is_specified_output_of some 'tooth extraction procedure'
+- Make 'surgically modified tooth' a defined class: Tooth that (is_specified_output_of some 'surgical dental procedure')
+- Add class restored tooth crown
+- Add class for 'restored facial surface'
+
+
+
+
+
+
 
 
 
