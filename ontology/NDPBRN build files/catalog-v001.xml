@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="imports" prefer="public" xml:base="">
-    		<uri name="http://purl.obolibrary.org/obo/ohd/NDPBRN-anatomy-classes.owl" uri="imports/NDPBRN-anatomy-classes.owl"/>
-    
+    		<uri name="http://purl.regenstrief.org/NDPBRN-anatomy-classes.owl" uri="imports/NDPBRN-anatomy-classes.owl"/>
+    		<uri name="http://purl.regenstrief.org/NDPBRN-bfo-classes.owl" uri="imports/NDPBRN-bfo-classes.owl"/>
+    		<uri name="http://purl.regenstrief.org/NDPBRN-bfo-relations.owl" uri="imports/NDPBRN-bfo-relations.owl"/>
         <uri name="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl" uri="ohd.owl"/>
         <uri name="http://purl.obolibrary.org/obo/ohd.owl" uri="ohd.owl"/>
         <uri name="http://purl.obolibrary.org/obo/ohd/dev/ncbi-imports.owl" uri="imports/ncbi-imports.owl"/>

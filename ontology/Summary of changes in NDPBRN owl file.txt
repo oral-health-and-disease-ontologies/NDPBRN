@@ -47,3 +47,16 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Make endodontic procedure a defined class.
 
+- Put BFO relations and classes in stand alone NDPBRN-bfo-relations and NDPBRN-bfo-relations files.
+
+- Make has function/role/quality sub properties of is bearer of, and add inverses of the properties.
+
+- Remove unused relations: has granular part, has granular process part, is granular part of, is granular part of process, is fiat part of, is aggregate of
+
+- Remove unused relations: begins to exist during, ceases to exist during, has course, has participant beginning to exist, has participant ceasing to exist, is course of
+
+
+
+
+
+
