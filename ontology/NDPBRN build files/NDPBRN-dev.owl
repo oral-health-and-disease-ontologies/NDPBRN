@@ -155,7 +155,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
     <!-- http://purl.obolibrary.org/obo/FMA_85879 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/FMA_85879">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:label>has member</rdfs:label>
     </owl:ObjectProperty>
     
