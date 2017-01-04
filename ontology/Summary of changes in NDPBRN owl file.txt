@@ -73,12 +73,16 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Add property chain "'has part' o is_specified_input_of" to participates_in.
 
-TODO:
-- Make 'restored tooth' a defined class: Tooth that 'has part' some 'dental restoration material'
+- Make 'restored tooth' a defined class: Tooth that 'has part' some 'dental restoration material'; and update definition
+
 - Add axiom that a 'restored tooth surface' 'is part of' some 'restored tooth'
-- Make 'extracted tooth' a defined class: Tooth that is_specified_output_of some 'tooth extraction procedure'
-- Make 'surgically modified tooth' a defined class: Tooth that (is_specified_output_of some 'surgical dental procedure')
-- Add class restored tooth crown
+
+- Make 'extracted tooth' a defined class: Tooth that is_specified_output_of some 'tooth extraction procedure'; and update definition
+
+- Make 'surgically modified tooth' a defined class: Tooth that (is_specified_output_of some 'surgical dental procedure'); and update definition
+
+- Update NDPBRN-anatomy-classes.owl - Add Facial surface enamel of tooth as defined class: Buccal surface enamel of tooth or Labial surface enamel of tooth
+
 - Add class for 'restored facial surface'
 
 

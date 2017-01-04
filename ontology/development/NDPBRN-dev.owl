@@ -6726,22 +6726,18 @@ There is not a dental restoration material of this kind. The class needs to be m
     <!-- http://purl.obolibrary.org/obo/OHD_0000189 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000189">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000000"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000115>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>a tooth that has been restored by using dental restoration material to replace decayed or missing parts of the tooth</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2017:
 A restored tooth typically results when a tooth with some type of pathological defect is restored.</obo:IAO_0000116>
         <obo:IAO_0000116>Bill Duncan 12/29/2017:
@@ -6751,7 +6747,7 @@ An entity that is the combination of a tooth and a dental restoration material. 
 
 to:
 
-a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000116>
+a tooth that has been restored by using dental restoration material to replace decayed or missing parts of the tooth</obo:IAO_0000116>
         <obo:IAO_0000116>Titus Schleyer 1/1/2014: updated definition</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored tooth</rdfs:label>
@@ -7172,6 +7168,12 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000208">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000189"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>a processed material that is part of a restored tooth and forms the part of a restored tooth where a the surface enamel of the restored tooth used to be</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/27/2016:
 
@@ -7424,11 +7426,21 @@ Typically the removal of root/crown/bone is followed by the placement of an indi
     <!-- http://purl.obolibrary.org/obo/OHD_0000231 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000231">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <obo:IAO_0000112>a tooth in which inflamed pulp has been removed by a pulp debridement procedure</obo:IAO_0000112>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 The intent of this class is to represent teeth that have undergone some kind of surgical procedure, but which are not restored in the sense of having dental restoration material placed in them; e.g, a pulp debridement procedure</obo:IAO_0000116>
-        <obo:IAO_0000116>a processed material that is formed as a result of a surgical dental procedure modifying the tooth in some way</obo:IAO_0000116>
+        <obo:IAO_0000116>a tooth that has been modified in some way as the result of some surgical dental procedure</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:52:14Z</dc:date>
         <rdfs:label xml:lang="en">surgically modified tooth</rdfs:label>
@@ -7469,26 +7481,43 @@ This procedure relieves some of the pain, allowing a root canal patient to wait 
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000047"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000057"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000057"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115>a processed material that is a tooth which has been surgically extracted from a patient&apos;s mouth</obo:IAO_0000115>
+        <obo:IAO_0000115>a tooth that has been surgically extracted from a patient&apos;s mouth</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 This class represents those teeth which are extracted from a patient. After all, an extracted tooth is still a tooth. It just isn&apos;t part of the patient anymore.
 
 This class provides us with a convient way to represent those teeth that have been extracted.</obo:IAO_0000116>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T22:05:15Z</dc:date>
         <rdfs:label xml:lang="en">extracted tooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000235 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000235">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000208"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000222"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000225"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>a restored tooth surface that forms either the buccal surface or labial surface of a restored tooth</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">restored facial surface</rdfs:label>
     </owl:Class>
     
 

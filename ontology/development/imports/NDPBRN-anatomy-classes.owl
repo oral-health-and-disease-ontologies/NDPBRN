@@ -5848,6 +5848,27 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:label>Facial surface enamel of tooth</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth">
