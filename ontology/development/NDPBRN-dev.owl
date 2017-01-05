@@ -7513,16 +7513,14 @@ This class provides us with a convient way to represent those teeth that have be
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000208"/>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000222"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000225"/>
-                        </owl:unionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000225"/>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115>a restored tooth surface that forms either the buccal surface or labial surface of a restored tooth</obo:IAO_0000115>
+        <obo:IAO_0000115>a restored tooth surface that forms the lip-facing surface of a restored anterior tooth</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 01/05/2017:
+Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather than &quot;L&quot; for labial surfaces. The reason is that &quot;L&quot; is also used for the lingual surface.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored facial surface</rdfs:label>
     </owl:Class>
     
