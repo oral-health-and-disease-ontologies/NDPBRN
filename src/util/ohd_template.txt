@@ -33,6 +33,7 @@
 @prefix tooth_restoring_role: <restoration-procedure/tooth-to-be-restored-role/> .
 @prefix filling_role: <restoration-procedure/tooth-to-be-filled-role/> .
 @prefix surface_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
+@prefix restored_tooth_surface: <restored-tooth-surface/> .
 @prefix restoration_procedure: <restoration-procedure/> .
 @prefix crown_procedure: <restoration-procedure/crown-procedure/> .
 @prefix filling_procedure: <restoration-procedure/filling-procedure/> .
@@ -192,6 +193,12 @@ tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
 surface:{surface_id} rdf:type <{surface_of_tooth}> .
 surface:{surface_id} rdf:type <{restored_tooth_surface}> .
 surface:{surface_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare restored tooth surface by prefix':
+"""
+restored_tooth_surface:{surface_id} rdf:type <{specific_restored_tooth_surface}> .
+restored_tooth_surface:{surface_id} rdfs:label "{label}"^^xsd:string .
 """,
 
 'declare practice':
