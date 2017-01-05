@@ -5,13 +5,57 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://purl.regenstrief.org/NDPBRN.owl">
+        <dc:contributor>Titus Schleyer</dc:contributor>
+        <dc:contributor>Dan Caplan</dc:contributor>
+        <dc:contributor>Amit Acharya</dc:contributor>
+        <dc:creator>Sivaram Arabandi</dc:creator>
+        <rdfs:comment>Status of this document: This is a work in progress and we do not yet make any promises about the stability of URIs. A known issue is that the upper level of this ontology is an exploratory version of BFO developed in the interim between when BFO 1 was current and before BFO 2 development started. The representation of the CDT codes is tentative - we are discussing this with the ADA. The integration between OBI and OGMS is not complete - we add some axioms here in order to use both in a consistent way. The version of the subject of the FMA used here is an automatic translation of a portion of the entities and relations present in the original FMA. Work is ongoing on improving this subset and using an up-to-date version of the FMA as its basis.</rdfs:comment>
+        <dc:date>2009-08-07</dc:date>
+        <rdfs:comment>This document is based on the classes in Alan Ruttenberg&apos;s http://purl.obolibrary.org/obo/bfo/2010-05-25/ruttenberg-bfo2.owl. The relations from that ontology have been excluded.</rdfs:comment>
+        <dc:creator>American Dental Association; see www.ada.org/dentalcode</dc:creator>
+        <dc:creator>Bill Hogan</dc:creator>
+        <dc:contributor>Carlo Torniai</dc:contributor>
+        <dc:creator>Richard Scheuermann</dc:creator>
+        <dc:creator>Cornelius Rosse</dc:creator>
+        <dc:contributor>Pedro Hernandez Cott</dc:contributor>
+        <dc:creator>Anand Kumar</dc:creator>
+        <dc:contributor>Alan Ruttenberg</dc:contributor>
+        <dc:contributor>Bill Duncan</dc:contributor>
+        <dc:creator>Daniel Merico</dc:creator>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></owl:versionInfo>
+        <dc:contributor>Melissa Haendel</dc:contributor>
+        <dc:creator>Albert Goldfain</dc:creator>
+        <rdfs:comment>The Ontology for General Medical Science (OGMS) is based on the papers Toward an Ontological Treatment of Disease and Diagnosis and On Carcinomas and Other Pathological Entities. The ontology attempts to address some of the issues raised at the Workshop on Ontology of Diseases (Dallas, TX). OGMS was formerly called the clinical phenotype ontology. Terms from OGMS hang from the Basic Formal Ontology.
+
+The latest version of OGMS is always available at http://purl.obolibrary.org/obo/ogms.owl
+This is version 2011-09-20 aka &apos;0.9&apos;
+http://purl.obolibrary.org/obo/ogms/2011-09-20/ogms.owl
+
+The OGMS developer site is http://code.google.com/p/ogms/
+The discussion group is http://groups.google.com/group/ogms-discuss
+
+If you are interested in participating in the development of OGMS, please send email to albertgoldfain@gmail.com. Be sure to include a google-account username with your request (this will be the username associated with a gmail address).</rdfs:comment>
         <dc:creator>Bill Duncan</dc:creator>
         <dc:creator>Alan Ruttenberg</dc:creator>
+        <dc:creator>Werner Ceusters</dc:creator>
+        <rdfs:comment>The Oral Health and Disease Ontology is an ontology built to be compatible with the OBO Foundry ontologies, and is a collaboration between researchers at the University at Buffalo School of Dental Medicine, the University of Pittsburg School of Dental Medicine, and the Oregon Health and Science University.
+
+This ontology is licensed under the CC-BY License. Please see http://creativecommons.org/licenses/by/3.0/
+
+Attribution is satisfied by using the URIs defined in this file when using terms from this ontology.</rdfs:comment>
+        <owl:versionInfo>2011-09-20</owl:versionInfo>
+        <dc:contributor>Mei Song</dc:contributor>
+        <protege:defaultLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</protege:defaultLanguage>
+        <dc:creator>Lindsay Cowell</dc:creator>
+        <rdfs:comment>This ontology is in early development. Expect it to change.</rdfs:comment>
+        <owl:versionInfo xml:lang="en">$Revision$</owl:versionInfo>
+        <dc:creator>Barry Smith</dc:creator>
     </owl:Ontology>
     
 
@@ -397,11 +441,6 @@
     <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000051">
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000082"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <obo:IAO_0000118 xml:lang="en">has_part</obo:IAO_0000118>
         <rdfs:label xml:lang="en">has part</rdfs:label>
@@ -428,12 +467,6 @@
     </owl:ObjectProperty>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
-        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/BFO_0010042"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#range"/>
         <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
         <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/BFO_0010043"/>
@@ -457,17 +490,19 @@
         <owl:annotatedTarget rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/BFO_0010014"/>
     </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#domain"/>
+        <owl:annotatedTarget rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
+        <obo:IAO_0010000 rdf:resource="http://purl.obolibrary.org/obo/BFO_0010042"/>
+    </owl:Axiom>
     
 
 
     <!-- http://purl.obolibrary.org/obo/BFO_0000053 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000053">
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000070"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
         <obo:IAO_0000118 xml:lang="en">bearer of</obo:IAO_0000118>
@@ -528,6 +563,10 @@
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000056">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000295"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000053"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000054"/>
         </owl:propertyChainAxiom>
@@ -545,6 +584,10 @@
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000055"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000052"/>
+        </owl:propertyChainAxiom>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000293"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
         </owl:propertyChainAxiom>
         <obo:IAO_0000118 xml:lang="en">has_participant</obo:IAO_0000118>
         <rdfs:label xml:lang="en">has participant</rdfs:label>
@@ -627,11 +670,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000060">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000063"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000061"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">immediately preceded by</obo:IAO_0000118>
@@ -659,11 +697,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000061">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000063"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000007"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000007"/>
@@ -774,12 +807,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000079">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000085"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
         <obo:IAO_0000118 xml:lang="en">function of</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">function_of</obo:IAO_0000118>
@@ -806,12 +835,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000080">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000086"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
         <obo:IAO_0000118 xml:lang="en">quality of</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">quality_of</obo:IAO_0000118>
@@ -836,12 +861,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000081">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000087"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
         <obo:IAO_0000118 xml:lang="en">role of</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">role_of</obo:IAO_0000118>
@@ -900,11 +921,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000085">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">has_function</obo:IAO_0000118>
         <rdfs:label xml:lang="en">has function</rdfs:label>
     </owl:ObjectProperty>
@@ -915,11 +932,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000086">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">has_quality</obo:IAO_0000118>
         <rdfs:label xml:lang="en">has quality</rdfs:label>
     </owl:ObjectProperty>
@@ -930,11 +943,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000087">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000053"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000052"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">has_role</obo:IAO_0000118>
         <rdfs:label xml:lang="en">has role</rdfs:label>
     </owl:ObjectProperty>
@@ -977,17 +986,8 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000293">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000293"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000050"/>
-        </owl:propertyChainAxiom>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_specified_input</obo:IAO_0000111>
         <obo:IAO_0000112 xml:lang="en">see is_input_of example_of_usage</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process that is not created during  the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of.</obo:IAO_0000115>
@@ -1005,16 +1005,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000295">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
-        <owl:propertyChainAxiom rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
-            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000295"/>
-        </owl:propertyChainAxiom>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_specified_input_of</obo:IAO_0000111>
         <obo:IAO_0000112 xml:lang="en">some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay</obo:IAO_0000112>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process that is not created during  the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of.</obo:IAO_0000115>
@@ -1029,11 +1020,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000299">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_specified_output</obo:IAO_0000111>
@@ -1051,11 +1037,6 @@
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OBI_0000312">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_specified_output_of</obo:IAO_0000111>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
@@ -1124,23 +1105,12 @@ Wikipedia: http://en.wikipedia.org/wiki/Dental_restoration</obo:IAO_0000119>
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/OHD_0000217">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000063"/>
-        <rdfs:subPropertyOf>
-            <rdf:Description>
-                <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000062"/>
-            </rdf:Description>
-        </rdfs:subPropertyOf>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <obo:IAO_0000115>relates a health care encounter such as a inpatient, outpatient, or hospital stay to any subsequent such encounter for the same patient.</obo:IAO_0000115>
         <obo:IAO_0000116>relation added as a convenience for survival analysis queries.</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">later visit</rdfs:label>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.obofoundry.org/ro/ro.owl#has_part -->
-
-    <owl:ObjectProperty rdf:about="http://www.obofoundry.org/ro/ro.owl#has_part"/>
     
 
 
@@ -1284,7 +1254,7 @@ There is a problem with occurrence date.  The date on which an event occurred an
         </owl:disjointWith>
         <owl:disjointWith>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
             </owl:Restriction>
         </owl:disjointWith>
@@ -11242,6 +11212,7 @@ includes complete root canal therapy.
     <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Buccal surface enamel of tooth</rdfs:label>
@@ -11259,6 +11230,28 @@ includes complete root canal therapy.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth"/>
+        <rdfs:label>Facial surface enamel of tooth</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth">
@@ -11272,6 +11265,7 @@ includes complete root canal therapy.
     <!-- http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth"/>
         <obo:IAO_0000412 rdf:resource="http://purl.obolibrary.org/obo/ohd/dev/ohd.owl"/>
         <rdfs:label>Labial surface enamel of tooth</rdfs:label>
@@ -11625,12 +11619,6 @@ Request that IAO either clarify these or change definitions not to use them</rdf
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000578">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/IAO_0000577"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000112 xml:lang="en">Entries in a Column of which the header is &quot;Pubmed ID&quot; </obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">PMID:12345</obo:IAO_0000112>
         <obo:IAO_0000112 xml:lang="en">The following URL: &quot;http://www.ncbi.nlm.nih.gov/pubmed/19918065&quot;</obo:IAO_0000112>
@@ -13781,7 +13769,7 @@ http://en.wikipedia.org/wiki/Veneer_%28dentistry%29</obo:IAO_0000119>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.obofoundry.org/ro/ro.owl#has_part"/>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                 <owl:hasValue rdf:resource="http://purl.obolibrary.org/obo/OHD_0000114"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -15692,6 +15680,12 @@ I think the instrumentation (&quot; ...  by means of elevators and/or forceps&qu
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000134">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000033"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>A crown restoration procedure in which the dental restoration material either replaces the cusp or overlays the cusp.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000117>PERSON: Bill Duncan</obo:IAO_0000117>
@@ -16875,23 +16869,19 @@ There is not a dental restoration material of this kind. The class needs to be m
     <!-- http://purl.obolibrary.org/obo/OHD_0000189 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000189">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000206"/>
-        <rdfs:subClassOf>
+        <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-                    </owl:Restriction>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000000"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000115>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
+        <obo:IAO_0000115>a tooth that has been restored by using dental restoration material to replace decayed or missing parts of the tooth</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2017:
 A restored tooth typically results when a tooth with some type of pathological defect is restored.</obo:IAO_0000116>
         <obo:IAO_0000116>Bill Duncan 12/29/2017:
@@ -16901,7 +16891,7 @@ An entity that is the combination of a tooth and a dental restoration material. 
 
 to:
 
-a processed material that is the combination of a tooth and a dental restoration material and results from a dental restoration procedure</obo:IAO_0000116>
+a tooth that has been restored by using dental restoration material to replace decayed or missing parts of the tooth</obo:IAO_0000116>
         <obo:IAO_0000116>Titus Schleyer 1/1/2014: updated definition</obo:IAO_0000116>
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">restored tooth</rdfs:label>
@@ -17329,6 +17319,12 @@ This includes an evaluation for oral cancer where indicated, the evaluation and 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000208">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000189"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>a processed material that is part of a restored tooth and forms the part of a restored tooth where a the surface enamel of the restored tooth used to be</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/27/2016:
 
@@ -17501,6 +17497,7 @@ This finding can indicate that a procedure was performed even when the output is
     <!-- http://purl.obolibrary.org/obo/OHD_0000225 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000225">
+        <owl:equivalentClass rdf:resource="http://purl.obolibrary.org/obo/OHD_0000235"/>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
         <obo:IAO_0000115>a restored tooth surface that forms the labial surface of a restored tooth</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
@@ -17585,11 +17582,22 @@ Typically the removal of root/crown/bone is followed by the placement of an indi
     <!-- http://purl.obolibrary.org/obo/OHD_0000231 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000231">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000047"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
         <obo:IAO_0000112>a tooth in which inflamed pulp has been removed by a pulp debridement procedure</obo:IAO_0000112>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 The intent of this class is to represent teeth that have undergone some kind of surgical procedure, but which are not restored in the sense of having dental restoration material placed in them; e.g, a pulp debridement procedure</obo:IAO_0000116>
-        <obo:IAO_0000116>a processed material that is formed as a result of a surgical dental procedure modifying the tooth in some way</obo:IAO_0000116>
+        <obo:IAO_0000116>a tooth that has been modified in some way as the result of some surgical dental procedure</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:52:14Z</dc:date>
         <rdfs:label xml:lang="en">surgically modified tooth</rdfs:label>
@@ -17631,27 +17639,43 @@ This procedure relieves some of the pain, allowing a root canal patient to wait 
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000047"/>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
-                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000057"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/FMA_12516"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000057"/>
+                    </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-        <obo:IAO_0000115>a processed material that is a tooth which has been surgically extracted from a patient&apos;s mouth</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
+        <obo:IAO_0000115>a tooth that has been surgically extracted from a patient&apos;s mouth</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 This class represents those teeth which are extracted from a patient. After all, an extracted tooth is still a tooth. It just isn&apos;t part of the patient anymore.
 
 This class provides us with a convient way to represent those teeth that have been extracted.</obo:IAO_0000116>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T22:05:15Z</dc:date>
         <rdfs:label xml:lang="en">extracted tooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000235 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000235">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000208"/>
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000225"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+        <obo:IAO_0000115>a restored tooth surface that forms the lip-facing surface of a restored anterior tooth</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 01/05/2017:
+Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather than &quot;L&quot; for labial surfaces. The reason is that &quot;L&quot; is also used for the lingual surface.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">restored facial surface</rdfs:label>
     </owl:Class>
     
 
@@ -19747,13 +19771,13 @@ Annotations: expand_assertion_to &quot;DisjointClasses: (http://purl.obolibrary.
         <rdfs:label xml:lang="en">OBO foundry unique label</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000596">
-        <obo:IAO_0000115>Relates an ontology used to record id policy to the number of digits in the URI. The URI is: the &apos;has ID prefix&quot; annotation property value concatenated with an integer in the id range (left padded with &quot;0&quot;s to make this many digits)</obo:IAO_0000115>
         <obo:IAO_0000112>Ontology: &lt;http://purl.obolibrary.org/obo/ro/idrange/&gt;
   Annotations: 
      &apos;has ID prefix&apos;: &quot;http://purl.obolibrary.org/obo/RO_&quot;
      &apos;has ID digit count&apos; : 7,
      rdfs:label &quot;RO id policy&quot;
      &apos;has ID policy for&apos;: &quot;RO&quot;</obo:IAO_0000112>
+        <obo:IAO_0000115>Relates an ontology used to record id policy to the number of digits in the URI. The URI is: the &apos;has ID prefix&quot; annotation property value concatenated with an integer in the id range (left padded with &quot;0&quot;s to make this many digits)</obo:IAO_0000115>
         <obo:IAO_0000117>Person:Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">has ID digit count</rdfs:label>
     </rdf:Description>
@@ -19802,6 +19826,14 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:comment>mark true for representational units that are duplicate/conflict others</rdfs:comment>
         <rdfs:label xml:lang="en">duplicated</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000234">
+        <rdfs:label xml:lang="en">missing tooth number</rdfs:label>
+        <obo:IAO_0000116>Bill Duncan 01/03/2017:
+This data property provides a means to query for missing teeth. Since a missing tooth is not a tooth, it is wrong represent a missing tooth as an instance of a tooth. Rather, we represent a missing tooth by respresenting the instance of the dentition and then specify with this data property that the dentition is missing a tooth designated by the universtal tooth number.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000115>a data property whose value is an ADA universal tooth number that represents a tooth which is missing from a dentition</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-03T18:37:35Z</dc:date>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/bfo/core-classes.owl">
         <dc:source>Pierre Grenon, Barry Smith and Louis Goldberg: &quot;Biodynamic Ontology: Applying BFO in the Biomedical Domain&quot;</dc:source>

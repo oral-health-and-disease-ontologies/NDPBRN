@@ -81,18 +81,13 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Make 'surgically modified tooth' a defined class: Tooth that (is_specified_output_of some 'surgical dental procedure'); and update definition
 
-- Update NDPBRN-anatomy-classes.owl - Add Facial surface enamel of tooth as defined class: Buccal surface enamel of tooth or Labial surface enamel of tooth
+- Update NDPBRN-anatomy-classes.owl - Add Facial surface enamel of tooth as defined class: equivalent to Tooth and Labial surface enamel of tooth
 
 - Add class for 'restored facial surface'
 
 - Add axiom "has_specified_output some 'restored tooth surface'" to onlay restoration procedure
 
-
-
-
-
-
-
+- After creating the merged/inferred ontology (NDPBRN.owl) be sure to remove the inverseOf(...) property axioms and the Asymmetric & Irreflexive property assertions. These get added in (for some reason) and cause reasoning errors. Also, remove Functional and Inverse functional property assertions from is immediately preceded by and immediately precedes. This doesn't seem correct: many events can immediately precede another event; depends how you define things I guess.
 
 
 
