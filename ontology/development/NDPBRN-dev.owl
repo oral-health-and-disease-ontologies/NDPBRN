@@ -5592,6 +5592,12 @@ I think the instrumentation (&quot; ...  by means of elevators and/or forceps&qu
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000134">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000033"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000208"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000115>A crown restoration procedure in which the dental restoration material either replaces the cusp or overlays the cusp.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000117>PERSON: Bill Duncan</obo:IAO_0000117>

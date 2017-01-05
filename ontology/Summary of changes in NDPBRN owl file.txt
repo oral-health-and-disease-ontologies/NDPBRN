@@ -85,6 +85,8 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - Add class for 'restored facial surface'
 
+- Add axiom "has_specified_output some 'restored tooth surface'" to onlay restoration procedure
+
 
 
 
