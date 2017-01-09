@@ -1,9 +1,9 @@
 import pandas as pds
 import logging
 import os
-from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_procedure_map
+from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, load_ada_procedure_map
 
-def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True):
+def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
 #    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
@@ -14,6 +14,11 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
     #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH_DATA', 'BILLED_SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
     #change columns for using history spreadsheet instead of fillings spreadsheet
     patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+
+    procedure_type_map = {'1': 'filling',
+                   '2': 'endodontic',
+                   '3': 'inlays',
+                   '4': 'onlays'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -82,7 +87,7 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
 
                         # try/catch here for filter in filling procedures
                         try:
-                            load_ada_filling_material_map[ada_code]
+                            load_ada_material_map[ada_code]
                             if pds.notnull(tooth_num):
                                 tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
                                 try:
@@ -116,7 +121,7 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
 
                                         #restoration material
                                         restoration_material_label = "restoration material placed in " + tooth_label  # "restoration material placed in tooth 13 of patient 1"
-                                        specific_material = label2uri[load_ada_filling_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        specific_material = label2uri[load_ada_material_map[ada_code]].rsplit('/', 1)[-1]
                                         restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                                               tooth_restoration_material=specific_material,
                                                                                                               label=restoration_material_label)
@@ -218,4 +223,4 @@ def print_filling_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, s
 
                     #    tooth_idx = tooth_idx + 1
 
-print_filling_ttl(practice_id='1')
+print_procedure_ttl(practice_id='1', procedure_type=1)
