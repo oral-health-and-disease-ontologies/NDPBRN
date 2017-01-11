@@ -274,6 +274,12 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     output(tooth_patient_relation_str)
                                     output("\n")
 
+                                    # relation: material part of tooth
+                                    material_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                        uri1=material_uri, uri2=tooth_uri)
+                                    output(material_tooth_relation_str)
+                                    output("\n")
+
                                     output(procedure_visit_relation_str)
                                     output("\n")
 
