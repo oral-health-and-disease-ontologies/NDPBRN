@@ -185,16 +185,21 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 if str(procedure_type) == '1':  ## for filling (filling has surface info)
                                     if pds.notnull(surface) and surface:
                                         output(tooth_str)
+                                        output("\n")
 
                                         surface_char = list(surface)
 
                                         output(restoration_procedure)
+                                        output("\n")
 
                                         output(restoration_material)
+                                        output("\n")
 
                                         output(billing_code)
+                                        output("\n")
 
                                         output(tooth_patient_relation_str)
+                                        output("\n")
 
                                         output(procedure_visit_relation_str)
                                         output("\n")
@@ -255,14 +260,19 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         output("\n")
                                 elif str(procedure_type) == '2':  ## for endodontic
                                     output(tooth_str)
+                                    output("\n")
 
                                     output(restoration_procedure)
+                                    output("\n")
 
                                     output(restoration_material)
+                                    output("\n")
 
                                     output(billing_code)
+                                    output("\n")
 
                                     output(tooth_patient_relation_str)
+                                    output("\n")
 
                                     output(procedure_visit_relation_str)
                                     output("\n")
