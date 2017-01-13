@@ -76,6 +76,12 @@ def load_ada_endodontic_material_map(filepath=os.path.dirname(__file__), filenam
 
     return ada_endodontic_material_map
 
+def load_ada_inlay_material_map(filepath=os.path.dirname(__file__), filename='ada_code_inlay_material_map.txt'):
+    file_full_name = os.path.join(filepath, filename)
+    ada_inlay_material_map = eval(open(file_full_name).read())
+
+    return ada_inlay_material_map
+
 def load_ada_procedure_map(filepath=os.path.dirname(__file__), filename='ada_code_procedure_map.txt'):
     file_full_name = os.path.join(filepath, filename)
     ada_procedure_map = eval(open(file_full_name).read())

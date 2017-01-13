@@ -1,7 +1,7 @@
 import pandas as pds
 import logging
 import os
-from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, load_ada_procedure_map
+from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, load_ada_inlay_material_map, load_ada_procedure_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
@@ -100,6 +100,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 load_ada_filling_material_map[ada_code]
                             elif str(procedure_type) == '2':  ## for endodontic
                                 load_ada_endodontic_material_map[ada_code]
+                            elif str(procedure_type) == '3':  ## for inlays
+                                load_ada_inlay_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -314,4 +316,4 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-print_procedure_ttl(practice_id='1', procedure_type=2)
+print_procedure_ttl(practice_id='1', procedure_type=3)

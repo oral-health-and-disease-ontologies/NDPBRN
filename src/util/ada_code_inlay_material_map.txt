@@ -1,0 +1,20 @@
+{
+'D2510':'metal dental restoration material',
+'D2520':'metal dental restoration material',
+'D2530':'metal dental restoration material',
+'D2610':'ceramic dental restoration material',
+'D2620':'ceramic dental restoration material',
+'D2630':'ceramic dental restoration material',
+'D2650':'resin dental restoration material',
+'D2651':'resin dental restoration material',
+'D2652':'resin dental restoration material',
+'D6600':'ceramic dental restoration material',
+'D6601':'ceramic dental restoration material',
+'D6602':'high noble metal dental restoration material',
+'D6603':'high noble metal dental restoration material',
+'D6604':'metal dental restoration material',
+'D6605':'metal dental restoration material',
+'D6606':'noble metal dental restoration material',
+'D6607':'noble metal dental restoration material',
+'D6624':'titanium dental restoration material'
+}
