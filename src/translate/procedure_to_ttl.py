@@ -136,6 +136,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     specific_material = label2uri[load_ada_filling_material_map[ada_code]].rsplit('/', 1)[-1]
                                 elif str(procedure_type) == '2':  ## for endodontic
                                     specific_material = label2uri[load_ada_endodontic_material_map[ada_code]].rsplit('/', 1)[-1]
+                                elif str(procedure_type) == '3':  ## for inlay
+                                    specific_material = label2uri[load_ada_inlay_material_map[ada_code]].rsplit('/', 1)[-1]
                                 restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                                     tooth_restoration_material=specific_material,
                                                                                                     label=restoration_material_label)
@@ -183,8 +185,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 cdt_code_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(uri1=cdt_code_uri,
                                                                                                        uri2=restoration_procedure_uri)
 
-                                #TODO: add other procedure_types for surfaces
-                                if str(procedure_type) == '1':  ## for filling (filling has surface info)
+                                if str(procedure_type) == '1' or str(procedure_type) == '3':  ## for filling/inlay (with surface info)
                                     if pds.notnull(surface) and surface:
                                         output(tooth_str)
                                         output("\n")
