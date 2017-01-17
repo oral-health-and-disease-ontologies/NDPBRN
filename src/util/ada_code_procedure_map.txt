@@ -94,5 +94,14 @@
 'D6605':'metallic inlay restoration procedure',
 'D6606':'noble metal inlay restoration procedure',
 'D6607':'noble metal inlay restoration procedure',
-'D6624':'titanium inlay restoration procedure'
+'D6624':'titanium inlay restoration procedure',
+'D6608':'ceramic onlay restoration procedure',
+'D6609':'ceramic onlay restoration procedure',
+'D6610':'high noble metal onlay restoration procedure',
+'D6611':'high noble metal onlay restoration procedure',
+'D6612':'metallic onlay restoration procedure',
+'D6613':'metallic onlay restoration procedure',
+'D6614':'noble metal onlay restoration procedure',
+'D6615':'noble metal onlay restoration procedure',
+'D6634':'titanium onlay restoration procedure'
 }
