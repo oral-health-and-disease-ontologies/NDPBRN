@@ -89,6 +89,7 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 
 - After creating the merged/inferred ontology (NDPBRN.owl) be sure to remove the inverseOf(...) property axioms and the Asymmetric & Irreflexive property assertions. These get added in (for some reason) and cause reasoning errors. Also, remove Functional and Inverse functional property assertions from is immediately preceded by and immediately precedes. This doesn't seem correct: many events can immediately precede another event; depends how you define things I guess.
 
+ - Added restored tooth subclasses: endodontically restored tooth, coronally restored tooth, extracoronally restored tooth, intracoronally restored tooth, and veneer surface restored tooth. these are defined classed. Their purpose is to allow the reasoner to classify certain kinds of restored teeth into convient groupings.
 
 
 
