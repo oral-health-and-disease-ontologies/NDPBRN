@@ -3183,6 +3183,7 @@ Changed &quot;A specific healthcare activity&quot; to &quot;A health care encoun
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000229"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000230"/>
                             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000232"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000241"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:intersectionOf>
@@ -7652,6 +7653,33 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <obo:IAO_0000115>a coronally restored tooth in which a thin layer of material (i.e., a veneer) has been placed over one or more surfaces of the tooth as a result of the tooth undergoing a veneer restoration procedure</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>veneer surface restored tooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000241 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000241">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a surgical dental procedure during which a tooth&apos;s root tip is removed and a root end cavity is prepared and filled with a biocompatible material</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 01/26/2017:
+Although this procedure includes the use of biocompatable material, we are not counting teeth that undergo this procedure as being restored (for now). The material doesn&apos;t have enough of an implact on making the tooth functional again.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://en.wikipedia.org/wiki/Apicoectomy</obo:IAO_0000119>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-26T23:07:42Z</dc:date>
+        <rdfs:label xml:lang="en">apicoectomy procedure</rdfs:label>
     </owl:Class>
     
 

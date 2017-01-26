@@ -92,4 +92,4 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
  - Added restored tooth subclasses: endodontically restored tooth, coronally restored tooth, extracoronally restored tooth, intracoronally restored tooth, and veneer surface restored tooth. these are defined classed. Their purpose is to allow the reasoner to classify certain kinds of restored teeth into convient groupings.
 
 
-
+- Add apicoectomy procedure and include it as type of endodontic procedure.
