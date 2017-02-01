@@ -3180,16 +3180,16 @@ Changed &quot;A specific healthcare activity&quot; to &quot;A health care encoun
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000002"/>
                     <owl:Class>
                         <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000229"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000230"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000232"/>
-                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000241"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000242"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000243"/>
                         </owl:unionOf>
                     </owl:Class>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A dental procedure that is performed on the pulp chamber and/or root canal of a tooth, or a part thereof</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 02/01/2017:
+This defined class is used as means to group all procedures that modify the tooth root or dental pulp whether or not dental restoration material is used.</obo:IAO_0000116>
         <obo:IAO_0000116>Titus Schleyer 1/14/2014: adapted definition</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PERSON:Pedro Cott</obo:IAO_0000117>
         <rdfs:label xml:lang="en">endodontic procedure</rdfs:label>
@@ -7407,20 +7407,8 @@ This finding can indicate that a procedure was performed even when the output is
     <!-- http://purl.obolibrary.org/obo/OHD_0000229 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000229">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>a surgical dental procedure involving a multrooted tooth in which the decayed root and its related coronal portion are removed to the furcation (area of bone loss)</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000243"/>
+        <obo:IAO_0000115>a surgical endodontic procedure involving a multi-root tooth in which the decayed root and its related coronal portion are removed to the furcation (area of bone loss)</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 Typically the removal of root/crown/bone is followed by the placement of an indirect restoration.</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
@@ -7434,14 +7422,10 @@ Typically the removal of root/crown/bone is followed by the placement of an indi
     <!-- http://purl.obolibrary.org/obo/OHD_0000230 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000230">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000236"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000242"/>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000118>a restored tooth in which the tooth&apos;s pulp is removed and replaced by dental restoration material</obo:IAO_0000118>
+        <obo:IAO_0000118>root canal treatment procedure</obo:IAO_0000118>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1483044587020</dc:date>
         <rdfs:label xml:lang="en">endodontic treatment procedure</rdfs:label>
     </owl:Class>
@@ -7463,9 +7447,9 @@ Typically the removal of root/crown/bone is followed by the placement of an indi
             </owl:Class>
         </owl:equivalentClass>
         <obo:IAO_0000112>a tooth in which inflamed pulp has been removed by a pulp debridement procedure</obo:IAO_0000112>
+        <obo:IAO_0000115>a tooth that has been modified in some way as the result of some surgical dental procedure</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 The intent of this class is to represent teeth that have undergone some kind of surgical procedure, but which are not restored in the sense of having dental restoration material placed in them; e.g, a pulp debridement procedure</obo:IAO_0000116>
-        <obo:IAO_0000116>a tooth that has been modified in some way as the result of some surgical dental procedure</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-12-29T20:52:14Z</dc:date>
         <rdfs:label xml:lang="en">surgically modified tooth</rdfs:label>
@@ -7476,20 +7460,8 @@ The intent of this class is to represent teeth that have undergone some kind of 
     <!-- http://purl.obolibrary.org/obo/OHD_0000232 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000232">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <obo:IAO_0000115>a surgical dental procedure in which infected pulp is removed from a tooth in order to give the remaining pulp room to swell</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000243"/>
+        <obo:IAO_0000115>a surgical endodontic procedure in which infected pulp is removed from a tooth in order to give the remaining pulp room to swell</obo:IAO_0000115>
         <obo:IAO_0000116>Bill Duncan 12/29/2016:
 This procedure relieves some of the pain, allowing a root canal patient to wait longer before having the full procedure performed.</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
@@ -7554,14 +7526,14 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000189"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000230"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000242"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115>a restored tooth in which the tooth&apos;s pulp has been replaced by dental restoration material as a results of the tooth undergoing an endodontic treatment procedure</obo:IAO_0000115>
+        <obo:IAO_0000115>a restored tooth in which some portion of the tooth&apos;s root or pulp has been replaced by dental restoration material as a result of the tooth undergoing an endodontic restorative procedure</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <rdfs:label>endodontically treated tooth</rdfs:label>
+        <rdfs:label>endodontically restored tooth</rdfs:label>
     </owl:Class>
     
 
@@ -7660,6 +7632,37 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000241 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000241">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000242"/>
+        <obo:IAO_0000115>an endodontic restorative procedure during which a tooth&apos;s root tip is removed and a root end cavity is prepared and filled with dental restoration material</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://en.wikipedia.org/wiki/Apicoectomy</obo:IAO_0000119>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-26T23:07:42Z</dc:date>
+        <rdfs:label xml:lang="en">apicoectomy procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000242 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000242">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000236"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>a tooth restoration procedure during which some portion of the tooth&apos;s root or pulp is replaced by dental restoration material</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-01T15:22:19Z</dc:date>
+        <rdfs:label xml:lang="en">endodontic restorative procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000243 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000243">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -7673,13 +7676,22 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000231"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>a surgical dental procedure during which a tooth&apos;s root tip is removed and a root end cavity is prepared and filled with a biocompatible material</obo:IAO_0000115>
-        <obo:IAO_0000116>Bill Duncan 01/26/2017:
-Although this procedure includes the use of biocompatable material, we are not counting teeth that undergo this procedure as being restored (for now). The material doesn&apos;t have enough of an implact on making the tooth functional again.</obo:IAO_0000116>
+        <obo:IAO_0000115>A surgical dental procedure that is performed on the pulp chamber and/or root canal of a tooth, or a part thereof</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <obo:IAO_0000119>https://en.wikipedia.org/wiki/Apicoectomy</obo:IAO_0000119>
-        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-26T23:07:42Z</dc:date>
-        <rdfs:label xml:lang="en">apicoectomy procedure</rdfs:label>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-01T15:48:57Z</dc:date>
+        <rdfs:label xml:lang="en">surgical endodontic procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000244 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000244">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000243"/>
+        <obo:IAO_0000115>a surgical endodontic procure during which a root is removed from a multi-root tooth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-02-01T16:00:30Z</dc:date>
+        <rdfs:label xml:lang="en">root amputation procedure</rdfs:label>
     </owl:Class>
     
 
@@ -7808,7 +7820,7 @@ Although this procedure includes the use of biocompatable material, we are not c
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
         <obo:IAO_0000115>A tooth that is either an incisor or a canine.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <rdfs:label>Anterior Tooth</rdfs:label>
+        <rdfs:label>anterior tooth</rdfs:label>
     </owl:Class>
     
 
@@ -7827,7 +7839,7 @@ Although this procedure includes the use of biocompatable material, we are not c
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FMA_12516"/>
         <obo:IAO_0000115>A tooth that is either a molar or premolar.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <rdfs:label>Posterior Tooth</rdfs:label>
+        <rdfs:label>posterior tooth</rdfs:label>
     </owl:Class>
     
 

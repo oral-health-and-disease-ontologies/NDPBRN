@@ -92,4 +92,14 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
  - Added restored tooth subclasses: endodontically restored tooth, coronally restored tooth, extracoronally restored tooth, intracoronally restored tooth, and veneer surface restored tooth. these are defined classed. Their purpose is to allow the reasoner to classify certain kinds of restored teeth into convient groupings.
 
 
-- Add apicoectomy procedure and include it as type of endodontic procedure.
+- Add class  endodontic restorative procedure.
+
+- Add apicoectomy procedure and include it as type of endodontic restorative procedure.
+
+- Make endodontic treatment procedure a subclass of  endodontic restorative procedure and add alternative term 'root canal treatment procedure' to  endodontic treatement procedure.
+
+- Change label for 'endodontically treated tooth' to 'endodontically restored tooth' and modify defintion.
+
+- Add class 'surgical endodontic procedure'. Make 'pulpal debridement procedure' and 'hemisection procedure' a subclass of it.
+
+- Make 'Anterior Tooth' and 'Posterior Tooth' lower case -> 'anterior tooth', 'posterior tooth'
