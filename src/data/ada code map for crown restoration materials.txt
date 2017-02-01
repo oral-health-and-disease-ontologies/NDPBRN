@@ -1,0 +1,44 @@
+# crown restoration materials
+{
+'D2390:'resin dental restoration material',
+'D2710:'resin dental restoration material',
+'D2712:'resin dental restoration material'
+'D2720:['resin dental restoration material', 'high noble metal dental restoration material']
+'D2721:['resin dental restoration material', 'predominantly base metal dental restoration material']
+'D2722:['resin dental restoration material', 'noble metal dental restoration material']
+'D2740:'porcelain dental restoration material'
+'D2750:['porcelain dental restoration material', 'high noble metal dental restoration material']
+'D2751:['porcelain dental restoration material', 'predominantly base metal dental restoration material']
+'D2752:['porcelain dental restoration material', 'noble metal dental restoration material']
+'D2780:'high noble metal dental restoration material'
+'D2781:'predominantly base metal'
+'D2782:'noble metal dental restoration material'
+'D2783:'porcelain dental restoration material'
+'D2790:'high noble metal dental restoration material'
+'D2791:'predominantly base metal dental restoration material'
+'D2792:'noble metal dental restoration material'
+'D2794:'titanium dental restoration material'
+'D2799:'dental restoration material'
+'D2931:'stainless steel dental restoration material'
+'D2932:'resin dental restoration material'
+'D2933:['stainless steel dental restoration material', 'resin dental restoration material']
+'D2970:'dental restoration material'
+'D6710:'resin dental restoration material'
+'D6720:['resin dental restoration material', 'high noble metal dental restoration material']
+'D6721:['resin dental restoration material', 'predominantly base metal dental restoration material']
+'D6722:['resin dental restoration material', 'noble metal dental restoration material']
+'D6740:'porcelain dental restoration material'
+'D6750:['porcelain dental restoration material', 'high noble metal dental restoration material']
+'D6751:['porcelain dental restoration material', 'predominantly base metal dental restoration material']
+'D6752:['porcelain dental restoration material', 'noble metal dental restoration material']
+'D6780:'high noble metal dental restoration material'
+'D6781:'predominantly base metal dental restoration material'
+'D6782:'noble metal dental restoration material'
+'D6783:'porcelain dental restoration material'
+'D6790:'high noble metal dental restoration material'
+'D6791:'predominantly base metal dental restoration material'
+'D6792:'noble metal dental restoration material'
+'D6793:'dental restoration material'
+'D6794:'titanium dental restoration material'
+'D6795:'dental restoration material'
+}
