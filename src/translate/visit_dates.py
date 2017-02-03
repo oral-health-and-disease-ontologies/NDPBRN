@@ -6,7 +6,7 @@ import numpy as np
 #from functools import reduce
 #from itertools import groupby
 #from operator import itemgetter
-from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_material_map, load_ada_procedure_map
+from load_resources import curr_dir, ohd_ttl, label2uri
 
 def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
@@ -162,5 +162,5 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
-next_visit_ttl(practice_id='2')
-#first_last_visit_date_ttl(practice_id='2')
+next_visit_ttl(practice_id='1')
+first_last_visit_date_ttl(practice_id='1')

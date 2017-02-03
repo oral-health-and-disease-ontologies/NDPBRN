@@ -1,7 +1,8 @@
 import pandas as pds
 import logging
 import os
-from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map
+from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
+    load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
@@ -16,7 +17,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
     procedure_type_map = {'1': 'filling',
                    '2': 'endodontic',
                    '3': 'inlays',
-                   '4': 'onlays'}
+                   '4': 'onlays',
+                   '5': 'apicoectomy'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -104,6 +106,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 load_ada_inlay_material_map[ada_code]
                             elif str(procedure_type) == '4':  ## for onlays
                                 load_ada_onlay_material_map[ada_code]
+                            elif str(procedure_type) == '5':  ## for apicoectomy
+                                load_ada_apicoectomy_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -142,6 +146,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     specific_material = label2uri[load_ada_inlay_material_map[ada_code]].rsplit('/', 1)[-1]
                                 elif str(procedure_type) == '4':  ## for onlay
                                     specific_material = label2uri[load_ada_onlay_material_map[ada_code]].rsplit('/', 1)[-1]
+                                elif str(procedure_type) == '5':  ## for apicoectomy
+                                    specific_material = label2uri[load_ada_apicoectomy_material_map[ada_code]].rsplit('/', 1)[-1]
                                 restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                                     tooth_restoration_material=specific_material,
                                                                                                     label=restoration_material_label)
@@ -265,7 +271,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 
                                         output(cdt_code_procedure_relation_str)
                                         output("\n")
-                                elif str(procedure_type) == '2':  ## for endodontic
+                                elif str(procedure_type) == '2' or str(procedure_type) == '5':  ## for endodontic, apicoectomy
                                     output(tooth_str)
                                     output("\n")
 
@@ -323,4 +329,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-print_procedure_ttl(practice_id='1', procedure_type=4)
+#print_procedure_ttl(practice_id='1', procedure_type=1)
+#print_procedure_ttl(practice_id='1', procedure_type=2)
+#print_procedure_ttl(practice_id='1', procedure_type=3)
+#print_procedure_ttl(practice_id='1', procedure_type=4)
+print_procedure_ttl(practice_id='1', procedure_type=5)

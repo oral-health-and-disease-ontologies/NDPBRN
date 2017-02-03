@@ -88,6 +88,12 @@ def load_ada_onlay_material_map(filepath=os.path.dirname(__file__), filename='ad
 
     return ada_onlay_material_map
 
+def load_ada_apicoectomy_material_map(filepath=os.path.dirname(__file__), filename='ada_code_apicoectomy_material_map.txt'):
+    file_full_name = os.path.join(filepath, filename)
+    ada_apicoectomy_material_map = eval(open(file_full_name).read())
+
+    return ada_apicoectomy_material_map
+
 def load_ada_procedure_map(filepath=os.path.dirname(__file__), filename='ada_code_procedure_map.txt'):
     file_full_name = os.path.join(filepath, filename)
     ada_procedure_map = eval(open(file_full_name).read())
@@ -101,7 +107,7 @@ def test_label2uri():
     print d['d2140'] # works
     print d['occlusal surface enamel of tooth']
 
-# load_label2uri(force=True)
+load_label2uri(force=True)
 # test_label2uri()
 # load_ada_code_map()
 # test_map = load_ada_procedure_map()
