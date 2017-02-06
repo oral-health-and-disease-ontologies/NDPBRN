@@ -64,37 +64,44 @@ def load_ada_code_map(filepath=os.path.dirname(__file__), filename='ada_code_map
 
     return ada_code_map
 
-def load_ada_filling_material_map(filepath=os.path.dirname(__file__), filename='ada_code_filling_material_map.txt'):
-    file_full_name = os.path.join(filepath, filename)
-    ada_filling_material_map = eval(open(file_full_name).read())
+#def load_ada_filling_material_map(filepath=os.path.dirname(__file__), filename='ada_code_filling_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_filling_material_map = eval(open(file_full_name).read())
+#
+#    return ada_filling_material_map
 
-    return ada_filling_material_map
+#def load_ada_endodontic_material_map(filepath=os.path.dirname(__file__), filename='ada_code_endodontic_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_endodontic_material_map = eval(open(file_full_name).read())
+#
+#    return ada_endodontic_material_map
 
-def load_ada_endodontic_material_map(filepath=os.path.dirname(__file__), filename='ada_code_endodontic_material_map.txt'):
-    file_full_name = os.path.join(filepath, filename)
-    ada_endodontic_material_map = eval(open(file_full_name).read())
+#def load_ada_inlay_material_map(filepath=os.path.dirname(__file__), filename='ada_code_inlay_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_inlay_material_map = eval(open(file_full_name).read())
+#
+#    return ada_inlay_material_map
 
-    return ada_endodontic_material_map
+#def load_ada_onlay_material_map(filepath=os.path.dirname(__file__), filename='ada_code_onlay_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_onlay_material_map = eval(open(file_full_name).read())
+#
+#    return ada_onlay_material_map
 
-def load_ada_inlay_material_map(filepath=os.path.dirname(__file__), filename='ada_code_inlay_material_map.txt'):
-    file_full_name = os.path.join(filepath, filename)
-    ada_inlay_material_map = eval(open(file_full_name).read())
+#def load_ada_apicoectomy_material_map(filepath=os.path.dirname(__file__), filename='ada_code_apicoectomy_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_apicoectomy_material_map = eval(open(file_full_name).read())
 
-    return ada_inlay_material_map
+#    return ada_apicoectomy_material_map
 
-def load_ada_onlay_material_map(filepath=os.path.dirname(__file__), filename='ada_code_onlay_material_map.txt'):
-    file_full_name = os.path.join(filepath, filename)
-    ada_onlay_material_map = eval(open(file_full_name).read())
+#def load_ada_root_amputation_material_map(filepath=os.path.dirname(__file__), filename='ada_code_root_amputation_material_map.txt'):
+#    file_full_name = os.path.join(filepath, filename)
+#    ada_root_amputation_material_map = eval(open(file_full_name).read())
+#
+#    return ada_root_amputation_material_map
 
-    return ada_onlay_material_map
-
-def load_ada_apicoectomy_material_map(filepath=os.path.dirname(__file__), filename='ada_code_apicoectomy_material_map.txt'):
-    file_full_name = os.path.join(filepath, filename)
-    ada_apicoectomy_material_map = eval(open(file_full_name).read())
-
-    return ada_apicoectomy_material_map
-
-def load_ada_root_amputation_material_map(filepath=os.path.dirname(__file__), filename='ada_code_root_amputation_material_map.txt'):
+def load_ada_procedure_material_map(filepath=os.path.dirname(__file__), procedure_type_name='filling'):
+    filename = 'ada_code_' + procedure_type_name + '_material_map.txt'
     file_full_name = os.path.join(filepath, filename)
     ada_root_amputation_material_map = eval(open(file_full_name).read())
 
