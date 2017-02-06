@@ -2,7 +2,8 @@ import pandas as pds
 import logging
 import os
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
-    load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map
+    load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
+    load_ada_root_amputation_material_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
@@ -18,7 +19,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                    '2': 'endodontic',
                    '3': 'inlays',
                    '4': 'onlays',
-                   '5': 'apicoectomy'}
+                   '5': 'apicoectomy',
+                   '6':'root_amputation'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -98,6 +100,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         # try/catch here for filter in filling procedures
                         try:
                             # filters on material for certain types of procedures that we are interested in
+                            no_material_flag = False
                             if str(procedure_type) == '1':  ## for filling
                                 load_ada_filling_material_map[ada_code]
                             elif str(procedure_type) == '2':  ## for endodontic
@@ -108,6 +111,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 load_ada_onlay_material_map[ada_code]
                             elif str(procedure_type) == '5':  ## for apicoectomy
                                 load_ada_apicoectomy_material_map[ada_code]
+                            elif str(procedure_type) == '6':  ## for root amputation - no material
+                                no_material_flag = True
+                                load_ada_root_amputation_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -148,7 +154,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     specific_material = label2uri[load_ada_onlay_material_map[ada_code]].rsplit('/', 1)[-1]
                                 elif str(procedure_type) == '5':  ## for apicoectomy
                                     specific_material = label2uri[load_ada_apicoectomy_material_map[ada_code]].rsplit('/', 1)[-1]
-                                restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
+
+                                if no_material_flag == False:
+                                    restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                                     tooth_restoration_material=specific_material,
                                                                                                     label=restoration_material_label)
 
@@ -183,7 +191,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                                                                                      uri2=tooth_uri)
 
                                 # relation: procedure has specified input material
-                                procedure_input_material_relation_str = ohd_ttl['uri1 has specified input uri2'].format(uri1=restoration_procedure_uri,
+                                if no_material_flag == False:
+                                    procedure_input_material_relation_str = ohd_ttl['uri1 has specified input uri2'].format(uri1=restoration_procedure_uri,
                                                                                                                         uri2=material_uri)
 
                                 # relation: restoration procedure has specified output tooth
@@ -205,8 +214,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         output(restoration_procedure)
                                         output("\n")
 
-                                        output(restoration_material)
-                                        output("\n")
+                                        if no_material_flag == False:
+                                            output(restoration_material)
+                                            output("\n")
 
                                         output(billing_code)
                                         output("\n")
@@ -242,9 +252,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                 output("\n")
 
                                                 #relation: material part of restored surface
-                                                material_restored_surface_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=material_uri, uri2=restored_surface_uri)
-                                                output(material_restored_surface_relation_str)
-                                                output("\n")
+                                                if no_material_flag == False:
+                                                    material_restored_surface_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=material_uri, uri2=restored_surface_uri)
+                                                    output(material_restored_surface_relation_str)
+                                                    output("\n")
 
                                                 #relation: restoration procedure has specified output restored surface
                                                 procedure_restored_surface_relation_str = ohd_ttl['uri1 has specified output uri2'].\
@@ -263,23 +274,25 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         output(procedure_tooth_input_relation_str)
                                         output("\n")
 
-                                        output(procedure_input_material_relation_str)
-                                        output("\n")
+                                        if no_material_flag == False:
+                                            output(procedure_input_material_relation_str)
+                                            output("\n")
 
                                         output(procedure_tooth_output_relation_str)
                                         output("\n")
 
                                         output(cdt_code_procedure_relation_str)
                                         output("\n")
-                                elif str(procedure_type) == '2' or str(procedure_type) == '5':  ## for endodontic, apicoectomy
+                                elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6':  ## for endodontic, apicoectomy, root amputation
                                     output(tooth_str)
                                     output("\n")
 
                                     output(restoration_procedure)
                                     output("\n")
 
-                                    output(restoration_material)
-                                    output("\n")
+                                    if no_material_flag == False:
+                                        output(restoration_material)
+                                        output("\n")
 
                                     output(billing_code)
                                     output("\n")
@@ -288,10 +301,11 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     output("\n")
 
                                     # relation: material part of tooth
-                                    material_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(
-                                        uri1=material_uri, uri2=tooth_uri)
-                                    output(material_tooth_relation_str)
-                                    output("\n")
+                                    if no_material_flag == False:
+                                        material_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                            uri1=material_uri, uri2=tooth_uri)
+                                        output(material_tooth_relation_str)
+                                        output("\n")
 
                                     output(procedure_visit_relation_str)
                                     output("\n")
@@ -309,8 +323,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     output(procedure_tooth_input_relation_str)
                                     output("\n")
 
-                                    output(procedure_input_material_relation_str)
-                                    output("\n")
+                                    if no_material_flag == False:
+                                        output(procedure_input_material_relation_str)
+                                        output("\n")
 
                                     output(procedure_tooth_output_relation_str)
                                     output("\n")
@@ -333,4 +348,5 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='1', procedure_type=2)
 #print_procedure_ttl(practice_id='1', procedure_type=3)
 #print_procedure_ttl(practice_id='1', procedure_type=4)
-print_procedure_ttl(practice_id='1', procedure_type=5)
+#print_procedure_ttl(practice_id='1', procedure_type=5)
+print_procedure_ttl(practice_id='1', procedure_type=6)
