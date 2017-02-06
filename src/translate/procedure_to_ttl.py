@@ -1,9 +1,10 @@
 import pandas as pds
 import logging
 import os
+import collections
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
-    load_ada_root_amputation_material_map
+    load_ada_root_amputation_material_map, load_ada_crown_material_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
@@ -20,7 +21,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                    '3': 'inlays',
                    '4': 'onlays',
                    '5': 'apicoectomy',
-                   '6':'root_amputation'}
+                   '6':'root_amputation',
+                   '7':'crown'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -114,6 +116,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                             elif str(procedure_type) == '6':  ## for root amputation - no material
                                 no_material_flag = True
                                 load_ada_root_amputation_material_map[ada_code]
+                            elif str(procedure_type) == '7':  ## for crown
+                                if ada_code == 'D2750':
+                                    test = 'test'
+                                load_ada_crown_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -154,11 +160,25 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     specific_material = label2uri[load_ada_onlay_material_map[ada_code]].rsplit('/', 1)[-1]
                                 elif str(procedure_type) == '5':  ## for apicoectomy
                                     specific_material = label2uri[load_ada_apicoectomy_material_map[ada_code]].rsplit('/', 1)[-1]
+                                elif str(procedure_type) == '7':  ## for crown
+                                    specific_material = list()
+                                    ada_material_codes = load_ada_crown_material_map[ada_code]
+                                    for one_ada_material_code in ada_material_codes:
+                                        specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
 
+
+                                restoration_material = list()
                                 if no_material_flag == False:
-                                    restoration_material = ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
-                                                                                                    tooth_restoration_material=specific_material,
-                                                                                                    label=restoration_material_label)
+                                    if isinstance(specific_material, basestring):
+                                        restoration_material.append(
+                                            ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
+                                                                                           tooth_restoration_material=specific_material,
+                                                                                           label=restoration_material_label))
+                                    elif isinstance(specific_material, collections.Iterable):
+                                        for one_material in specific_material:
+                                            restoration_material.append(ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
+                                                                                                    tooth_restoration_material=one_material,
+                                                                                                    label=restoration_material_label))
 
                                 # billing code
                                 billing_code_label = "billing code " + str(
@@ -179,7 +199,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 procedure_visit_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=restoration_procedure_uri,
                                                                                                       uri2=visit_uri)
 
-                                material_uri = "restoration_material:" + str(cdt_code_id)
+                                material_uri =  "restoration_material:" + str(cdt_code_id)
 
                                 # relation: restoration procedure has specified input provider
                                 provider_uri = ohd_ttl['provider uri by prefix'].format(provider_id=str(practiceId) + "_" + str(locationId) + "_" + str(prov_id))
@@ -215,8 +235,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         output("\n")
 
                                         if no_material_flag == False:
-                                            output(restoration_material)
-                                            output("\n")
+                                            for one_restoration_material in restoration_material:
+                                                output(one_restoration_material)
+                                                output("\n")
 
                                         output(billing_code)
                                         output("\n")
@@ -283,7 +304,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 
                                         output(cdt_code_procedure_relation_str)
                                         output("\n")
-                                elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6':  ## for endodontic, apicoectomy, root amputation
+                                elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7':  ## for endodontic, apicoectomy, root amputation, crown
                                     output(tooth_str)
                                     output("\n")
 
@@ -291,8 +312,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     output("\n")
 
                                     if no_material_flag == False:
-                                        output(restoration_material)
-                                        output("\n")
+                                        for one_restoration_material in restoration_material:
+                                            output(one_restoration_material)
+                                            output("\n")
 
                                     output(billing_code)
                                     output("\n")
@@ -349,4 +371,5 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='1', procedure_type=3)
 #print_procedure_ttl(practice_id='1', procedure_type=4)
 #print_procedure_ttl(practice_id='1', procedure_type=5)
-print_procedure_ttl(practice_id='1', procedure_type=6)
+#print_procedure_ttl(practice_id='1', procedure_type=6)
+print_procedure_ttl(practice_id='1', procedure_type=7)
