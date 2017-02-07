@@ -178,7 +178,6 @@
 'declare tooth by prefix':
 """
 tooth:{tooth_id} rdf:type <{specific_tooth}> .
-tooth:{tooth_id} rdf:type <{restored_tooth}> .
 tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
 """,
 

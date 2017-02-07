@@ -137,7 +137,6 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                 tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
                                                                                       specific_tooth=label2uri['tooth ' + str(tooth_num)],
-                                                                                      restored_tooth=label2uri['restored tooth'],
                                                                                       label=tooth_label)
 
                                 # restoration procedure
@@ -372,4 +371,4 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='1', procedure_type=4)
 #print_procedure_ttl(practice_id='1', procedure_type=5)
 #print_procedure_ttl(practice_id='1', procedure_type=6)
-print_procedure_ttl(practice_id='1', procedure_type=7)
+#print_procedure_ttl(practice_id='1', procedure_type=7)
