@@ -103,3 +103,5 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 - Add class 'surgical endodontic procedure'. Make 'pulpal debridement procedure' and 'hemisection procedure' a subclass of it.
 
 - Make 'Anterior Tooth' and 'Posterior Tooth' lower case -> 'anterior tooth', 'posterior tooth'
+
+- Add posterior teet resin restorations: billing code D2385: resin one surface, posterior permanent, billing code D2386: resin two surface, posterior permanent, billing code D2387: resin-based composite - three surfaces, posterior, billing code D2388: resin-based composite - four or more surfaces, posterior.
