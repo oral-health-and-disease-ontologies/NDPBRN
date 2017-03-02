@@ -105,3 +105,24 @@ For the NDPBRN project we have created a specific onotology (NDPBRN.owl) that is
 - Make 'Anterior Tooth' and 'Posterior Tooth' lower case -> 'anterior tooth', 'posterior tooth'
 
 - Add posterior teet resin restorations: billing code D2385: resin one surface, posterior permanent, billing code D2386: resin two surface, posterior permanent, billing code D2387: resin-based composite - three surfaces, posterior, billing code D2388: resin-based composite - four or more surfaces, posterior.
+
+- Added, reclassified, or redefined the classes:
+complete denture
+complete upper denture
+complete lower denture
+complete full denture
+complete fixed denture
+complete removable denture
+partial denture
+removable partial denture
+fixed partial denture
+tooth supported partial denture
+implant supported partial denture
+
+prosthodontics procedure
+removable prosthodontics procedure
+removable partial denture procedure
+complete denture procedure
+fixed prosthodontics procedure
+dental implant procedure
+fixed partial denture procedure

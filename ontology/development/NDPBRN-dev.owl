@@ -7696,6 +7696,194 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000245 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000245">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000246 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000246">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <rdfs:label>fixed prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000247 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000247">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <rdfs:label>removable prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000248 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000248">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000249 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000249">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000247"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000254"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>complete denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000250 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000250">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000247"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000252"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>removable partial denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000251 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000251">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and one or more dental implants</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>implant supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000252 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000252">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
+        <obo:IAO_0000115>a partial denture that is designed and constructed to be removed readily from the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>removable partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000253 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000253">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+        <obo:IAO_0000115>a prosthesis that replaces all the natural teeth and associated structures in either the maxilla or mandible (or both)</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000254 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000254">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that is designed and constructed to be removed readily from the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete removable denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000255 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000255">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that is perminately attached to the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete fixed denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000256 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000256">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in both the maxilla and mandible</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete full denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000257 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000257">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in the mandible</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete lower denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000258 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000258">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in the maxilla</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete upper denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000259 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000259">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000302"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000248"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>a prosthetic tooth with an anchoring structure surgically implanted beneath the mucosal or periosteal layer or in the bone</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://medical-dictionary.thefreedictionary.com/tooth+implant</obo:IAO_0000119>
+        <rdfs:label>dental implant</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000301 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000301">
@@ -7858,7 +8046,6 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <obo:IAO_0000115>a prosthesis that replaces one or more, but less than all, of the natural teeth and associated structures </obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>partial dental prothesis</obo:IAO_0000118>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175</obo:IAO_0000119>
         <rdfs:label>partial denture</rdfs:label>
     </owl:Class>
     
@@ -7867,18 +8054,10 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000311 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000311">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
-        <obo:IAO_0000115>a partial denture that is supported entirely by existing teeth</obo:IAO_0000115>
-        <obo:IAO_0000116>Alan Ruttenberg 12/16/2014:
-Need more clarity on what is meant by &quot;supported by the teeth&quot;.</obo:IAO_0000116>
-        <obo:IAO_0000116>Bill Duncan 12/13/2014:
-Definition updated to reflect Dan&apos;s comments.</obo:IAO_0000116>
-        <obo:IAO_0000116>Dan Caplan 12/13/2014:
-Mosby&apos;s definition is not quite corrrect. The support could also include other teeth that are not adjacent to the endentulous area. The important point is that the prosthesis is supported by existing teeth (wherever they are in the arch), and not by the gingiva.
-</obo:IAO_0000116>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and some or all of the remaining teeth</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175-176</obo:IAO_0000119>
-        <rdfs:label>tooth-supported partial denture</rdfs:label>
+        <rdfs:label>tooth supported partial denture</rdfs:label>
     </owl:Class>
     
 
@@ -7886,10 +8065,10 @@ Mosby&apos;s definition is not quite corrrect. The support could also include ot
     <!-- http://purl.obolibrary.org/obo/OHD_0000312 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000312">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000311"/>
-        <obo:IAO_0000115>a tooth-supported partial denture that is intended to be permanently attached to the teeth that furnish support to the restoration</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
+        <obo:IAO_0000115>a partial denture that is permanently attached to prepared natural teeth, roots, or implants</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>bridge</obo:IAO_0000118>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175</obo:IAO_0000119>
         <rdfs:label>fixed partial denture</rdfs:label>
     </owl:Class>
     
@@ -7898,11 +8077,17 @@ Mosby&apos;s definition is not quite corrrect. The support could also include ot
     <!-- http://purl.obolibrary.org/obo/OHD_0000313 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000313">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>A tooth restoration procedure in which a fixed partial denture (i.e., bridge) is attached to the supporting teeth.</obo:IAO_0000118>
         <obo:IAO_0000118>bridge restoration procedure</obo:IAO_0000118>
-        <rdfs:label>fixed partial denture restoration procedure</rdfs:label>
+        <rdfs:label>fixed partial denture procedure</rdfs:label>
     </owl:Class>
     
 
