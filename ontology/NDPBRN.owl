@@ -28,8 +28,8 @@
         <dc:contributor>Alan Ruttenberg</dc:contributor>
         <dc:contributor>Bill Duncan</dc:contributor>
         <dc:creator>Daniel Merico</dc:creator>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></owl:versionInfo>
         <dc:contributor>Melissa Haendel</dc:contributor>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></owl:versionInfo>
         <dc:creator>Albert Goldfain</dc:creator>
         <rdfs:comment>The Ontology for General Medical Science (OGMS) is based on the papers Toward an Ontological Treatment of Disease and Diagnosis and On Carcinomas and Other Pathological Entities. The ontology attempts to address some of the issues raised at the Workshop on Ontology of Diseases (Dallas, TX). OGMS was formerly called the clinical phenotype ontology. Terms from OGMS hang from the Basic Formal Ontology.
 
@@ -49,8 +49,8 @@ If you are interested in participating in the development of OGMS, please send e
 This ontology is licensed under the CC-BY License. Please see http://creativecommons.org/licenses/by/3.0/
 
 Attribution is satisfied by using the URIs defined in this file when using terms from this ontology.</rdfs:comment>
-        <owl:versionInfo>2011-09-20</owl:versionInfo>
         <dc:contributor>Mei Song</dc:contributor>
+        <owl:versionInfo>2011-09-20</owl:versionInfo>
         <protege:defaultLanguage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">en</protege:defaultLanguage>
         <dc:creator>Lindsay Cowell</dc:creator>
         <rdfs:comment>This ontology is in early development. Expect it to change.</rdfs:comment>
@@ -2300,6 +2300,50 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <obo:cdt_label>resin-based composite - four or more surfaces  or involving incisal angle (anterior)</obo:cdt_label>
         <dc:identifier>D2335</dc:identifier>
         <rdfs:label>billing code D2335: resin-based composite - four or more surfaces  or involving incisal angle (anterior)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0002385 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002385">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <obo:cdt_label>resin-based composite - one surface,  posterior</obo:cdt_label>
+        <dc:identifier>D2385</dc:identifier>
+        <rdfs:label>billing code D2385: resin-based composite - one surface,  posterior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0002386 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002386">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <obo:cdt_label>resin-based composite - two surfaces, posterior</obo:cdt_label>
+        <dc:identifier>C2386</dc:identifier>
+        <rdfs:label>billing code D2386: resin-based composite - two surfaces, posterior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0002387 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002387">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <obo:cdt_label>resin-based composite - three surfaces, posterior</obo:cdt_label>
+        <dc:identifier>D2387</dc:identifier>
+        <rdfs:label>billing code D2387: resin-based composite - three surfaces, posterior</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0002388 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002388">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <obo:cdt_label>resin-based composite - four or more surfaces, posterior</obo:cdt_label>
+        <dc:identifier>D2388</dc:identifier>
+        <rdfs:label>billing code D2388: resin-based composite - four or more surfaces, posterior</rdfs:label>
     </owl:Class>
     
 
@@ -17961,6 +18005,195 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000245 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000245">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000246 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000246">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <rdfs:label>fixed prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000247 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000247">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <rdfs:label>removable prosthodontics procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000248 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000248">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000249 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000249">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000247"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000254"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>complete denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000250 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000250">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000247"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000252"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>removable partial denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000251 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000251">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and one or more dental implants</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>implant supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000252 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000252">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
+        <obo:IAO_0000115>a partial denture that is designed and constructed to be removed readily from the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>removable partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000253 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000253">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+        <obo:IAO_0000115>a prosthesis that replaces all the natural teeth and associated structures in either the maxilla or mandible (or both)</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000254 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000254">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that is designed and constructed to be removed readily from the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete removable denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000255 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000255">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that is perminately attached to the mouth</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete fixed denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000256 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000256">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in both the maxilla and mandible</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete full denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000257 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000257">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in the mandible</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete lower denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000258 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000258">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
+        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in the maxilla</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>complete upper denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000259 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000259">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000302"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000248"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000302"/>
+        <obo:IAO_0000115>a prosthetic tooth with an anchoring structure surgically implanted beneath the mucosal or periosteal layer or in the bone</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://medical-dictionary.thefreedictionary.com/tooth+implant</obo:IAO_0000119>
+        <rdfs:label>dental implant</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000301 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000301">
@@ -18127,7 +18360,6 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <obo:IAO_0000115>a prosthesis that replaces one or more, but less than all, of the natural teeth and associated structures </obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>partial dental prothesis</obo:IAO_0000118>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175</obo:IAO_0000119>
         <rdfs:label>partial denture</rdfs:label>
     </owl:Class>
     
@@ -18136,18 +18368,10 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000311 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000311">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
-        <obo:IAO_0000115>a partial denture that is supported entirely by existing teeth</obo:IAO_0000115>
-        <obo:IAO_0000116>Alan Ruttenberg 12/16/2014:
-Need more clarity on what is meant by &quot;supported by the teeth&quot;.</obo:IAO_0000116>
-        <obo:IAO_0000116>Bill Duncan 12/13/2014:
-Definition updated to reflect Dan&apos;s comments.</obo:IAO_0000116>
-        <obo:IAO_0000116>Dan Caplan 12/13/2014:
-Mosby&apos;s definition is not quite corrrect. The support could also include other teeth that are not adjacent to the endentulous area. The important point is that the prosthesis is supported by existing teeth (wherever they are in the arch), and not by the gingiva.
-</obo:IAO_0000116>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and some or all of the remaining teeth</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175-176</obo:IAO_0000119>
-        <rdfs:label>tooth-supported partial denture</rdfs:label>
+        <rdfs:label>tooth supported partial denture</rdfs:label>
     </owl:Class>
     
 
@@ -18155,10 +18379,10 @@ Mosby&apos;s definition is not quite corrrect. The support could also include ot
     <!-- http://purl.obolibrary.org/obo/OHD_0000312 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000312">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000311"/>
-        <obo:IAO_0000115>a tooth-supported partial denture that is intended to be permanently attached to the teeth that furnish support to the restoration</obo:IAO_0000115>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
+        <obo:IAO_0000115>a partial denture that is permanently attached to prepared natural teeth, roots, or implants</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>bridge</obo:IAO_0000118>
-        <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 175</obo:IAO_0000119>
         <rdfs:label>fixed partial denture</rdfs:label>
     </owl:Class>
     
@@ -18167,11 +18391,17 @@ Mosby&apos;s definition is not quite corrrect. The support could also include ot
     <!-- http://purl.obolibrary.org/obo/OHD_0000313 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000313">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>A tooth restoration procedure in which a fixed partial denture (i.e., bridge) is attached to the supporting teeth.</obo:IAO_0000118>
         <obo:IAO_0000118>bridge restoration procedure</obo:IAO_0000118>
-        <rdfs:label>fixed partial denture restoration procedure</rdfs:label>
+        <rdfs:label>fixed partial denture procedure</rdfs:label>
     </owl:Class>
     
 
@@ -18987,14 +19217,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000002 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000002">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdfs:label xml:lang="en">example to be eventually removed</rdfs:label>
     </owl:NamedIndividual>
     
@@ -19003,13 +19226,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000103 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000103">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <obo:IAO_0000115 xml:lang="en">The term was used used in an attempt to structure part of the ontology but in retrospect failed to do a good job</obo:IAO_0000115>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Person:Alan Ruttenberg</obo:IAO_0000117>
@@ -19021,14 +19237,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000120 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000120">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">metadata complete</rdfs:label>
     </owl:NamedIndividual>
@@ -19038,14 +19247,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000121 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000121">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">term created to ease viewing/sort terms for development purpose, and will not be included in a release</obo:IAO_0000115>
         <rdfs:label xml:lang="en">organizational term</rdfs:label>
     </owl:NamedIndividual>
@@ -19055,14 +19257,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000122 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000122">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking &quot;ready_for_release&quot; should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed &quot;ready_for_release&quot; will also derived from a chain of ancestor classes that are also &quot;ready_for_release.&quot;</obo:IAO_0000115>
         <rdfs:label xml:lang="en">ready for release</rdfs:label>
     </owl:NamedIndividual>
@@ -19072,14 +19267,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000123 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000123">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">metadata incomplete</rdfs:label>
     </owl:NamedIndividual>
@@ -19089,14 +19277,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000124 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000124">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">Nothing done yet beyond assigning a unique class ID and proposing a preferred term.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">uncurated</rdfs:label>
     </owl:NamedIndividual>
@@ -19106,14 +19287,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000125 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000125">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">pending final vetting</rdfs:label>
     </owl:NamedIndividual>
@@ -19123,13 +19297,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000224 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000224">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://www.geneontology.org/formats/oboInOwl#Subset"/>
         <obo:IAO_0000115 xml:lang="en">Core is an instance of a grouping of terms from an ontology or ontologies. It is used by the ontology to identify main classes.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">PERSON: Alan Ruttenberg</obo:IAO_0000117>
@@ -19142,13 +19309,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000226 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000226">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <rdfs:label xml:lang="en">placeholder removed</rdfs:label>
     </owl:NamedIndividual>
@@ -19158,13 +19318,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000227 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000227">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <obo:IAO_0000116 xml:lang="en">An editor note should explain what were the merged terms and the reason for the merge.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">terms merged</rdfs:label>
@@ -19175,13 +19328,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000228 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000228">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <obo:IAO_0000116 xml:lang="en">This is to be used when the original term has been replaced by a term imported from an other ontology. An editor note should indicate what is the URI of the new term to use.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">term imported</rdfs:label>
@@ -19192,13 +19338,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000229 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000229">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000225"/>
         <obo:IAO_0000116 xml:lang="en">This is to be used when a term has been split in two or more new terms. An editor note should indicate the reason for the split and indicate the URIs of the new terms created.</obo:IAO_0000116>
         <rdfs:label xml:lang="en">term split</rdfs:label>
@@ -19209,13 +19348,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000410 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000410">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000409"/>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hard to give a definition for. Intuitively a &quot;natural kind&quot; rather than a collection of any old things, which a class is able to be, formally. At the meta level, universals are defined as positives, are disjoint with their siblings, have single asserted parents.</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alan Ruttenberg</obo:IAO_0000117>
@@ -19228,13 +19360,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000420 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000420">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000409"/>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&quot;definitions&quot;, in some readings, always are given by necessary and sufficient conditions. So one must be careful (and this is difficult sometimes) to distinguish between defined classes and universal.</obo:IAO_0000116>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal</obo:IAO_0000117>
@@ -19247,13 +19372,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000421 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000421">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000409"/>
         <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A named class expression is a logical expression that is given a name. The name can be used in place of the expression.</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">named class expressions are used in order to have more concise logical definition but their extensions may not be interesting classes on their own. In languages such as OWL, with no provisions for macros, these show up as actuall classes. Tools may with to not show them as such, and to replace uses of the macros with their expansions</obo:IAO_0000116>
@@ -19266,14 +19384,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000423 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000423">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">Terms with this status should eventually replaced with a term from another ontology.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Alan Ruttenberg</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
@@ -19285,14 +19396,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/IAO_0000428 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/IAO_0000428">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000078"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000102"/>
         <obo:IAO_0000115 xml:lang="en">A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues.</obo:IAO_0000115>
         <obo:IAO_0000117 xml:lang="en">Alan Ruttenberg</obo:IAO_0000117>
         <obo:IAO_0000119 xml:lang="en">group:OBI</obo:IAO_0000119>
@@ -19304,12 +19408,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000101 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000101">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55696"/>
         <rdfs:label xml:lang="en">1</rdfs:label>
@@ -19320,12 +19418,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000102 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000102">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55697"/>
         <rdfs:label xml:lang="en">2</rdfs:label>
@@ -19336,12 +19428,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000103 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000103">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55698"/>
         <rdfs:label xml:lang="en">3</rdfs:label>
@@ -19352,12 +19438,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000104 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000104">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55688"/>
         <rdfs:label xml:lang="en">4</rdfs:label>
@@ -19368,12 +19448,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000105 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000105">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55689"/>
         <rdfs:label xml:lang="en">5</rdfs:label>
@@ -19384,12 +19458,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000106 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000106">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55798"/>
         <rdfs:label xml:lang="en">6</rdfs:label>
@@ -19400,12 +19468,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000107 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000107">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55680"/>
         <rdfs:label xml:lang="en">7</rdfs:label>
@@ -19416,12 +19478,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000108 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000108">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55681"/>
         <rdfs:label xml:lang="en">8</rdfs:label>
@@ -19432,12 +19488,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000109 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000109">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55682"/>
         <rdfs:label xml:lang="en">9</rdfs:label>
@@ -19448,12 +19498,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000110 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000110">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55683"/>
         <rdfs:label xml:lang="en">10</rdfs:label>
@@ -19464,12 +19508,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000111 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000111">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55799"/>
         <rdfs:label xml:lang="en">11</rdfs:label>
@@ -19480,12 +19518,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000112 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000112">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55690"/>
         <rdfs:label xml:lang="en">12</rdfs:label>
@@ -19496,12 +19528,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000113 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000113">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55691"/>
         <rdfs:label xml:lang="en">13</rdfs:label>
@@ -19512,12 +19538,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000114 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000114">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55699"/>
         <rdfs:label xml:lang="en">14</rdfs:label>
@@ -19528,12 +19548,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000115 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000115">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55700"/>
         <rdfs:label xml:lang="en">15</rdfs:label>
@@ -19544,12 +19558,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000116 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000116">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55701"/>
         <rdfs:label xml:lang="en">16</rdfs:label>
@@ -19560,12 +19568,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000117 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000117">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55702"/>
         <rdfs:label xml:lang="en">17</rdfs:label>
@@ -19576,12 +19578,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000118 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000118">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55703"/>
         <rdfs:label xml:lang="en">18</rdfs:label>
@@ -19592,12 +19588,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000119 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000119">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55704"/>
         <rdfs:label xml:lang="en">19</rdfs:label>
@@ -19608,12 +19598,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000120 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000120">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55692"/>
         <rdfs:label xml:lang="en">20</rdfs:label>
@@ -19624,12 +19608,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000121 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000121">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55693"/>
         <rdfs:label xml:lang="en">21</rdfs:label>
@@ -19640,12 +19618,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000122 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000122">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55687"/>
         <rdfs:label xml:lang="en">22</rdfs:label>
@@ -19656,12 +19628,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000123 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000123">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_57141"/>
         <rdfs:label xml:lang="en">23</rdfs:label>
@@ -19672,12 +19638,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000124 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000124">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_57143"/>
         <rdfs:label xml:lang="en">24</rdfs:label>
@@ -19688,12 +19648,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000125 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000125">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_57142"/>
         <rdfs:label xml:lang="en">25</rdfs:label>
@@ -19704,12 +19658,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000126 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000126">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_57140"/>
         <rdfs:label xml:lang="en">26</rdfs:label>
@@ -19720,12 +19668,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000127 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000127">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55686"/>
         <rdfs:label xml:lang="en">27</rdfs:label>
@@ -19736,12 +19678,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000128 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000128">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55694"/>
         <rdfs:label xml:lang="en">28</rdfs:label>
@@ -19752,12 +19688,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000129 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000129">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55695"/>
         <rdfs:label xml:lang="en">29</rdfs:label>
@@ -19768,12 +19698,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000130 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000130">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55705"/>
         <rdfs:label xml:lang="en">30</rdfs:label>
@@ -19784,12 +19708,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000131 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000131">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55706"/>
         <rdfs:label xml:lang="en">31</rdfs:label>
@@ -19800,12 +19718,6 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000132 -->
 
     <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/OHD_0000132">
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000001"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000005"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000009"/>
-        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/OHD_0000100"/>
         <obo:IAO_0000136 rdf:resource="http://purl.obolibrary.org/obo/FMA_55707"/>
         <rdfs:label xml:lang="en">32</rdfs:label>
@@ -20080,8 +19992,8 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0100001">
         <obo:IAO_0000111 xml:lang="en">term replaced by</obo:IAO_0000111>
         <obo:IAO_0000119 xml:lang="en">Person:Alan Ruttenberg</obo:IAO_0000119>
-        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <obo:IAO_0000117 xml:lang="en">Person:Alan Ruttenberg</obo:IAO_0000117>
+        <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
         <rdfs:label xml:lang="en">term replaced by</rdfs:label>
         <obo:IAO_0000115 xml:lang="en">Use on obsolete terms, relating the term to another term that can be used as a substitute</obo:IAO_0000115>
     </rdf:Description>
