@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="file:///Users/alanr/repos/iop/translate/icd.owl" uri="development/imports/icd9-import.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl" uri="development/imports/protege-dc.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/" uri="development/imports/obi-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/2016-06-27/ohd-inferred.owl" uri="ohd-2016-06-27-merged-inferred.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/2016-06-27/ohd.owl" uri="ohd-2016-06-27-merged.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="duplicate:http://purl.obolibrary.org/obo/bfo/core-classes.owl" uri="development/imports/BFO2/bfo2-classes.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="duplicate:http://purl.obolibrary.org/obo/bfo/core-classes.owl" uri="development/imports/BFO2/bfo2.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/bfo/core-relations.owl" uri="development/imports/BFO2/bfo2-relations.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl" uri="development/imports/ontology-metadata.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ogms.owl" uri="development/imports/ogms.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/dev/CARO_import.owl" uri="development/imports/caro-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/dev/cdt-imports.owl/" uri="development/imports/cdt-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/dev/iao-imports.owl" uri="development/imports/iao-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/dev/ncbi-imports.owl" uri="development/imports/ncbi-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/missing-information-import.owl" uri="development/imports/missing-information-import.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/ohd/tooth-specific-anatomy-classes.owl" uri="development/imports/NDPBRN-anatomy-classes_2d-surface-subclass-of-surface-enamel.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.obolibrary.org/obo/omrse-imports.owl" uri="development/imports/omrse-imports.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.regenstrief.org/NDPBRN-anatomy-classes.owl/" uri="development/imports/NDPBRN-anatomy-classes.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.regenstrief.org/NDPBRN-bfo-classes.owl/" uri="development/imports/NDPBRN-bfo-classes.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.regenstrief.org/NDPBRN-bfo-relations.owl/" uri="development/imports/NDPBRN-bfo-relations.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.regenstrief.org/NDPBRN.owl" uri="NDPBRN.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="http://purl.regenstrief.org/dev/NDPBRN.owl/" uri="development/NDPBRN-dev.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1488857411851" name="shadowed:http://purl.obolibrary.org/obo/" uri="development/imports/BFO2/bfo2-regions.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="file:///Users/alanr/repos/iop/translate/icd.owl" uri="development/imports/icd9-import.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl" uri="development/imports/protege-dc.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/" uri="development/imports/obi-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/2016-06-27/ohd-inferred.owl" uri="ohd-2016-06-27-merged-inferred.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/2016-06-27/ohd.owl" uri="ohd-2016-06-27-merged.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="duplicate:http://purl.obolibrary.org/obo/bfo/core-classes.owl" uri="development/imports/BFO2/bfo2-classes.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="duplicate:http://purl.obolibrary.org/obo/bfo/core-classes.owl" uri="development/imports/BFO2/bfo2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/bfo/core-relations.owl" uri="development/imports/BFO2/bfo2-relations.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/iao/dev/ontology-metadata.owl" uri="development/imports/ontology-metadata.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ogms.owl" uri="development/imports/ogms.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/dev/CARO_import.owl" uri="development/imports/caro-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/dev/cdt-imports.owl/" uri="development/imports/cdt-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/dev/iao-imports.owl" uri="development/imports/iao-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/dev/ncbi-imports.owl" uri="development/imports/ncbi-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/missing-information-import.owl" uri="development/imports/missing-information-import.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/ohd/tooth-specific-anatomy-classes.owl" uri="development/imports/NDPBRN-anatomy-classes_2d-surface-subclass-of-surface-enamel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.obolibrary.org/obo/omrse-imports.owl" uri="development/imports/omrse-imports.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.regenstrief.org/NDPBRN-anatomy-classes.owl/" uri="development/imports/NDPBRN-anatomy-classes.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.regenstrief.org/NDPBRN-bfo-classes.owl/" uri="development/imports/NDPBRN-bfo-classes.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.regenstrief.org/NDPBRN-bfo-relations.owl/" uri="development/imports/NDPBRN-bfo-relations.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.regenstrief.org/NDPBRN.owl" uri="NDPBRN.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="http://purl.regenstrief.org/dev/NDPBRN.owl/" uri="development/NDPBRN-dev.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489377445135" name="shadowed:http://purl.obolibrary.org/obo/" uri="development/imports/BFO2/bfo2-regions.owl"/>
     </group>
 </catalog>

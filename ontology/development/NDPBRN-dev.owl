@@ -7699,13 +7699,15 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000245 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000245">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000004"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000002"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental procedure during which some part of the mouth is replaced by or fitted for a prothesis.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>prosthodontics procedure</rdfs:label>
     </owl:Class>
     
@@ -7715,6 +7717,8 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000246">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <obo:IAO_0000115>A dental procedure during which a prosthesis is permately attached to some part of the mouth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>fixed prosthodontics procedure</rdfs:label>
     </owl:Class>
     
@@ -7724,6 +7728,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000247">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>removable prosthodontics procedure</rdfs:label>
     </owl:Class>
     
@@ -7739,6 +7744,8 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A fixed prosthodontics procedure in which a dental implant is perminately attached to the jaw.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>dental implant procedure</rdfs:label>
     </owl:Class>
     
@@ -7754,6 +7761,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000254"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete denture procedure</rdfs:label>
     </owl:Class>
     
@@ -7769,6 +7777,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000252"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>removable partial denture procedure</rdfs:label>
     </owl:Class>
     
@@ -8084,8 +8093,8 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A fixed prosthodontics procedure in which a fixed partial denture (i.e., bridge) is attached to the supporting teeth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <obo:IAO_0000118>A tooth restoration procedure in which a fixed partial denture (i.e., bridge) is attached to the supporting teeth.</obo:IAO_0000118>
         <obo:IAO_0000118>bridge restoration procedure</obo:IAO_0000118>
         <rdfs:label>fixed partial denture procedure</rdfs:label>
     </owl:Class>
