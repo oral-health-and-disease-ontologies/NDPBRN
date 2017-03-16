@@ -9,7 +9,8 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
-    visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(filename, 'w') as f:
         # local function for printing and saving turtle output
@@ -30,7 +31,8 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
         # print ttl for each patient
-        for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+        for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+            practiceId = practice_id
             if tableName.lower() == 'transactions':
                 try:
                     date_str = visitDate.strftime('%Y-%m-%d')
@@ -66,4 +68,4 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                     logging.exception("message")
 
-translate_visit_to_ttl(practice_id='2')
+translate_visit_to_ttl(practice_id='1')

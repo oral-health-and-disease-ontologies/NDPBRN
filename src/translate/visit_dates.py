@@ -14,7 +14,8 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
-    visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(filename, 'w') as f:
         with open('visit_date_err.txt', 'w') as f_err:
@@ -32,7 +33,8 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
 
             results = []
 
-            for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+            for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+                practiceId = practice_id
                 if tableName.lower() == 'transactions':
                     try:
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
@@ -93,7 +95,8 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df = pds.ExcelFile(df_path).parse()
 
-    visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
+    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(filename, 'w') as f:
         with open('next_visit_date_err.txt', 'w') as f_err:
@@ -111,7 +114,8 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
 
             results = []
 
-            for (idx, practiceId, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+            for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+                practiceId = practice_id
                 if tableName.lower() == 'transactions':
                     try:
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
