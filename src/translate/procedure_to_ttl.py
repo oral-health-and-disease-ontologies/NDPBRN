@@ -14,7 +14,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
     df = pds.ExcelFile(df_path).parse()
     #df = pds.read_csv(df_path)
 
-    patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'tran_date', 'ada_code', 'provider_id', 'table_name']]
 
     procedure_type_map = {'1': 'filling',
                    '2': 'endodontic',
@@ -75,7 +76,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
             output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
             # print ttl for each patient
-            for (idx, practiceId, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
+            #for (idx, practiceId, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
+            practiceId = practice_id
+            for (idx, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
                 if tableName.lower() == 'transactions':
                     ada_code = str(ada_code)
                     #sometimes it has 'D' in front of numbers, sometimes there's no D
@@ -127,6 +130,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 return
 
                             if pds.notnull(tooth_num):
+                                tooth_num = int(tooth_num)
                                 tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
 
                                 cdt_code_id = tooth_id + "_" + str(ada_code) + "_" + date_str
@@ -365,10 +369,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-#print_procedure_ttl(practice_id='1', procedure_type=1)
-#print_procedure_ttl(practice_id='1', procedure_type=2)
-#print_procedure_ttl(practice_id='1', procedure_type=3)
-#print_procedure_ttl(practice_id='1', procedure_type=4)
-#print_procedure_ttl(practice_id='1', procedure_type=5)
-#print_procedure_ttl(practice_id='1', procedure_type=6)
-#print_procedure_ttl(practice_id='1', procedure_type=7)
+print_procedure_ttl(practice_id='1', procedure_type=1)
+print_procedure_ttl(practice_id='1', procedure_type=2)
+print_procedure_ttl(practice_id='1', procedure_type=3)
+print_procedure_ttl(practice_id='1', procedure_type=4)
+print_procedure_ttl(practice_id='1', procedure_type=5)
+print_procedure_ttl(practice_id='1', procedure_type=6)
+print_procedure_ttl(practice_id='1', procedure_type=7)
