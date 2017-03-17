@@ -1,6 +1,7 @@
 import pandas as pds
 import logging
 import os
+from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
 def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True):
@@ -81,13 +82,17 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.xlsx')
-    df = pds.ExcelFile(df_path).parse()
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.txt')
+    #df = pds.ExcelFile(df_path).parse()
+    #df = pds.ExcelFile(df_path).parse()
+    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "sex", "birth_date", "status"], header=0)
     #df = pds.read_csv(df_path)
 
     # extract just the patient and gender columns for convience
     #patient_df = df[['patient_id', 'gender', 'birth_date']]
-    patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID']]
+    #patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID']]
+    patient_df = df[['patient_id', 'sex', 'birth_date', 'status']]
 
     # testing...
     # print patient_df
@@ -111,10 +116,13 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
         # print ttl for each patient
-        for (idx, pid, gender, birth_date, pstatus, practiceId, locationId) in patient_df.itertuples():
+        for (idx, pid, gender, birth_date, pstatus) in patient_df.itertuples():
+            practiceId = practice_id
+            locationId = 1
 #            if pstatus.lower() == 'y':
             try:
-                birth_date_str = birth_date.strftime('%Y-%m-%d')
+                #birth_date_str = birth_date.strftime('%Y-%m-%d')
+                birth_date_str = datetime.strptime(birth_date, '%Y-%m-%d')
                 id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                 patient_role_type = label2uri['dental patient role']
 

@@ -55,9 +55,10 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.csv')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.xlsx')
-    df = pds.ExcelFile(df_path).parse()
-    #df = pds.read_csv(df_path)
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.txt')
+    #df = pds.ExcelFile(df_path).parse()
+    df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
 
     with open(filename, 'w') as f:
         # local function for printing and saving turtle output
@@ -80,7 +81,9 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
         for row in df.itertuples():
 #            if row.PROVIDER_ID.lower() != 'bs' and row.PROVIDER_ID.lower() != 'ss':
             # set variables need to format ttl string
-            id = str(row.PBRN_PRACTICE) + "_" + str(row.DB_PRACTICE_ID) + "_" + str(row.PROVIDER_ID)
+            # new headers from exported provider txt file: db_practice_id	provider_id	status	position_id	description
+            #id = str(row.PBRN_PRACTICE) + "_" + str(row.DB_PRACTICE_ID) + "_" + str(row.PROVIDER_ID)
+            id = str(practice_id) + "_" + str(row.db_practice_id) + "_" + str(row.provider_id)
             provider_type = label2uri['dental health care provider']
             provider_role_type = label2uri['dental health care provider role']
             office_staff_role_type = label2uri['health care office staff role']
@@ -104,7 +107,8 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
                 format(uri=role_uri, type=provider_role_type, label=role_label))
 
             # if string "office" is in position string, print office staff role and relate it to the provider:
-            if "office" in row.POSITION.lower():
+            #if "office" in row.POSITION.lower():
+            if "office" in row.description.lower():
                 output(ohd_ttl['declare individual uri'].
                     format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label))
                 output(ohd_ttl['uri1 has role uri2'].
