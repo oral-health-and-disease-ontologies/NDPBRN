@@ -1,13 +1,18 @@
 import pandas as pds
 import logging
 import os
+from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
 def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True, save_ttl=True):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
-    df = pds.ExcelFile(df_path).parse()
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
+    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    #df = pds.ExcelFile(df_path).parse()
+    #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
+    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+                      header=0)
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
@@ -35,7 +40,7 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
             practiceId = practice_id
             if tableName.lower() == 'transactions':
                 try:
-                    date_str = visitDate.strftime('%Y-%m-%d')
+                    date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
 
                     visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                     #uri
@@ -68,4 +73,4 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                     logging.exception("message")
 
-translate_visit_to_ttl(practice_id='1')
+translate_visit_to_ttl(practice_id='2')

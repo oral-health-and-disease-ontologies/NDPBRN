@@ -6,93 +6,19 @@ from load_resources import curr_dir, ohd_ttl, label2uri
 
 def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True):
     # get data from RI-demo-data
-    df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
-    df = pds.ExcelFile(df_path).parse()
-
-    # extract just the patient and gender columns for convience
-    patient_df = df[['patient_id', 'gender']]
-
-    # testing...
-    # print patient_df
-
-    with open(filename, 'w') as f:
-        # local function for printing and saving turtle output
-        def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
-            if print_ttl == True: print value_str
-            if save_ttl == True: f.write(value_str)
-
-        # output prefixes for ttl file
-        prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
-        output(prefix_str)
-
-        # print ttl for each patient
-        for (idx, pid, gender) in patient_df.itertuples():
-            id = str(practice_id) + "_" + str(pid)
-            patient_role_type = label2uri['dental patient role']
-            is_bearer_of = label2uri['is bearer of']
-            has_role = label2uri['has role']
-
-            if gender == 'M':
-                patient_type = label2uri['male dental patient']
-                gender_role_type = label2uri['male gender role']
-            else:
-                patient_type = label2uri['female dental patient']
-                gender_role_type = label2uri['female gender role']
-
-            # declare patient
-            label = "patient " + id
-            ttl_str = ohd_ttl['declare patient']. \
-                format(patient_id=id,
-                       dental_patient=patient_type,
-                       label=label)
-            output(ttl_str)
-
-            # declare patient role
-            label = "patient " + id + " patient role"
-            ttl_str = ohd_ttl['declare patient role']. \
-                format(patient_id=id,
-                       patient_role=patient_role_type,
-                       label=label)
-            output(ttl_str)
-
-            # declare patient gender role
-            label = "patient " + id + " gender role " + gender
-            ttl_str = ohd_ttl['declare gender role']. \
-                format(patient_id=id,
-                       gender_role=gender_role_type,
-                       gender_code=gender,
-                       label=label)
-            output(ttl_str)
-
-            # relate patient to patient role
-            ttl_str = ohd_ttl['relate patient to role']. \
-                format(patient_id=id,
-                       has_role=has_role)
-            output(ttl_str)
-
-            # relate patient to gender role
-            ttl_str = ohd_ttl['relate patient to gender']. \
-                format(patient_id=id,
-                       gender_code=gender,
-                       is_bearer_of=is_bearer_of)
-            output(ttl_str)
-
-
-def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True):
-    # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.xlsx')
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.txt')
     #df = pds.ExcelFile(df_path).parse()
     #df = pds.ExcelFile(df_path).parse()
-    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "sex", "birth_date", "status"], header=0)
+    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "sex", "birth_date", "status", "patient_db_practice_id"], header=0)
     #df = pds.read_csv(df_path)
 
     # extract just the patient and gender columns for convience
     #patient_df = df[['patient_id', 'gender', 'birth_date']]
     #patient_df = df[['PATIENT_ID', 'SEX', 'BIRTH_DATE', 'STATUS', 'PBRN_PRACTICE', 'DB_PRACTICE_ID']]
-    patient_df = df[['patient_id', 'sex', 'birth_date', 'status']]
+    patient_df = df[['patient_id', 'sex', 'birth_date', 'status', 'patient_db_practice_id']]
 
     # testing...
     # print patient_df
@@ -116,13 +42,12 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
 
         # print ttl for each patient
-        for (idx, pid, gender, birth_date, pstatus) in patient_df.itertuples():
+        for (idx, pid, gender, birth_date, pstatus, locationId) in patient_df.itertuples():
             practiceId = practice_id
-            locationId = 1
 #            if pstatus.lower() == 'y':
             try:
                 #birth_date_str = birth_date.strftime('%Y-%m-%d')
-                birth_date_str = datetime.strptime(birth_date, '%Y-%m-%d')
+                birth_date_str = str(datetime.strptime(birth_date, '%Y-%m-%d').date())
                 id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                 patient_role_type = label2uri['dental patient role']
 
@@ -171,8 +96,14 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
                 output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=birth_date_type,
                                                                    date=birth_date_str))
 
+                if pstatus == 'A':
+                    pstatus_str = 'active'
+                else:
+                    pstatus_str = 'inactive'
+
                 output(ohd_ttl['declare string property uri'].format(uri=patient_uri, type=patient_activity_status_type,
-                                                                   string_value=pstatus))
+                                                                   string_value=pstatus_str
+                                                                     ))
 
                 # relate individuals
                 output(ohd_ttl['uri1 is bearer of uri2'].format(uri1=patient_uri, uri2=gender_uri))
@@ -182,5 +113,4 @@ def translate_patient_to_ttl_1(practice_id='3', filename='patient.ttl', print_tt
                 print("patient " + str(pid) + " has problems!!!")
                 logging.exception("message")
 
-# translate_patient_to_ttl()
-translate_patient_to_ttl_1(practice_id='2')
+translate_patient_to_ttl(practice_id='2')
