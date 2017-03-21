@@ -90,8 +90,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                 if tableName.lower() == 'transactions':
                     ada_code = str(ada_code)
                     #sometimes it has 'D' in front of numbers, sometimes there's no D
-                    if not ada_code.startswith('D'):
-                        ada_code = str('D') + ada_code
+                    #if not ada_code.startswith('D'):
+                    #    ada_code = str('D') + ada_code
+                    ##change to use last 4 digits of ada_code and add D in front:
+                    ada_code = str('D') + ada_code[-4:]
 
                     #refactor to use tooth column with one integer number (tooth_num) instead of calculating
                     #tooth_char = list(tooth_data)
@@ -377,10 +379,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-print_procedure_ttl(practice_id='2', procedure_type=1)
-print_procedure_ttl(practice_id='2', procedure_type=2)
-print_procedure_ttl(practice_id='2', procedure_type=3)
-print_procedure_ttl(practice_id='2', procedure_type=4)
-print_procedure_ttl(practice_id='2', procedure_type=5)
-print_procedure_ttl(practice_id='2', procedure_type=6)
-print_procedure_ttl(practice_id='2', procedure_type=7)
+print_procedure_ttl(practice_id='3', procedure_type=1)
+print_procedure_ttl(practice_id='3', procedure_type=2)
+print_procedure_ttl(practice_id='3', procedure_type=3)
+print_procedure_ttl(practice_id='3', procedure_type=4)
+print_procedure_ttl(practice_id='3', procedure_type=5)
+print_procedure_ttl(practice_id='3', procedure_type=6)
+print_procedure_ttl(practice_id='3', procedure_type=7)
