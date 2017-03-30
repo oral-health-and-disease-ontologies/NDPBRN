@@ -18592,7 +18592,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
             </owl:Class>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000302"/>
-        <obo:IAO_0000116>A prothetic tooth that is part of a fixed partial denture.</obo:IAO_0000116>
+        <obo:IAO_0000116>A prothetic tooth that is part of a partial denture.</obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>pontic</rdfs:label>
     </owl:Class>
@@ -20162,6 +20162,12 @@ This data property provides a means to query for missing teeth. Since a missing 
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000115>a data property whose value is an ADA universal tooth number that represents a tooth which is missing from a dentition</obo:IAO_0000115>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-01-03T18:37:35Z</dc:date>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000273">
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label xml:lang="en">organizaton identifer</rdfs:label>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-30T21:28:59Z</dc:date>
+        <obo:IAO_0000115>An annotation property used to store the unique identifier to an organization, such as a dental practice, hosptial, or medical practice. This useful in stituations for which you have to integrate data from multiple organizations, but want to assign an anonymous to each.</obo:IAO_0000115>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/bfo/core-classes.owl">
         <dc:source>Barry Smith and Pierre Grenon: &quot;The Cornucopia of Formal Ontological Relations&quot;</dc:source>
