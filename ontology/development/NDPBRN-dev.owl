@@ -86,6 +86,17 @@ Attribution is satisfied by using the URIs defined in this file when using terms
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000273 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/OHD_0000273">
+        <obo:IAO_0000115>An annotation property used to store the unique identifier to an organization, such as a dental practice, hosptial, or medical practice. This useful in stituations for which you have to integrate data from multiple organizations, but want to assign an anonymous to each.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-30T21:28:59Z</dc:date>
+        <rdfs:label xml:lang="en">organizaton identifer</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //

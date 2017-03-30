@@ -127,4 +127,6 @@ fixed prosthodontics procedure
 dental implant procedure
 fixed partial denture procedure
 
-- Add class 'fixed pontic attachment procedure'
+- Add class 'fixed pontic attachment procedure' and material specific subclasses (e.g., fixed indirect resin pontic attachment procedure).
+
+- Add 'organization identifier' annotation property.
