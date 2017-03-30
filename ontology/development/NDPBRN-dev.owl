@@ -7717,7 +7717,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000246">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
-        <obo:IAO_0000115>A dental procedure during which a prosthesis is permately attached to some part of the mouth.</obo:IAO_0000115>
+        <obo:IAO_0000115>A prosthodontics procedure during which a prosthesis is permanently attached to some part of the mouth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>fixed prosthodontics procedure</rdfs:label>
     </owl:Class>
@@ -7728,6 +7728,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000247">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <obo:IAO_0000115>A prosthodontics procedure during which a removable prosthesis is either constructed or fitted to the patient&apos;s mouth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>removable prosthodontics procedure</rdfs:label>
     </owl:Class>
@@ -7744,7 +7745,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <obo:IAO_0000115>A fixed prosthodontics procedure in which a dental implant is perminately attached to the jaw.</obo:IAO_0000115>
+        <obo:IAO_0000115>A fixed prosthodontics procedure in which a dental implant is permanently attached to the jaw.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>dental implant procedure</rdfs:label>
     </owl:Class>
@@ -7761,6 +7762,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000254"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A removable prosthodontics procedure in which the prosthesis being constructed or fitted replaces all of the patient&apos;s teeth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete denture procedure</rdfs:label>
     </owl:Class>
@@ -7777,6 +7779,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000252"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A removable prosthodontics procedure in which the prosthesis being constructed or fitted replaces some but not all of the patient&apos;s teeth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>removable partial denture procedure</rdfs:label>
     </owl:Class>
@@ -7787,7 +7790,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000251">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
-        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and one or more dental implants</obo:IAO_0000115>
+        <obo:IAO_0000115>A fixed partial denture that is suppored and retained by underlying tissue and one or more dental implants.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>implant supported partial denture</rdfs:label>
     </owl:Class>
@@ -7809,7 +7812,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000253">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
-        <obo:IAO_0000115>a prosthesis that replaces all the natural teeth and associated structures in either the maxilla or mandible (or both)</obo:IAO_0000115>
+        <obo:IAO_0000115>A prosthesis that replaces all the natural teeth and associated structures in either the maxilla or mandible (or both).</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete denture</rdfs:label>
     </owl:Class>
@@ -7820,7 +7823,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000254">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
-        <obo:IAO_0000115>a complete denture that is designed and constructed to be removed readily from the mouth</obo:IAO_0000115>
+        <obo:IAO_0000115>A complete denture that is designed and constructed to be removed readily from the mouth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete removable denture</rdfs:label>
     </owl:Class>
@@ -7831,7 +7834,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000255">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
-        <obo:IAO_0000115>a complete denture that is perminately attached to the mouth</obo:IAO_0000115>
+        <obo:IAO_0000115>A complete denture that is perminately attached to the mouth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete fixed denture</rdfs:label>
     </owl:Class>
@@ -7842,7 +7845,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000256">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
-        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in both the maxilla and mandible</obo:IAO_0000115>
+        <obo:IAO_0000115>A complete denture that replaces all the natural teeth and associated structures in both the maxilla and mandible.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete full denture</rdfs:label>
     </owl:Class>
@@ -7853,7 +7856,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000257">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000253"/>
-        <obo:IAO_0000115>a complete denture that replaces all the natural teeth and associated structures in the mandible</obo:IAO_0000115>
+        <obo:IAO_0000115>A complete denture that replaces all the natural teeth and associated structures in the mandible.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>complete lower denture</rdfs:label>
     </owl:Class>
@@ -8052,7 +8055,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:IAO_0000111>partial denture</obo:IAO_0000111>
-        <obo:IAO_0000115>a prosthesis that replaces one or more, but less than all, of the natural teeth and associated structures </obo:IAO_0000115>
+        <obo:IAO_0000115>A prosthesis that replaces one or more, but less than all, of the natural teeth and associated structures.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>partial dental prothesis</obo:IAO_0000118>
         <rdfs:label>partial denture</rdfs:label>
@@ -8075,7 +8078,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000312">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000310"/>
-        <obo:IAO_0000115>a partial denture that is permanently attached to prepared natural teeth, roots, or implants</obo:IAO_0000115>
+        <obo:IAO_0000115>A partial denture that is permanently attached to prepared natural teeth, roots, or implants.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>bridge</obo:IAO_0000118>
         <rdfs:label>fixed partial denture</rdfs:label>
@@ -9225,5 +9228,5 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
