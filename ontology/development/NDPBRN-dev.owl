@@ -7882,7 +7882,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000302"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000248"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
@@ -7902,6 +7902,12 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000302"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000316"/>
             </owl:Restriction>
@@ -7909,6 +7915,145 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <obo:IAO_0000115>A fixed prosthodontics procedure in which a pontic (i.e., artificial tooth) is attached to either a dental prosthesis or a surrounding tooth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>fixed pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000261 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000261">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed noble metal pontic attachment procedure in which the pontic is made from resin.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed indirect resin pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000262 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000262">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000264"/>
+        <obo:IAO_0000115>A fixed noble metal pontic attachment procedure in which the pontic is made from high noble metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed high noble metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000263 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000263">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed noble metal pontic attachment procedure in which the pontic is predominantly made from base metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed predominantly base metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000264 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000264">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made from noble metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed noble metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000265 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000265">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made from titanium.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed titanium pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000266 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000266">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000268"/>
+        <obo:IAO_0000115>A fixed porcelain fused to noble metal pontic attachment procedure in which the pontic is made from a base of high noble metal, and then covered with a wafter-thin, porcelain veneer to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__Porcelain_Fused_To_High_Noble_Metal__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed porcelain fused to high noble metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000267 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000267">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made from a base of predominately base metal, and covered with a wafter-thin, porcelain veneer to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__Porcelain_Fused_To_Predominately_Base_Metal__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed porcelain fused to predominantly base metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000268 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000268">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made from a base of noble metal, and then covered with a wafter-thin, porcelain veneer to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__Porcelain_Fused_To_Noble_Metal__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed porcelain fused to noble metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000269 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000269">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made entirely of either porcelain or ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__PorcelainCeramic__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed ceramic pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000270 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000270">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000272"/>
+        <obo:IAO_0000115>A fixed resin with noble metal pontic attachment procedure in which the pontic is made from a base of high noble metal, and then covered, at least partially, with a tooth-colored synthetic resin to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__Resin_With_High_Noble_Metal__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed resin with high noble metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000271 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000271">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made predominately of base metal, and then covered, at least partially, with a tooth-colored synthetic resin to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Pontic__Resin_With_Predominately_Base_Metal__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>fixed resin with predominantly base metal pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000272 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000272">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
+        <obo:IAO_0000115>A fixed pontic attachment procedure in which the pontic is made from a base of noble metal, and then covered, at least partially, with a tooth-colored synthetic resin to enhance its cosmetic appeal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>https://www.patientconnect365.com/dentalhealthtopics/article/pontic__resin_with_noble_metal__dental_procedure_code_description</obo:IAO_0000119>
+        <rdfs:label>fixed resin with noble metal pontic attachment procedure</rdfs:label>
     </owl:Class>
     
 
@@ -8165,7 +8310,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
                 <owl:intersectionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000302"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
                         <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
