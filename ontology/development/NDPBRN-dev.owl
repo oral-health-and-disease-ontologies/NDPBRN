@@ -7896,6 +7896,23 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000260 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000260">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000316"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A fixed prosthodontics procedure in which a pontic (i.e., artificial tooth) is attached to either a dental prosthesis or a surrounding tooth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed pontic attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000301 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000301">
@@ -8067,7 +8084,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000311">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
-        <obo:IAO_0000115>a fixed partial denture that is suppored and retained by underlying tissue and some or all of the remaining teeth</obo:IAO_0000115>
+        <obo:IAO_0000115>A fixed partial denture that is suppored and retained by underlying tissue and some or all of the remaining teeth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>tooth supported partial denture</rdfs:label>
     </owl:Class>
@@ -8149,7 +8166,7 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
                     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000302"/>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
-                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000260"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>

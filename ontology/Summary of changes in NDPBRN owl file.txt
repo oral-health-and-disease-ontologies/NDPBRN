@@ -126,3 +126,5 @@ complete denture procedure
 fixed prosthodontics procedure
 dental implant procedure
 fixed partial denture procedure
+
+- Add class 'fixed pontic attachment procedure'
