@@ -126,5 +126,19 @@
 'D6792':'noble metal crown restoration procedure',
 'D6793':'crown restoration procedure',
 'D6794':'titanium crown restoration procedure',
-'D6795':'crown restoration procedure'
+'D6795':'crown restoration procedure',
+'D6205':'fixed indirect resin pontic attachment procedure',
+'D6210':'fixed high noble metal pontic attachment procedure',
+'D6211':'fixed predominantly base metal pontic attachment procedure',
+'D6212':'fixed noble metal pontic attachment procedure',
+'D6214':'fixed titanium pontic attachment procedure',
+'D6240':'fixed porcelain fused to high noble metal pontic attachment procedure',
+'D6241':'fixed porcelain fused to predominantly base metal pontic attachment procedure',
+'D6242':'fixed porcelain fused to noble metal pontic attachment procedure',
+'D6245':'fixed ceramic pontic attachment procedure',
+'D6250':'fixed resin with high noble metal pontic attachment procedure',
+'D6251':'fixed resin with predominantly base metal pontic attachment procedure',
+'D6252':'fixed resin with noble metal pontic attachment procedure',
+'D6253':'fixed pontic attachment procedure',
+'D6254':'fixed pontic attachment procedure'
 }

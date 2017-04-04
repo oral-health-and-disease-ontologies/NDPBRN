@@ -27,6 +27,7 @@
 @prefix stainless_steel: <dental-restoration-material/stainless-steel/> .
 @prefix titanium: <dental-restoration-material/titanium/> .
 @prefix tooth: <tooth/> .
+@prefix prosthetic_tooth: <prosthetic_tooth/> .
 @prefix surface: <tooth/surface/> .
 @prefix root: <tooth/root/> .
 @prefix cdt_code: <cdt-code/> .
@@ -40,6 +41,7 @@
 @prefix inlay: <restoration-procedure/inlay-procedure/> .
 @prefix onlay: <restoration-procedure/onlay-procedure/> .
 @prefix veneer: <restoration-procedure/veneer-procedure/> .
+@prefix fixed_partial_denture: <fixed_partial_denture/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -179,6 +181,12 @@
 """
 tooth:{tooth_id} rdf:type <{specific_tooth}> .
 tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
+""",
+
+'declare prosthetic tooth by prefix':
+"""
+prosthetic_tooth:{tooth_id} rdf:type <{specific_tooth}> .
+prosthetic_tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
 """,
 
 'declare surface':

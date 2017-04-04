@@ -42,6 +42,7 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
                 practiceId = practice_id
                 if tableName.lower() == 'transactions':
                     try:
+                        locationId = int(locationId)
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
                         date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
@@ -127,6 +128,7 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 practiceId = practice_id
                 if tableName.lower() == 'transactions':
                     try:
+                        locationId = int(locationId)
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
                         date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
@@ -175,5 +177,5 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
-next_visit_ttl(practice_id='2')
-first_last_visit_date_ttl(practice_id='2')
+next_visit_ttl(practice_id='4')
+first_last_visit_date_ttl(practice_id='4')
