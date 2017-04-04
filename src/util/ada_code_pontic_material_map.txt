@@ -1,0 +1,16 @@
+{
+'D6205':['resin dental restoration material'],
+'D6210':['high noble metal dental restoration material'],
+'D6211':['predominantly base metal dental restoration material'],
+'D6212':['noble metal dental restoration material'],
+'D6214':['titanium dental restoration material'],
+'D6240':['porcelain dental restoration material', 'high noble metal dental restoration material', 'porcelain fused to high noble metal dental restoration material'],
+'D6241':['porcelain dental restoration material', 'predominantly base metal dental restoration material', 'porcelain fused to predominantly base metal dental restoration material'],
+'D6242':['porcelain dental restoration material', 'noble metal dental restoration material', 'porcelain fused to noble metal dental restoration material'],
+'D6245':['porcelain dental restoration material', 'ceramic dental restoration material'],
+'D6250':['resin dental restoration material', 'high noble metal dental restoration material'],
+'D6251':['resin dental restoration material', 'predominantly base metal dental restoration material'],
+'D6252':['resin dental restoration material', 'noble metal dental restoration material'],
+'D6253':['dental restoration material'],
+'D6254':['dental restoration material']
+}
