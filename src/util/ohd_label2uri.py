@@ -43,17 +43,26 @@ def make_ohd_label2uri():
         label2uri[str(label).lower()] = str(uri)
 
     # add mapping to ADA universal tooth number (e.g., tooth 1, tooth 2, etc.)
-    # http://purl.obolibrary.org/obo/OHD_0000065 is uri for 'ADA universal tooth number' annotation
+    # http://purl.obolibrary.org/obo/OHD_0000065 is uri for the 'ADA universal tooth number' annotation
     for (uri, tooth_num) in g.query(
             "select ?uri ?tooth_num where {?uri <http://purl.obolibrary.org/obo/OHD_0000065> ?tooth_num}"):
         label2uri[str(tooth_num).lower()] = str(uri)
 
     # add mapping from CDT Code (e.g., D2140) to the uri of the CDT Code class
     # e.g.: 'D2140' -> http://purl.obolibrary.org/obo/CDT_0002140
-    # http://purl.org/dc/elements/1.1/identifier is uri for 'dc:identifier' annotation
+    # http://purl.org/dc/elements/1.1/identifier is uri for the 'dc:identifier' annotation
     for (uri, cdt_code) in g.query(
             "select ?uri ?cdt_code where {?uri <http://purl.org/dc/elements/1.1/identifier> ?cdt_code}"):
         label2uri[str(cdt_code).lower()] = str(uri)
+
+    # add mapping to prosthetic tooth numbers (e.g., prosthetic tooth 1, prosthetic tooth 2, etc.)
+    # http://purl.obolibrary.org/obo/OHD_0000302 is the uri for the class 'prothetic tooth'
+    # http://purl.obolibrary.org/obo/IAO_0000118 is uri for the 'alternaive term' annotation
+    for (uri, tooth_num) in g.query(
+            "select ?uri ?tooth_num where { " +
+                    "?uri rdfs:subClassOf <http://purl.obolibrary.org/obo/OHD_0000302> . " +
+                    "?uri <http://purl.obolibrary.org/obo/IAO_0000118> ?tooth_num . }"):
+        label2uri[str(tooth_num).lower()] = str(uri)
 
     # return label2uri map
     return label2uri
