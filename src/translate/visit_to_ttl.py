@@ -42,6 +42,7 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                 try:
                     date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
 
+                    locationId = int(locationId)
                     visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                     #uri
                     visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
@@ -73,4 +74,4 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                     logging.exception("message")
 
-translate_visit_to_ttl(practice_id='2')
+translate_visit_to_ttl(practice_id='4')

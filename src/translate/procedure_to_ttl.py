@@ -5,7 +5,7 @@ import collections
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
-    load_ada_root_amputation_material_map, load_ada_crown_material_map
+    load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
 
@@ -31,7 +31,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                    '4': 'onlays',
                    '5': 'apicoectomy',
                    '6':'root_amputation',
-                   '7':'crown'}
+                   '7':'crown',
+                   '8':'pontic',
+                   '9':'surgic_tooth_extraction'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -108,6 +110,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                     try:
                         date_str = str(datetime.strptime(p_date, '%Y-%m-%d').date())
 
+                        locationId = int(locationId)
                         visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                         #uri
                         visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
@@ -130,14 +133,21 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 no_material_flag = True
                                 load_ada_root_amputation_material_map[ada_code]
                             elif str(procedure_type) == '7':  ## for crown
-                                if ada_code == 'D2750':
-                                    test = 'test'
                                 load_ada_crown_material_map[ada_code]
+                            elif str(procedure_type) == '8':  ## for pontic
+                                load_ada_pontic_material_map[ada_code]
+                            elif str(procedure_type) == '9':  ## for surgic tooth extraction
+                                no_material_flag = True
+                                load_ada_extraction_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 logging.exception("message")
                                 return
+
+#test... take it out!!!!!!!
+                            if ada_code == 'D2750':
+                                test_str = 'error...'
 
                             if pds.notnull(tooth_num):
                                 tooth_num = int(tooth_num)
@@ -148,8 +158,22 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                 provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(prov_id)
 
-                                tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
-                                tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
+                                if str(procedure_type) == '8':  ## for pontic
+                                    tooth_label = "prosthetic tooth " + str(tooth_num) + " of patient " + str(
+                                        pid)  # "prosthetic tooth 13 of patient 1"
+                                    tooth_str = ohd_ttl['declare prosthetic tooth by prefix'].format(tooth_id=tooth_id,
+                                                                                          specific_tooth=label2uri[
+                                                                                              'prosthetic tooth ' + str(
+                                                                                                  tooth_num)],
+                                                                                          label=tooth_label)
+                                    fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                                    # fixed_partial_denture:1_1_1_1999-12-17
+                                    fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
+                                    fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
+                                                                                                          type=label2uri['fixed partial denture'])
+                                else:
+                                    tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
+                                    tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
                                                                                       specific_tooth=label2uri['tooth ' + str(tooth_num)],
                                                                                       label=tooth_label)
 
@@ -178,7 +202,11 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     ada_material_codes = load_ada_crown_material_map[ada_code]
                                     for one_ada_material_code in ada_material_codes:
                                         specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
-
+                                elif str(procedure_type) == '8':  ## for pontic
+                                    specific_material = list()
+                                    ada_material_codes = load_ada_pontic_material_map[ada_code]
+                                    for one_ada_material_code in ada_material_codes:
+                                        specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
 
                                 restoration_material = list()
                                 if no_material_flag == False:
@@ -202,7 +230,10 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                                                       label=billing_code_label)
 
                                 # relation: tooth part of patient  'uri1 is part of uri2':
-                                tooth_uri = "tooth:" + str(tooth_id)
+                                if str(procedure_type) == '8':  ## for pontic
+                                    tooth_uri = "prosthetic_tooth:" + str(tooth_id)
+                                else:
+                                    tooth_uri = "tooth:" + str(tooth_id)
                                 tooth_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=tooth_uri,
                                                                                                     uri2=patient_uri)
 
@@ -317,7 +348,9 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 
                                         output(cdt_code_procedure_relation_str)
                                         output("\n")
-                                elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7':  ## for endodontic, apicoectomy, root amputation, crown
+                                elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
+                                        or str(procedure_type) == '8':
+                                    ## for endodontic, apicoectomy, root amputation, crown, pontic
                                     output(tooth_str)
                                     output("\n")
 
@@ -332,8 +365,25 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     output(billing_code)
                                     output("\n")
 
-                                    output(tooth_patient_relation_str)
-                                    output("\n")
+                                    if str(procedure_type) == '8': ## for pontic
+                                        output(fixed_partial_denture_str)
+                                        output_err("\n")
+
+                                        #:prosthetic tooth part of :fixed partial denture
+                                        prosthetic_tooth_fixed_partial_denture_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                            uri1=tooth_uri,
+                                            uri2=fixed_partial_denture_uri)
+                                        #:fixed partial denture part of :patient
+                                        fixed_partial_denture_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                            uri1=fixed_partial_denture_uri,
+                                            uri2=patient_uri)
+                                        output(prosthetic_tooth_fixed_partial_denture_relation_str)
+                                        output("\n")
+                                        output(fixed_partial_denture_patient_relation_str)
+                                        output("\n")
+                                    else:
+                                        output(tooth_patient_relation_str)
+                                        output("\n")
 
                                     # relation: material part of tooth
                                     if no_material_flag == False:
@@ -379,10 +429,11 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-print_procedure_ttl(practice_id='3', procedure_type=1)
-print_procedure_ttl(practice_id='3', procedure_type=2)
-print_procedure_ttl(practice_id='3', procedure_type=3)
-print_procedure_ttl(practice_id='3', procedure_type=4)
-print_procedure_ttl(practice_id='3', procedure_type=5)
-print_procedure_ttl(practice_id='3', procedure_type=6)
-print_procedure_ttl(practice_id='3', procedure_type=7)
+#print_procedure_ttl(practice_id='4', procedure_type=1)
+#print_procedure_ttl(practice_id='4', procedure_type=2)
+#print_procedure_ttl(practice_id='4', procedure_type=3)
+#print_procedure_ttl(practice_id='4', procedure_type=4)
+#print_procedure_ttl(practice_id='4', procedure_type=5)
+#print_procedure_ttl(practice_id='4', procedure_type=6)
+print_procedure_ttl(practice_id='1', procedure_type=7)
+#print_procedure_ttl(practice_id='1', procedure_type=8)

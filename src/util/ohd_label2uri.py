@@ -112,9 +112,9 @@ def load_ada_code_map(filepath=os.path.dirname(__file__), filename='ada_code_map
 def load_ada_procedure_material_map(filepath=os.path.dirname(__file__), procedure_type_name='filling'):
     filename = 'ada_code_' + procedure_type_name + '_material_map.txt'
     file_full_name = os.path.join(filepath, filename)
-    ada_root_amputation_material_map = eval(open(file_full_name).read())
+    ada_material_map = eval(open(file_full_name).read())
 
-    return ada_root_amputation_material_map
+    return ada_material_map
 
 def load_ada_procedure_map(filepath=os.path.dirname(__file__), filename='ada_code_procedure_map.txt'):
     file_full_name = os.path.join(filepath, filename)
