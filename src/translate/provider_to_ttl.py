@@ -50,7 +50,7 @@ def translate_provider_to_ttl(practice_id='3', filename='provider.ttl', print_tt
                            has_role=has_role)
             output(ttl_str)
 
-def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_ttl=True, save_ttl=True):
+def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.csv')
@@ -76,7 +76,9 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
         practice_type = label2uri['dental health care organization']
         practice_label = "practice_" + str(practice_id)
         # delcare individuals
-        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
+        practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
+        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
+                                                  practice_id_str=practiceidstring))
 
         for row in df.itertuples():
 #            if row.PROVIDER_ID.lower() != 'bs' and row.PROVIDER_ID.lower() != 'ss':
@@ -101,16 +103,16 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
 
             # delcare individuals
             output(ohd_ttl['declare individual uri'].
-                   format(uri=provider_uri, type=provider_type, label=provider_label))
+                   format(uri=provider_uri, type=provider_type, label=provider_label, practice_id_str=practiceidstring))
 
             output(ohd_ttl['declare individual uri'].
-                format(uri=role_uri, type=provider_role_type, label=role_label))
+                format(uri=role_uri, type=provider_role_type, label=role_label, practice_id_str=practiceidstring))
 
             # if string "office" is in position string, print office staff role and relate it to the provider:
             #if "office" in row.POSITION.lower():
             if "office" in row.description.lower():
                 output(ohd_ttl['declare individual uri'].
-                    format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label))
+                    format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label, practice_id_str=practiceidstring))
                 output(ohd_ttl['uri1 has role uri2'].
                     format(uri1=provider_uri, uri2=office_staff_role_uri))
 
@@ -121,4 +123,4 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
 #translate_provider_to_ttl()
-translate_provider_to_ttl_1(practice_id='2')
+translate_provider_to_ttl_1(practice_id='1', vendor='ES')

@@ -7,7 +7,7 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
     load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map
 
-def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1):
+def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1, vendor='ES'):
 
 #    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
@@ -77,13 +77,15 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
 
+            practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
             # practice
             practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
             # define types
             practice_type = label2uri['dental health care organization']
             practice_label = "practice_" + str(practice_id)
             # delcare individuals
-            output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
+            output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
+                                                      practice_id_str=practiceidstring))
 
             # print ttl for each patient
             #for (idx, practiceId, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
@@ -145,10 +147,6 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 logging.exception("message")
                                 return
 
-#test... take it out!!!!!!!
-                            if ada_code == 'D2750':
-                                test_str = 'error...'
-
                             if pds.notnull(tooth_num):
                                 tooth_num = int(tooth_num)
                                 tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
@@ -171,6 +169,14 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
                                     fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
                                                                                                           type=label2uri['fixed partial denture'])
+                                elif str(procedure_type == '9'): ## for extraction
+                                    tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
+                                    tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
+                                                                                      specific_tooth=label2uri['tooth ' + str(tooth_num)],
+                                                                                      label=tooth_label)
+                                    dentition_uri = "dentition:" + tooth_id
+                                    dentition_str = fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
+                                                                                                                   type=label2uri['secondary dentition'])
                                 else:
                                     tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                     tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
@@ -349,8 +355,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         output(cdt_code_procedure_relation_str)
                                         output("\n")
                                 elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
-                                        or str(procedure_type) == '8':
-                                    ## for endodontic, apicoectomy, root amputation, crown, pontic
+                                        or str(procedure_type) == '8' or str(procedure_type) == '9':
+                                    ## for endodontic, apicoectomy, root amputation, crown, pontic, extraction
                                     output(tooth_str)
                                     output("\n")
 
@@ -373,13 +379,46 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         prosthetic_tooth_fixed_partial_denture_relation_str = ohd_ttl['uri1 is part of uri2'].format(
                                             uri1=tooth_uri,
                                             uri2=fixed_partial_denture_uri)
+
                                         #:fixed partial denture part of :patient
                                         fixed_partial_denture_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
                                             uri1=fixed_partial_denture_uri,
                                             uri2=patient_uri)
+
                                         output(prosthetic_tooth_fixed_partial_denture_relation_str)
                                         output("\n")
+
                                         output(fixed_partial_denture_patient_relation_str)
+                                        output("\n")
+
+                                    elif str(procedure_type) == '9':  ## for extraction
+                                        output(dentition_str)
+                                        output("\n")
+
+                                        #tooth is not part of dentition relation
+                                        tooth_not_part_dentition_relation_str = ohd_ttl['uri1 is NOT in relationship with uri2'].format(
+                                            uri1=tooth_uri,
+                                            relation=label2uri['is part of'],
+                                            uri2=dentition_uri)
+                                        output(tooth_not_part_dentition_relation_str)
+                                        output("\n")
+
+                                        # relation dentition part of patient
+                                        dentition_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                            uri1=dentition_uri, uri2=patient_uri)
+                                        output(dentition_patient_relation_str)
+                                        output("\n")
+
+                                        #dentition "missing tooth number" property
+                                        dentition_miss_tooth_prop = ohd_ttl['declare string property uri'].format(
+                                            uri=dentition_uri, type = label2uri['missing tooth number'].rsplit('/', 1)[-1], string_value=str(tooth_num))
+                                        output(dentition_miss_tooth_prop)
+                                        output("\n")
+
+                                        # relation: procedure has_specified_output dentition
+                                        procedure_dentition_relation_str = ohd_ttl['uri1 has specified output uri2']\
+                                            .format(uri1=restoration_procedure_uri, uri2=dentition_uri)
+                                        output(procedure_dentition_relation_str)
                                         output("\n")
                                     else:
                                         output(tooth_patient_relation_str)
@@ -435,5 +474,6 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='4', procedure_type=4)
 #print_procedure_ttl(practice_id='4', procedure_type=5)
 #print_procedure_ttl(practice_id='4', procedure_type=6)
-print_procedure_ttl(practice_id='1', procedure_type=7)
+#print_procedure_ttl(practice_id='1', procedure_type=7)
 #print_procedure_ttl(practice_id='1', procedure_type=8)
+print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')

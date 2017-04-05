@@ -42,6 +42,7 @@
 @prefix onlay: <restoration-procedure/onlay-procedure/> .
 @prefix veneer: <restoration-procedure/veneer-procedure/> .
 @prefix fixed_partial_denture: <fixed_partial_denture/> .
+@prefix dentition: <dentition/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -124,6 +125,7 @@
 {uri} rdf:type <{type}> .
 {uri} rdf:type owl:NamedIndividual .
 {uri} rdfs:label "{label}"^^xsd:string .
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}"
 """,
 
 'declare date property uri':
@@ -212,6 +214,7 @@ restored_tooth_surface:{surface_id} rdfs:label "{label}"^^xsd:string .
 """
 {uri} rdf:type <{type}> .
 {uri} rdfs:label "{label}"^^xsd:string .
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}"
 """,
 
 'declare obo type with label':
@@ -341,5 +344,13 @@ cdt_code:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
 
 'ur1 is dental restoration of uri2':
 """{uri1} obo:OHD_0000091 {uri2} . """,
+
+'uri1 is NOT in relationship with uri2':
+"""
+[] a owl:NegativePropertyAssertion ;
+owl:sourceIndividual {uri1} ;
+owl:assertionProperty {relation} ;
+owl:targetIndividual {uri2} .
+""",
 
 }
