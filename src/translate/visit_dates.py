@@ -177,5 +177,5 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
-next_visit_ttl(practice_id='4')
-first_last_visit_date_ttl(practice_id='4')
+next_visit_ttl(practice_id='1')
+first_last_visit_date_ttl(practice_id='1')

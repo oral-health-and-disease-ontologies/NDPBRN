@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True):
+def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
@@ -38,8 +38,10 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
         # define types
         practice_type = label2uri['dental health care organization']
         practice_label = "practice_" + str(practice_id)
+        practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
         # delcare individuals
-        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
+        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
+                                                  practice_id_str=practiceidstring))
 
         # print ttl for each patient
         for (idx, pid, gender, birth_date, pstatus, locationId) in patient_df.itertuples():
@@ -87,11 +89,11 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
 
                 # delcare individuals
                 output(ohd_ttl['declare individual uri'].format(uri=patient_uri, type=patient_type,
-                                                                label=patient_label))
+                                                                label=patient_label, practice_id_str=practiceidstring))
                 output(ohd_ttl['declare individual uri'].format(uri=role_uri, type=patient_role_type,
-                                                                label=role_label))
+                                                                label=role_label, practice_id_str=practiceidstring))
                 output(ohd_ttl['declare individual uri'].format(uri=gender_uri, type=gender_role_type,
-                                                                label=gender_label))
+                                                                label=gender_label, practice_id_str=practiceidstring))
 
                 output(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=birth_date_type,
                                                                    date=birth_date_str))
@@ -113,4 +115,4 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
                 print("patient " + str(pid) + " has problems!!!")
                 logging.exception("message")
 
-translate_patient_to_ttl(practice_id='2')
+translate_patient_to_ttl(practice_id='1', vendor='ES')

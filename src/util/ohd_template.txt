@@ -125,7 +125,7 @@
 {uri} rdf:type <{type}> .
 {uri} rdf:type owl:NamedIndividual .
 {uri} rdfs:label "{label}"^^xsd:string .
-{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}"
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare date property uri':
@@ -183,12 +183,14 @@
 """
 tooth:{tooth_id} rdf:type <{specific_tooth}> .
 tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
+tooth:{tooth_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare prosthetic tooth by prefix':
 """
 prosthetic_tooth:{tooth_id} rdf:type <{specific_tooth}> .
 prosthetic_tooth:{tooth_id} rdfs:label "{label}"^^xsd:string .
+prosthetic_tooth:{tooth_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare surface':
@@ -208,24 +210,27 @@ surface:{surface_id} rdfs:label "{label}"^^xsd:string .
 """
 restored_tooth_surface:{surface_id} rdf:type <{specific_restored_tooth_surface}> .
 restored_tooth_surface:{surface_id} rdfs:label "{label}"^^xsd:string .
+restored_tooth_surface:{surface_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare practice':
 """
 {uri} rdf:type <{type}> .
 {uri} rdfs:label "{label}"^^xsd:string .
-{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}"
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare obo type with label':
 """
 {uri} rdf:type obo:{type} .
 {uri} rdfs:label "{label}"^^xsd:string .
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare obo type':
 """
 {uri} rdf:type obo:{type} .
+{uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare filling role':
@@ -244,24 +249,28 @@ surface_role:{surface_filling_role_id} rdfs:label "{label}"^^xsd:string .
 """
 restoration_procedure:{cdt_code_id} rdf:type obo:{tooth_restoration_procedure} .
 restoration_procedure:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+restoration_procedure:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare restoration material':
 """
 restoration_material:{cdt_code_id} rdf:type obo:{tooth_restoration_material} .
 restoration_material:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+restoration_material:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare restoration material role':
 """
 restoration_material_role:{cdt_code_id} rdf:type obo:{dental_restoration_material_role} .
 restoration_material_role:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+restoration_material_role:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare billing code':
 """
 cdt_code:{cdt_code_id} rdf:type obo:{billing_code_for_restorative} .
 cdt_code:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+cdt_code:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 #### patterns for relating individuals

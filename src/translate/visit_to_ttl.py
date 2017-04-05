@@ -4,7 +4,7 @@ import os
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True, save_ttl=True):
+def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
@@ -32,8 +32,10 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
         # define types
         practice_type = label2uri['dental health care organization']
         practice_label = 'practice_' + str(practice_id)
+        practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
         # delcare individuals
-        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label))
+        output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
+                                                  practice_id_str=practiceidstring))
 
         # print ttl for each patient
         for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
@@ -48,7 +50,9 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
                     #declare visit
-                    output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1], label="dental visit " + str(visit_id)))
+                    output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1],
+                                                                         label="dental visit " + str(visit_id),
+                                                                         practice_id_str=practiceidstring))
 
                     # relate individuals
                     output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2= str('obo:') + label2uri['dental health care provider role'].rsplit('/', 1)[-1]))
@@ -74,4 +78,4 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                     logging.exception("message")
 
-translate_visit_to_ttl(practice_id='4')
+translate_visit_to_ttl(practice_id='1', vendor='ES')

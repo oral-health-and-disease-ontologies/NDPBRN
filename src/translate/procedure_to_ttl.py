@@ -163,32 +163,38 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                                                           specific_tooth=label2uri[
                                                                                               'prosthetic tooth ' + str(
                                                                                                   tooth_num)],
-                                                                                          label=tooth_label)
+                                                                                          label=tooth_label,
+                                                                                          practice_id_str=practiceidstring)
                                     fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                                     # fixed_partial_denture:1_1_1_1999-12-17
                                     fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
                                     fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
-                                                                                                          type=label2uri['fixed partial denture'])
+                                                                                                   type=label2uri['fixed partial denture'],
+                                                                                                   practice_id_str=practiceidstring)
                                 elif str(procedure_type == '9'): ## for extraction
                                     tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                     tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
                                                                                       specific_tooth=label2uri['tooth ' + str(tooth_num)],
-                                                                                      label=tooth_label)
+                                                                                      label=tooth_label,
+                                                                                      practice_id_str=practiceidstring)
                                     dentition_uri = "dentition:" + tooth_id
                                     dentition_str = fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
-                                                                                                                   type=label2uri['secondary dentition'])
+                                                                                                                   type=label2uri['secondary dentition'],
+                                                                                                                   practice_id_str=practiceidstring)
                                 else:
                                     tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                     tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
                                                                                       specific_tooth=label2uri['tooth ' + str(tooth_num)],
-                                                                                      label=tooth_label)
+                                                                                      label=tooth_label,
+                                                                                      practice_id_str=practiceidstring)
 
                                 # restoration procedure
                                 restoration_procedure_label = "restoration procedure on " + tooth_label + " on " + date_str  # "restoration procedure on tooth 13 of patient 1 on 2003-05-16"
                                 specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                 restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                         tooth_restoration_procedure=specific_procedure,
-                                                                                                        label=restoration_procedure_label)
+                                                                                                        label=restoration_procedure_label,
+                                                                                                        practice_id_str=practiceidstring)
 
                                 # restoration material
                                 restoration_material_label = "restoration material placed in " + tooth_label  # "restoration material placed in tooth 13 of patient 1"
@@ -220,12 +226,14 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                         restoration_material.append(
                                             ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                            tooth_restoration_material=specific_material,
-                                                                                           label=restoration_material_label))
+                                                                                           label=restoration_material_label,
+                                                                                           practice_id_str=practiceidstring))
                                     elif isinstance(specific_material, collections.Iterable):
                                         for one_material in specific_material:
                                             restoration_material.append(ohd_ttl['declare restoration material'].format(cdt_code_id=cdt_code_id,
                                                                                                     tooth_restoration_material=one_material,
-                                                                                                    label=restoration_material_label))
+                                                                                                    label=restoration_material_label,
+                                                                                                    practice_id_str=practiceidstring))
 
                                 # billing code
                                 billing_code_label = "billing code " + str(
@@ -233,7 +241,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                 billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
                                                                                       billing_code_for_restorative=
                                                                                       label2uri[ada_code.lower()].rsplit('/',1)[-1],
-                                                                                      label=billing_code_label)
+                                                                                      label=billing_code_label,
+                                                                                      practice_id_str=practiceidstring)
 
                                 # relation: tooth part of patient  'uri1 is part of uri2':
                                 if str(procedure_type) == '8':  ## for pontic
@@ -313,7 +322,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                 restrored_surface_str = ohd_ttl['declare restored tooth surface by prefix'].\
                                                     format(surface_id=surface_id,
                                                            specific_restored_tooth_surface=label2uri[restored_tooth_surface_label_map[single_surface.lower()]],
-                                                           label=restored_surface_label)
+                                                           label=restored_surface_label,
+                                                           practice_id_str=practiceidstring)
                                                 output(restrored_surface_str)
 
                                                 #relation: restored surface part of tooth
@@ -468,12 +478,12 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-#print_procedure_ttl(practice_id='4', procedure_type=1)
-#print_procedure_ttl(practice_id='4', procedure_type=2)
-#print_procedure_ttl(practice_id='4', procedure_type=3)
-#print_procedure_ttl(practice_id='4', procedure_type=4)
-#print_procedure_ttl(practice_id='4', procedure_type=5)
-#print_procedure_ttl(practice_id='4', procedure_type=6)
-#print_procedure_ttl(practice_id='1', procedure_type=7)
-#print_procedure_ttl(practice_id='1', procedure_type=8)
-print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=1, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=2, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=3, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=4, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=5, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=6, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=7, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')

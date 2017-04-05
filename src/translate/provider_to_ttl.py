@@ -2,54 +2,6 @@ import pandas as pds
 import os
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_provider_to_ttl(practice_id='3', filename='provider.ttl', print_ttl=True, save_ttl=True):
-    # get data from RI-demo-data
-    df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
-    df = pds.ExcelFile(df_path).parse()
-
-    # write ttl to file
-    with open(filename, 'w') as f:
-        # local function for printing and saving turtle output
-        def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
-            if print_ttl == True: print value_str
-            if save_ttl == True: f.write(value_str)
-
-        # output prefixes for ttl file
-        prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
-        output(prefix_str)
-
-        for row in df.itertuples():
-            # set variables need to format ttl string
-            id = str(practice_id) + "_" + str(row.provider_id)
-            provider_type = label2uri['dental health care provider']
-            provider_role_type = label2uri['dental health care provider role']
-            has_role = label2uri['has role']
-
-            # declare provider
-            label = "provider " + id
-            ttl_str = \
-                ohd_ttl['declare provider']. \
-                    format(provider_id=id,
-                           label=label,
-                           dental_health_care_provider=provider_type)
-            output(ttl_str)
-
-            # declare provider role
-            label = "provider " + id + " provider role"
-            ttl_str = \
-                ohd_ttl['declare provider role']. \
-                    format(provider_id=id,
-                           label=label,
-                           dental_health_care_provider_role=provider_role_type)
-            output(ttl_str)
-
-            # relate provider to role
-            ttl_str = \
-                ohd_ttl['relate provider to role']. \
-                    format(provider_id=id,
-                           has_role=has_role)
-            output(ttl_str)
-
 def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
