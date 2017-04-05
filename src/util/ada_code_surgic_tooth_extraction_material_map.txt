@@ -1,0 +1,6 @@
+{
+'D7110':'no material for extraction',
+'D7120':'no material for extraction',
+'D7140':'no material for extraction',
+'D7210':'no material for extraction'
+}
