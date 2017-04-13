@@ -28,7 +28,8 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
         practice_type = label2uri['dental health care organization']
         practice_label = "practice_" + str(practice_id)
         # delcare individuals
-        practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
+        #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
+        practiceidstring = 'NDPBRN practice ' + str(practice_id)
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
                                                   practice_id_str=practiceidstring))
 
