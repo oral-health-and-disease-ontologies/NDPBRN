@@ -77,7 +77,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
 
-            practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
+            #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
+            practiceidstring = 'NDPBRN practice ' + str(practice_id)
             # practice
             practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
             # define types
@@ -178,7 +179,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                                                       label=tooth_label,
                                                                                       practice_id_str=practiceidstring)
                                     dentition_uri = "dentition:" + tooth_id
-                                    dentition_str = fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
+                                    dentition_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
                                                                                                                    type=label2uri['secondary dentition'],
                                                                                                                    practice_id_str=practiceidstring)
                                 else:
@@ -383,22 +384,30 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 
                                     if str(procedure_type) == '8': ## for pontic
                                         output(fixed_partial_denture_str)
-                                        output_err("\n")
-
-                                        #:prosthetic tooth part of :fixed partial denture
-                                        prosthetic_tooth_fixed_partial_denture_relation_str = ohd_ttl['uri1 is part of uri2'].format(
-                                            uri1=tooth_uri,
-                                            uri2=fixed_partial_denture_uri)
-
-                                        #:fixed partial denture part of :patient
-                                        fixed_partial_denture_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
-                                            uri1=fixed_partial_denture_uri,
-                                            uri2=patient_uri)
-
-                                        output(prosthetic_tooth_fixed_partial_denture_relation_str)
                                         output("\n")
 
-                                        output(fixed_partial_denture_patient_relation_str)
+                                        #:prosthetic tooth part of :fixed partial denture
+                                        ## changed to Bill's multiple statements in brackets fashion:
+                                        #prosthetic_tooth_fixed_partial_denture_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                        #    uri1=tooth_uri,
+                                        #    uri2=fixed_partial_denture_uri)
+                                        #:fixed partial denture part of :patient
+                                        #fixed_partial_denture_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                        #    uri1=fixed_partial_denture_uri,
+                                        #    uri2=patient_uri)
+                                        #output(prosthetic_tooth_fixed_partial_denture_relation_str)
+                                        #output("\n")
+                                        #output(fixed_partial_denture_patient_relation_str)
+                                        #output("\n")
+
+                                        #relation prosthetic tooth part of  fixed partial denture, and patient
+                                        prosthetic_tooth_fixed_partial_denture_relation_str = ohd_ttl['relate prosthetic tooth to denture and patient']\
+                                            .format(tooth_id=tooth_id,
+                                                    fixed_partial_denture_uri=fixed_partial_denture_uri,
+                                                    practice_id_str=practiceidstring,
+                                                    patient_uri=patient_uri)
+
+                                        output(prosthetic_tooth_fixed_partial_denture_relation_str)
                                         output("\n")
 
                                     elif str(procedure_type) == '9':  ## for extraction
@@ -478,12 +487,12 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-print_procedure_ttl(practice_id='1', procedure_type=1, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=1, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=2, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=3, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=4, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=5, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=6, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=7, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
