@@ -366,7 +366,7 @@ prosthetic_tooth:{tooth_id} obo:BFO_0000050
 """
 [] a owl:NegativePropertyAssertion ;
 owl:sourceIndividual {uri1} ;
-owl:assertionProperty {relation} ;
+owl:assertionProperty <{relation}> ;
 owl:targetIndividual {uri2} .
 """,
 

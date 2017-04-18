@@ -170,7 +170,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                     # fixed_partial_denture:1_1_1_1999-12-17
                                     fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
                                     fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
-                                                                                                   type=label2uri['fixed partial denture'],
+                                                                                                   type=label2uri['fixed partial denture'].rsplit('/', 1)[-1],
                                                                                                    practice_id_str=practiceidstring)
                                 elif str(procedure_type == '9'): ## for extraction
                                     tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
@@ -180,7 +180,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                                                                                       practice_id_str=practiceidstring)
                                     dentition_uri = "dentition:" + tooth_id
                                     dentition_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
-                                                                                                                   type=label2uri['secondary dentition'],
+                                                                                                                   type=label2uri['secondary dentition'].rsplit('/', 1)[-1],
                                                                                                                    practice_id_str=practiceidstring)
                                 else:
                                     tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
@@ -494,5 +494,5 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='1', procedure_type=5, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=6, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=7, vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
