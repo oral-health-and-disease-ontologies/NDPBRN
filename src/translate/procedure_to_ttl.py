@@ -5,7 +5,8 @@ import collections
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
-    load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map
+    load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map, \
+    load_ada_oral_evaluation_material_map
 
 def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1, vendor='ES'):
 
@@ -33,7 +34,8 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                    '6':'root_amputation',
                    '7':'crown',
                    '8':'pontic',
-                   '9':'surgic_tooth_extraction'}
+                   '9':'surgic_tooth_extraction',
+                   '10':'oral_evaluation'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -142,13 +144,89 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                             elif str(procedure_type) == '9':  ## for surgic tooth extraction
                                 no_material_flag = True
                                 load_ada_extraction_material_map[ada_code]
+                            elif str(procedure_type) == '10':  ## for oral evaluation
+                                no_material_flag = True
+                                load_ada_oral_evaluation_material_map[ada_code]
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 logging.exception("message")
                                 return
 
-                            if pds.notnull(tooth_num):
+                            if pds.isnull(tooth_num) and str(procedure_type) == '10':  ## for oral evaluation
+                                cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(ada_code) + "_" + date_str
+                                patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                                patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
+                                # restoration procedure
+                                restoration_procedure_label = "restoration procedure on patient " + str(pid) + " on "  + date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                                specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
+                                restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
+                                                                                                        tooth_restoration_procedure=specific_procedure,
+                                                                                                        label=restoration_procedure_label,
+                                                                                                        practice_id_str=practiceidstring)
+                                # billing code
+                                billing_code_label = "billing code " + str(
+                                    ada_code) + " for procedure on " + date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
+                                                                                      billing_code_for_restorative=
+                                                                                      label2uri[
+                                                                                          ada_code.lower()].rsplit('/',
+                                                                                                                   1)[
+                                                                                          -1],
+                                                                                      label=billing_code_label,
+                                                                                      practice_id_str=practiceidstring)
+
+                                restoration_procedure_uri = "restoration_procedure:" + str(cdt_code_id)
+
+                                # relation: procedure part of visit
+                                procedure_visit_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                    uri1=restoration_procedure_uri,
+                                    uri2=visit_uri)
+
+                                # relation: restoration procedure has specified input provider
+                                provider_uri = ohd_ttl['provider uri by prefix'].format(
+                                    provider_id=str(practiceId) + "_" + str(locationId) + "_" + str(prov_id))
+                                procedure_provider_relation_str = ohd_ttl['uri1 has specified input uri2'].format(
+                                    uri1=restoration_procedure_uri,
+                                    uri2=provider_uri)
+
+                                # relation: restoration procedure has specified input patient
+                                procedure_patient_relation_str = ohd_ttl['uri1 has specified input uri2'].format(
+                                    uri1=restoration_procedure_uri,
+                                    uri2=patient_uri)
+
+                                # relation: cdt code is about restoration procedure
+                                cdt_code_uri = "cdt_code:" + str(cdt_code_id)
+                                cdt_code_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                                    uri1=cdt_code_uri,
+                                    uri2=restoration_procedure_uri)
+
+                                output(restoration_procedure)
+                                output("\n")
+
+                                output(billing_code)
+                                output("\n")
+
+                                output(procedure_visit_relation_str)
+                                output("\n")
+
+                                # procedure "occurence date" property
+                                output(
+                                    ohd_ttl['declare date property uri'].
+                                        format(uri=restoration_procedure_uri,
+                                               type=label2uri['occurrence date'].rsplit('/', 1)[-1],
+                                               date=date_str))
+
+                                output(procedure_provider_relation_str)
+                                output("\n")
+
+                                output(procedure_patient_relation_str)
+                                output("\n")
+
+                                output(cdt_code_procedure_relation_str)
+                                output("\n")
+
+                            elif pds.notnull(tooth_num):
                                 tooth_num = int(tooth_num)
                                 tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
 
@@ -495,4 +573,5 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 #print_procedure_ttl(practice_id='1', procedure_type=6, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=7, vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=10, vendor='ES')
