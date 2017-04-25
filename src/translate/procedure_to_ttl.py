@@ -16,14 +16,22 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    df = pds.read_csv(df_path, sep='\t',
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t',
                       names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
                              "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0)
-    #df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"],
-    #              header=0)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID", "DB_PRACTICE_ID"],
+                              header=0)
+#PBRN_PRACTICE,LOG_ID,PATIENT_ID,BIRTH_DATE,SEX,TABLE_NAME,DATE_COMPLETED,DATE_ENTERED,TRAN_DATE,DESCRIPTION,TOOTH,SURFACE,ACTION_CODE,ACTION_CODE_DESCRIPTION,SERVICE_CODE,ADA_CODE,ADA_CODE_DESCRIPTION,PROVIDER_ID,DB_PRACTICE_ID
 
     #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    if vendor != 'ES':
+        df.columns = df.columns.str.lower()
     patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'tran_date', 'ada_code', 'provider_id', 'table_name']]
 
     procedure_type_map = {'1': 'filling',
@@ -565,13 +573,14 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-#print_procedure_ttl(practice_id='1', procedure_type=1, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=2, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=3, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=4, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=5, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=6, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=7, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=8, vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=9, vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=10, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=1, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=2, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=3, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=4, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=5, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=6, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=7, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=8, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=9, vendor='ES')
+#print_procedure_ttl(practice_id='3', procedure_type=10, vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=1, vendor='dentrix')
