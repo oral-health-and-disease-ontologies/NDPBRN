@@ -9,15 +9,24 @@ from datetime import datetime
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True):
+def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID", "DB_PRACTICE_ID"],
+                              header=0)
+    if vendor != 'ES':
+        df.columns = df.columns.str.lower()
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
@@ -95,15 +104,24 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
                 #                                                   date=last_visit_date))
 
 
-def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=True, save_ttl=True):
+def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
     df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    df = pds.read_csv(df_path, sep='\t', names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID", "DB_PRACTICE_ID"],
+                              header=0)
+    if vendor != 'ES':
+        df.columns = df.columns.str.lower()
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
@@ -177,5 +195,7 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
-next_visit_ttl(practice_id='1')
-first_last_visit_date_ttl(practice_id='1')
+#next_visit_ttl(practice_id='3', vendor='ES')
+#first_last_visit_date_ttl(practice_id='3', vendor='ES')
+next_visit_ttl(practice_id='1', vendor='dentrix')
+first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
