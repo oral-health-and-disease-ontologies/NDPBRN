@@ -4,12 +4,14 @@ import os
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
+def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='Patient_Table.txt',
+                                    print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_Table.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_Table.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #df = pds.ExcelFile(df_path).parse()
     df = pds.read_csv(df_path, sep='\t', names=["patient_id", "sex", "birth_date", "status", "patient_db_practice_id"], header=0)
@@ -23,7 +25,7 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
     # testing...
     # print patient_df
 
-    with open(filename, 'w') as f:
+    with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
         def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
             if print_ttl == True: print value_str
@@ -116,4 +118,7 @@ def translate_patient_to_ttl(practice_id='3', filename='patient.ttl', print_ttl=
                 print("patient " + str(pid) + " has problems!!!")
                 logging.exception("message")
 
-translate_patient_to_ttl(practice_id='1', vendor='ES')
+#translate_patient_to_ttl(practice_id='3', vendor='ES')
+translate_patient_to_ttl(practice_id='1', vendor='ES',
+                            input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_Table.txt',
+                            output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.ttl')

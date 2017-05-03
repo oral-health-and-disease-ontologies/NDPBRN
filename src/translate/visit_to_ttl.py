@@ -4,11 +4,12 @@ import os
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
+def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     if vendor == 'ES':
@@ -26,7 +27,7 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
-    with open(filename, 'w') as f:
+    with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
         def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
             if print_ttl == True: print value_str
@@ -89,4 +90,6 @@ def translate_visit_to_ttl(practice_id='3', filename='visit.ttl', print_ttl=True
                     logging.exception("message")
 
 #translate_visit_to_ttl(practice_id='3', vendor='ES')
-translate_visit_to_ttl(practice_id='1', vendor='dentrix')
+translate_visit_to_ttl(practice_id='1', vendor='ES',
+                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.ttl')

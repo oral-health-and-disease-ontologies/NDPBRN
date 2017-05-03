@@ -9,11 +9,12 @@ from datetime import datetime
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
+def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     if vendor == 'ES':
@@ -31,7 +32,7 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
-    with open(filename, 'w') as f:
+    with open(output_f, 'w') as f:
         with open('visit_date_err.txt', 'w') as f_err:
 
             def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
@@ -104,11 +105,12 @@ def first_last_visit_date_ttl(practice_id='1', filename='visit_dates.ttl', print
                 #                                                   date=last_visit_date))
 
 
-def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
+def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     if vendor == 'ES':
@@ -126,7 +128,7 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
-    with open(filename, 'w') as f:
+    with open(output_f, 'w') as f:
         with open('next_visit_date_err.txt', 'w') as f_err:
 
             def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
@@ -197,5 +199,11 @@ def next_visit_ttl(practice_id='1', filename='next_visit_dates.ttl', print_ttl=T
 
 #next_visit_ttl(practice_id='3', vendor='ES')
 #first_last_visit_date_ttl(practice_id='3', vendor='ES')
-next_visit_ttl(practice_id='1', vendor='dentrix')
-first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
+#next_visit_ttl(practice_id='1', vendor='dentrix')
+#first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
+next_visit_ttl(practice_id='1', vendor='ES',
+               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.ttl')
+first_last_visit_date_ttl(practice_id='1', vendor='ES',
+                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.ttl')

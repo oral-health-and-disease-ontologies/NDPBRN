@@ -8,12 +8,15 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map, \
     load_ada_oral_evaluation_material_map
 
-def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True, save_ttl=True, procedure_type=1, vendor='ES'):
+def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
+                        output_p='./',
+                        print_ttl=True, save_ttl=True, procedure_type=1, vendor='ES'):
 
 #    df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Fillings.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     if vendor == 'ES':
@@ -64,7 +67,7 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
 
     # filters on procedure_type by procedure_type_map and create filenames for ttl and err text file
     try:
-        filename = procedure_type_map[str(procedure_type)] + '.ttl'
+        filename = output_p + procedure_type_map[str(procedure_type)] + '.ttl'
         err_filename = procedure_type_map[str(procedure_type)] + '_err.txt'
     except Exception as ex:  # invalid procedure_type: stop processing here
         print("Invalid procedure type: " + str(procedure_type))
@@ -572,14 +575,43 @@ def print_procedure_ttl(practice_id='3', filename='filling.ttl', print_ttl=True,
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
-#print_procedure_ttl(practice_id='3', procedure_type=1, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=2, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=3, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=4, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=5, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=6, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=7, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=8, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=9, vendor='ES')
-#print_procedure_ttl(practice_id='3', procedure_type=10, vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=1, vendor='dentrix')
+print_procedure_ttl(practice_id='1', procedure_type=1,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=2,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=3,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=4,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=5,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=6,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=7,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=8,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=9,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=10,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+                    vendor='ES')

@@ -2,17 +2,18 @@ import pandas as pds
 import os
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_ttl=True, save_ttl=True, vendor='ES'):
+def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_f= 'Provider_Table.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
     #df_path = os.path.join(curr_dir, '..', 'data', 'RI-demo-data.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.csv')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Provider_Table.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.xlsx')
-    df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.txt')
+    #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.txt')
+    df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
 
-    with open(filename, 'w') as f:
+    with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
         def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
             if print_ttl == True: print value_str
@@ -76,4 +77,6 @@ def translate_provider_to_ttl_1(practice_id='3', filename='provider.ttl', print_
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
 #translate_provider_to_ttl()
-translate_provider_to_ttl_1(practice_id='1', vendor='ES')
+translate_provider_to_ttl_1(practice_id='1', vendor='ES',
+                            input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
+                            output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')
