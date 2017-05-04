@@ -9,7 +9,7 @@ from datetime import datetime
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri
 
-def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
+def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', output_p='./', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
@@ -33,7 +33,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', input
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(output_f, 'w') as f:
-        with open('visit_date_err.txt', 'w') as f_err:
+        with open(output_p + 'visit_date_err.txt', 'w') as f_err:
 
             def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
                 if print_ttl == True: print value_str
@@ -105,7 +105,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', input
                 #                                                   date=last_visit_date))
 
 
-def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
+def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='./', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History.xlsx')
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Patient_History.xlsx')
@@ -129,7 +129,7 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', input_f= 'P
     visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(output_f, 'w') as f:
-        with open('next_visit_date_err.txt', 'w') as f_err:
+        with open(output_p + 'next_visit_date_err.txt', 'w') as f_err:
 
             def output(value_str, print_ttl=print_ttl, save_ttl=save_ttl):
                 if print_ttl == True: print value_str
@@ -201,9 +201,11 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', input_f= 'P
 #first_last_visit_date_ttl(practice_id='3', vendor='ES')
 #next_visit_ttl(practice_id='1', vendor='dentrix')
 #first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
-next_visit_ttl(practice_id='1', vendor='ES',
-               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.ttl')
-first_last_visit_date_ttl(practice_id='1', vendor='ES',
-                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.ttl')
+# next_visit_ttl(practice_id='1', vendor='ES',
+#                input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+#                output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.ttl',
+#                output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
+# first_last_visit_date_ttl(practice_id='1', vendor='ES',
+#                           input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+#                           output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.ttl',
+#                           output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')

@@ -77,6 +77,6 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
 #translate_provider_to_ttl()
-translate_provider_to_ttl_1(practice_id='1', vendor='ES',
-                            input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
-                            output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')
+# translate_provider_to_ttl_1(practice_id='1', vendor='ES',
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')

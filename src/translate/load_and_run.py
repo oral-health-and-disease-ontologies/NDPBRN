@@ -1,64 +1,117 @@
-from load_resources import curr_dir, ohd_ttl, label2uri
+import os
 
 from patient_to_ttl import translate_patient_to_ttl
 from provider_to_ttl import translate_provider_to_ttl_1
 from visit_to_ttl import translate_visit_to_ttl
-from visit_dates import first_last_visit_date_ttl, next_visit_ttl
+from visit_dates import next_visit_ttl, first_last_visit_date_ttl
 from procedure_to_ttl import print_procedure_ttl
 
 #test with practice 1 with ES
-translate_provider_to_ttl_1(practice_id='1', vendor='ES',
+def testAllTranslationWithPRAC_1():
+    translate_provider_to_ttl_1(practice_id='1', vendor='ES',
                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')
-translate_patient_to_ttl(practice_id='1', vendor='ES',
+    translate_patient_to_ttl(practice_id='1', vendor='ES',
                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_Table.txt',
                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.ttl')
-translate_visit_to_ttl(practice_id='1', vendor='ES',
+    translate_visit_to_ttl(practice_id='1', vendor='ES',
                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.ttl')
-next_visit_ttl(practice_id='1', vendor='ES',
+    next_visit_ttl(practice_id='1', vendor='ES',
                input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.ttl')
-first_last_visit_date_ttl(practice_id='1', vendor='ES',
+               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.ttl',
+               output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
+    first_last_visit_date_ttl(practice_id='1', vendor='ES',
                           input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.ttl')
-print_procedure_ttl(practice_id='1', procedure_type=1,
+                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.ttl',
+                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
+    print_procedure_ttl(practice_id='1', procedure_type=1,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=2,
+    print_procedure_ttl(practice_id='1', procedure_type=2,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=3,
+    print_procedure_ttl(practice_id='1', procedure_type=3,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=4,
+    print_procedure_ttl(practice_id='1', procedure_type=4,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=5,
+    print_procedure_ttl(practice_id='1', procedure_type=5,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=6,
+    print_procedure_ttl(practice_id='1', procedure_type=6,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=7,
+    print_procedure_ttl(practice_id='1', procedure_type=7,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=8,
+    print_procedure_ttl(practice_id='1', procedure_type=8,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=9,
+    print_procedure_ttl(practice_id='1', procedure_type=9,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=10,
+    print_procedure_ttl(practice_id='1', procedure_type=10,
                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
+
+def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES', prac_num=1):
+
+    providerTableFile = 'Provider_Table.txt'
+    patientTableFile = 'Patient_Table.txt'
+    patietnHistoryTFile = 'Patient_History.txt'
+
+    provderOutputFile = 'provider.ttl'
+    patientOutputFile = 'patient.ttl'
+    visitOutputFile = 'visit.ttl'
+    visitFirstLastOutputFile = 'visit_dates.ttl'
+    nextVisitOutputFile = 'next_visit_dates.ttl'
+
+    for i in range(1, prac_num+1):
+        input_p = data_p_root + 'PRAC_' + str(i) + '/'
+        output_p = output_p_root + 'PRAC_' + str(i) + '/'
+
+        if not os.path.exists(output_p):
+            os.makedirs(output_p)
+
+        translate_provider_to_ttl_1(practice_id=str(i), vendor=vendor,
+                                    input_f=input_p + providerTableFile,
+                                    output_f=output_p + provderOutputFile)
+        translate_patient_to_ttl(practice_id=str(i), vendor=vendor,
+                                 input_f=input_p + patientTableFile,
+                                 output_f=output_p + patientOutputFile)
+        translate_visit_to_ttl(practice_id=str(i), vendor=vendor,
+                               input_f=input_p + patietnHistoryTFile,
+                               output_f=output_p + visitOutputFile)
+        next_visit_ttl(practice_id=str(i), vendor=vendor,
+                       input_f=input_p + patietnHistoryTFile,
+                       output_f=output_p + nextVisitOutputFile,
+                       output_p=output_p)
+        first_last_visit_date_ttl(practice_id=str(i), vendor=vendor,
+                                  input_f=input_p + patietnHistoryTFile,
+                                  output_f=output_p + visitFirstLastOutputFile,
+                                  output_p=output_p)
+        for j in range(1, 11):
+            print_procedure_ttl(practice_id=str(i), procedure_type=str(j),
+                            input_f=input_p + patietnHistoryTFile,
+                            output_p=output_p,
+                            vendor=vendor)
+
+## test call all for practice 1 testing
+#testAllTranslationWithPRAC_1()
+## run all ES for practice number from 1 ~ prac_num
+runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
+               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
+               vendor='ES',
+               prac_num=2)

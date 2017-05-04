@@ -119,6 +119,6 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
                 logging.exception("message")
 
 #translate_patient_to_ttl(practice_id='3', vendor='ES')
-translate_patient_to_ttl(practice_id='1', vendor='ES',
-                            input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_Table.txt',
-                            output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.ttl')
+# translate_patient_to_ttl(practice_id='1', vendor='ES',
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_Table.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.ttl')

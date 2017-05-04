@@ -90,6 +90,6 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
                     logging.exception("message")
 
 #translate_visit_to_ttl(practice_id='3', vendor='ES')
-translate_visit_to_ttl(practice_id='1', vendor='ES',
-                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.ttl')
+# translate_visit_to_ttl(practice_id='1', vendor='ES',
+#                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.ttl')
