@@ -43,7 +43,11 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
         practice_type = label2uri['dental health care organization']
         practice_label = 'practice_' + str(practice_id)
         #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
-        practiceidstring = 'NDPBRN practice ' + str(practice_id)
+        if(vendor == 'ES'):
+            vendorChar = 'A '
+        else:
+            vendorChar = 'B '
+        practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
         # delcare individuals
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
                                                   practice_id_str=practiceidstring))

@@ -90,7 +90,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
             output(prefix_str)
 
             #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
-            practiceidstring = 'NDPBRN practice ' + str(practice_id)
+            if (vendor == 'ES'):
+                vendorChar = 'A '
+            else:
+                vendorChar = 'B '
+            practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
             # practice
             practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
             # define types
@@ -615,3 +619,12 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
 #                     vendor='ES')
+##test dentrix with 2 procedures
+#print_procedure_ttl(practice_id='1', procedure_type=1,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Patient_History.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
+#                    vendor='dentrix')
+#print_procedure_ttl(practice_id='1', procedure_type=2,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Patient_History.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
+#                    vendor='dentrix')
