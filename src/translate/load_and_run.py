@@ -66,7 +66,7 @@ def testAllTranslationWithPRAC_1():
                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
                     vendor='ES')
 
-def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES', prac_num=1):
+def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES', prac_lower_num=1, prac_upper_num=1):
 
     providerTableFile = 'Provider_Table.txt'
     patientTableFile = 'Patient_Table.txt'
@@ -78,7 +78,7 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
     visitFirstLastOutputFile = 'visit_dates.ttl'
     nextVisitOutputFile = 'next_visit_dates.ttl'
 
-    for i in range(1, prac_num+1):
+    for i in range(prac_lower_num, prac_upper_num+1):
         input_p = data_p_root + 'PRAC_' + str(i) + '/'
         output_p = output_p_root + 'PRAC_' + str(i) + '/'
 
@@ -114,4 +114,5 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
                output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
                vendor='ES',
-               prac_num=3)
+               prac_lower_num=3,
+               prac_upper_num=3)
