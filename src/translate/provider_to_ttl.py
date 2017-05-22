@@ -11,7 +11,11 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.txt')
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
-    df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                          names=["db_practice_id", "provider_id", "provider_title", "status", "idnum", "specialty", "speciality_descript", "isnonperson", "rsctype"], header=0)
 
     with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
@@ -68,7 +72,15 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
 
             # if string "office" is in position string, print office staff role and relate it to the provider:
             #if "office" in row.POSITION.lower():
-            if "office" in row.description.lower():
+            if vendor == 'ES':
+                roleDesc = row.description.lower()
+            else:
+                if pds.notnull(row.speciality_descript):
+                    roleDesc = str(row.speciality_descript).lower()
+                else:
+                    roleDesc = ''
+
+            if "office" in roleDesc:
                 output(ohd_ttl['declare individual uri'].
                     format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label, practice_id_str=practiceidstring))
                 output(ohd_ttl['uri1 has role uri2'].
@@ -84,3 +96,6 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
 # translate_provider_to_ttl_1(practice_id='1', vendor='ES',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')
+#translate_provider_to_ttl_1(practice_id='1', vendor='dentrix',
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Provider_Table.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/provider.ttl')

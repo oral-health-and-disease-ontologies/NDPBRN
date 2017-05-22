@@ -85,6 +85,11 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
         if not os.path.exists(output_p):
             os.makedirs(output_p)
 
+        if vendor.lower() == 'dentrix':
+            providerTableFile = 'Dentrix_Pract' + str(i) + '_Provider_Table.txt'
+            patientTableFile = 'Dentrix_Pract' + str(i) + '_Patient_Table.txt'
+            patietnHistoryTFile = 'Dentrix_Pract' + str(i) + '_Patient_History.txt'
+
         translate_provider_to_ttl_1(practice_id=str(i), vendor=vendor,
                                     input_f=input_p + providerTableFile,
                                     output_f=output_p + provderOutputFile)
@@ -111,8 +116,14 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 ## test call all for practice 1 testing
 #testAllTranslationWithPRAC_1()
 ## run all ES for practice number from 1 ~ prac_num
-runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
-               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
-               vendor='ES',
-               prac_lower_num=3,
-               prac_upper_num=3)
+#runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
+#               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
+#               vendor='ES',
+#               prac_lower_num=1,
+#               prac_upper_num=3)
+## test with dentrix
+runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
+               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/',
+               vendor='dentrix',
+               prac_lower_num=1,
+               prac_upper_num=1)
