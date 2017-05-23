@@ -74,17 +74,20 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
             #if "office" in row.POSITION.lower():
             if vendor == 'ES':
                 roleDesc = row.description.lower()
+                if "office" in roleDesc:
+                    output(ohd_ttl['declare individual uri'].
+                           format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label,
+                                  practice_id_str=practiceidstring))
+                    output(ohd_ttl['uri1 has role uri2'].
+                           format(uri1=provider_uri, uri2=office_staff_role_uri))
             else:
-                if pds.notnull(row.speciality_descript):
-                    roleDesc = str(row.speciality_descript).lower()
-                else:
-                    roleDesc = ''
-
-            if "office" in roleDesc:
-                output(ohd_ttl['declare individual uri'].
-                    format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label, practice_id_str=practiceidstring))
-                output(ohd_ttl['uri1 has role uri2'].
-                    format(uri1=provider_uri, uri2=office_staff_role_uri))
+                roleDesc = row.rsctype
+                if 2 == roleDesc:
+                    output(ohd_ttl['declare individual uri'].
+                           format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label,
+                                  practice_id_str=practiceidstring))
+                    output(ohd_ttl['uri1 has role uri2'].
+                           format(uri1=provider_uri, uri2=office_staff_role_uri))
 
             # relate individuals
             output(ohd_ttl['uri1 has role uri2'].
