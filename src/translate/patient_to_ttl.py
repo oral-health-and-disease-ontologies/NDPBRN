@@ -32,6 +32,10 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
             if save_ttl == True: f.write(value_str)
 
         # output prefixes for ttl file
+        if(vendor == 'ES'):
+            practice_id = 'A_' + str(practice_id)
+        else:
+            practice_id = 'B_' + str(practice_id)
         prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
         output(prefix_str)
 
@@ -41,11 +45,12 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
         practice_type = label2uri['dental health care organization']
         practice_label = "practice_" + str(practice_id)
         #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
-        if(vendor == 'ES'):
-            vendorChar = 'A '
-        else:
-            vendorChar = 'B '
-        practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+        #if(vendor == 'ES'):
+        #    vendorChar = 'A '
+        #else:
+        #    vendorChar = 'B '
+        #practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+        practiceidstring = 'NDPBRN practice ' + str(practice_id)
         # delcare individuals
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
                                                   practice_id_str=practiceidstring))

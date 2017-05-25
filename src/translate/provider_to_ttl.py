@@ -24,6 +24,10 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
             if save_ttl == True: f.write(value_str)
 
         # output prefixes for ttl file
+        if(vendor == 'ES'):
+            practice_id = 'A_' + str(practice_id)
+        else:
+            practice_id = 'B_' + str(practice_id)
         prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
         output(prefix_str)
 
@@ -34,11 +38,12 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
         practice_label = "practice_" + str(practice_id)
         # delcare individuals
         #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
-        if(vendor == 'ES'):
-            vendorChar = 'A '
-        else:
-            vendorChar = 'B '
-        practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+        #if(vendor == 'ES'):
+        #    vendorChar = 'A '
+        #else:
+        #    vendorChar = 'B '
+        #practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+        practiceidstring = 'NDPBRN practice ' + str(practice_id)
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
                                                   practice_id_str=practiceidstring))
 

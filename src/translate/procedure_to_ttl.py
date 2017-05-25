@@ -87,16 +87,22 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                 f_err.write(value_str)
                 f_err.write('\n')
 
+            if (vendor == 'ES'):
+                practice_id = 'A_' + str(practice_id)
+            else:
+                practice_id = 'B_' + str(practice_id)
+
             # output prefixes for ttl file
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
 
             #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
-            if (vendor == 'ES'):
-                vendorChar = 'A '
-            else:
-                vendorChar = 'B '
-            practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+            # if (vendor == 'ES'):
+            #     vendorChar = 'A '
+            # else:
+            #     vendorChar = 'B '
+            # practiceidstring = 'NDPBRN practice ' + vendorChar + str(practice_id)
+            practiceidstring = 'NDPBRN practice ' + str(practice_id)
             # practice
             practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
             # define types
