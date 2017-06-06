@@ -1,6 +1,7 @@
 import os
 import rdflib
 from rdflib import ConjunctiveGraph, URIRef, RDFS, Literal
+from datetime import datetime
 
 def load_label2uri(force=False, filepath=__file__, filename='label2uri.txt'):
     # create and the lable2uri under the following two coditions:
@@ -128,6 +129,13 @@ def test_label2uri():
     print d['tooth 1'] # works
     print d['d2140'] # works
     print d['occlusal surface enamel of tooth']
+
+def get_date_str(date_input_str):
+    try:
+        date_str = str(datetime.strptime(date_input_str, '%Y-%m-%d').date())
+    except Exception as ex:
+        date_str = 'invalid date'
+    return date_str
 
 load_label2uri(force=True)
 # test_label2uri()
