@@ -7,6 +7,7 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
     load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map, \
     load_ada_oral_evaluation_material_map
+from src.util.ohd_label2uri import get_date_str
 
 def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         output_p='./',
@@ -135,10 +136,16 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         surface = surface.strip()
 
                     try:
-                        date_str = str(datetime.strptime(p_date, '%Y-%m-%d').date())
+                        date_str = get_date_str(p_date)
+                        if date_str == 'invalid date':
+                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
+                            output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
 
                         locationId = int(locationId)
-                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                        if date_str != 'invalid date':
+                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                        else:
+                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(idx)
                         #uri
                         visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
@@ -147,28 +154,58 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                             # filters on material for certain types of procedures that we are interested in
                             no_material_flag = False
                             if str(procedure_type) == '1':  ## for filling
-                                load_ada_filling_material_map[ada_code]
+                                try:
+                                    load_ada_filling_material_map[ada_code]
+                                except Exception as ex_filling:
+                                    logging.exception("message")
                             elif str(procedure_type) == '2':  ## for endodontic
-                                load_ada_endodontic_material_map[ada_code]
+                                try:
+                                    load_ada_endodontic_material_map[ada_code]
+                                except Exception as ex_endo:
+                                    logging.exception("message")
                             elif str(procedure_type) == '3':  ## for inlays
-                                load_ada_inlay_material_map[ada_code]
+                                try:
+                                    load_ada_inlay_material_map[ada_code]
+                                except Exception as ex_in:
+                                    logging.exception("message")
                             elif str(procedure_type) == '4':  ## for onlays
-                                load_ada_onlay_material_map[ada_code]
+                                try:
+                                    load_ada_onlay_material_map[ada_code]
+                                except Exception as ex_on:
+                                    logging.exception("message")
                             elif str(procedure_type) == '5':  ## for apicoectomy
-                                load_ada_apicoectomy_material_map[ada_code]
+                                try:
+                                    load_ada_apicoectomy_material_map[ada_code]
+                                except Exception as ex_api:
+                                    logging.exception("message")
                             elif str(procedure_type) == '6':  ## for root amputation - no material
                                 no_material_flag = True
-                                load_ada_root_amputation_material_map[ada_code]
+                                try:
+                                    load_ada_root_amputation_material_map[ada_code]
+                                except Exception as ex_amp:
+                                    logging.exception("message")
                             elif str(procedure_type) == '7':  ## for crown
-                                load_ada_crown_material_map[ada_code]
+                                try:
+                                    load_ada_crown_material_map[ada_code]
+                                except Exception as ex_crown:
+                                    logging.exception("message")
                             elif str(procedure_type) == '8':  ## for pontic
-                                load_ada_pontic_material_map[ada_code]
+                                try:
+                                    load_ada_pontic_material_map[ada_code]
+                                except Exception as ex_pontic:
+                                    logging.exception("message")
                             elif str(procedure_type) == '9':  ## for surgic tooth extraction
                                 no_material_flag = True
-                                load_ada_extraction_material_map[ada_code]
+                                try:
+                                    load_ada_extraction_material_map[ada_code]
+                                except Exception as ex_extract:
+                                    logging.exception("message")
                             elif str(procedure_type) == '10':  ## for oral evaluation
                                 no_material_flag = True
-                                load_ada_oral_evaluation_material_map[ada_code]
+                                try:
+                                    load_ada_oral_evaluation_material_map[ada_code]
+                                except Exception as ex_oral:
+                                    logging.exception("message")
                             else: #invalid procedure_type: stop processing here
                                 print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -176,7 +213,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                 return
 
                             if pds.isnull(tooth_num) and str(procedure_type) == '10':  ## for oral evaluation
-                                cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(ada_code) + "_" + date_str
+                                if date_str != 'invalid date':
+                                    cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(ada_code) + "_" + date_str
+                                else:
+                                    cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(
+                                        ada_code) + "_" + str(idx)
                                 patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                                 patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                 # restoration procedure
@@ -233,9 +274,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                 output("\n")
 
                                 # procedure "occurence date" property
-                                output(
-                                    ohd_ttl['declare date property uri'].
-                                        format(uri=restoration_procedure_uri,
+                                if date_str != 'invalid date':
+                                    output(
+                                        ohd_ttl['declare date property uri'].
+                                            format(uri=restoration_procedure_uri,
                                                type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                                date=date_str))
 
@@ -252,7 +294,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                 tooth_num = int(tooth_num)
                                 tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
 
-                                cdt_code_id = tooth_id + "_" + str(ada_code) + "_" + date_str
+                                if date_str != 'invalid date':
+                                    cdt_code_id = tooth_id + "_" + str(ada_code) + "_" + date_str
+                                else:
+                                    cdt_code_id = tooth_id + "_" + str(ada_code) + "_" + str(idx)
                                 patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                                 patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                 provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(prov_id)
@@ -266,7 +311,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                   tooth_num)],
                                                                                           label=tooth_label,
                                                                                           practice_id_str=practiceidstring)
-                                    fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                                    if date_str != 'invalid date':
+                                        fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                                    else:
+                                        fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(
+                                            pid) + "_" + str(idx)
                                     # fixed_partial_denture:1_1_1_1999-12-17
                                     fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
                                     fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
@@ -409,9 +458,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         output("\n")
 
                                         # procedure "occurence date" property
-                                        output(
-                                            ohd_ttl['declare date property uri'].
-                                                format(uri=restoration_procedure_uri,
+                                        if date_str != 'invalid date':
+                                            output(
+                                                ohd_ttl['declare date property uri'].
+                                                    format(uri=restoration_procedure_uri,
                                                        type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                                        date=date_str))
 
@@ -554,9 +604,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     output("\n")
 
                                     # procedure "occurence date" property
-                                    output(
-                                        ohd_ttl['declare date property uri'].
-                                            format(uri=restoration_procedure_uri,
+                                    if date_str != 'invalid date':
+                                        output(
+                                            ohd_ttl['declare date property uri'].
+                                                format(uri=restoration_procedure_uri,
                                                    type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                                    date=date_str))
 
@@ -576,15 +627,15 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     output(cdt_code_procedure_relation_str)
                                     output("\n")
                             else:
-                                print("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. ")
-                                output_err("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. ")
+                                print("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
+                                output_err("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
                         except Exception as ex1:
-                            print("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num))
-                            output_err("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num))
+                            print("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                            output_err("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
                             logging.exception("message")
                     except Exception as ex:
-                        print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
-                        output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId))
+                        print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
+                        output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
                         logging.exception("message")
 
 # print_procedure_ttl(practice_id='1', procedure_type=1,
@@ -628,10 +679,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
 #                     vendor='ES')
 ##test dentrix with 2 procedures
-#print_procedure_ttl(practice_id='1', procedure_type=1,
-#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
-#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
-#                    vendor='dentrix')
+print_procedure_ttl(practice_id='1', procedure_type=1,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
+                    vendor='dentrix')
 #print_procedure_ttl(practice_id='1', procedure_type=2,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
