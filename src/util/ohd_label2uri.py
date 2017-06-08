@@ -137,6 +137,12 @@ def get_date_str(date_input_str):
         date_str = 'invalid date'
     return date_str
 
+def get_visit_id_suffix_with_date_str(date_str, idx):
+    if date_str != 'invalid date':
+        return date_str
+    else:
+        return "invalid_visit_date_" + str(idx)
+
 load_label2uri(force=True)
 # test_label2uri()
 # load_ada_code_map()

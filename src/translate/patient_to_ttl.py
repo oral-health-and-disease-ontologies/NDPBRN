@@ -71,9 +71,11 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
             if gender == 'M':
                 patient_type = label2uri['male dental patient']
                 gender_role_type = label2uri['male gender role']
-            else:
+            elif gender == 'F':
                 patient_type = label2uri['female dental patient']
                 gender_role_type = label2uri['female gender role']
+            else:
+                print("Patient " + str(pid) + " has invalid gender: " + gender)
 
             birth_date_type = label2uri['birth_date'].rsplit('/', 1)[-1]
 

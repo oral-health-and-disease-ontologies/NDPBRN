@@ -3,7 +3,7 @@ import logging
 import os
 from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri
-from src.util.ohd_label2uri import get_date_str
+from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
 
 def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     # get data from RI-demo-data
@@ -70,10 +70,8 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
                     print("Problem visit for patient (wrong date): " + str(pid) + " for practice: " + str(practiceId) + ". idx=" + str(idx))
 
                locationId = int(locationId)
-               if date_str != 'invalid date':
-                    visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
-               else:
-                    visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(idx)
+               visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + get_visit_id_suffix_with_date_str(date_str, idx)
+
                #uri
                visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
