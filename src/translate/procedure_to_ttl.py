@@ -9,6 +9,16 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_oral_evaluation_material_map
 from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
 
+restored_tooth_surface_label_map = {'b': 'restored buccal surface',
+                                    'd': 'restored distal surface',
+                                    'i': 'restored incisal surface',
+                                    'f': 'restored labial surface',
+                                    'l': 'restored lingual surface',
+                                    'm': 'restored mesial surface',
+                                    'o': 'restored occlusal surface'
+                                    }
+
+
 def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         output_p='./',
                         print_ttl=True, save_ttl=True, procedure_type=1, vendor='ES'):
@@ -57,16 +67,6 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                    'i': 'Incisal surface enamel of tooth',
                    'f': 'Labial surface enamel of tooth',
                    'l': 'Lingual surface enamel of tooth'}
-
-    restored_tooth_surface_label_map = {'b': 'restored buccal surface',
-                                        'd': 'restored distal surface',
-                                        'i': 'restored incisal surface',
-                                        'f': 'restored labial surface',
-                                        'l': 'restored lingual surface',
-                                        'm': 'restored mesial surface',
-                                        'o': 'restored occlusal surface'
-    }
-
 
     # filters on procedure_type by procedure_type_map and create filenames for ttl and err text file
     try:
@@ -173,10 +173,6 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                         output(restoration_procedure)
                         output("\n")
-
-                        if len(ada_code) == 5:
-                            output(billing_code)
-                            output("\n")
 
                         output(procedure_visit_relation_str)
                         output("\n")
@@ -300,26 +296,21 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     ## with right procedure type of ada_code
                                     if str(procedure_type) == '10':  ## for oral evaluation
                                         if date_str != 'invalid date':
-                                            cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(get_ada_code(ada_code, idx)) + "_" + date_str
+                                            cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + ada_code + "_" + date_str
                                         else:
-                                            cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(get_ada_code(ada_code, idx)) + "_invalid_procedure_date_" + str(idx)
+                                            cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + ada_code + "_invalid_procedure_date_" + str(idx)
                                         patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                                         patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                         # restoration procedure
                                         restoration_procedure_label = "restoration procedure on patient " + str(pid) + " on "  + date_str  # "restoration procedure on patient 1 on 2003-05-16"
-                                        #TODO: double check on this, if invalid ada_code, "specific procedure" points to "dental procedure"
-                                        if len(ada_code) == 5:
-                                            specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
-                                        else:
-                                            specific_procedure = label2uri["dental procedure"].rsplit('/', 1)[-1]
+                                        specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                         restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                                 tooth_restoration_procedure=specific_procedure,
                                                                                                                 label=restoration_procedure_label,
                                                                                                                 practice_id_str=practiceidstring)
                                         # billing code
-                                        if len(ada_code) == 5:
-                                            billing_code_label = "billing code " + str(get_ada_code(ada_code, idx)) + " for procedure on " + date_str  # "billing code D2160 for procedure on 2003-05-16"
-                                            billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
+                                        billing_code_label = "billing code " + ada_code + " for procedure on " + date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                        billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
                                                                                               billing_code_for_restorative=
                                                                                               label2uri[
                                                                                                   ada_code.lower()].rsplit('/',
@@ -356,9 +347,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         output(restoration_procedure)
                                         output("\n")
 
-                                        if len(ada_code) == 5:
-                                            output(billing_code)
-                                            output("\n")
+                                        output(billing_code)
+                                        output("\n")
 
                                         output(procedure_visit_relation_str)
                                         output("\n")
@@ -383,21 +373,22 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     else:
                                     ## refactor to make tooth_num NOT required
                                     #elif pds.notnull(tooth_num):
+                                        origin_tooth = tooth_num
                                         if pds.notnull(tooth_num):
                                             tooth_num = int(tooth_num)
                                         ## after get_tooth_num call, tooth_num is a string either a valid tooth number or "invalid_tooth_num_{idx}"
                                         tooth_num = get_tooth_num(tooth_num, idx)
 
                                         if tooth_num.startswith('invalid'):
-                                            print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
-                                            output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                            print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                            output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
 
                                         tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
 
                                         if date_str != 'invalid date':
-                                            cdt_code_id = tooth_id + "_" + str(get_ada_code(ada_code, idx)) + "_" + date_str
+                                            cdt_code_id = tooth_id + "_" + ada_code + "_" + date_str
                                         else:
-                                            cdt_code_id = tooth_id + "_" + str(get_ada_code(ada_code, idx)) + "_invalid_procedure_date_" + str(idx)
+                                            cdt_code_id = tooth_id + "_" + ada_code + "_invalid_procedure_date_" + str(idx)
                                         patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                                         patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                         provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(prov_id)
@@ -437,11 +428,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                         # restoration procedure
                                         restoration_procedure_label = "restoration procedure on " + tooth_label + " on " + date_str  # "restoration procedure on tooth 13 of patient 1 on 2003-05-16"
-                                        #TODO: double check on this, if invalid ada_code, "specific procedure" points to "dental procedure"
-                                        if len(ada_code) == 5:
-                                            specific_procedure = label2uri[load_ada_procedure_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                        else:
-                                            specific_procedure = label2uri["dental procedure"].rsplit('/', 1)[-1]
+                                        specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                         restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                                 tooth_restoration_procedure=specific_procedure,
                                                                                                                 label=restoration_procedure_label,
@@ -450,27 +437,26 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         # restoration material
                                         restoration_material_label = "restoration material placed in " + tooth_label  # "restoration material placed in tooth 13 of patient 1"
                                         # material fork here: different procedure calls different map for specific material
-                                        if len(ada_code) == 5:
-                                            if str(procedure_type) == '1':  ## for filling (filling has surface info)
-                                                specific_material = label2uri[load_ada_filling_material_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                            elif str(procedure_type) == '2':  ## for endodontic
-                                                specific_material = label2uri[load_ada_endodontic_material_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                            elif str(procedure_type) == '3':  ## for inlay
-                                                specific_material = label2uri[load_ada_inlay_material_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                            elif str(procedure_type) == '4':  ## for onlay
-                                                specific_material = label2uri[load_ada_onlay_material_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                            elif str(procedure_type) == '5':  ## for apicoectomy
-                                                specific_material = label2uri[load_ada_apicoectomy_material_map[get_ada_code(ada_code, idx)]].rsplit('/', 1)[-1]
-                                            elif str(procedure_type) == '7':  ## for crown
-                                                specific_material = list()
-                                                ada_material_codes = load_ada_crown_material_map[get_ada_code(ada_code, idx)]
-                                                for one_ada_material_code in ada_material_codes:
-                                                    specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
-                                            elif str(procedure_type) == '8':  ## for pontic
-                                                specific_material = list()
-                                                ada_material_codes = load_ada_pontic_material_map[get_ada_code(ada_code, idx)]
-                                                for one_ada_material_code in ada_material_codes:
-                                                    specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
+                                        if str(procedure_type) == '1':  ## for filling (filling has surface info)
+                                            specific_material = label2uri[load_ada_filling_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        elif str(procedure_type) == '2':  ## for endodontic
+                                            specific_material = label2uri[load_ada_endodontic_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        elif str(procedure_type) == '3':  ## for inlay
+                                            specific_material = label2uri[load_ada_inlay_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        elif str(procedure_type) == '4':  ## for onlay
+                                            specific_material = label2uri[load_ada_onlay_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        elif str(procedure_type) == '5':  ## for apicoectomy
+                                            specific_material = label2uri[load_ada_apicoectomy_material_map[ada_code]].rsplit('/', 1)[-1]
+                                        elif str(procedure_type) == '7':  ## for crown
+                                            specific_material = list()
+                                            ada_material_codes = load_ada_crown_material_map[ada_code]
+                                            for one_ada_material_code in ada_material_codes:
+                                                specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
+                                        elif str(procedure_type) == '8':  ## for pontic
+                                            specific_material = list()
+                                            ada_material_codes = load_ada_pontic_material_map[ada_code]
+                                            for one_ada_material_code in ada_material_codes:
+                                                specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
 
                                         restoration_material = list()
                                         if no_material_flag == False:
@@ -487,15 +473,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                             label=restoration_material_label,
                                                                                                             practice_id_str=practiceidstring))
 
-                                        # billing code
-                                        if len(ada_code) == 5:
-                                            billing_code_label = "billing code " + str(
-                                                ada_code) + " for procedure on " + date_str  # "billing code D2160 for procedure on 2003-05-16"
-                                            billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
-                                                                                              billing_code_for_restorative=
-                                                                                              label2uri[ada_code.lower()].rsplit('/',1)[-1],
-                                                                                              label=billing_code_label,
-                                                                                              practice_id_str=practiceidstring)
+                                        billing_code_label = "billing code " + str(
+                                            ada_code) + " for procedure on " + date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                        billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
+                                                                                            billing_code_for_restorative=
+                                                                                            label2uri[ada_code.lower()].rsplit('/',1)[-1],
+                                                                                            label=billing_code_label,
+                                                                                            practice_id_str=practiceidstring)
 
                                         # relation: tooth part of patient  'uri1 is part of uri2':
                                         if str(procedure_type) == '8':  ## for pontic
@@ -551,9 +535,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         output(one_restoration_material)
                                                         output("\n")
 
-                                                if len(ada_code) == 5:
-                                                    output(billing_code)
-                                                    output("\n")
+                                                output(billing_code)
+                                                output("\n")
 
                                                 output(tooth_patient_relation_str)
                                                 output("\n")
@@ -570,39 +553,50 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                date=date_str))
 
                                                 for (single_surface) in surface_char:
-                                                    try:
-                                                        surface_id = tooth_id + "_" + single_surface
+                                                    convert_surface = get_surface(single_surface, idx)
 
-                                                        restored_surface_label = "restored surface " + single_surface.upper() + " for " + tooth_label  # "restored surface M for tooth 13 of patient 1"
-                                                        restrored_surface_str = ohd_ttl['declare restored tooth surface by prefix'].\
-                                                            format(surface_id=surface_id,
-                                                                   specific_restored_tooth_surface=label2uri[restored_tooth_surface_label_map[single_surface.lower()]],
-                                                                   label=restored_surface_label,
-                                                                   practice_id_str=practiceidstring)
-                                                        output(restrored_surface_str)
+                                                    if convert_surface.startswith("invalid"):
+                                                        print("Invalid surface for patient: " + str(
+                                                            pid) + " with ada_code: " + str(
+                                                            ada_code) + " tooth: " + str(
+                                                            origin_tooth) + " tooth_num: " + str(
+                                                            tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
+                                                            idx))
+                                                        output_err("Invalid surface for patient: " + str(
+                                                            pid) + " with ada_code: " + str(
+                                                            ada_code) + " tooth: " + str(
+                                                            origin_tooth) + " tooth_num: " + str(
+                                                            tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
+                                                            idx))
 
-                                                        #relation: restored surface part of tooth
-                                                        restored_surface_uri = "restored_tooth_surface:" + str(surface_id)
-                                                        restored_surface_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=restored_surface_uri, uri2=tooth_uri)
-                                                        output(restored_surface_tooth_relation_str)
+                                                    surface_id = tooth_id + "_" + convert_surface
+
+                                                    restored_surface_label = "restored surface " + single_surface.upper() + " for " + tooth_label  # "restored surface M for tooth 13 of patient 1"
+                                                    specific_restored_tooth_surface = get_specific_restored_tooth_surface(single_surface, idx)
+                                                    restrored_surface_str = ohd_ttl['declare restored tooth surface by prefix'].\
+                                                        format(surface_id=surface_id,
+                                                               specific_restored_tooth_surface=specific_restored_tooth_surface,
+                                                               label=restored_surface_label,
+                                                               practice_id_str=practiceidstring)
+                                                    output(restrored_surface_str)
+
+                                                    #relation: restored surface part of tooth
+                                                    restored_surface_uri = "restored_tooth_surface:" + str(surface_id)
+                                                    restored_surface_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=restored_surface_uri, uri2=tooth_uri)
+                                                    output(restored_surface_tooth_relation_str)
+                                                    output("\n")
+
+                                                    #relation: material part of restored surface
+                                                    if no_material_flag == False:
+                                                        material_restored_surface_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=material_uri, uri2=restored_surface_uri)
+                                                        output(material_restored_surface_relation_str)
                                                         output("\n")
 
-                                                        #relation: material part of restored surface
-                                                        if no_material_flag == False:
-                                                            material_restored_surface_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=material_uri, uri2=restored_surface_uri)
-                                                            output(material_restored_surface_relation_str)
-                                                            output("\n")
-
-                                                        #relation: restoration procedure has specified output restored surface
-                                                        procedure_restored_surface_relation_str = ohd_ttl['uri1 has specified output uri2'].\
-                                                            format(uri1=restoration_procedure_uri, uri2=restored_surface_uri)
-                                                        output(procedure_restored_surface_relation_str)
-                                                        output("\n")
-
-                                                    except Exception as ex1:
-                                                        output_err("Problem surface: " + surface_id)
-                                                        print("Problem surface: " + surface_id)
-                                                        logging.exception("message")
+                                                    #relation: restoration procedure has specified output restored surface
+                                                    procedure_restored_surface_relation_str = ohd_ttl['uri1 has specified output uri2'].\
+                                                        format(uri1=restoration_procedure_uri, uri2=restored_surface_uri)
+                                                    output(procedure_restored_surface_relation_str)
+                                                    output("\n")
 
                                                 output(procedure_provider_relation_str)
                                                 output("\n")
@@ -619,6 +613,30 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 output(cdt_code_procedure_relation_str)
                                                 output("\n")
+                                            else:
+                                                ## null/empty surface when there's supposed to have surface:
+                                                print("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
+                                                output_err("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
+
+                                                output(tooth_str)
+                                                output("\n")
+
+                                                output(restoration_procedure)
+                                                output("\n")
+
+                                                if no_material_flag == False:
+                                                    for one_restoration_material in restoration_material:
+                                                        output(one_restoration_material)
+                                                        output("\n")
+
+                                                output(billing_code)
+                                                output("\n")
+
+                                                output(tooth_patient_relation_str)
+                                                output("\n")
+
+                                                output(procedure_visit_relation_str)
+                                                output("\n")
                                         elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
                                                 or str(procedure_type) == '8' or str(procedure_type) == '9':
                                             ## for endodontic, apicoectomy, root amputation, crown, pontic, extraction
@@ -633,9 +651,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(one_restoration_material)
                                                     output("\n")
 
-                                            if len(ada_code) == 5:
-                                                output(billing_code)
-                                                output("\n")
+                                            output(billing_code)
+                                            output("\n")
 
                                             if str(procedure_type) == '8': ## for pontic
                                                 output(fixed_partial_denture_str)
@@ -770,6 +787,20 @@ def get_specific_tooth(tooth_prefix, tooth_num, idx):
             return label2uri['tooth']
         elif tooth_prefix.startswith('prosthetic'):
             return label2uri['prosthetic tooth']
+
+def get_surface(single_surface, idx):
+    try:
+        label2uri[restored_tooth_surface_label_map[single_surface.lower()]]
+        return single_surface
+    except Exception as ex:
+        return "invalid_surface_" + str(idx)
+
+def get_specific_restored_tooth_surface(single_surface, idx):
+    try:
+        specific_restored_tooth_surface = label2uri[restored_tooth_surface_label_map[single_surface.lower()]]
+        return specific_restored_tooth_surface
+    except Exception as ex:
+        return label2uri['restored tooth surface']
 
 # print_procedure_ttl(practice_id='1', procedure_type=1,
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
