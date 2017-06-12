@@ -744,6 +744,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 output(procedure_dentition_relation_str)
                                                 output("\n")
                                             else:
+                                                #TODO: check out upcoming proceudres for this, like denture, implant.
+                                                ## extraction and pontics dont have tooth, so no print out of tooth_patient_relation_str, the rest should have
                                                 output(tooth_patient_relation_str)
                                                 output("\n")
 
