@@ -126,7 +126,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                     ada_code = str('D') + ada_code[-4:]
                     if len(ada_code) != 5:
                         print("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
-                        output_err("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +   + " idex: " + str(idx))
+                        output_err("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
 
                         if date_str != 'invalid date':
                             cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(
