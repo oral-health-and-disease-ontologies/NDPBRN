@@ -613,6 +613,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 output(cdt_code_procedure_relation_str)
                                                 output("\n")
+
                                             else:
                                                 ## null/empty surface when there's supposed to have surface:
                                                 print("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
@@ -637,6 +638,22 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 output(procedure_visit_relation_str)
                                                 output("\n")
+                                                output(procedure_provider_relation_str)
+                                                output("\n")
+
+                                                output(procedure_tooth_input_relation_str)
+                                                output("\n")
+
+                                                if no_material_flag == False:
+                                                    output(procedure_input_material_relation_str)
+                                                    output("\n")
+
+                                                output(procedure_tooth_output_relation_str)
+                                                output("\n")
+
+                                                output(cdt_code_procedure_relation_str)
+                                                output("\n")
+
                                         elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
                                                 or str(procedure_type) == '8' or str(procedure_type) == '9':
                                             ## for endodontic, apicoectomy, root amputation, crown, pontic, extraction
