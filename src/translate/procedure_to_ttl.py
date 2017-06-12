@@ -125,6 +125,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                     ##change to use last 4 digits of ada_code and add D in front:
                     ada_code = str('D') + ada_code[-4:]
                     if len(ada_code) != 5:
+                        date_str = get_date_str(p_date)
+                        if date_str == 'invalid date':
+                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
+                                practiceId) + " idex: " + str(idx))
+                            output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
+                                practiceId) + " idex: " + str(idx))
+
                         print("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
                         output_err("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
 
@@ -147,6 +154,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                 practice_id_str=practiceidstring)
 
                         restoration_procedure_uri = "restoration_procedure:" + str(cdt_code_id)
+
+                        locationId = int(locationId)
+                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(
+                            pid) + "_" + get_visit_id_suffix_with_date_str(date_str, idx)
+
+                        # uri
+                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
                         # relation: procedure part of visit
                         procedure_visit_relation_str = ohd_ttl['uri1 is part of uri2'].format(
