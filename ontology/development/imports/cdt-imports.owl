@@ -981,6 +981,38 @@ a crown when there is insufficient tooth strength and retention for the crown pr
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_0003110 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003110">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000032"/>
+        <obo:IAO_0000116>Procedure in which the exposed pulp is covered with a dressing or cement
+that protects the pulp and promotes healing and repair.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>pulp cap – indirect (excluding final restoration)</obo:cdt_label>
+        <dc:identifier>D3110</dc:identifier>
+        <rdfs:label>billing code D3110: pulp cap – direct (excluding final restoration)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0003120 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003120">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000032"/>
+        <obo:IAO_0000116>Procedure in which the nearly exposed pulp is covered with a protective
+dressing to protect the pulp from additional injury and to promote healing
+and repair via formation of secondary dentin. This code is not to be used
+for bases and liners when all caries has been removed.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>pulp cap – direct (excluding final restoration)</obo:cdt_label>
+        <dc:identifier>D3120</dc:identifier>
+        <rdfs:label>billing code D3120: pulp cap – indirect (excluding final restoration)</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CDT_0003220 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003220">
@@ -1092,6 +1124,39 @@ a crown when there is insufficient tooth strength and retention for the crown pr
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_0003355 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003355">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000035"/>
+        <obo:cdt_label>pulpal regeneration - initial visit</obo:cdt_label>
+        <dc:identifier>D3355</dc:identifier>
+        <rdfs:label>billing code D3355: pulpal regeneration - initial visit</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0003356 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003356">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000035"/>
+        <obo:cdt_label>pulpal regeneration - interim medication placement</obo:cdt_label>
+        <dc:identifier>D3356</dc:identifier>
+        <rdfs:label>billing code D3356: pulpal regeneration - interim medication placement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0003357 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003357">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000035"/>
+        <obo:cdt_label>pulpal regeneration - completion of treatment</obo:cdt_label>
+        <dc:identifier>D3357</dc:identifier>
+        <rdfs:label>billing code D3357: pulpal regeneration - completion of treatment</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CDT_0003410 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003410">
@@ -1158,6 +1223,45 @@ a crown when there is insufficient tooth strength and retention for the crown pr
         <obo:cdt_label>hemisection (including any root removal), not including root canal therapy</obo:cdt_label>
         <dc:identifier>D3920</dc:identifier>
         <rdfs:label>billing code D3920: hemisection (including any root removal), not including root canal therapy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0005211 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0005211">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000034"/>
+        <obo:IAO_0000116>Includes acrylic resin base denture with resin or wrought wire clasps.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>maxillary partial denture – resin base (including any conventional clasps, rests and teeth)</obo:cdt_label>
+        <dc:identifier>D5211</dc:identifier>
+        <rdfs:label>billing code D5211: maxillary partial denture – resin base (including any conventional clasps, rests and teeth)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0005212 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0005212">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000034"/>
+        <obo:IAO_0000116>Includes acrylic resin base denture with resin or wrought wire clasps.
+
+ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>mandibular partial denture – resin base (including any conventional clasps, rests and teeth)</obo:cdt_label>
+        <dc:identifier>D5212</dc:identifier>
+        <rdfs:label>billing code D5212: mandibular partial denture – resin base (including any conventional clasps, rests and teeth)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0005213 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0005213">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000034"/>
+        <obo:cdt_label>maxillary partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</obo:cdt_label>
+        <dc:identifier>D5213</dc:identifier>
+        <rdfs:label>billing code D5213: maxillary partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</rdfs:label>
     </owl:Class>
     
 
@@ -1817,6 +1921,17 @@ cdt3 users manual: current dental terminology version 2000</obo:IAO_0000116>
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_0007130 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0007130">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000031"/>
+        <obo:cdt_label>root removal - exposed root</obo:cdt_label>
+        <dc:identifier>D7130</dc:identifier>
+        <rdfs:label>billing code D7130: root removal - exposed root</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CDT_0007140 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0007140">
@@ -1841,6 +1956,21 @@ cdt3 users manual: current dental terminology version 2000</obo:IAO_0000116>
         <obo:cdt_label>surgical removal of erupted tooth requiring removal of bone and/or sectioning of tooth,  and including elevation of mucoperiosteal flap if indicated</obo:cdt_label>
         <dc:identifier>D7210</dc:identifier>
         <rdfs:label>billing code D7210: surgical removal of erupted tooth requiring removal of bone and/or sectioning of tooth,  and including elevation of mucoperiosteal flap if indicated</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0007250 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0007250">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000016"/>
+        <obo:IAO_0000116>Includes cutting of soft tissue and bone, removal of tooth structure,
+and closure.
+
+ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>surgical removal of residual tooth roots (cutting procedure)</obo:cdt_label>
+        <dc:identifier>D7250</dc:identifier>
+        <rdfs:label>billing code D7250: surgical removal of residual tooth roots (cutting procedure)</rdfs:label>
     </owl:Class>
     
 
@@ -2268,6 +2398,64 @@ includes complete root canal therapy.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_1000032 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000032">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000030"/>
+        <rdfs:label>billing code for pulp capping</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000033 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000033">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000001"/>
+        <rdfs:label>billing code for prosthodontics, removable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000034 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000034">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000033"/>
+        <obo:cdt_label>partial dentures (including routine post-delivery care)</obo:cdt_label>
+        <rdfs:label>billing code for removable partial dentures (including routine post-delivery care)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000035 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000035">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000030"/>
+        <rdfs:label>billing code for pulpal regeneration</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000036 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000036">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000033"/>
+        <obo:cdt_label>complete dentures (including routine post-delivery care)</obo:cdt_label>
+        <rdfs:label>billing code for removable complete dentures (including routine post-delivery care)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000040 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000040">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000034"/>
+        <obo:cdt_label>mandibular partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</obo:cdt_label>
+        <dc:identifier>D5214</dc:identifier>
+        <rdfs:label>billing code D5214: mandibular partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -2428,5 +2616,5 @@ includes complete root canal therapy.
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
