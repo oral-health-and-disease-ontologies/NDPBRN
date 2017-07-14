@@ -1266,6 +1266,143 @@ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_000
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_0006010 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006010">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:IAO_0000116>Includes second stage surgery and placement of healing cap.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>surgical placement of implant body: endosteal implant</obo:cdt_label>
+        <dc:identifier>D6010</dc:identifier>
+        <rdfs:label>billing code D6010: surgical placement of implant body: endosteal implant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006011 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006011">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:cdt_label>Second stage implant surgery</obo:cdt_label>
+        <dc:identifier>D6011</dc:identifier>
+        <rdfs:label>billing code D6011: Second stage implant surgery</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006012 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006012">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:cdt_label>Surgical placement interim implant</obo:cdt_label>
+        <dc:identifier>D6012</dc:identifier>
+        <rdfs:label>billing code D6012: Surgical placement interim implant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006013 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006013">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:cdt_label>Surgical placement of mini implant</obo:cdt_label>
+        <dc:identifier>D6013</dc:identifier>
+        <rdfs:label>billing code D6013: Surgical placement of mini implant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006040 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006040">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:IAO_0000116>An eposteal (subperiosteal) framework of a biocompatible material designed
+and fabricated to fit on the surface of the bone of the mandible or maxilla
+with permucosal extensions which provide support and attachment of a
+prosthesis. This may be a complete arch or unilateral appliance. Eposteal
+implants rest upon the bone and under the periosteum.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>surgical placement: eposteal implant</obo:cdt_label>
+        <dc:identifier>D6040</dc:identifier>
+        <rdfs:label>billing code D6040: surgical placement: eposteal implant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006050 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006050">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:IAO_0000116>A transosteal (transosseous) biocompatible device with threaded posts
+penetrating both the superior and inferior cortical bone plates of the
+mandibular symphysis and exiting through the permucosa providing support and attachment for a dental prosthesis. Transosteal implants are placed completely through the bone and into the oral cavity from extraoral or intraoral.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>surgical placement: transosteal implant</obo:cdt_label>
+        <dc:identifier>D6050</dc:identifier>
+        <rdfs:label>billing code D6050: surgical placement: transosteal implant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006065 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006065">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000047"/>
+        <obo:IAO_0000116>A single crown restoration that is retained, supported and stabilized by an implant; may be screw retained or cemented.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>implant supported porcelain/ceramic crown</obo:cdt_label>
+        <dc:identifier>D6065</dc:identifier>
+        <rdfs:label>billing code D6065: implant supported porcelain/ceramic crown</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006066 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006066">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000047"/>
+        <obo:IAO_0000116>A single metal-ceramic crown restoration that is retained, supported and stabilized by an implant; may be screw retained or cemented.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>implant supported porcelain fused to metal crown (titanium, titanium alloy, high noble metal)</obo:cdt_label>
+        <dc:identifier>D6066</dc:identifier>
+        <rdfs:label>billing code D6066: implant supported porcelain fused to metal crown (titanium, titanium alloy, high noble metal)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006075 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006075">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000050"/>
+        <obo:IAO_0000116>A ceramic retainer for a fixed partial denture that gains retention, support and stability from an implant; may be screw retained or cemented.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>implant supported retainer for ceramic FPD</obo:cdt_label>
+        <dc:identifier>D6075</dc:identifier>
+        <rdfs:label>billing code D6075: implant supported retainer for ceramic FPD</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_0006076 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006076">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000050"/>
+        <obo:IAO_0000116>A metal-ceramic retainer for a fixed partial denture that gains retention, support and stability from an implant; may be screw retained or cemented.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>implant supported retainer for porcelain fused to metal FPD (titanium, titanium alloy, or high noble metal)</obo:cdt_label>
+        <dc:identifier>D6076</dc:identifier>
+        <rdfs:label>billing code D6076: implant supported retainer for porcelain fused to metal FPD (titanium, titanium alloy, or high noble metal)</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CDT_0006205 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006205">
@@ -2445,6 +2582,33 @@ includes complete root canal therapy.
     
 
 
+    <!-- http://purl.obolibrary.org/obo/CDT_1000037 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000037">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000001"/>
+        <obo:IAO_0000116>Local anesthesia is usually considered to be part of Implant Services procedures.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>implant services</obo:cdt_label>
+        <rdfs:label>billing code for implant services</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000038 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000038">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000037"/>
+        <obo:IAO_0000116>Report surgical implant procedure using codes in this section.
+
+ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
+        <obo:cdt_label>surgical implant services</obo:cdt_label>
+        <obo:cdt_label>surgical serivces</obo:cdt_label>
+        <rdfs:label>billing code for surgical implant services</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/CDT_1000040 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000040">
@@ -2452,6 +2616,33 @@ includes complete root canal therapy.
         <obo:cdt_label>mandibular partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</obo:cdt_label>
         <dc:identifier>D5214</dc:identifier>
         <rdfs:label>billing code D5214: mandibular partial denture – cast metal framework with resin denture bases (including any conventional clasps, rests and teeth)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000046 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000046">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000037"/>
+        <rdfs:label>billing code for implant supported prosthetics</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000047 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000047">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000046"/>
+        <rdfs:label>billing code for single crowns, implant supported</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/CDT_1000050 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000050">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000046"/>
+        <rdfs:label>billing code for fixed partial denture, implant supported</rdfs:label>
     </owl:Class>
     
 

@@ -136,5 +136,7 @@ fixed partial denture procedure
 - Add root extraction codes ADA codes: D7130, D7250
 - Add removable denture ADA codes: D5211, D5212, D5213, D5214
 
+- Add implant codes D6010, D6011, D6012, D6013, D6040, D6050
+- Add implant support codes D6065, D6066, D6075, D6076
 
 
