@@ -7712,13 +7712,17 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000245 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000245">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000002"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000002"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <obo:IAO_0000115>A dental procedure during which some part of the mouth is replaced by or fitted for a prothesis.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>prosthodontics procedure</rdfs:label>
@@ -7729,7 +7733,17 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000246 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000246">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000245"/>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000245"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000281"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <obo:IAO_0000115>A prosthodontics procedure during which a prosthesis is permanently attached to some part of the mouth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>fixed prosthodontics procedure</rdfs:label>
@@ -7751,13 +7765,30 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     <!-- http://purl.obolibrary.org/obo/OHD_0000248 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000248">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000246"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                                <owl:someValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+                                    </owl:Restriction>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <obo:IAO_0000115>A fixed prosthodontics procedure in which a dental implant is permanently attached to the jaw.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>dental implant procedure</rdfs:label>
@@ -8071,6 +8102,241 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000274 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000274">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000277"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A surgical dental implant procedure during which the implant body is embedded in the alveolar or basal bone and passes through only one cortical plate.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/about/types.html</obo:IAO_0000119>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/images/about_implants/image_page19_endosseous.jpg</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.aaid-implant.org/about-dental-implants/what-types-of-dental-implants-are-available/</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/e/endosteal-implant/</obo:IAO_0000119>
+        <obo:IAO_0000119>https://www.patientconnect365.com/dentalhealthtopics/article/surgical_placement_of_implant_body_endosteal___dental_procedure_code_description</obo:IAO_0000119>
+        <rdfs:label>endosteal dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000275 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000275">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000277"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000283"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A surgical dental implant procedure during which the implant body is placed in the jaw bone and covered by the periosteum.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000118>sub-periosteal dental implant procedure</obo:IAO_0000118>
+        <obo:IAO_0000118>subperiosteal dental implant procedure</obo:IAO_0000118>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/about/types.html</obo:IAO_0000119>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/images/about_implants/image_page20_subperiosteal.jpg</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.aaid-implant.org/about-dental-implants/what-types-of-dental-implants-are-available/</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/s/subperiosteal-implant/</obo:IAO_0000119>
+        <obo:IAO_0000119>https://www.patientconnect365.com/dentalhealthtopics/article/surgical_placement_of_implant_body_endosteal___dental_procedure_code_description</obo:IAO_0000119>
+        <rdfs:label>eposteal dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000276 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000276">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000277"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A surgical dental implant procedure used only in the mandible in which either a U-shaped metal frame or pin that is placed along the bottom of the jawbone and extends upward through the bone and the upper gumline. It requires entry to the jawbone through the skin along the bottom of one&apos;s face.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/about/types.html</obo:IAO_0000119>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/images/about_implants/image_page21_transosteal.jpg</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/t/transosteal-implant/</obo:IAO_0000119>
+        <obo:IAO_0000119>https://www.patientconnect365.com/dentalhealthtopics/article/surgical_placement_of_implant_body_endosteal___dental_procedure_code_description</obo:IAO_0000119>
+        <rdfs:label>transosteal dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000277 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000277">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <rdfs:label>surgical dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000278 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000278">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A prosthesis that forms the part of a prosthetic tooth  that is in direct contact with the bone and actually provides the fixation to the bone.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/i/implant-body/</obo:IAO_0000119>
+        <rdfs:label>dental implant body</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000279 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000279">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A prosthesis that forms the part of a prosthetic tooth to which the restoration is attached and supports the restoration.</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 07/26/2017:
+Implant abutments are conical-shaped, and are screwed into a dental implant integrated into the jawbone. Today, the most common form of implant abutments are made of tooth colored material to add a more natural look to the crown that covers the abutment. This type of abutment allows the crown to blend more appropriately with adjacent teeth as is the case with the high noble metal resin crowns and porcelain-fused to noble metal crowns.
+
+(https://www.patientconnect365.com/DentalHealthTopics/Article/Abutment__Dental_Procedure_Code_Description)</obo:IAO_0000116>
+        <obo:IAO_0000116>Bill Duncan 7/26/2017:
+Most often the dental implant abutment is an intermediate component between the implant body and the restoration.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/a/abutment/</obo:IAO_0000119>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/i/implant-abutment/</obo:IAO_0000119>
+        <obo:IAO_0000119>https://www.patientconnect365.com/DentalHealthTopics/Article/Abutment__Dental_Procedure_Code_Description</obo:IAO_0000119>
+        <rdfs:label>dental implant abutment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000280 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000280">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000301"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A prosthesis that forms the part of a prosthetic tooth which provides the prosthetic tooth with the functionallity and appearance of a natural tooth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>dental implant crown</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000281 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000281">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000301"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000259"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000312"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000050"/>
+                                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000259"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <obo:IAO_0000115>A prosthesis that is permanently attached attached to some part of the mouth.</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 07/26/2017:
+This class is used to group dental implants and fixed dentures under one term.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>fixed prothesis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000282 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000282">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000277"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000278"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000283"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A surgical dental procedure during which the gum tissue is reopened and a dental implant body or subperiosteal framework is placed within the mouth. For endosteal procedures this may include the placement of both a provisional abutment and an artifical crown.</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 07/26/2017:
+
+1. For a subperiosteal implant, reopening of the tissue and placement of the subperiosteal (or eposteal) framework.
+
+2. For an endosteal implant, reopening of the tissue, removal of the healing cap and placement of the healing abutment or a provisional abutment and restoration.
+
+http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>second stage dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000283 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000283">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+        <obo:IAO_0000115>A dental implant body fabricated to fit the supporting areas of mandible or maxilla with permucosal extensions for support and attachment of abutments.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/about/types.html</obo:IAO_0000119>
+        <obo:IAO_0000119>http://dentalimplants.uchc.edu/images/about_implants/image_page20_subperiosteal.jpg</obo:IAO_0000119>
+        <obo:IAO_0000119>http://implantdirect.co/ai/implantcatalogpdf/glossary.pdf</obo:IAO_0000119>
+        <rdfs:label>subperiosteal implant framework</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000284 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000284">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000277"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000285"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>mini dental implant procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000285 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000285">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+        <rdfs:label>mini dental implant body</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000301 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000301">
@@ -8105,6 +8371,7 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
         <obo:IAO_0000115>a prosthesis that has been fabricated for use as a substitute for a natural tooth</obo:IAO_0000115>
         <obo:IAO_0000116>usually made of porcelain or plastic </obo:IAO_0000116>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000118>dental implant</obo:IAO_0000118>
         <obo:IAO_0000119>Mosby. Mosby&apos;s Dental Dictionary, 2nd Edition. Mosby, 2008. VitalBook file. p. 689</obo:IAO_0000119>
         <rdfs:label>prosthetic tooth</rdfs:label>
     </owl:Class>

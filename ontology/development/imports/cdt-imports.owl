@@ -1284,6 +1284,9 @@ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_000
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006011">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
+        <obo:IAO_0000111>Surgical access to an implant body for placement of a healing cap or to enable placement of an abutment.
+
+https://www.dentrix.com/articles/show/530</obo:IAO_0000111>
         <obo:cdt_label>Second stage implant surgery</obo:cdt_label>
         <dc:identifier>D6011</dc:identifier>
         <rdfs:label>billing code D6011: Second stage implant surgery</rdfs:label>
@@ -1317,11 +1320,7 @@ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_000
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006040">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
-        <obo:IAO_0000116>An eposteal (subperiosteal) framework of a biocompatible material designed
-and fabricated to fit on the surface of the bone of the mandible or maxilla
-with permucosal extensions which provide support and attachment of a
-prosthesis. This may be a complete arch or unilateral appliance. Eposteal
-implants rest upon the bone and under the periosteum.
+        <obo:IAO_0000116>An eposteal (subperiosteal) framework of a biocompatible material designed and fabricated to fit on the surface of the bone of the mandible or maxilla with permucosal extensions which provide support and attachment of a prosthesis. This may be a complete arch or unilateral appliance. Eposteal implants rest upon the bone and under the periosteum.
 
 ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
         <obo:cdt_label>surgical placement: eposteal implant</obo:cdt_label>
@@ -1335,9 +1334,7 @@ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_000
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0006050">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000038"/>
-        <obo:IAO_0000116>A transosteal (transosseous) biocompatible device with threaded posts
-penetrating both the superior and inferior cortical bone plates of the
-mandibular symphysis and exiting through the permucosa providing support and attachment for a dental prosthesis. Transosteal implants are placed completely through the bone and into the oral cavity from extraoral or intraoral.
+        <obo:IAO_0000116>A transosteal (transosseous) biocompatible device with threaded posts penetrating both the superior and inferior cortical bone plates of the mandibular symphysis and exiting through the permucosa providing support and attachment for a dental prosthesis. Transosteal implants are placed completely through the bone and into the oral cavity from extraoral or intraoral.
 
 ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
         <obo:cdt_label>surgical placement: transosteal implant</obo:cdt_label>
