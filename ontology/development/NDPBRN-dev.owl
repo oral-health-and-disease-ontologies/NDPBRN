@@ -8173,6 +8173,9 @@ Some dental EHR systems use the letter &quot;F&quot; for facial surfaces rather 
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000277">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <obo:IAO_0000115>A surgical dental procedure during which a device embedded in the mandible or maxilla to support an artificial tooth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://www.ptcdental.com/dentaldictionary/d/dental-implant/</obo:IAO_0000119>
         <rdfs:label>surgical dental implant procedure</rdfs:label>
     </owl:Class>
     
@@ -8337,6 +8340,92 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000286 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000286">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000242"/>
+        <obo:IAO_0000115>An endodontic restorative procedure during which material is placed over exposed or nearly dental pulp in order to protect and promote healing of the dental pulp.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>THE GLOSSARY OF PROSTHODONTIC TERMS</obo:IAO_0000119>
+        <obo:IAO_0000119>https://en.wikipedia.org/wiki/Pulp_capping</obo:IAO_0000119>
+        <rdfs:label>pulp capping procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000287 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000287">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000286"/>
+        <obo:IAO_0000115>A pulp capping procedure during which moldable material is placed directly over the exposed or nearly exposed pulp.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>direct pulp capping procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000288 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000288">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000286"/>
+        <obo:IAO_0000115>A pulp capping procedure during which a rigid piece of material is attached to the tooth so that it covers the exposed or nearly exposed pulp.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <rdfs:label>indirect pulp capping procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000289 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000289">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000243"/>
+        <obo:IAO_0000117>A surgical endodontic procedure during which medications are placed inside the pulp chamber in order to induce the formation of living replacement tissue.</obo:IAO_0000117>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <obo:IAO_0000119>http://www.neendosol.com/procedures/pulpal-regeneration/</obo:IAO_0000119>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-28T13:09:31Z</dc:date>
+        <rdfs:label>pulpal regeneration procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000290 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000290">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000044"/>
+        <obo:IAO_0000115>A surgical dental procedure that removes the root or some part of the tooth from a tooth.</obo:IAO_0000115>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bill Duncan</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-28T13:59:41Z</dc:date>
+        <rdfs:label>root removal procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000291 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000291">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000250"/>
+        <obo:IAO_0000115>A removable partial denture procedure in which the prosthesis being constructed or fitted replaces some but not all of the patient&apos;s maxillary teeth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bill Duncan</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-28T18:03:31Z</dc:date>
+        <rdfs:label>removable maxillary partial denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000292 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000292">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000250"/>
+        <obo:IAO_0000115>A removable partial denture procedure in which the prosthesis being constructed or fitted replaces some but not all of the patient&apos;s mandibular teeth.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bill Duncan</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-28T18:03:42Z</dc:date>
+        <rdfs:label>removable mandibular partial denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/OHD_0000301 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000301">
@@ -8413,7 +8502,7 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <obo:IAO_0000115>A tooth restoration procedure in which the dental restoration material is placed in the tooth via some indirect dental restoration material combination process.</obo:IAO_0000115>
+        <obo:IAO_0000115>A tooth restoration procedure in which the dental restoration material is placed in the tooth via some dental material tooth attachment process.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>indirect restoration procedure</rdfs:label>
     </owl:Class>

@@ -985,8 +985,7 @@ a crown when there is insufficient tooth strength and retention for the crown pr
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003110">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000032"/>
-        <obo:IAO_0000116>Procedure in which the exposed pulp is covered with a dressing or cement
-that protects the pulp and promotes healing and repair.
+        <obo:IAO_0000116>Procedure in which the exposed pulp is covered with a dressing or cement that protects the pulp and promotes healing and repair.
 
 ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
         <obo:cdt_label>pulp cap – indirect (excluding final restoration)</obo:cdt_label>
@@ -1000,10 +999,7 @@ ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_000
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0003120">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000032"/>
-        <obo:IAO_0000116>Procedure in which the nearly exposed pulp is covered with a protective
-dressing to protect the pulp from additional injury and to promote healing
-and repair via formation of secondary dentin. This code is not to be used
-for bases and liners when all caries has been removed.
+        <obo:IAO_0000116>Procedure in which the nearly exposed pulp is covered with a protective dressing to protect the pulp from additional injury and to promote healing and repair via formation of secondary dentin. This code is not to be used for bases and liners when all caries has been removed.
 
 ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
         <obo:cdt_label>pulp cap – direct (excluding final restoration)</obo:cdt_label>

@@ -139,4 +139,12 @@ fixed partial denture procedure
 - Add implant codes D6010, D6011, D6012, D6013, D6040, D6050
 - Add implant support codes D6065, D6066, D6075, D6076
 
+- Edit definition of indirect restoration material to use "via dental material tooth attachment process" instead of "via some indirect dental restoration material combination process".
+
+- Add class pulpal regeneration procedure
+
+- Add classes for removable partial dentures
+
+
+
 
