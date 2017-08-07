@@ -8,5 +8,10 @@
 'D3410':'dental restoration material',
 'D3421':'dental restoration material',
 'D3425':'dental restoration material',
-'D3450':'dental restoration material'
+'D3450':'dental restoration material',
+'D3110':'dental restoration material',
+'D3120':'dental restoration material',
+'D3355':'dental restoration material',
+'D3356':'dental restoration material',
+'D3357':'dental restoration material'
 }
