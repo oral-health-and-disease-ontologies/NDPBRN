@@ -1,0 +1,22 @@
+Using HermiT reasoner
+
+The individual FMA_FIX me has a test organization id annotation id. This was added because this annotation was disappearing with I merged and inferred the ontology. 
+
+When exporting inferred axioms do not check the options:
+	* Inverse object properties
+	* Disjoint classes
+
+Make sure to include (on separate screen)
+	* Include annotations
+	* include asserted logical axioms
+
+Change the ontology IRI to:
+	http://purl.obolibrary.org/obo/NDPBRN.owl
+
+Save the inferred ontology to a new directory. Check that inferred axioms were exported. A simple check is by browsing the class 'direct restoration procedure' and 'indirect restoration procedure'. These should have subclasses in the non-inferred version.
+
+Run the reasoner on the inferred version (of NDPBRN.owl) to check for errors in the error log! It will tell you if there are object properties with Asymmetric & Irreflexive property assertions. These assertions cause errors, and get added in (for some reason) during the export process. Also, remove Functional and Inverse functional property assertions from is immediately preceded by and immediately precedes. 
+
+Last, copy the new inferred ontology to repository and commit.
+
+
