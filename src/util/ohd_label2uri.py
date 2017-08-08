@@ -41,7 +41,9 @@ def make_ohd_label2uri():
     # add mapping: lowercase label -> uri
     label2uri = {}
     for uri, p, label in g.triples((None, RDFS.label, None)):
-        label2uri[str(label).lower()] = str(uri)
+        # label2uri[str(label).lower()] = str(uri)
+        # use encode('ascii', 'ignore') to ignore unicode characters
+        label2uri[str(label.encode('ascii', 'ignore')).lower()] = str(uri.encode('ascii', 'ignore'))
 
     # add mapping to ADA universal tooth number (e.g., tooth 1, tooth 2, etc.)
     # http://purl.obolibrary.org/obo/OHD_0000065 is uri for the 'ADA universal tooth number' annotation
@@ -128,7 +130,8 @@ def test_label2uri():
     print d['surface enamel of tooth'] # works
     print d['tooth 1'] # works
     print d['d2140'] # works
-    print d['occlusal surface enamel of tooth']
+    print d['occlusal surface enamel of tooth'] # works
+    print d['fixed partial denture'] # works
 
 def get_date_str(date_input_str):
     try:
