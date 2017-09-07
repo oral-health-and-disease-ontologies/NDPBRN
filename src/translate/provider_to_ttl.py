@@ -31,6 +31,8 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
         prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
         output(prefix_str)
 
+        output(':G_' + practice_id + ' {')
+
         # practice
         practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
         # define types
@@ -101,10 +103,15 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
 
             output(ohd_ttl['ur1 member of uri2'].format(uri1=provider_uri, uri2=practice_uri))
 
+        output('}')
+
 #translate_provider_to_ttl()
-# translate_provider_to_ttl_1(practice_id='1', vendor='ES',
+#translate_provider_to_ttl_1(practice_id='1', vendor='ES',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Provider_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/provider.ttl')
+#translate_provider_to_ttl_1(practice_id='2', vendor='ES',
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_2/Provider_Table.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_2/provider.trig')
 #translate_provider_to_ttl_1(practice_id='1', vendor='dentrix',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Provider_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/provider.ttl')

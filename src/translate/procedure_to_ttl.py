@@ -32,7 +32,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     if vendor == 'ES':
         df = pds.read_csv(df_path, sep='\t',
-                      names=["patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
+                      names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
                              "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0)
     else:
@@ -75,7 +75,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
     # filters on procedure_type by procedure_type_map and create filenames for ttl and err text file
     try:
-        filename = output_p + procedure_type_map[str(procedure_type)] + '.ttl'
+        filename = output_p + procedure_type_map[str(procedure_type)] + '.trig'
         err_filename = output_p + procedure_type_map[str(procedure_type)] + '_err.txt'
     except Exception as ex:  # invalid procedure_type: stop processing here
         print("Invalid procedure type: " + str(procedure_type))
@@ -101,6 +101,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
             # output prefixes for ttl file
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
+
+            output(':G_' + practice_id + ' {')
 
             #practiceidstring = 'NDPBRN ' + vendor + ' practice ' + str(practice_id)
             # if (vendor == 'ES'):
@@ -806,6 +808,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                             print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
                             output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
                             logging.exception("message")
+            output('}')
 
 def get_ada_code(ada_code, idx):
     if len(ada_code) != 5:
@@ -869,11 +872,11 @@ def test_get_tooth_array_idx():
     print indx_array
 #test_get_tooth_array_idx()
 
-# print_procedure_ttl(practice_id='1', procedure_type=1,
+#print_procedure_ttl(practice_id='1', procedure_type=1,
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
 #                     vendor='ES')
-# print_procedure_ttl(practice_id='1', procedure_type=2,
+#print_procedure_ttl(practice_id='1', procedure_type=2,
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
 #                     vendor='ES')
@@ -922,7 +925,19 @@ def test_get_tooth_array_idx():
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
 #                     vendor='dentrix')
+# print_procedure_ttl(practice_id='1', procedure_type=9,
+#                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
+#                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
+#                     vendor='dentrix')
 # print_procedure_ttl(practice_id='1', procedure_type=1,
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
 #                     vendor='dentrix')
+#print_procedure_ttl(practice_id='1', procedure_type=1,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=2,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')

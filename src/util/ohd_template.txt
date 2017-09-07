@@ -49,6 +49,7 @@
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix iao: <http://purl.obolibrary.org/obo/iao/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://purl.regenstrief.org/NDPBRN/dental-practice#> .
 """,
 
 'prefix for practice':

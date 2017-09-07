@@ -72,11 +72,11 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
     patientTableFile = 'Patient_Table.txt'
     patietnHistoryTFile = 'Patient_History.txt'
 
-    provderOutputFile = 'provider.ttl'
-    patientOutputFile = 'patient.ttl'
-    visitOutputFile = 'visit.ttl'
-    visitFirstLastOutputFile = 'visit_dates.ttl'
-    nextVisitOutputFile = 'next_visit_dates.ttl'
+    provderOutputFile = 'provider.trig'
+    patientOutputFile = 'patient.trig'
+    visitOutputFile = 'visit.trig'
+    visitFirstLastOutputFile = 'visit_dates.trig'
+    nextVisitOutputFile = 'next_visit_dates.trig'
 
     for i in range(prac_lower_num, prac_upper_num+1):
         input_p = data_p_root + 'PRAC_' + str(i) + '/'
@@ -116,14 +116,14 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 ## test call all for practice 1 testing
 #testAllTranslationWithPRAC_1()
 ## run all ES for practice number from 1 ~ prac_num
-#runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
-#               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
-#               vendor='ES',
-#               prac_lower_num=1,
-#               prac_upper_num=3)
-## test with dentrix
-runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
-               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/',
-               vendor='dentrix',
+runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
+               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
+               vendor='ES',
                prac_lower_num=1,
                prac_upper_num=1)
+## test with dentrix
+#runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
+#               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/',
+#               vendor='dentrix',
+#               prac_lower_num=1,
+#               prac_upper_num=1)

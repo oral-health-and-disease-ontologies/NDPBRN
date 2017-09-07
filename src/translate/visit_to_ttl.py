@@ -52,6 +52,8 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
         prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
         output(prefix_str)
 
+        output(':G_' + practice_id + ' {')
+
         # define uri
         practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
         # define types
@@ -110,14 +112,15 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
                output(patient_provider_role_relation_str)
                output("\n")
 
+        output('}')
 #                except Exception as ex:
 #                    print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
 #                    logging.exception("message")
 
 #translate_visit_to_ttl(practice_id='3', vendor='ES')
-# translate_visit_to_ttl(practice_id='1', vendor='ES',
+#translate_visit_to_ttl(practice_id='1', vendor='ES',
 #                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.ttl')
+#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.trig')
 #translate_visit_to_ttl(practice_id='1', vendor='dentrix',
 #                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
 #                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/visit.ttl')

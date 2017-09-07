@@ -61,6 +61,8 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
 
+            output(':G_' + practice_id + ' {')
+
             results = []
 
             for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
@@ -119,6 +121,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
                 #print(ohd_ttl['declare date property uri'].format(uri=patient_uri, type=last_visit_date_type,
                 #                                                   date=last_visit_date))
 
+            output('}')
 
 def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='./', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
@@ -171,6 +174,8 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 
             prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
             output(prefix_str)
+
+            output(':G_' + practice_id + ' {')
 
             results = []
 
@@ -227,18 +232,19 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
                 output(ohd_ttl['declare object property uri'].format(obj1=visit_uri, type=next_visit_type,
                                                                      obj2=next_visit))
 
+            output('}')
 #next_visit_ttl(practice_id='3', vendor='ES')
 #first_last_visit_date_ttl(practice_id='3', vendor='ES')
 #next_visit_ttl(practice_id='1', vendor='dentrix')
 #first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
-#next_visit_ttl(practice_id='1', vendor='dentrix',
-#               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
-#               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/next_visit_dates.ttl',
-#               output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/')
-#first_last_visit_date_ttl(practice_id='1', vendor='dentrix',
-#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
-#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/visit_dates.ttl',
-#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/')
+#next_visit_ttl(practice_id='1', vendor='ES',
+#               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+#               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.trig',
+#               output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
+#first_last_visit_date_ttl(practice_id='1', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
 # next_visit_ttl(practice_id='1', vendor='dentrix',
 #               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/next_visit_dates.ttl',

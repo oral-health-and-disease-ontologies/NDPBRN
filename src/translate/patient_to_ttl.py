@@ -40,6 +40,8 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
         prefix_str = ohd_ttl['prefix'].format(practice_id=practice_id)
         output(prefix_str)
 
+        output(':G_' + practice_id + ' {')
+
         # practice
         practice_uri = ohd_ttl['practice uri'].format(practice_id=practice_id)
         # define types
@@ -133,10 +135,12 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
 #                print("patient " + str(pid) + " has problems!!!")
 #                logging.exception("message")
 
+        output('}')
+
 #translate_patient_to_ttl(practice_id='3', vendor='ES')
-# translate_patient_to_ttl(practice_id='1', vendor='ES',
+#translate_patient_to_ttl(practice_id='1', vendor='ES',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_Table.txt',
-#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.ttl')
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/patient.trig')
 #translate_patient_to_ttl(practice_id='1', vendor='dentrix',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/patient.ttl')
