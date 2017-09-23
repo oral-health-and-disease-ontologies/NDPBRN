@@ -13192,7 +13192,7 @@ for now.</obo:IAO_0000116>
     <!-- http://purl.obolibrary.org/obo/OGMS_0000060 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OGMS_0000060">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000007"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000063"/>
         <obo:IAO_0000117>Albert Goldfain</obo:IAO_0000117>
         <obo:IAO_0000232>creation date: 2009-06-23T11:53:49Z</obo:IAO_0000232>
         <rdfs:label>bodily process</rdfs:label>
@@ -19032,6 +19032,8 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000285"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <obo:IAO_0000115>A surgical dental implant procedure during which a mini implant body is embedded in the jaw.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>mini dental implant procedure</rdfs:label>
     </owl:Class>
     
@@ -19041,6 +19043,8 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000285">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+        <obo:IAO_0000115>A dental implant body that is less that 3mm in diameter.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>mini dental implant body</rdfs:label>
     </owl:Class>
     
@@ -19128,6 +19132,152 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bill Duncan</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-07-28T18:03:42Z</dc:date>
         <rdfs:label>removable mandibular partial denture procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000293 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000293">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000278"/>
+        <obo:IAO_0000115>A dental implant body that is placed in the mouth for short duration of time in order to allow adequate time for healing or completion of definitive treatment planning.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T17:21:24Z</dc:date>
+        <rdfs:label xml:lang="en">interim dental implant body</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000294 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000294">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant crown constructed out of ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T18:02:59Z</dc:date>
+        <rdfs:label xml:lang="en">ceramic implant crown</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000295 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000295">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant crown made by fusing porcelain to a metal substructure.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T18:03:55Z</dc:date>
+        <rdfs:label xml:lang="en">porcelain fused to metal impant crown</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000296 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000296">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000248"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A fixed prosthodontics procedure during which an artificial crown is attached to an dental implant abutment.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T19:01:33Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant crown attachment procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000297 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000297">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000296"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000295"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant crown attachment procedure in which the implant crown is composed of ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T19:07:36Z</dc:date>
+        <rdfs:label xml:lang="en">ceramic dental implant crown attachement procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000298 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000298">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000296"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000295"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant crown attachment procedure in which the implant crown is composed of porcelain fused to metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T19:10:31Z</dc:date>
+        <rdfs:label xml:lang="en">porcelain fused to metal dental implant crown attachement procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000299 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000299">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000246"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000248"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000279"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A fixed prosthodontics procedure during which an abutment is attached to an implant body.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T20:47:04Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant abutment attachement procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000300 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000300">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000299"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000299"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000358"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant abutment attachment procedure during which a retainer for a fixed partial denture is attached to an implant body.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:01:20Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant retainer attachement procedure for fixed partial denture</rdfs:label>
     </owl:Class>
     
 
@@ -19281,6 +19431,18 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
         <obo:IAO_0000115>A tooth that is either a molar or premolar.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>posterior tooth</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000309 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000309">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000300"/>
+        <obo:IAO_0000115>A dental implant retainer attachement procedure for fixed partial denture in which the retainer being attached to the implant body is to be used as a retainer for a ceramic fixed partial denture.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:02:06Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant retainer attachement procedure for ceramic fixed partial denture</rdfs:label>
     </owl:Class>
     
 
@@ -19819,6 +19981,186 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
         <obo:IAO_0000115>A prosthetic role that is borne by a material entity which is serves as a temporary replacement for some body part in order to allow adequate time for healing or completion of other procedures.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <rdfs:label>temporary prosthetic role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000351 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000351">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000300"/>
+        <obo:IAO_0000115>A dental implant retainer attachement procedure for fixed partial denture in which the retainer being attached to the implant body is to be used as a retainer for a porcelain fused to metal fixed partial denture.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:04:11Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant retainer attachement procedure for porcelain fused to metal fixed partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000352 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000352">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000312"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000312"/>
+        <obo:IAO_0000115>A fixed partial denture constructed out of ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:42:37Z</dc:date>
+        <rdfs:label xml:lang="en">ceramic fixed partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000353 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000353">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000312"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000352"/>
+        <obo:IAO_0000115>A fixed partial denture constructed out of porcelain fused to metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:42:58Z</dc:date>
+        <rdfs:label xml:lang="en">porcelain fused to metal fixed partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000354 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000354">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000251"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000352"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>An implant supported fixed partial denture constructed out of ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000115>Bill Duncan</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:48:27Z</dc:date>
+        <rdfs:label xml:lang="en">ceramic implant supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000355 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000355">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000251"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000353"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>An implant supported fixed partial denture constructed out of porcelain fused to metal.</obo:IAO_0000115>
+        <obo:IAO_0000115>Bill Duncan</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:49:08Z</dc:date>
+        <rdfs:label xml:lang="en">porcelain fused to metal implant supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000356 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000356">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000311"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000353"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A tooth supported fixed partial denture constructed out of porcelain fused to metal.</obo:IAO_0000115>
+        <obo:IAO_0000115>Bill Duncan</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:50:49Z</dc:date>
+        <rdfs:label xml:lang="en">porcelain fused to metal tooth supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000357 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000357">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000311"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000352"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A tooth supported fixed partial denture constructed out of ceramic.</obo:IAO_0000115>
+        <obo:IAO_0000115>Bill Duncan</obo:IAO_0000115>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T21:51:13Z</dc:date>
+        <rdfs:label xml:lang="en">ceramic tooth supported partial denture</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000358 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000358">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000279"/>
+        <obo:IAO_0000115>A dental implant abutment that serves as a retainer for a fixed partial denture.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T22:14:56Z</dc:date>
+        <rdfs:label xml:lang="en">dental implant fixed partial denture retainer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/OHD_0000359 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000359">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000147"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115>A dental implant crown constructed out of high noble metal.</obo:IAO_0000115>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T22:38:48Z</dc:date>
+        <rdfs:label xml:lang="en">high noble metal implant crown</rdfs:label>
     </owl:Class>
     
 
