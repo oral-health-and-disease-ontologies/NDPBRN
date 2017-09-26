@@ -6,7 +6,7 @@ from datetime import datetime
 from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_material_map, load_ada_endodontic_material_map, \
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
     load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map, \
-    load_ada_oral_evaluation_material_map
+    load_ada_oral_evaluation_material_map, load_ada_dental_implant_abutments_material_map
 from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
 
 restored_tooth_surface_label_map = {'b': 'restored buccal surface',
@@ -62,7 +62,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                    '7':'crown',
                    '8':'pontic',
                    '9':'surgic_tooth_extraction',
-                   '10':'oral_evaluation'}
+                   '10':'oral_evaluation',
+                   '11': 'dental_implant_abutments'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -306,6 +307,12 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
                                         logging.exception("message")
+                                elif str(procedure_type) == '11':  ## for dental implant abutments
+                                    try:
+                                        load_ada_dental_implant_abutments_material_map[ada_code]
+                                        continue_flag_filter_with_procedure = True
+                                    except Exception as ex_oral:
+                                        logging.exception("message")
                                 else: #invalid procedure_type: stop processing here
                                     print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                     output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -395,7 +402,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     #elif pds.notnull(tooth_num):
                                         #TODO - need check this later for procedure_type
                                         tooth_num_array = []
-                                        if str(procedure_type) == '11' or str(procedure_type) == '12':  ## for implant and denture
+                                        if str(procedure_type) == '11':
+                                            #TODO: or str(procedure_type) == '12':  for implant and denture
                                             tooth_num_array = get_tooth_array_idx(tooth_data)
                                         else:
                                             tooth_num_array.append(tooth_num_in_file)
@@ -421,7 +429,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                             patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                             provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(prov_id)
 
-                                            if str(procedure_type) == '8':  ## for pontic
+                                            if str(procedure_type) == '8' or str(procedure_type) == '11':  ## for pontic, dental implant abutments
                                                 tooth_label = "prosthetic tooth " + str(tooth_num) + " of patient " + str(
                                                     pid)  # "prosthetic tooth 13 of patient 1"
                                                 tooth_str = ohd_ttl['declare prosthetic tooth by prefix'].format(tooth_id=tooth_id,
@@ -432,11 +440,20 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                                                 else:
                                                     fixed_partial_denture_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_invalid_procedure_date_" + str(idx)
-                                                # fixed_partial_denture:1_1_1_1999-12-17
-                                                fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
-                                                fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
+
+                                                if str(procedure_type) == '8': ## pontic
+                                                    # fixed_partial_denture:1_1_1_1999-12-17
+                                                    fixed_partial_denture_uri = "fixed_partial_denture:" + fixed_partial_denture_id
+                                                    fixed_partial_denture_str = ohd_ttl['declare obo type'].format(uri=fixed_partial_denture_uri ,
                                                                                                                type=label2uri['fixed partial denture'].rsplit('/', 1)[-1],
                                                                                                                practice_id_str=practiceidstring)
+                                                elif str(procedure_type) == '11': ## dental implant abutments
+                                                    # dental_implant_fixed_partial_denture_retainer:1_1_1_1999-12-17
+                                                    dental_implant_fixed_partial_denture_retainer_uri = "dental_implant_fixed_partial_denture_retainer:" + fixed_partial_denture_id
+                                                    dental_implant_fixed_partial_denture_retainer_str = ohd_ttl['declare obo type'].format(uri=dental_implant_fixed_partial_denture_retainer_uri,
+                                                        type=label2uri['dental implant fixed partial denture retainer'].rsplit('/', 1)[-1],
+                                                        practice_id_str=practiceidstring)
+
                                             elif str(procedure_type == '9'): ## for extraction
                                                 tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                                 tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
@@ -485,6 +502,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 ada_material_codes = load_ada_pontic_material_map[ada_code]
                                                 for one_ada_material_code in ada_material_codes:
                                                     specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
+                                            elif str(procedure_type) == '11':  ## for dental implant abutments
+                                                specific_material = label2uri[load_ada_dental_implant_abutments_material_map[ada_code]].rsplit('/', 1)[-1]
 
                                             restoration_material = list()
                                             if no_material_flag == False:
@@ -510,7 +529,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                 practice_id_str=practiceidstring)
 
                                             # relation: tooth part of patient  'uri1 is part of uri2':
-                                            if str(procedure_type) == '8':  ## for pontic
+                                            if str(procedure_type) == '8' or str(procedure_type) == '11':  ## for pontic, dental implant abutments
                                                 tooth_uri = "prosthetic_tooth:" + str(tooth_id)
                                             else:
                                                 tooth_uri = "tooth:" + str(tooth_id)
@@ -683,8 +702,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output("\n")
 
                                             elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
-                                                    or str(procedure_type) == '8' or str(procedure_type) == '9':
-                                                ## for endodontic, apicoectomy, root amputation, crown, pontic, extraction
+                                                    or str(procedure_type) == '8' or str(procedure_type) == '9' or str(procedure_type) == '11':
+                                                ## no surface: for endodontic, apicoectomy, root amputation, crown, pontic, extraction,dental implant abutments
                                                 output(tooth_str)
                                                 output("\n")
 
@@ -756,6 +775,20 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     procedure_dentition_relation_str = ohd_ttl['uri1 has specified output uri2']\
                                                         .format(uri1=restoration_procedure_uri, uri2=dentition_uri)
                                                     output(procedure_dentition_relation_str)
+                                                    output("\n")
+                                                elif str(procedure_type) == '11': ## for dental implant abutments
+                                                    output(dental_implant_fixed_partial_denture_retainer_str)
+                                                    output("\n")
+
+                                                    #relation dental implant fixed partial denture retainer part of prosthetic tooth
+                                                    dental_implant_fixed_partial_denture_retainer_prosthetic_tooth_relation_str = \
+                                                        ohd_ttl['uri1 is part of uri2']\
+                                                        .format(uri1=dental_implant_fixed_partial_denture_retainer_uri, uri2=tooth_uri)
+
+                                                    output(dental_implant_fixed_partial_denture_retainer_prosthetic_tooth_relation_str)
+                                                    output("\n")
+
+                                                    output(tooth_patient_relation_str)
                                                     output("\n")
                                                 else:
                                                     #TODO: check out upcoming proceudres for this, like denture, implant.
@@ -937,6 +970,10 @@ def test_get_tooth_array_idx():
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=2,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=11,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')

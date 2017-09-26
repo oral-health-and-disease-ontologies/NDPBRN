@@ -147,5 +147,7 @@
 'D6251':'fixed resin with predominantly base metal pontic attachment procedure',
 'D6252':'fixed resin with noble metal pontic attachment procedure',
 'D6253':'fixed pontic attachment procedure',
-'D6254':'fixed pontic attachment procedure'
+'D6254':'fixed pontic attachment procedure',
+'D6075':'dental implant retainer attachement procedure for ceramic fixed partial denture',
+'D6076':'dental implant retainer attachement procedure for porcelain fused to metal fixed partial denture'
 }

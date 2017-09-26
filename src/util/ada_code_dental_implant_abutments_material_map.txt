@@ -1,0 +1,4 @@
+{
+'D6075':'ceramic dental restoration material',
+'D6076':'porcelain dental restoration material'
+}
