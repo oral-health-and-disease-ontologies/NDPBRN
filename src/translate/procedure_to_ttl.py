@@ -788,6 +788,15 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(dental_implant_fixed_partial_denture_retainer_prosthetic_tooth_relation_str)
                                                     output("\n")
 
+                                                    #relation procedure has output of dental implant fixed partial denture retainer
+                                                    procedure_dental_implant_fixed_partial_denture_retainer_output_relation_str = ohd_ttl[
+                                                        'uri1 has specified output uri2'].format(
+                                                        uri1=restoration_procedure_uri,
+                                                        uri2=dental_implant_fixed_partial_denture_retainer_uri)
+
+                                                    output(procedure_dental_implant_fixed_partial_denture_retainer_output_relation_str)
+                                                    output("\n")
+
                                                     output(tooth_patient_relation_str)
                                                     output("\n")
                                                 else:
@@ -824,8 +833,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(procedure_input_material_relation_str)
                                                     output("\n")
 
-                                                output(procedure_tooth_output_relation_str)
-                                                output("\n")
+                                                ## no procedure has_specified_input tooth: pontic, dental implant abutments
+                                                if str(procedure_type) != '8' and str(procedure_type) != '11':
+                                                    output(procedure_tooth_output_relation_str)
+                                                    output("\n")
 
                                                 output(cdt_code_procedure_relation_str)
                                                 output("\n")
@@ -973,7 +984,7 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=11,
-#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
-#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
-#                    vendor='ES')
+print_procedure_ttl(practice_id='1', procedure_type=11,
+                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+                    vendor='ES')
