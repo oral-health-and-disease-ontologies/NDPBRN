@@ -984,7 +984,7 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=11,
-                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
-                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
-                    vendor='ES')
+#print_procedure_ttl(practice_id='1', procedure_type=11,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')
