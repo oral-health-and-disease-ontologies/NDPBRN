@@ -149,5 +149,7 @@
 'D6253':'fixed pontic attachment procedure',
 'D6254':'fixed pontic attachment procedure',
 'D6075':'dental implant retainer attachement procedure for ceramic fixed partial denture',
-'D6076':'dental implant retainer attachement procedure for porcelain fused to metal fixed partial denture'
+'D6076':'dental implant retainer attachement procedure for porcelain fused to metal fixed partial denture',
+'D6065':'ceramic dental implant crown attachement procedure',
+'D6066':'porcelain fused to metal dental implant crown attachement procedure'
 }
