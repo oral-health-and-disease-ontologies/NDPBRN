@@ -145,6 +145,124 @@ fixed partial denture procedure
 
 - Add classes for removable partial dentures
 
+- Make subclasses of 'dental implant crown' defined classes based on the material parts (e.g., ceramic, porcelain fused to metal, high noble metal). To keep porcelain fused to metal from being inferred as a subclass of ceramic dental implant crown, I added the axiom 'has part only ceramic dental restoration material'. The reason for this, is that a porcelain fused to metal crown seems to be a different kind of crown. That is, it has different properties regarding its structural integrity etc.
 
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code for resin-based composite restorations - direct'
 
+- Add axiom 'is about' some '3/4 resin crown restoration procedure' to billing code class 'billing code D2712: crown - 3/4  resin-based composite (indirect)' and remove axiom 'is about' some '3/4 crown restoration procedure'
 
+- Add axiom 'is about' some 'prefabricated resin crown restoration procedure' to billing code class 'billing code D2710: crown - resin-based composite (indirect)'
+
+- Add axiom 'is about' some 'resin with high noble metal crown restoration procedure' to billing code class 'billing code D2720: crown - resin with high noble metal'
+
+- Add axiom 'is about' some 'resin with predominantly base metal crown restoration procedure' to billing code class 'billing code D2721: crown - resin with predominantly base metal'
+
+- Add axiom 'is about' some 'ceramic crown restoration procedure' to billing code class 'billing code D2740: crown - porcelain/ceramic substrate'
+
+- Add axiom 'is about' some 'porcelain fused to high noble metal crown restoration procedure' to billing code class 'billing code D2750: crown - porcelain fused to high noble metal'
+
+- Add axiom 'is about' some 'porcelain fused to predominantly base metal crown restoration procedure' to billing code class 'billing code D2751: crown - porcelain fused to predominantly base metal'
+
+- Add axiom 'is about' some 'porcelain fused to noble metal crown restoration procedure' to billing code class 'billing code D2752: crown - porcelain fused to noble metal'
+
+- Add axiom 'is about' some '3/4 high noble metal crown restoration procedure' to billing code class 'billing code D2780: crown - 3/4  cast high noble metal' and remove axiom 'is about' some '3/4 crown restoration procedure'
+
+- Add axiom 'is about' some '3/4 predominantly base metal crown restoration procedure' to billing code class 'billing code D2781: crown - 3/4  cast predominantly base metal' and remove axiom 'is about' some '3/4 crown restoration procedure'
+
+- Add axiom 'is about' some '3/4 noble metal crown restoration procedure' to billing code class 'billing code D2782: crown - 3/4  cast noble metal' and remove axiom 'is about' some '3/4 crown restoration procedure'
+
+- Add axiom 'is about' some '3/4 ceramic crown restoration procedure' to billing code class 'billing code D2783: crown - 3/4  porcelain/ceramic' and remove axiom 'is about' some '3/4 crown restoration procedure'
+
+- Add axiom 'is about' some 'high noble metal crown restoration procedure' to billing code class 'billing code D2790: crown - full cast high noble metal'
+
+- Add axiom 'is about' some 'predominantly base metal crown restoration procedure' to billing code class 'billing code D2791: crown - full cast predominantly base metal'
+
+- Add axiom 'is about' some 'noble metal crown restoration procedure' to billing code class 'billing code D2792: crown - full cast noble metal'
+
+- Add axiom 'is about' some 'resin with noble metal crown restoration procedure' to billing code class 'billing code D2722: crown - resin with noble metal'
+
+- Add axiom 'is about' some 'titanium crown restoration procedure' to billing code class 'billing code D2794: crown - titanium'
+
+- Add axiom 'is about' some 'amalgam filling restoration procedure' to billing code class 'billing code for amalgam restorations (including polishing)'
+
+- Add axiom 'is about' some 'gold filling restoration procedure' to billing code class 'billing code for gold foil restorations'
+
+- Add axiom 'is about' some ('metallic inlay restoration procedure' or 'metallic onlay restoration procedure') to billing code class 'billing code for inlay/onlay restorations - metallic'
+
+- Add axiom 'is about' some 'metallic inlay restoration procedure' to billing code class 'billing code D2510: inlay - metallic - one surface' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'metallic inlay restoration procedure' to billing code class 'billing code D2520: inlay - metallic - two surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'metallic inlay restoration procedure' to billing code class 'billing code D2530: inlay - metallic - three or more surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'metallic onlay restoration procedure' to billing code class 'billing code D2542: onlay - metallic - two surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some 'metallic onlay restoration procedure' to billing code class 'billing code D2543: onlay - metallic - three surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some 'metallic onlay restoration procedure' to billing code class 'billing code D2544: onlay - metallic - four or more surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some ('ceramic inlay restoration procedure' or 'ceramic onlay restoration procedure') to billing code class 'billing code for inlay/onlay restorations - porcelain/ceramic'
+
+- Add axiom to 'is about' some 'ceramic inlay restoration procedure' to billing code class 'billing code D2610: inlay - porcelain/ceramic - one surface' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom to 'is about' some 'ceramic inlay restoration procedure' to billing code class 'billing code D2620: inlay - porcelain/ceramic - two surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom to 'is about' some 'ceramic inlay restoration procedure' to billing code class 'billing code D2630: inlay - porcelain/ceramic - three or more surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom to 'is about' some 'ceramic onlay restoration procedure' to billing code class 'billing code D2642: onlay - porcelain/ceramic - two surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom to 'is about' some 'ceramic onlay restoration procedure' to billing code class 'billing code D2643: onlay - porcelain/ceramic - three surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom to 'is about' some 'ceramic onlay restoration procedure' to billing code class 'billing code D2644: onlay - porcelain/ceramic - four or more surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some ('resin inlay restoration procedure' or 'resin onlay restoration procedure') to billing code class 'billing code for inlay/onlay restorations - resin-based composite'
+
+- Add axiom 'is about' some 'resin inlay restoration procedure' to billing code class 'billing code D2650: inlay - resin-based composite - one surface' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'resin inlay restoration procedure' to billing code class 'billing code D2651: inlay - resin-based composite - two surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'resin inlay restoration procedure' to billing code class 'billing code D2652: inlay - resin-based composite - three or more surfaces' and remove axioms 'is about' some 'inlay restoration procedure'
+
+- Add axiom 'is about' some 'resin onlay restoration procedure' to billing code class 'billing code D2662: onlay - resin-based composite - two surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some 'resin onlay restoration procedure' to billing code class 'billing code D2663: onlay - resin-based composite - three surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some 'resin onlay restoration procedure' to billing code class 'billing code D2664: onlay - resin-based composite - four or more surfaces' and remove axioms 'is about' some 'onlay restoration procedure'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2330: resin-based composite - one surface, anterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2331: resin-based composite - two surfaces, anterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2332: resin-based composite - three surfaces, anterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2335: resin-based composite - four or more surfaces  or involving incisal angle (anterior)' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2385: resin-based composite - one surface,  posterior'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2386: resin-based composite - two surfaces, posterior'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2387: resin-based composite - three surfaces, posterior'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2388: resin-based composite - four or more surfaces, posterior'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2390: resin-based composite crown, anterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2391: resin-based composite - one surface,  posterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2392: resin-based composite - two surfaces, posterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2393: resin-based composite - three surfaces, posterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'resin filling restoration procedure' to billing code class 'billing code D2394: resin-based composite - four or more surfaces, posterior' and remove duplicate axiom 'billing code for resin-based composite restorations - direct'
+
+- Add axiom 'is about' some 'stainless steel crown restoration procedure' to billing code class 'billing code D2931: prefabricated stainless steel crown - permanent tooth'
+
+- Add axiom 'is about' some 'prefabricated resin crown restoration procedure' to billing code class 'billing code D2932: prefabricated resin crown'
+
+- Add axiom 'is about' some 'stainless steel with resin window crown restoration procedure' to billing code class 'billing code D2933: prefabricated stainless steel crown with resin window'
+
+- Add axiom 'is about' some 'resin laminate veneer restoration procedure' to billing code class 'billing code D2960: labial veneer (resin laminate) - chairside'
+
+- Add axiom 'is about' some 'resin laminate veneer restoration procedure' to billing code class 'billing code D2961: labial veneer (resin laminate) - laboratory'
+
+- Add axiom 'is about' some 'porcelain laminate veneer restoration procedure' to billing code class 'billing code D2962: labial veneer (porcelain laminate) - laboratory'

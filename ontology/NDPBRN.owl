@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.obolibrary.org/obo/NDPBRN.owl/"
-     xml:base="http://purl.obolibrary.org/obo/NDPBRN.owl/"
+<rdf:RDF xmlns="http://purl.regenstrief.org/NDPBRN.owl/"
+     xml:base="http://purl.regenstrief.org/NDPBRN.owl/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
@@ -10,7 +10,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://purl.obolibrary.org/obo/NDPBRN.owl">
+    <owl:Ontology rdf:about="http://purl.regenstrief.org/NDPBRN.owl">
         <dc:contributor>Titus Schleyer</dc:contributor>
         <dc:contributor>Dan Caplan</dc:contributor>
         <dc:contributor>Amit Acharya</dc:contributor>
@@ -2140,6 +2140,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -2185,6 +2191,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002331">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -2236,6 +2248,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -2281,6 +2299,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002335">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -2332,6 +2356,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002385">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>resin-based composite - one surface,  posterior</obo:cdt_label>
         <dc:identifier>D2385</dc:identifier>
         <rdfs:label>billing code D2385: resin-based composite - one surface,  posterior</rdfs:label>
@@ -2343,6 +2373,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002386">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>resin-based composite - two surfaces, posterior</obo:cdt_label>
         <dc:identifier>C2386</dc:identifier>
         <rdfs:label>billing code D2386: resin-based composite - two surfaces, posterior</rdfs:label>
@@ -2354,6 +2390,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002387">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>resin-based composite - three surfaces, posterior</obo:cdt_label>
         <dc:identifier>D2387</dc:identifier>
         <rdfs:label>billing code D2387: resin-based composite - three surfaces, posterior</rdfs:label>
@@ -2365,6 +2407,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002388">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>resin-based composite - four or more surfaces, posterior</obo:cdt_label>
         <dc:identifier>D2388</dc:identifier>
         <rdfs:label>billing code D2388: resin-based composite - four or more surfaces, posterior</rdfs:label>
@@ -2376,6 +2424,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002390">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000154"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -2406,6 +2460,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002391">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -2460,6 +2520,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -2508,6 +2574,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -2553,6 +2625,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002394">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -2673,7 +2751,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000022"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2707,7 +2785,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000022"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2741,7 +2819,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000022"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2775,7 +2853,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000138"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2809,7 +2887,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000138"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2843,7 +2921,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000138"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2877,7 +2955,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000094"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2911,7 +2989,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000094"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2945,7 +3023,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000094"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2979,7 +3057,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000095"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3013,7 +3091,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000095"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3047,7 +3125,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000095"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3081,7 +3159,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000096"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3115,7 +3193,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000096"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3149,7 +3227,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000133"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000096"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3183,7 +3261,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000169"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3217,7 +3295,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000169"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3251,7 +3329,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000134"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000169"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3285,6 +3363,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000199"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3315,7 +3399,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000305"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000149"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3351,6 +3435,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3379,6 +3469,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002721">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000023"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000139"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -3413,6 +3509,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000166"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3444,6 +3546,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000155"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3467,6 +3575,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
     <!-- http://purl.obolibrary.org/obo/CDT_0002750 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002750">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000158"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000023"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3502,6 +3616,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000161"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3530,6 +3650,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002752">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000023"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000160"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -3564,7 +3690,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000305"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000150"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3597,7 +3723,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000305"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000151"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3630,7 +3756,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000305"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000040"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3663,7 +3789,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000305"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000152"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -3699,6 +3825,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000157"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3723,6 +3855,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002791">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000023"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000162"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -3753,6 +3891,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000142"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -3777,6 +3921,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002794">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000023"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000140"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -3818,6 +3968,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002931">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000163"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>prefabricated stainless steel crown - permanent tooth</obo:cdt_label>
         <dc:identifier>D2931</dc:identifier>
         <rdfs:label>billing code D2931: prefabricated stainless steel crown - permanent tooth</rdfs:label>
@@ -3829,6 +3985,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002932">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000199"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:cdt_label>prefabricated resin crown</obo:cdt_label>
         <dc:identifier>D2932</dc:identifier>
         <rdfs:label>billing code D2932: prefabricated resin crown</rdfs:label>
@@ -3840,6 +4002,12 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002933">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000164"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Open-face stainless steel crown with aesthetic resin facing or veneer. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
@@ -3868,8 +4036,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002950">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
-        <obo:IAO_0000116>Refers to building up of anatomical crown when restorative crown will be placed, whether  or not pins are used. A material is placed in the tooth preparation for
-a crown when there is insufficient tooth strength and retention for the crown procedure. This should not be reported when the procedure only involves a filler to eliminate any undercut, box form, or concave  irregularity in the preparation. 
+        <obo:IAO_0000116>Refers to building up of anatomical crown when restorative crown will be placed, whether  or not pins are used. A material is placed in the tooth preparation for a crown when there is insufficient tooth strength and retention for the crown procedure. This should not be reported when the procedure only involves a filler to eliminate any undercut, box form, or concave  irregularity in the preparation. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
         <obo:cdt_label>core buildup, including any pins</obo:cdt_label>
@@ -3911,6 +4078,12 @@ a crown when there is insufficient tooth strength and retention for the crown pr
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002960">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000045"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Refers to labial/facial direct resin bonded veneers. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
@@ -3925,6 +4098,12 @@ a crown when there is insufficient tooth strength and retention for the crown pr
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002961">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000045"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Refers to labial/facial indirect resin bonded veneers. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
@@ -3939,6 +4118,12 @@ a crown when there is insufficient tooth strength and retention for the crown pr
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002962">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000026"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000046"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Refers also to facial veneers that extend interproximally and/or cover the incisal edge. Porcelain/ceramic  veneers  presently  include all ceramic and porcelain veneers. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
@@ -5118,6 +5303,12 @@ and closure.
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000041"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -5179,6 +5370,19 @@ separately (see D2951).
                                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000022"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000138"/>
+                        </owl:unionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
             </owl:Restriction>
@@ -5292,6 +5496,19 @@ The term &apos;fixed partial denture&apos; replaces the words &apos;bridge&apos;
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000096"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000169"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Resin-based composite inlays/onlays must utilize indirect technique. 
 
  ISBN:1935201387#CDT 2011-2012 Current Dental Terminology, Chapter 1</obo:IAO_0000116>
@@ -5387,6 +5604,19 @@ should be reported separately (see D2951).
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000094"/>
+                            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000095"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <obo:IAO_0000116>Porcelain/ceramic inlays/onlays include all indirect ceramic and porcelain type
 inlays/onlays. 
 
@@ -5455,6 +5685,12 @@ teeth and/or teeth spaces distal to the midline.
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_1000019">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000022"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000039"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
@@ -17105,8 +17341,8 @@ There is not a dental restoration material of this kind. The class needs to be m
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000154"/>
         <obo:IAO_0000115>An onlay restoration procedure that uses resin to restore the tooth.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
-        <obo:IAO_0000118>resin onlay restoration procedure</obo:IAO_0000118>
-        <rdfs:label>resin onlay restoration</rdfs:label>
+        <obo:IAO_0000118>resin onlay restoration</obo:IAO_0000118>
+        <rdfs:label>resin onlay restoration procedure</rdfs:label>
     </owl:Class>
     
 
@@ -19151,13 +19387,22 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
     <!-- http://purl.obolibrary.org/obo/OHD_0000294 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000294">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000280"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000135"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115>A dental implant crown constructed out of ceramic.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T18:02:59Z</dc:date>
@@ -19169,19 +19414,22 @@ http://www.ptcdental.com/dentaldictionary/s/second-stage-surgery/</obo:IAO_00001
     <!-- http://purl.obolibrary.org/obo/OHD_0000295 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000295">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000280"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000035"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000048"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115>A dental implant crown made by fusing porcelain to a metal substructure.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T18:03:55Z</dc:date>
@@ -20150,13 +20398,18 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
     <!-- http://purl.obolibrary.org/obo/OHD_0000359 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000359">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000280"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                        <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000147"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000280"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
-                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/OHD_0000147"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <obo:IAO_0000115>A dental implant crown constructed out of high noble metal.</obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-08-31T22:38:48Z</dc:date>
