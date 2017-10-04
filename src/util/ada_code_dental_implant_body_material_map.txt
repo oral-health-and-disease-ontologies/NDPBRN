@@ -1,0 +1,8 @@
+{
+'D6010':'dental restoration material',
+'D6011':'dental restoration material',
+'D6012':'dental restoration material',
+'D6013':'dental restoration material',
+'D6040':'dental restoration material',
+'D6050':'dental restoration material'
+}

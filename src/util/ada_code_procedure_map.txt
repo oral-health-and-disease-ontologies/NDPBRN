@@ -151,5 +151,11 @@
 'D6075':'dental implant retainer attachement procedure for ceramic fixed partial denture',
 'D6076':'dental implant retainer attachement procedure for porcelain fused to metal fixed partial denture',
 'D6065':'ceramic dental implant crown attachement procedure',
-'D6066':'porcelain fused to metal dental implant crown attachement procedure'
+'D6066':'porcelain fused to metal dental implant crown attachement procedure',
+'D6010':'endosteal dental implant procedure',
+'D6011':'second stage dental implant procedure',
+'D6012':'surgical dental implant procedure',
+'D6013':'mini dental implant procedure',
+'D6040':'eposteal dental implant procedure',
+'D6050':'transosteal dental implant procedure'
 }

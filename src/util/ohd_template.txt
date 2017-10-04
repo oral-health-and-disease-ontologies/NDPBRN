@@ -45,6 +45,7 @@
 @prefix dentition: <dentition/> .
 @prefix dental_implant_fixed_partial_denture_retainer: <dental_implant_fixed_partial_denture_retainer/> .
 @prefix dental_implant_crown: <dental_implant_crown/> .
+@prefix dental_implant_body: <dental_implant_body/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
