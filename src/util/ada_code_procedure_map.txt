@@ -157,5 +157,7 @@
 'D6012':'surgical dental implant procedure',
 'D6013':'mini dental implant procedure',
 'D6040':'eposteal dental implant procedure',
-'D6050':'transosteal dental implant procedure'
+'D6050':'transosteal dental implant procedure',
+'D7130':'root removal procedure',
+'D7250':'root removal procedure'
 }
