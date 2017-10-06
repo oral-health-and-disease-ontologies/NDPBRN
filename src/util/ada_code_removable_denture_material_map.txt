@@ -1,0 +1,6 @@
+{
+'D5211':['resin dental restoration material'],
+'D5212':['resin dental restoration material'],
+'D5213':['resin dental restoration material', 'metal dental restoration material'],
+'D5214':['resin dental restoration material', 'metal dental restoration material']
+}

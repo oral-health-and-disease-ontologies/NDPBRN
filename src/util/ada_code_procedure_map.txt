@@ -159,5 +159,9 @@
 'D6040':'eposteal dental implant procedure',
 'D6050':'transosteal dental implant procedure',
 'D7130':'root removal procedure',
-'D7250':'root removal procedure'
+'D7250':'root removal procedure',
+'D5211':'removable maxillary partial denture procedure',
+'D5212':'removable mandibular partial denture procedure',
+'D5213':'removable maxillary partial denture procedure',
+'D5214':'removable mandibular partial denture procedure'
 }
