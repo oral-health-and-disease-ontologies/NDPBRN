@@ -932,9 +932,9 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(removable_denture_str)
                                                     output("\n")
 
-                                                    #relation removable denture part of prosthetic tooth
+                                                    #relation removable denture has part prosthetic tooth
                                                     removable_denture_prosthetic_tooth_relation_str = \
-                                                        ohd_ttl['uri1 is part of uri2']\
+                                                        ohd_ttl['uri1 has part uri2']\
                                                         .format(uri1=removable_denture_uri, uri2=tooth_uri)
 
                                                     output(removable_denture_prosthetic_tooth_relation_str)
@@ -949,9 +949,18 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(procedure_removable_denture_output_relation_str)
                                                     output("\n")
 
-                                                    output(tooth_patient_relation_str)
-                                                    output("\n")
+                                                    #removable denture has no relation of: prosthetic tooth part of patient
+                                                    #use the 2 relations:  :removable partial denture is located in :patient
+                                                    #and:  :removable partial denture has part :prosthetic tooth
+                                                    #output(tooth_patient_relation_str)
+                                                    #output("\n")
 
+                                                    #relation removable denture is located in patient
+                                                    removable_denture_patient_relation_str = ohd_ttl['uri1 is located in uri2']\
+                                                        .format(uri1=removable_denture_uri, uri2=patient_uri)
+
+                                                    output(removable_denture_patient_relation_str)
+                                                    output("\n")
                                                 else:
                                                     #TODO: check out upcoming proceudres for this, like denture, implant.
                                                     ## extraction and pontics dont have tooth, so no print out of tooth_patient_relation_str, the rest should have
@@ -1188,7 +1197,7 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=15,
+# print_procedure_ttl(practice_id='1', procedure_type=15,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                   vendor='ES')
