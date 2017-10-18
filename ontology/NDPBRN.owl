@@ -710,6 +710,7 @@ Attribution is satisfied by using the URIs defined in this file when using terms
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000061"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">immediately preceded by</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">immediately_preceded_by</obo:IAO_0000118>
         <rdfs:label xml:lang="en">is immediately preceded by</rdfs:label>
@@ -21875,6 +21876,14 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
         <obo:IAO_0000117>Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:comment>mark true for representational units that are duplicate/conflict others</rdfs:comment>
         <rdfs:label xml:lang="en">duplicated</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OHD_0000360">
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-10-18T20:39:14Z</dc:date>
+        <rdfs:label xml:lang="en">missing tooth root number</rdfs:label>
+        <obo:IAO_0000116>Bill Duncan 10/18/2017:
+This data property provides a means to query for missing tooth roots. Since a missing tooth root is not a tooth root, it is wrong represent a missing tooth root as an instance of a tooth root. Rather, we represent a missing tooth root by respresenting the instance of the dentition and then specify with this data property that the dentition is missing a tooth root that is associated with the tooth designated by the universtal tooth number.</obo:IAO_0000116>
+        <obo:IAO_0000115>a data property whose value is an ADA universal tooth number that represents the tooth associated with a tooth root that is missing from a dentition</obo:IAO_0000115>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/bfo/core-classes.owl">
         <dc:source>Pierre Grenon, Barry Smith and Louis Goldberg: &quot;Biodynamic Ontology: Applying BFO in the Biomedical Domain&quot;</dc:source>

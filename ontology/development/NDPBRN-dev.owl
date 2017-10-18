@@ -355,6 +355,19 @@ This data property provides a means to query for missing teeth. Since a missing 
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OHD_0000360 -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.obolibrary.org/obo/OHD_0000360">
+        <obo:IAO_0000115>a data property whose value is an ADA universal tooth number that represents the tooth associated with a tooth root that is missing from a dentition</obo:IAO_0000115>
+        <obo:IAO_0000116>Bill Duncan 10/18/2017:
+This data property provides a means to query for missing tooth roots. Since a missing tooth root is not a tooth root, it is wrong represent a missing tooth root as an instance of a tooth root. Rather, we represent a missing tooth root by respresenting the instance of the dentition and then specify with this data property that the dentition is missing a tooth root that is associated with the tooth designated by the universtal tooth number.</obo:IAO_0000116>
+        <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-10-18T20:39:14Z</dc:date>
+        <rdfs:label xml:lang="en">missing tooth root number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //

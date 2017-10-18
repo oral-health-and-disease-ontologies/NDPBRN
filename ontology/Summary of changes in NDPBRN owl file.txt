@@ -266,3 +266,5 @@ fixed partial denture procedure
 - Add axiom 'is about' some 'resin laminate veneer restoration procedure' to billing code class 'billing code D2961: labial veneer (resin laminate) - laboratory'
 
 - Add axiom 'is about' some 'porcelain laminate veneer restoration procedure' to billing code class 'billing code D2962: labial veneer (porcelain laminate) - laboratory'
+
+- Add 'missing tooth root' data property for root amputations and extractions.
