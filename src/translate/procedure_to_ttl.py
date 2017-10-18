@@ -855,10 +855,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         output("\n")
 
                                                     # relation: procedure has_specified_output dentition
-                                                    procedure_dentition_relation_str = ohd_ttl['uri1 has specified output uri2']\
-                                                        .format(uri1=restoration_procedure_uri, uri2=dentition_uri)
-                                                    output(procedure_dentition_relation_str)
-                                                    output("\n")
+                                                    # removed per issue #32: https://github.iu.edu/IUSDRegenstrief/EDR-Study/issues/32
+                                                    #procedure_dentition_relation_str = ohd_ttl['uri1 has specified output uri2']\
+                                                    #    .format(uri1=restoration_procedure_uri, uri2=dentition_uri)
+                                                    #output(procedure_dentition_relation_str)
+                                                    #output("\n")
                                                 elif str(procedure_type) == '11': ## for dental implant abutments
                                                     output(dental_implant_fixed_partial_denture_retainer_str)
                                                     output("\n")
@@ -1027,7 +1028,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(procedure_input_material_relation_str)
                                                     output("\n")
 
-                                                ## no procedure has_specified_input tooth: pontic, dental implant abutments
+                                                ## no procedure has_specified_output tooth: pontic, dental implant abutments
                                                 ## , dental implant crown, dental implant body, removable denture
                                                 if str(procedure_type) != '8' and str(procedure_type) != '11'\
                                                     and str(procedure_type) != '12' and str(procedure_type) != '13' \
@@ -1198,6 +1199,10 @@ def test_get_tooth_array_idx():
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
 # print_procedure_ttl(practice_id='1', procedure_type=15,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                   vendor='ES')
+# print_procedure_ttl(practice_id='1', procedure_type=9,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                   vendor='ES')
