@@ -506,8 +506,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         type=label2uri['removable partial denture'].rsplit('/', 1)[-1],
                                                         practice_id_str=practiceidstring)
 
-                                            elif str(procedure_type) == '9' or str(procedure_type) == '6':
-                                                ## for extraction, root amputation (with :dentition)
+                                            elif str(procedure_type) == '9' or str(procedure_type) == '6' or str(procedure_type) == '14':
+                                                ## for extraction, root amputation, root removal (with :dentition)
                                                 tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                                 tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
                                                                                                   specific_tooth=get_specific_tooth('tooth ', tooth_num, idx),
@@ -518,8 +518,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     type=label2uri['secondary dentition'].rsplit('/', 1)[-1],
                                                     practice_id_str=practiceidstring)
 
-                                                if str(procedure_type) == '6':
-                                                    ## for root amputation
+                                                if str(procedure_type) == '6' or str(procedure_type) == '14':
+                                                    ## for root amputation, root removal (with :root)
                                                     root_uri = "root:" + tooth_id
                                                     root_str = ohd_ttl['declare obo type'].format(
                                                         uri=root_uri,
@@ -869,7 +869,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     #    .format(uri1=restoration_procedure_uri, uri2=dentition_uri)
                                                     #output(procedure_dentition_relation_str)
                                                     #output("\n")
-                                                elif str(procedure_type) == '6':  ## for root amputation
+                                                elif str(procedure_type) == '6' or str(procedure_type) == '14':
+                                                    ## for root amputation, root removal
                                                     output(root_str)
                                                     output("\n")
 
@@ -892,13 +893,12 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     output(dentition_patient_relation_str)
                                                     output("\n")
 
-                                                    # dentition "missing tooth number" property
-                                                    #TODO: need change this to "missing tooth root number" after ontology is fixed
+                                                    # dentition "missing tooth root number" property
                                                     if not tooth_num.startswith('invalid'):
                                                         dentition_miss_root_prop = ohd_ttl[
                                                             'declare string property uri'].format(
                                                             uri=dentition_uri,
-                                                            type=label2uri['missing tooth number'].rsplit('/', 1)[
+                                                            type=label2uri['missing tooth root number'].rsplit('/', 1)[
                                                                 -1], string_value=str(tooth_num))
                                                         output(dentition_miss_root_prop)
                                                         output("\n")
@@ -1080,8 +1080,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 output(procedure_patient_relation_str)
                                                 output("\n")
 
-                                                ## no procedure has_specified_input tooth: root amputation
-                                                if str(procedure_type) != '6':
+                                                ## no procedure has_specified_input tooth: root amputation, root removal
+                                                if str(procedure_type) != '6' and str(procedure_type) != '14':
                                                     output(procedure_tooth_input_relation_str)
                                                     output("\n")
 
@@ -1091,10 +1091,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 ## no procedure has_specified_output tooth: pontic, dental implant abutments
                                                 ## , dental implant crown, dental implant body, removable denture
-                                                ## , root amputation
+                                                ## , root amputation, root removal
                                                 if str(procedure_type) != '8' and str(procedure_type) != '11'\
                                                     and str(procedure_type) != '12' and str(procedure_type) != '13' \
-                                                        and str(procedure_type) != '15' and str(procedure_type) != '6':
+                                                        and str(procedure_type) != '15' and str(procedure_type) != '6' \
+                                                        and str(procedure_type) != '14':
                                                     output(procedure_tooth_output_relation_str)
                                                     output("\n")
 
@@ -1256,7 +1257,7 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=14,
+# print_procedure_ttl(practice_id='1', procedure_type=14,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
@@ -1268,10 +1269,10 @@ def test_get_tooth_array_idx():
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                   vendor='ES')
-print_procedure_ttl(practice_id='1', procedure_type=6,
-                  input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
-                  output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
-                  vendor='ES')
+# print_procedure_ttl(practice_id='1', procedure_type=6,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                   vendor='ES')
 ## try dentrix data for removable dentures
 #print_procedure_ttl(practice_id='1', procedure_type=15,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
