@@ -9983,9 +9983,16 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
 
     <!-- http://purl.obolibrary.org/obo/FMA_FIXME -->
 
-    <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/FMA_FIXME">
-        <obo:OHD_0000273>This is a test annotation.</obo:OHD_0000273>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://purl.obolibrary.org/obo/FMA_FIXME"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000002 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000002">
+        <obo:OHD_0000234 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</obo:OHD_0000234>
+        <obo:OHD_0000273>test organization</obo:OHD_0000273>
+    </rdf:Description>
     
 
 
