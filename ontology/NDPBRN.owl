@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://purl.regenstrief.org/NDPBRN.owl#"
-     xml:base="http://purl.regenstrief.org/NDPBRN.owl"
+<rdf:RDF xmlns="http://purl.regenstrief.org/NDPBRN.owl/"
+     xml:base="http://purl.regenstrief.org/NDPBRN.owl/"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
@@ -591,8 +591,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000056">
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000051"/>
             <rdf:Description rdf:about="http://purl.obolibrary.org/obo/OBI_0000295"/>
@@ -610,8 +608,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
     <!-- http://purl.obolibrary.org/obo/BFO_0000057 -->
 
     <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000057">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000007"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000002"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
@@ -714,7 +710,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000061"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <obo:IAO_0000118 xml:lang="en">immediately preceded by</obo:IAO_0000118>
         <obo:IAO_0000118 xml:lang="en">immediately_preceded_by</obo:IAO_0000118>
         <rdfs:label xml:lang="en">is immediately preceded by</rdfs:label>
@@ -1087,8 +1082,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
             </rdf:Description>
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000295"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_specified_input</obo:IAO_0000111>
         <obo:IAO_0000112 xml:lang="en">see is_input_of example_of_usage</obo:IAO_0000112>
@@ -1112,8 +1105,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
                 <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_specified_input_of</obo:IAO_0000111>
         <obo:IAO_0000112 xml:lang="en">some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay</obo:IAO_0000112>
@@ -1135,8 +1126,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
             </rdf:Description>
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000312"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has_specified_output</obo:IAO_0000111>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
@@ -1158,8 +1147,6 @@ Attribution is satisfied by using the URIs defined in this file when using terms
                 <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000057"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/OBI_0000011"/>
         <obo:IAO_0000111 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is_specified_output_of</obo:IAO_0000111>
         <obo:IAO_0000115 xml:lang="en">A relation between a planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of.</obo:IAO_0000115>
@@ -21791,14 +21778,14 @@ Prosthics may be either functional for non-functional. For example, a glass eye 
         <obo:IAO_0000117 xml:lang="en">PERSON:Melanie Courtot</obo:IAO_0000117>
         <rdfs:label xml:lang="en">has obsolescence reason</rdfs:label>
         <obo:IAO_0000111 xml:lang="en">has obsolescence reason</obo:IAO_0000111>
-        <obo:IAO_0000117 xml:lang="en">PERSON:Alan Ruttenberg</obo:IAO_0000117>
         <obo:IAO_0000115 xml:lang="en">Relates an annotation property to an obsolescence reason. The values of obsolescence reasons come from a list of predefined terms, instances of the class obsolescence reason specification.</obo:IAO_0000115>
+        <obo:IAO_0000117 xml:lang="en">PERSON:Alan Ruttenberg</obo:IAO_0000117>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000411">
         <obo:IAO_0000111 xml:lang="en">is denotator type</obo:IAO_0000111>
         <obo:IAO_0000117 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alan Ruttenberg</obo:IAO_0000117>
-        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relates an class defined in an ontology, to the type of it&apos;s denotator</obo:IAO_0000115>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In OWL 2 add AnnotationPropertyRange(&apos;is denotator type&apos; &apos;denotator type&apos;)</obo:IAO_0000116>
+        <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relates an class defined in an ontology, to the type of it&apos;s denotator</obo:IAO_0000115>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">is denotator type</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000424">
@@ -21812,11 +21799,11 @@ Annotations: IAO_0000424 &quot;http://purl.obolibrary.org/obo/BFO_0000051 some (
         <rdfs:label xml:lang="en">expand expression to</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000425">
-        <obo:IAO_0000115 xml:lang="en">A macro expansion tag applied to an annotation property which can be expanded into a more detailed axiom.</obo:IAO_0000115>
         <obo:IAO_0000112 xml:lang="en">ObjectProperty: RO???
 Label: spatially disjoint from
 Annotations: expand_assertion_to &quot;DisjointClasses: (http://purl.obolibrary.org/obo/BFO_0000051 some ?X)  (http://purl.obolibrary.org/obo/BFO_0000051 some ?Y)&quot;
 </obo:IAO_0000112>
+        <obo:IAO_0000115 xml:lang="en">A macro expansion tag applied to an annotation property which can be expanded into a more detailed axiom.</obo:IAO_0000115>
         <rdfs:label xml:lang="en">expand assertion to</rdfs:label>
         <obo:IAO_0000117 xml:lang="en">Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000111 xml:lang="en">expand assertion to</obo:IAO_0000111>
@@ -21839,20 +21826,20 @@ Annotations: expand_assertion_to &quot;DisjointClasses: (http://purl.obolibrary.
         <obo:IAO_0000117 xml:lang="en">PERSON:Alan Ruttenberg</obo:IAO_0000117>
         <obo:IAO_0000116 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The intended usage of that property is as follow: OBO foundry unique labels are automatically generated based on regular expressions provided by each ontology, so that SO could specify unique label = &apos;sequence &apos; + [label], etc. , MA could specify &apos;mouse + [label]&apos; etc. Upon importing terms, ontology developers can choose to use the &apos;OBO foundry unique label&apos; for an imported term or not. The same applies to tools .</obo:IAO_0000116>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000125"/>
-        <obo:IAO_0000117 xml:lang="en">PERSON:Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000111 xml:lang="en">OBO foundry unique label</obo:IAO_0000111>
+        <obo:IAO_0000117 xml:lang="en">PERSON:Chris Mungall</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">PERSON:Bjoern Peters</obo:IAO_0000117>
         <obo:IAO_0000117 xml:lang="en">PERSON:Melanie Courtot</obo:IAO_0000117>
         <rdfs:label xml:lang="en">OBO foundry unique label</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/IAO_0000596">
+        <obo:IAO_0000115>Relates an ontology used to record id policy to the number of digits in the URI. The URI is: the &apos;has ID prefix&quot; annotation property value concatenated with an integer in the id range (left padded with &quot;0&quot;s to make this many digits)</obo:IAO_0000115>
         <obo:IAO_0000112>Ontology: &lt;http://purl.obolibrary.org/obo/ro/idrange/&gt;
   Annotations: 
      &apos;has ID prefix&apos;: &quot;http://purl.obolibrary.org/obo/RO_&quot;
      &apos;has ID digit count&apos; : 7,
      rdfs:label &quot;RO id policy&quot;
      &apos;has ID policy for&apos;: &quot;RO&quot;</obo:IAO_0000112>
-        <obo:IAO_0000115>Relates an ontology used to record id policy to the number of digits in the URI. The URI is: the &apos;has ID prefix&quot; annotation property value concatenated with an integer in the id range (left padded with &quot;0&quot;s to make this many digits)</obo:IAO_0000115>
         <obo:IAO_0000117>Person:Alan Ruttenberg</obo:IAO_0000117>
         <rdfs:label xml:lang="en">has ID digit count</rdfs:label>
     </rdf:Description>
@@ -21905,13 +21892,13 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/bfo/core-classes.owl">
         <dc:source>Pierre Grenon, Barry Smith and Louis Goldberg: &quot;Biodynamic Ontology: Applying BFO in the Biomedical Domain&quot;</dc:source>
         <dc:source>Barry Smith and Pierre Grenon: &quot;The Cornucopia of Formal Ontological Relations&quot;</dc:source>
-        <dc:source>Barry Smith: &quot;Basic Tools of Formal Ontology&quot;</dc:source>
-        <dc:source>Barry Smith: &quot;Beyond Concepts: Ontology as Reality Representation&quot;</dc:source>
         <dc:publisher>Institute for Formal Ontology and Medical Information Science (IFOMIS)</dc:publisher>
+        <dc:source>Barry Smith: &quot;Beyond Concepts: Ontology as Reality Representation&quot;</dc:source>
+        <dc:source>Barry Smith: &quot;Basic Tools of Formal Ontology&quot;</dc:source>
         <dc:source>Pierre Grenon: &quot;BFO in a Nutshell: A Bi-categorial Axiomatization of BFO and Comparison with DOLCE&quot;</dc:source>
         <dc:source>Pierre Grenon: &quot;Spatio-temporality in Basic Formal Ontology: SNAP and SPAN, Upper-Level Ontology, and Framework for Formalization&quot;</dc:source>
-        <dc:contributor>Pierre Grenon</dc:contributor>
         <dc:source>Barry Smith: &quot;Against Fantology&quot;</dc:source>
+        <dc:contributor>Pierre Grenon</dc:contributor>
         <dc:source>Pierre Grenon: &quot;Nuts in BFO&apos;s Nutshell: Revisions to the Bi-categorial Axiomatization of BFO&quot;</dc:source>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/iao/IAO_0000599">
@@ -21989,17 +21976,17 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/subject">
         <rdfs:label xml:lang="en-us">Subject and Keywords</rdfs:label>
-        <rdfs:comment xml:lang="en-us">The topic of the content of the resource.</rdfs:comment>
         <dc:description xml:lang="en-us">Typically, a Subject will be expressed as keywords,
          key phrases or classification codes that describe a topic
          of the resource.  Recommended best practice is to select 
          a value from a controlled vocabulary or formal 
          classification scheme.</dc:description>
+        <rdfs:comment xml:lang="en-us">The topic of the content of the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
-        <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
         <rdfs:label xml:lang="en-us">Title</rdfs:label>
+        <rdfs:comment xml:lang="en-us">A name given to the resource.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
         <dc:description xml:lang="en-us">
         Typically, a Title will be a name by which the resource is
