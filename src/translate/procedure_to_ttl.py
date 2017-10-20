@@ -7,7 +7,8 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_inlay_material_map, load_ada_onlay_material_map, load_ada_procedure_map, load_ada_apicoectomy_material_map, \
     load_ada_root_amputation_material_map, load_ada_crown_material_map, load_ada_pontic_material_map, load_ada_extraction_material_map, \
     load_ada_oral_evaluation_material_map, load_ada_dental_implant_abutments_material_map, load_ada_dental_implant_crown_material_map, \
-    load_ada_dental_implant_body_material_map, load_ada_root_removal_material_map, load_ada_removable_denture_material_map
+    load_ada_dental_implant_body_material_map, load_ada_root_removal_material_map, load_ada_removable_denture_material_map, \
+    load_ada_pulp_capping_material_map, load_ada_pulp_regeneration_material_map
 from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
 
 restored_tooth_surface_label_map = {'b': 'restored buccal surface',
@@ -68,7 +69,9 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                    '12':'dental_implant_crown',
                    '13':'dental_implant_body',
                    '14':'root_removal',
-                   '15':'removable_denture'}
+                   '15':'removable_denture',
+                   '16':'pulp_capping',
+                   '17':'pulp_regeneration'}
 
     surface_map = {'m': 'Mesial surface enamel of tooth',
                    'o': 'Occlusal surface enamel of tooth',
@@ -343,6 +346,18 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
                                         logging.exception("message")
+                                elif str(procedure_type) == '16':  ## for pulp capping
+                                    try:
+                                        load_ada_pulp_capping_material_map[ada_code]
+                                        continue_flag_filter_with_procedure = True
+                                    except Exception as ex_endo:
+                                        logging.exception("message")
+                                elif str(procedure_type) == '17':  ## for pulp regeneration
+                                    try:
+                                        load_ada_pulp_regeneration_material_map[ada_code]
+                                        continue_flag_filter_with_procedure = True
+                                    except Exception as ex_endo:
+                                        logging.exception("message")
                                 else: #invalid procedure_type: stop processing here
                                     print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                     output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -580,6 +595,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 ada_material_codes = load_ada_removable_denture_material_map[ada_code]
                                                 for one_ada_material_code in ada_material_codes:
                                                     specific_material.append(label2uri[one_ada_material_code].rsplit('/', 1)[-1])
+                                            elif str(procedure_type) == '16':  ## for pulp capping
+                                                specific_material = label2uri[load_ada_pulp_capping_material_map[ada_code]].rsplit('/', 1)[-1]
+                                            elif str(procedure_type) == '17':  ## for pulp regeneration
+                                                specific_material = label2uri[load_ada_pulp_regeneration_material_map[ada_code]].rsplit('/', 1)[-1]
 
                                             restoration_material = list()
                                             if no_material_flag == False:
@@ -793,9 +812,9 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                             elif str(procedure_type) == '2' or str(procedure_type) == '5' or str(procedure_type) == '6' or str(procedure_type) == '7'\
                                                     or str(procedure_type) == '8' or str(procedure_type) == '9' or str(procedure_type) == '11'\
                                                     or str(procedure_type) == '12' or str(procedure_type) == '13' or str(procedure_type) == '14' \
-                                                    or str(procedure_type) == '15':
+                                                    or str(procedure_type) == '15' or str(procedure_type) == '16' or str(procedure_type) == '17':
                                                 ## no surface: for endodontic, apicoectomy, root amputation, crown, pontic, extraction,dental implant abutments,
-                                                ## dental implant crown, dental implant body, root removal, removable denture
+                                                ## dental implant crown, dental implant body, root removal, removable denture, pulp capping, pulp regeneration
                                                 output(tooth_str)
                                                 output("\n")
 
@@ -1273,8 +1292,21 @@ def test_get_tooth_array_idx():
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                   vendor='ES')
+# print_procedure_ttl(practice_id='1', procedure_type=16,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                   vendor='ES')
+# print_procedure_ttl(practice_id='1', procedure_type=17,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                   vendor='ES')
 ## try dentrix data for removable dentures
 #print_procedure_ttl(practice_id='1', procedure_type=15,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
+#                   vendor='dentrix')
+## try dentrix data for pulp regeneration
+# print_procedure_ttl(practice_id='1', procedure_type=17,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
 #                   vendor='dentrix')
