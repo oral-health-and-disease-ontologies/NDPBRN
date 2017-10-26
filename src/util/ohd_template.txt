@@ -54,6 +54,8 @@
 @prefix iao: <http://purl.obolibrary.org/obo/iao/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://purl.regenstrief.org/NDPBRN/dental-practice#> .
+@prefix caries_finding: <finding/caries-finding/> .
+@prefix carious_lesion_tooth: <disorder/carious-lesion-of-tooth/> .
 """,
 
 'prefix for practice':
@@ -206,9 +208,9 @@ prosthetic_tooth:{tooth_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{pract
 
 'declare surface by prefix':
 """
-surface:{surface_id} rdf:type <{surface_of_tooth}> .
-surface:{surface_id} rdf:type <{restored_tooth_surface}> .
+surface:{surface_id} rdf:type <{specific_tooth_surface}> .
 surface:{surface_id} rdfs:label "{label}"^^xsd:string .
+surface:{surface_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 'declare restored tooth surface by prefix':
@@ -257,6 +259,13 @@ restoration_procedure:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
 restoration_procedure:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
+'declare evaluation':
+"""
+evaluation:{cdt_code_id} rdf:type <http://purl.obolibrary.org/obo/OHD_0000197> .
+evaluation:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+evaluation:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
+""",
+
 'declare restoration material':
 """
 restoration_material:{cdt_code_id} rdf:type obo:{tooth_restoration_material} .
@@ -276,6 +285,20 @@ restoration_material_role:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000
 cdt_code:{cdt_code_id} rdf:type obo:{billing_code_for_restorative} .
 cdt_code:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
 cdt_code:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
+""",
+
+'declare caries finding':
+"""
+{caries_finding_uri} rdf:type obo:OHD_0000024 .
+{caries_finding_uri} rdfs:label "{label}"^^xsd:string .
+{caries_finding_uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
+""",
+
+'declare lesion':
+"""
+{lesion_uri} rdf:type obo:OHD_0000021 .
+{lesion_uri} rdfs:label "{label}"^^xsd:string .
+{lesion_uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 #### patterns for relating individuals
