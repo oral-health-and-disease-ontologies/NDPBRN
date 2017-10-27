@@ -1,5 +1,3 @@
 {
-'D3355':'dental restoration material',
-'D3356':'dental restoration material',
 'D3357':'dental restoration material'
 }

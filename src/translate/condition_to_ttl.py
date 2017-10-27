@@ -70,30 +70,51 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                    'l': 'Lingual surface enamel of tooth'}
 
     load_desc_caries_list = ['Incipient Caries',
-                    'caries',
-                    'Caries/decay',
-                    'Deep dentinal/cemental caries',
-                    'Recurring caries/surface restor',
-                    'Severe/Gross Caries/Decay',
-                    'Decay',
-                    'Recurrent Decay',
-                    'Interproximal Decay',
-                    'Decay to the nerve',
-                    'Severe/Gross Caries/Decay',
-                    'Rampant Decay',
-                    'Decay Incipient',
-                    '.DECAY',
-                    '.DECAY INCIPIENT',
-                    'Decay Recurrent',
-                    'Decay Primary',
-                    'Decalcification',
-                    'DECALCIFICATION/HYPOCALCIFICATION',
-                    '.Decalcification',
-                    'zDecalcification',
-                    'Dicalsification']
+                             'caries',
+                             'Caries/decay',
+                             'Deep dentinal/cemental caries',
+                             'Recurring caries/surface restor',
+                             'Severe/Gross Caries/Decay',
+                             'Root Caries',
+                             'Decay',
+                             'Root Decay ',
+                             'Recurrent Decay',
+                             'Interproximal Decay',
+                             'Decay to the nerve',
+                             'Severe/Gross Caries/Decay',
+                             'Rampant Decay',
+                             'Decay arrested',
+                             'Decay Incipient',
+                             '.DECAY',
+                             '.DECAY INCIPIENT',
+                             'Decay Recurrent',
+                             'Decay Primary',
+                             '.DECAY ARRESTED',
+#TODO - double check with Bill: removing decalcification
+#                             'Decalcification',
+#                             'DECALCIFICATION/HYPOCALCIFICATION',
+#                             '.Decalcification',
+#                             'zDecalcification',
+                             'Dicalsification']
 
-    #TODO - filling all description for missing tooth later
-    load_desc_missing_tooth_list = []
+    load_desc_missing_tooth_list = ['Missing Tooth',
+                                    'Missing/Extracted tooth',
+                                    'zzMissing/Extracted tooth',
+                                    'zzzMissing tooth',
+                                    'Missing tooth, more than a year',
+                                    'zzMissing Tooth',
+                                    'Congenitally Missing Tooth',
+                                    'Congenitally missing',
+                                    'Missing more than one year',
+                                    'missing teeth',
+                                    'Missing Perm. Tooth, PRIMARY Present',
+                                    '.Missing Tooth',
+                                    'zCongenitally Missing Tooth',
+                                    'missing',
+                                    'Missing clinical Crown',
+                                    'Missing filling',
+                                    'Missing Restoration',
+                                    'Filling Missing']
 
     try:
         filename = output_p + condition_type_map[str(condition_type)] + '.trig'
@@ -310,9 +331,6 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                     evaluation_tooth_input_relation_str = ohd_ttl['uri1 has specified input uri2'].format(uri1=evaluation_uri,
                                                                                                                          uri2=tooth_uri)
 
-                                    # relation: evaluation has specified output finding
-                                    #TODO - finding output here
-
                                     if str(condition_type) == '1' :  ## for caries (with surface info)
                                         if pds.notnull(surface) and surface:
                                             output(tooth_str)
@@ -449,14 +467,12 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                             output("\n")
 
                                     elif str(condition_type) == '2':
-                                        #TODO - test for type 2 for missing tooth!!
                                         ## no surface: for missing tooth
                                         output(tooth_str)
                                         output("\n")
 
                                         output(evaluation)
                                         output("\n")
-
 
                                         output(dentition_str)
                                         output("\n")
@@ -499,7 +515,36 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                         output(evaluation_patient_relation_str)
                                         output("\n")
 
-                                        output(evaluation_tooth_input_relation_str)
+                                        finding_label = "missing tooth finding for " + tooth_label + " on " + date_str
+                                        finding_id = str(tooth_id) + "_" + date_str
+                                        finding_uri = "missing_tooth_finding:" + finding_id
+                                        finding_str = ohd_ttl['declare missing tooth finding']. \
+                                            format(missing_tooth_finding_uri=finding_uri,
+                                                   label=finding_label,
+                                                   practice_id_str=practiceidstring)
+                                        output(finding_str)
+
+                                        # finding "occurence date" property
+                                        if date_str != 'invalid date':
+                                            output(
+                                                ohd_ttl['declare date property uri'].
+                                                    format(uri=finding_uri,
+                                                           type=label2uri['occurrence date'].rsplit('/', 1)[-1],
+                                                           date=date_str))
+
+                                        # relation: finding is about dentition
+                                        finding_dentition_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                                            uri1=finding_uri,
+                                            uri2=dentition_uri)
+                                        output(finding_dentition_relation_str)
+                                        output("\n")
+
+                                        # relation evaluation has output of finding
+                                        evaluation_finding_output_relation_str = ohd_ttl[
+                                            'uri1 has specified output uri2'].format(
+                                            uri1=evaluation_uri,
+                                            uri2=finding_uri)
+                                        output(evaluation_finding_output_relation_str)
                                         output("\n")
 
                                         ##no relation of: evaluation has output of tooth
@@ -571,10 +616,14 @@ def test_get_tooth_array_idx():
     print indx_array
 #test_get_tooth_array_idx()
 
-print_condition_ttl(practice_id='1', condition_type=1,
-                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
-                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
-                   vendor='ES')
+# print_condition_ttl(practice_id='1', condition_type=1,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')
+# print_condition_ttl(practice_id='1', condition_type=2,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                    vendor='ES')
 ## try dentrix data
 #print_condition_ttl(practice_id='1', condition_type=1,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',

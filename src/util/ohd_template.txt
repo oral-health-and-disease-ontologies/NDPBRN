@@ -56,6 +56,7 @@
 @prefix : <http://purl.regenstrief.org/NDPBRN/dental-practice#> .
 @prefix caries_finding: <finding/caries-finding/> .
 @prefix carious_lesion_tooth: <disorder/carious-lesion-of-tooth/> .
+@prefix missing_tooth_finding: <finding/missing-tooth-finding/> .
 """,
 
 'prefix for practice':
@@ -299,6 +300,13 @@ cdt_code:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_i
 {lesion_uri} rdf:type obo:OHD_0000021 .
 {lesion_uri} rdfs:label "{label}"^^xsd:string .
 {lesion_uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
+""",
+
+'declare missing tooth finding':
+"""
+{missing_tooth_finding_uri} rdf:type obo:OHD_0000026 .
+{missing_tooth_finding_uri} rdfs:label "{label}"^^xsd:string .
+{missing_tooth_finding_uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
 #### patterns for relating individuals

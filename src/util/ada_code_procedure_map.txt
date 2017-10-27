@@ -84,8 +84,6 @@
 'D3348':'endodontic treatment procedure',
 'D3110':'direct pulp capping procedure',
 'D3120':'indirect pulp capping procedure',
-'D3355':'pulpal regeneration procedure',
-'D3356':'pulpal regeneration procedure',
 'D3357':'pulpal regeneration procedure',
 'D3410':'apicoectomy procedure',
 'D3421':'apicoectomy procedure',
