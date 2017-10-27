@@ -57,6 +57,7 @@
 @prefix caries_finding: <finding/caries-finding/> .
 @prefix carious_lesion_tooth: <disorder/carious-lesion-of-tooth/> .
 @prefix missing_tooth_finding: <finding/missing-tooth-finding/> .
+@prefix evaluation: <evaluation/> .
 """,
 
 'prefix for practice':
