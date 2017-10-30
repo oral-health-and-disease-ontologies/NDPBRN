@@ -5,6 +5,7 @@ from provider_to_ttl import translate_provider_to_ttl_1
 from visit_to_ttl import translate_visit_to_ttl
 from visit_dates import next_visit_ttl, first_last_visit_date_ttl
 from procedure_to_ttl import print_procedure_ttl
+from condition_to_ttl import print_condition_ttl
 
 #test with practice 1 with ES
 def testAllTranslationWithPRAC_1():
@@ -68,9 +69,9 @@ def testAllTranslationWithPRAC_1():
 
 def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES', prac_lower_num=1, prac_upper_num=1):
 
-    providerTableFile = 'Provider_Table.txt'
-    patientTableFile = 'Patient_Table.txt'
-    patietnHistoryTFile = 'Patient_History.txt'
+    providerTableFile = 'Provider.txt'
+    patientTableFile = '_study_patients.txt'
+    patietnHistoryTFile = '_tooth_history.txt'
 
     provderOutputFile = 'provider.trig'
     patientOutputFile = 'patient.trig'
@@ -84,6 +85,10 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 
         if not os.path.exists(output_p):
             os.makedirs(output_p)
+
+        if vendor.lower() == 'es':
+            patientTableFile = 'A_' + str(i) + '_study_patients.txt'
+            patietnHistoryTFile = 'A_' + str(i) + '_tooth_history.txt'
 
         if vendor.lower() == 'dentrix':
             providerTableFile = 'Dentrix_Pract' + str(i) + '_Provider_Table.txt'
@@ -107,8 +112,14 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
                                   input_f=input_p + patietnHistoryTFile,
                                   output_f=output_p + visitFirstLastOutputFile,
                                   output_p=output_p)
-        for j in range(1, 11):
+        for j in range(1, 17):
             print_procedure_ttl(practice_id=str(i), procedure_type=str(j),
+                            input_f=input_p + patietnHistoryTFile,
+                            output_p=output_p,
+                            vendor=vendor)
+
+        for j in range(1, 2):
+            print_condition_ttl(practice_id=str(i), condition_type=str(j),
                             input_f=input_p + patietnHistoryTFile,
                             output_p=output_p,
                             vendor=vendor)
@@ -116,11 +127,11 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 ## test call all for practice 1 testing
 #testAllTranslationWithPRAC_1()
 ## run all ES for practice number from 1 ~ prac_num
-runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/',
-               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
+runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/',
+               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/',
                vendor='ES',
                prac_lower_num=1,
-               prac_upper_num=1)
+               prac_upper_num=2)
 ## test with dentrix
 #runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
 #               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/',

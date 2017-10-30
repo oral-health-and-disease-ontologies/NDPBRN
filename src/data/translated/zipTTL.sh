@@ -9,6 +9,6 @@ cd $PRAC_ROOT_DIR
 
 for i in `seq $START_PRAC_NUM $END_PRAC_NUM`;
 do
-  echo "zip files in $PRAC_ROOT_DIR/PRAC_$i/*.ttl ......: ${VENDOR}_$i.zip"
-  zip -j ${VENDOR}_$i.zip $PRAC_ROOT_DIR/PRAC_$i/*.ttl
+  echo "zip files in $PRAC_ROOT_DIR/PRAC_$i/*.trig ......: ${VENDOR}_$i.zip"
+  zip -j ${VENDOR}_$i.zip $PRAC_ROOT_DIR/PRAC_$i/*.trig
 done
