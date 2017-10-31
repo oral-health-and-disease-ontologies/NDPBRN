@@ -10,7 +10,8 @@ echo %VENDOR%
 echo %START_PRAC_NUM%
 echo %END_PRAC_NUM%
 
-cd %PRAC_TTL_ROOT_DIR%
+REM "No need to cd into the directory - graphdb workbench use default $home/graphdb_import/ dir for importing files. Or start graphdb with param: -Dgraphdb.workbench.importDirectory="E:/development/translated_data/""
+REM cd %PRAC_TTL_ROOT_DIR%
 
 SET CUR_PATH=%cd%
 
