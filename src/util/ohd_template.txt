@@ -305,7 +305,7 @@ cdt_code:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_i
 
 'declare missing tooth finding':
 """
-{missing_tooth_finding_uri} rdf:type obo:OHD_0000026 .
+{missing_tooth_finding_uri} rdf:type <{specific_missing_tooth_finding}> .
 {missing_tooth_finding_uri} rdfs:label "{label}"^^xsd:string .
 {missing_tooth_finding_uri} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,

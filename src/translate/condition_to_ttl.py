@@ -468,8 +468,9 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                     elif str(condition_type) == '2':
                                         ## no surface: for missing tooth
-                                        output(tooth_str)
-                                        output("\n")
+                                        ## confirmed with Bill - no "tooth" instance for missing tooth finding
+                                        # output(tooth_str)
+                                        # output("\n")
 
                                         output(evaluation)
                                         output("\n")
@@ -477,13 +478,14 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                         output(dentition_str)
                                         output("\n")
 
+                                        #TODO - comment out for now per Bill, we need another way to do this
                                         #tooth is not part of dentition relation
-                                        tooth_not_part_dentition_relation_str = ohd_ttl['uri1 is NOT in relationship with uri2'].format(
-                                            uri1=tooth_uri,
-                                            relation=label2uri['is part of'],
-                                            uri2=dentition_uri)
-                                        output(tooth_not_part_dentition_relation_str)
-                                        output("\n")
+                                        # tooth_not_part_dentition_relation_str = ohd_ttl['uri1 is NOT in relationship with uri2'].format(
+                                        #     uri1=tooth_uri,
+                                        #     relation=label2uri['is part of'],
+                                        #     uri2=dentition_uri)
+                                        # output(tooth_not_part_dentition_relation_str)
+                                        # output("\n")
 
                                         # relation dentition part of patient
                                         dentition_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(
@@ -518,8 +520,10 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                         finding_label = "missing tooth finding for " + tooth_label + " on " + date_str
                                         finding_id = str(tooth_id) + "_" + date_str
                                         finding_uri = "missing_tooth_finding:" + finding_id
+                                        specific_missing_tooth_finding = label2uri['missing tooth ' + str(tooth_num) + ' finding']
                                         finding_str = ohd_ttl['declare missing tooth finding']. \
                                             format(missing_tooth_finding_uri=finding_uri,
+                                                   specific_missing_tooth_finding=specific_missing_tooth_finding,
                                                    label=finding_label,
                                                    practice_id_str=practiceidstring)
                                         output(finding_str)
