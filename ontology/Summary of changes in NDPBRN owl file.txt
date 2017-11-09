@@ -273,3 +273,4 @@ fixed partial denture procedure
 
 - Add 'coronal caries finding' and 'tooth root caries finding'
 
+- Remove 'Dentition' from domain of 'missing tooth number' data property. It was causing problems with reasoning.
