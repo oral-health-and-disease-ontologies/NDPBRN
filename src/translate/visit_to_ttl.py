@@ -36,7 +36,7 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
         df.columns = df.columns.str.lower()
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
-    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
+    visit_df = df[['patient_id', 'tran_date', 'date_entered', 'provider_id', 'table_name', 'db_practice_id']]
 
     with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
@@ -70,47 +70,55 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
         output(ohd_ttl['declare practice'].format(uri=practice_uri, type=practice_type, label=practice_label,
                                                   practice_id_str=practiceidstring))
 
+        ## create a hash table for handling duplicate visits
+        visit_hash_t = {}
+
         # print ttl for each patient
-        for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+        for (idx, pid, visitDate, dateEntered, providerId, tableName, locationId) in visit_df.itertuples():
             practiceId = practice_id
-            if tableName.lower() == 'transactions':
-               date_str = get_date_str(visitDate)
+            if tableName.lower() == 'transactions' or tableName.lower() == 'patient_conditions':
+               if tableName.lower() == 'transactions':
+                   modified_date = visitDate
+               elif tableName.lower() == 'patient_conditions':
+                   modified_date = dateEntered
+               date_str = get_date_str(modified_date)
                if date_str == 'invalid date':
                     print("Problem visit for patient (wrong date): " + str(pid) + " for practice: " + str(practiceId) + ". idx=" + str(idx))
 
                locationId = int(locationId)
                visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + get_visit_id_suffix_with_date_str(date_str, idx)
+               if visit_id not in visit_hash_t:
+                   visit_hash_t[visit_id] = 1
+                   #uri
+                   visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
-               #uri
-               visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                   #declare visit
+                   output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1],
+                                                                         label="dental visit " + str(visit_id),
+                                                                         practice_id_str=practiceidstring))
 
-               #declare visit
-               output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1],
-                                                                     label="dental visit " + str(visit_id),
-                                                                     practice_id_str=practiceidstring))
-
-               # relate individuals
-               output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2= str('obo:') + label2uri['dental health care provider role'].rsplit('/', 1)[-1]))
-               output('\n')
-               output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=str('obo:') + label2uri['dental patient role'].rsplit('/', 1)[-1]))
-               if date_str != 'invalid date':
-                   output(ohd_ttl['declare date property uri'].format(uri=visit_uri, type=label2uri['occurrence date'].rsplit('/', 1)[-1], date=date_str))
-               else:
+                   # relate individuals
+                   output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2= str('obo:') + label2uri['dental health care provider role'].rsplit('/', 1)[-1]))
                    output('\n')
+                   output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=str('obo:') + label2uri['dental patient role'].rsplit('/', 1)[-1]))
+                   if date_str != 'invalid date':
+                       output(ohd_ttl['declare date property uri'].format(uri=visit_uri, type=label2uri['occurrence date'].rsplit('/', 1)[-1], date=date_str))
+                   else:
+                       output('\n')
 
-               # patient role: visit realize patient role
-               patientId = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
-               patient_role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=patientId)
-               patient_patient_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=patient_role_uri)
-               output(patient_patient_role_relation_str)
-               output("\n")
+                   # patient role: visit realize patient role
+                   patientId = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                   patient_role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=patientId)
+                   patient_patient_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=patient_role_uri)
+                   output(patient_patient_role_relation_str)
+                   output("\n")
 
-               # provider role: visit realize probider role
-               provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(providerId)
-               provider_role_uri = ohd_ttl['provider role uri by prefix'].format(provider_id=provider_id)
-               patient_provider_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=provider_role_uri)
-               output(patient_provider_role_relation_str)
-               output("\n")
+                   # provider role: visit realize probider role
+                   provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(providerId)
+                   provider_role_uri = ohd_ttl['provider role uri by prefix'].format(provider_id=provider_id)
+                   patient_provider_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=provider_role_uri)
+                   output(patient_provider_role_relation_str)
+                   output("\n")
 
         output('}')
 #                except Exception as ex:
@@ -127,3 +135,6 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
 # translate_visit_to_ttl(practice_id='1', vendor='dentrix',
 #                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/visit.ttl')
+# translate_visit_to_ttl(practice_id='1', vendor='ES',
+#                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/visit.trig')

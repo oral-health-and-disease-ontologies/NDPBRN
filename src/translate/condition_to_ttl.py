@@ -177,10 +177,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                             output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
 
                         locationId = int(locationId)
-                        #TODO - need discuss with Bill about the "visit" which is not a "transactions" (probably change visit translation or define in here for conditions)
                         visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + get_visit_id_suffix_with_date_str(date_str, idx)
-
-                        #TODO - wait for double check on visit
                         #uri
                         visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
@@ -203,49 +200,8 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                             if continue_flag_filter_with_procedure:
                                 ## with right condition type
 
-                                ##### coped from visit_to_ttl: basically to create visit here... we dont tranlate "patient_conditions" in visit_to_ttl
-                                # declare visit
-                                output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=
-                                label2uri['dental visit'].rsplit('/', 1)[-1],
-                                                                                     label="dental visit " + str(
-                                                                                         visit_id),
-                                                                                     practice_id_str=practiceidstring))
-
-                                # relate individuals
-                                output(
-                                    ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=str('obo:') + label2uri[
-                                        'dental health care provider role'].rsplit('/', 1)[-1]))
-                                output('\n')
-                                output(
-                                    ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=str('obo:') + label2uri[
-                                        'dental patient role'].rsplit('/', 1)[-1]))
-                                if date_str != 'invalid date':
-                                    output(ohd_ttl['declare date property uri'].format(uri=visit_uri, type=
-                                    label2uri['occurrence date'].rsplit('/', 1)[-1], date=date_str))
-                                else:
-                                    output('\n')
-
-                                # patient role: visit realize patient role
-                                patientId = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
-                                patient_role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=patientId)
-                                patient_patient_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri,
-                                                                                                         uri2=patient_role_uri)
-                                output(patient_patient_role_relation_str)
-                                output("\n")
-
-                                # provider role: visit realize probider role
-                                provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(prov_id)
-                                provider_role_uri = ohd_ttl['provider role uri by prefix'].format(
-                                    provider_id=provider_id)
-                                patient_provider_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(
-                                    uri1=visit_uri,
-                                    uri2=provider_role_uri)
-                                output(patient_provider_role_relation_str)
-                                output("\n")
-                                #####END of coped from visit_to_ttl: basically to create visit here... we dont tranlate "patient_conditions" in visit_to_ttl
-
                                 tooth_num_array = []
-                                #TODO - check to see if we need tooth_num or tooth_date
+                                #TODO - check to see if we need tooth_num or tooth_data
                                 # if str(procedure_type) == '11' or str(procedure_type) == '12' or str(procedure_type) == '13' \
                                 #         or str(procedure_type) == '15':
                                 #     tooth_num_array = get_tooth_array_idx(tooth_data)
