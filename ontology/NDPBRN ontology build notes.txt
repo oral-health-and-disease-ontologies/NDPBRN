@@ -1,6 +1,6 @@
 Using HermiT reasoner
 
-For reasons I do not understand, certain annotations and data properties are not being exported to the inferred ontology. To fix this, there is an individual the the label 'example to be eventually removed'. To this indvidual add the following:
+For reasons I do not understand, certain annotations and data properties are not being exported to the inferred ontology. To fix this, there is an individual the the label 'missing tooth example'. To this indvidual add the following:
   * annotation: organization id: "test organization"
   * data property: missing tooth root number: "1"
   
@@ -17,9 +17,11 @@ Change the ontology IRI to:
 
 Save the inferred ontology to a new directory. Check that inferred axioms were exported. A simple check is by browsing the class 'direct restoration procedure' and 'indirect restoration procedure'. These should have subclasses in the non-inferred version.
 
+Remove 'missing tooth example' and 'example to be removed' individuals.
+
 Run the reasoner on the inferred version (of NDPBRN.owl) to check for errors in the error log! It will tell you if there are object properties with Asymmetric & Irreflexive property assertions. These assertions cause errors, and get added in (for some reason) during the export process. Also, remove Functional and Inverse functional property assertions from is immediately preceded by and immediately precedes. 
 
-F
+
 Last, copy the new inferred ontology to repository and commit.
 
 

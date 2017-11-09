@@ -268,3 +268,8 @@ fixed partial denture procedure
 - Add axiom 'is about' some 'porcelain laminate veneer restoration procedure' to billing code class 'billing code D2962: labial veneer (porcelain laminate) - laboratory'
 
 - Add 'missing tooth root' data property for root amputations and extractions.
+
+- Add 'missing tooth example' to hold 'missing tooth number' and 'missing tooth root number' data properties.
+
+- Add 'coronal caries finding' and 'tooth root caries finding'
+
