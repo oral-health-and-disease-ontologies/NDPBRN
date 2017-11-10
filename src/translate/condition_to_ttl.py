@@ -89,13 +89,13 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                              '.DECAY INCIPIENT',
                              'Decay Recurrent',
                              'Decay Primary',
-                             '.DECAY ARRESTED',
-#TODO - double check with Bill: removing decalcification
+                             '.DECAY ARRESTED']
+# remove decalcification per issue #45: https://github.iu.edu/IUSDRegenstrief/EDR-Study/issues/45
 #                             'Decalcification',
 #                             'DECALCIFICATION/HYPOCALCIFICATION',
 #                             '.Decalcification',
 #                             'zDecalcification',
-                             'Dicalsification']
+#                             'Dicalsification']
 
     load_desc_missing_tooth_list = ['Missing Tooth',
                                     'Missing/Extracted tooth',
@@ -186,10 +186,14 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                             # filters on material for certain types of procedures that we are interested in
                             continue_flag_filter_with_procedure = False
                             if str(condition_type) == '1':  ## for caries
-                                if description in load_desc_caries_list:
+                                #take care of ignoring case
+                                #if description in load_desc_caries_list:
+                                if any(s.lower() == description.lower() for s in load_desc_caries_list):
                                     continue_flag_filter_with_procedure = True
                             elif str(condition_type) == '2':  ## for missing_tooth
-                                if description in load_desc_missing_tooth_list:
+                                #take care of ignoring case
+                                #if description in load_desc_missing_tooth_list:
+                                if any(s.lower() == description.lower() for s in load_desc_missing_tooth_list):
                                     continue_flag_filter_with_procedure = True
                             else: #invalid condition_type: stop processing here
                                 print("Invalid condition type: " + str(condition_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -201,7 +205,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                 ## with right condition type
 
                                 tooth_num_array = []
-                                #TODO - check to see if we need tooth_num or tooth_data
+                                #use tooth_num, NOT tooth_data string
                                 # if str(procedure_type) == '11' or str(procedure_type) == '12' or str(procedure_type) == '13' \
                                 #         or str(procedure_type) == '15':
                                 #     tooth_num_array = get_tooth_array_idx(tooth_data)
@@ -246,9 +250,10 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                           label=tooth_label,
                                                                                           practice_id_str=practiceidstring)
                                         dentition_uri = "dentition:" + tooth_id
+                                        specific_dentition_type = label2uri['secondary dentition missing tooth ' + str(tooth_num)].rsplit('/', 1)[-1]
                                         dentition_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
-                                            type=label2uri['secondary dentition'].rsplit('/', 1)[-1],
-                                            practice_id_str=practiceidstring)
+                                                                                            type=specific_dentition_type,
+                                                                                            practice_id_str=practiceidstring)
                                     else:
                                         tooth_label = "tooth " + str(tooth_num) + " of patient " + str(pid) # "tooth 13 of patient 1"
                                         tooth_str = ohd_ttl['declare tooth by prefix'].format(tooth_id=tooth_id,
