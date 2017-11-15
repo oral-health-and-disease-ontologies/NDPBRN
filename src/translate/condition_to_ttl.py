@@ -467,26 +467,54 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     uri2=finding_uri)
                                                 output(evaluation_finding_output_relation_str)
                                                 output("\n")
-                                        else:  ## description has no string 'root' and it does not have surface string - falls into super class of 'caries finding'
-                                            #TODO - how to define lesion 'is part of' what? should be either root of surface of a tooth
-                                            output(tooth_str)
+                                        else:  ## description has no string 'root' and it does not have surface string - falls into 'coronal caries finding' without surface
+                                            ## no surface, so change lesion relates to tooth instead of surface: lesion 'part of' tooth
+                                            finding_label = "caries finding for " + tooth_label + " on " + date_str
+                                            finding_id = str(tooth_id) + "_" + date_str
+                                            finding_uri = "caries_finding:" + finding_id
+                                            finding_str = ohd_ttl['declare obo type with label']. \
+                                                format(uri=finding_uri,
+                                                       type=label2uri['coronal caries finding'].rsplit('/', 1)[-1], ## 'coronal caries finding'
+                                                       label=finding_label,
+                                                       practice_id_str=practiceidstring)
+                                            output(finding_str)
+
+                                            # finding "occurence date" property
+                                            if date_str != 'invalid date':
+                                                output(
+                                                    ohd_ttl['declare date property uri'].
+                                                        format(uri=finding_uri,
+                                                               type=label2uri['occurrence date'].rsplit('/', 1)[-1],
+                                                               date=date_str))
+
+                                            lesion_label = "carious lesion of tooth for " + tooth_label + " on " + date_str
+                                            lesion_id = str(tooth_id) + "_" + date_str
+                                            lesion_uri = "carious_lesion_tooth:" + lesion_id
+                                            lesion_str = ohd_ttl['declare lesion']. \
+                                                format(lesion_uri=lesion_uri,
+                                                       label=lesion_label,
+                                                       practice_id_str=practiceidstring)
+                                            output(lesion_str)
+
+                                            # relation: lesion part of tooth
+                                            lesion_tooth_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                                uri1=lesion_uri, uri2=tooth_uri)
+                                            output(lesion_tooth_relation_str)
                                             output("\n")
 
-                                            output(evaluation)
+                                            # relation: finding is about lesion
+                                            finding_lesion_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                                                uri1=finding_uri,
+                                                uri2=lesion_uri)
+                                            output(finding_lesion_relation_str)
                                             output("\n")
 
-                                            output(tooth_patient_relation_str)
-                                            output("\n")
-
-                                            output(evaluation_visit_relation_str)
-                                            output("\n")
-                                            output(evaluation_provider_relation_str)
-                                            output("\n")
-
-                                            output(evaluation_patient_relation_str)
-                                            output("\n")
-
-                                            output(evaluation_tooth_input_relation_str)
+                                            # relation evaluation has output of finding
+                                            evaluation_finding_output_relation_str = ohd_ttl[
+                                                'uri1 has specified output uri2'].format(
+                                                uri1=evaluation_uri,
+                                                uri2=finding_uri)
+                                            output(evaluation_finding_output_relation_str)
                                             output("\n")
 
                                     elif str(condition_type) == '2':
@@ -652,7 +680,7 @@ def test_get_tooth_array_idx():
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
 ## try dentrix data
-#print_condition_ttl(practice_id='1', condition_type=1,
+# print_condition_ttl(practice_id='1', condition_type=1,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/',
 #                   vendor='dentrix')
