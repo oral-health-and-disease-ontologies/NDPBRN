@@ -261,19 +261,23 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                           label=tooth_label,
                                                                                           practice_id_str=practiceidstring)
 
-                                    # evaluation
-                                    evaluation_label = "oral evaluation on " + tooth_label + " on " + date_str  # "oral evaluation on tooth 13 of patient 1 on 2003-05-16"
-                                    #specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
-                                    evaluation = ohd_ttl['declare evaluation'].format(cdt_code_id=cdt_code_id,
-                                                                                      label=evaluation_label,
-                                                                                      practice_id_str=practiceidstring)
-
                                     # relation: tooth part of patient  'uri1 is part of uri2':
                                     tooth_uri = "tooth:" + str(tooth_id)
                                     tooth_patient_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=tooth_uri,
                                                                                                         uri2=patient_uri)
 
-                                    evaluation_uri = "evaluation:" + str(cdt_code_id)
+                                    ## chnage evaluation uri per Bill: NOT include tooth num
+                                    evaluation_uri = "evaluation:" + str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                                    evaluation_label = "oral evaluation on patient " + str(pid) + " on " + date_str # 'oral evaluation on patient 68 on 2015-01-12'
+                                    # else:
+                                    #     evaluation_uri = "evaluation:" + str(cdt_code_id)
+                                    #     evaluation_label = "oral evaluation on " + tooth_label + " on " + date_str  # "oral evaluation on tooth 13 of patient 1 on 2003-05-16"
+
+                                    # evaluation
+                                    evaluation = ohd_ttl['declare obo type with label'].format(uri=evaluation_uri,
+                                                                                      type=label2uri['oral evaluation'].rsplit('/', 1)[-1],  ## 'tooth root caries finding', #oral evaluation
+                                                                                      label=evaluation_label,
+                                                                                      practice_id_str=practiceidstring)
 
                                     # relation: evaluation part of visit
                                     evaluation_visit_relation_str = ohd_ttl['uri1 is part of uri2'].format(uri1=evaluation_uri,
