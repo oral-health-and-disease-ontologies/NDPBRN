@@ -275,8 +275,6 @@ fixed partial denture procedure
 
 - Remove 'Dentition' from domain of 'missing tooth number' data property. It was causing problems with reasoning.
 
-<<<<<<< HEAD
 - Add dental procedure finding classes and oral evaluation finding classes
-=======
+
 - Add classes for secondary dentitions that are missing teeth: secondary dentition missing tooth 1, ...., secondary dentition missing tooth 32.
->>>>>>> 88e716106844c7b77ff7367df211a666e88fef78
