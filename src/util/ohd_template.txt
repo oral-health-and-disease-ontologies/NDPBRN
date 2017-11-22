@@ -352,6 +352,12 @@ prosthetic_tooth:{tooth_id} obo:BFO_0000050
     rdf:type obo:OHD_0000009] .
 """,
 
+'relate uri part of previous visit with no date':
+"""
+{uri} obo:BFO_0000050
+    [rdf:type obo:OHD_0000009] .
+""",
+
 #### patterns for modeling relationships
 'uri1 prop uri2':
 """{uri1} {prop} {uri2} . """,

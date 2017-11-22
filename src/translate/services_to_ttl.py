@@ -229,6 +229,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     format(uri=restoration_procedure_uri,
                                            type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                            date=procedure_date_str))
+                        else:
+                            output(
+                                ohd_ttl['relate uri part of previous visit with no date'].
+                                    format(uri=restoration_procedure_uri))
 
                         ## no provider for existing services
                         # output(procedure_provider_relation_str)
@@ -451,6 +455,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                     format(uri=restoration_procedure_uri,
                                                     type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                                     date=procedure_date_str))
+                                        else:
+                                            output(
+                                                ohd_ttl['relate uri part of previous visit with no date'].
+                                                    format(uri=restoration_procedure_uri))
 
                                         ## no provider for existing services
                                         # output(procedure_provider_relation_str)
@@ -723,6 +731,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                        type=label2uri['occurrence date'].rsplit('/', 1)[
                                                                            -1],
                                                                        date=procedure_date_str))
+                                                    else:
+                                                        output(
+                                                            ohd_ttl['relate uri part of previous visit with no date'].
+                                                                format(uri=restoration_procedure_uri))
 
                                                     for (single_surface) in surface_char:
                                                         convert_surface = get_surface(single_surface, idx)
@@ -1118,6 +1130,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                             format(uri=restoration_procedure_uri,
                                                                    type=label2uri['occurrence date'].rsplit('/', 1)[-1],
                                                                    date=procedure_date_str))
+                                                else:
+                                                    output(
+                                                        ohd_ttl['relate uri part of previous visit with no date'].
+                                                            format(uri=restoration_procedure_uri))
 
                                                 ## no provider for existing services
                                                 # output(procedure_provider_relation_str)
