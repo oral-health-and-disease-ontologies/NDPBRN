@@ -136,17 +136,19 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                 #TODO: need confirm with Bill
                 locationId = 1
 
-                if pds.notnull(complete_date) and complete_date:
-                    try:
-                        if datetime.strptime(complete_date, '%Y-%m-%d') < datetime.strptime(enter_date, '%Y-%m-%d'):
-                            p_date = complete_date
-                    except Exception as complete_date_e:
-                        logging.exception("message")
-                        p_date = None
-                else:
-                    p_date = None
-
                 if tableName.lower() == 'existing_services':
+                    if pds.notnull(complete_date) and complete_date:
+                        try:
+                            if datetime.strptime(complete_date, '%Y-%m-%d') < datetime.strptime(enter_date, '%Y-%m-%d'):
+                                p_date = complete_date
+                            else:
+                                p_date = 'invalid date'
+                        except Exception as complete_date_e:
+                            logging.exception("message")
+                            p_date = 'invalid date'
+                    else:
+                        p_date = 'invalid date'
+
                     ada_code = str(ada_code)
                     #sometimes it has 'D' in front of numbers, sometimes there's no D
                     #if not ada_code.startswith('D'):
@@ -154,7 +156,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                     ##change to use last 4 digits of ada_code and add D in front:
                     ada_code = str('D') + ada_code[-4:]
                     if len(ada_code) != 5:
-                        procedure_date_str = get_date_str(p_date)
+                        if p_date != 'invalid date':
+                            procedure_date_str = get_date_str(p_date)
+                        else:
+                            procedure_date_str = 'invalid date'
                         visit_date_str = get_date_str(enter_date)
                         if visit_date_str == 'invalid date':
                             print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
@@ -234,6 +239,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                 ohd_ttl['relate uri part of previous visit with no date'].
                                     format(uri=restoration_procedure_uri))
 
+                        # relation: finding 'is about' procedure
+                        finding_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                            uri1=finding_uri,
+                            uri2=restoration_procedure_uri)
+                        output(finding_procedure_relation_str)
+                        output("\n")
+
                         ## no provider for existing services
                         # output(procedure_provider_relation_str)
                         # output("\n")
@@ -257,7 +269,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                             surface = surface.strip()
 
                         try:
-                            procedure_date_str = get_date_str(p_date)
+                            if p_date != 'invalid date':
+                                procedure_date_str = get_date_str(p_date)
+                            else:
+                                procedure_date_str = 'invalid date'
                             visit_date_str = get_date_str(enter_date)
                             if visit_date_str == 'invalid date':
                                 print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
@@ -388,6 +403,54 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                 if continue_flag_filter_with_procedure:
                                     ## with right procedure type of ada_code
+
+                                    patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                                    patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
+
+                                    #existing services translation for finding and evaluatoin:
+                                    finding_label = "dental finding for patient: " + str(patient_id) + " of " + ada_code + " on " + visit_date_str
+                                    finding_id = str(patient_id) + "_" + ada_code + "_" + visit_date_str
+                                    finding_uri = "dental_finding:" + finding_id
+                                    if str(procedure_type) == '10':  ## for oral evaluation
+                                        finding_str = ohd_ttl['declare obo type with label']. \
+                                            format(uri=finding_uri,
+                                                   type=label2uri['oral evaluation finding'].rsplit('/', 1)[-1], ## 'oral evaluation finding'
+                                                   label=finding_label,
+                                                   practice_id_str=practiceidstring)
+                                    else: ## for other dental procedure finding (other than oral evaluation)
+                                        finding_str = ohd_ttl['declare obo type with label']. \
+                                            format(uri=finding_uri,
+                                                   type=label2uri['dental procedure finding'].rsplit('/', 1)[-1], ## 'dental procedure finding'
+                                                   label=finding_label,
+                                                   practice_id_str=practiceidstring)
+
+                                    output(finding_str)
+
+                                    # finding "occurence date" property
+                                    if visit_date_str != 'invalid date':
+                                            output(
+                                                ohd_ttl['declare date property uri'].
+                                                    format(uri=finding_uri,
+                                                           type=label2uri['occurrence date'].rsplit('/', 1)[-1],
+                                                           date=visit_date_str))
+
+                                    evaluation_uri = "evaluation:" + str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + visit_date_str
+                                    evaluation_label = "oral evaluation on patient " + str(pid) + " on " + visit_date_str # 'oral evaluation on patient 68 on 2015-01-12'
+                                    evaluation_str = ohd_ttl['declare obo type with label'].format(uri=evaluation_uri,
+                                                                                      type=label2uri['oral evaluation'].rsplit('/', 1)[-1],
+                                                                                      label=evaluation_label,
+                                                                                      practice_id_str=practiceidstring)
+
+                                    output(evaluation_str)
+
+                                    # relation: evaluation 'part of' visit
+                                    evaluation_visit_relation_str = ohd_ttl['uri1 is part of uri2'].format(
+                                         uri1=evaluation_uri,
+                                         uri2=visit_uri)
+
+                                    output(evaluation_visit_relation_str)
+                                    output('\n')
+
                                     if str(procedure_type) == '10':  ## for oral evaluation
                                         if visit_date_str != 'invalid date':
                                             cdt_code_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + ada_code + "_" + visit_date_str
@@ -459,6 +522,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                             output(
                                                 ohd_ttl['relate uri part of previous visit with no date'].
                                                     format(uri=restoration_procedure_uri))
+
+                                        # relation: finding 'is about' procedure
+                                        finding_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                                            uri1=finding_uri,
+                                            uri2=restoration_procedure_uri)
+                                        output(finding_procedure_relation_str)
+                                        output("\n")
 
                                         ## no provider for existing services
                                         # output(procedure_provider_relation_str)
@@ -735,6 +805,14 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         output(
                                                             ohd_ttl['relate uri part of previous visit with no date'].
                                                                 format(uri=restoration_procedure_uri))
+
+                                                    # relation: finding 'is about' procedure
+                                                    finding_procedure_relation_str = ohd_ttl[
+                                                        'uri1 is about uri2'].format(
+                                                        uri1=finding_uri,
+                                                        uri2=restoration_procedure_uri)
+                                                    output(finding_procedure_relation_str)
+                                                    output("\n")
 
                                                     for (single_surface) in surface_char:
                                                         convert_surface = get_surface(single_surface, idx)
@@ -1135,6 +1213,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         ohd_ttl['relate uri part of previous visit with no date'].
                                                             format(uri=restoration_procedure_uri))
 
+                                                # relation: finding 'is about' procedure
+                                                finding_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                                                    uri1=finding_uri,
+                                                    uri2=restoration_procedure_uri)
+                                                output(finding_procedure_relation_str)
+                                                output("\n")
+
                                                 ## no provider for existing services
                                                 # output(procedure_provider_relation_str)
                                                 # output("\n")
@@ -1163,7 +1248,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 output(cdt_code_procedure_relation_str)
                                                 output("\n")
-                                #else:
+
                                 #    print("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
                                 #    output_err("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
                             except Exception as ex1:
@@ -1303,11 +1388,11 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=2,
+# print_procedure_ttl(practice_id='1', procedure_type=2,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-#print_procedure_ttl(practice_id='1', procedure_type=11,
+# print_procedure_ttl(practice_id='1', procedure_type=10,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
