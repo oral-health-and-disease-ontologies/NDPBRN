@@ -240,11 +240,12 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                     format(uri=restoration_procedure_uri))
 
                         # relation: finding 'is about' procedure
-                        finding_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
-                            uri1=finding_uri,
-                            uri2=restoration_procedure_uri)
-                        output(finding_procedure_relation_str)
-                        output("\n")
+                        ## remove for now: invalud ada_code should not have findings here
+                        # finding_procedure_relation_str = ohd_ttl['uri1 is about uri2'].format(
+                        #     uri1=finding_uri,
+                        #     uri2=restoration_procedure_uri)
+                        # output(finding_procedure_relation_str)
+                        # output("\n")
 
                         ## no provider for existing services
                         # output(procedure_provider_relation_str)
