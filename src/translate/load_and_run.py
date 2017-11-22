@@ -6,6 +6,7 @@ from visit_to_ttl import translate_visit_to_ttl
 from visit_dates import next_visit_ttl, first_last_visit_date_ttl
 from procedure_to_ttl import print_procedure_ttl
 from condition_to_ttl import print_condition_ttl
+import services_to_ttl.print_procedure_ttl
 
 #test with practice 1 with ES
 def testAllTranslationWithPRAC_1():
@@ -120,6 +121,12 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 
         for j in range(1, 2):
             print_condition_ttl(practice_id=str(i), condition_type=str(j),
+                            input_f=input_p + patietnHistoryTFile,
+                            output_p=output_p,
+                            vendor=vendor)
+
+        for j in range(1, 17):
+            services_to_ttl.print_procedure_ttl(practice_id=str(i), procedure_type=str(j),
                             input_f=input_p + patietnHistoryTFile,
                             output_p=output_p,
                             vendor=vendor)
