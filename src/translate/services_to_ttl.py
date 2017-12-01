@@ -179,8 +179,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                         patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                         # restoration procedure
-                        restoration_procedure_label = "restoration procedure on patient " + str(
-                            pid) + " on " + visit_date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                        if procedure_date_str != 'invalid date':
+                            restoration_procedure_label = "restoration procedure on patient " + str(
+                                pid) + " on " + procedure_date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                        else:
+                            restoration_procedure_label = "restoration procedure on patient " + str(pid)
                         # TODO: double check on this, if invalid ada_code, "specific procedure" points to "dental procedure"
                         specific_procedure = label2uri["dental procedure"].rsplit('/', 1)[-1]
                         restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
@@ -460,14 +463,20 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         patient_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
                                         patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=patient_id)
                                         # restoration procedure
-                                        restoration_procedure_label = "restoration procedure on patient " + str(pid) + " on "  + visit_date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                                        if procedure_date_str != 'invalid date':
+                                            restoration_procedure_label = "restoration procedure on patient " + str(pid) + " on "  + procedure_date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                                        else:
+                                            restoration_procedure_label = "restoration procedure on patient " + str(pid)
                                         specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                         restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                                 tooth_restoration_procedure=specific_procedure,
                                                                                                                 label=restoration_procedure_label,
                                                                                                                 practice_id_str=practiceidstring)
                                         # billing code
-                                        billing_code_label = "billing code " + ada_code + " for procedure on " + visit_date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                        if procedure_date_str != 'invalid date':
+                                            billing_code_label = "billing code " + ada_code + " for procedure on " + procedure_date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                        else:
+                                            billing_code_label = "billing code " + ada_code
                                         billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
                                                                                               billing_code_for_restorative=
                                                                                               label2uri[
@@ -648,7 +657,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                   practice_id_str=practiceidstring)
 
                                             # restoration procedure
-                                            restoration_procedure_label = "restoration procedure on " + tooth_label + " on " + visit_date_str  # "restoration procedure on tooth 13 of patient 1 on 2003-05-16"
+                                            if procedure_date_str != 'invalid date':
+                                                restoration_procedure_label = "restoration procedure on " + tooth_label + " on " + procedure_date_str  # "restoration procedure on tooth 13 of patient 1 on 2003-05-16"
+                                            else:
+                                                restoration_procedure_label = "restoration procedure on " + tooth_label
                                             specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                             restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                                     tooth_restoration_procedure=specific_procedure,
@@ -715,8 +727,11 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                                 label=restoration_material_label,
                                                                                                                 practice_id_str=practiceidstring))
 
-                                            billing_code_label = "billing code " + str(
-                                                ada_code) + " for procedure on " + visit_date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                            if procedure_date_str != 'invalid date':
+                                                billing_code_label = "billing code " + str(
+                                                    ada_code) + " for procedure on " + procedure_date_str  # "billing code D2160 for procedure on 2003-05-16"
+                                            else:
+                                                billing_code_label = "billing code " + str(ada_code)
                                             billing_code = ohd_ttl['declare billing code'].format(cdt_code_id=cdt_code_id,
                                                                                                 billing_code_for_restorative=
                                                                                                 label2uri[ada_code.lower()].rsplit('/',1)[-1],
@@ -1410,6 +1425,10 @@ def test_get_tooth_array_idx():
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
 # print_procedure_ttl(practice_id='1', procedure_type=15,
+#                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
+#                   vendor='ES')
+# print_procedure_ttl(practice_id='1', procedure_type=17,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                   output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                   vendor='ES')
