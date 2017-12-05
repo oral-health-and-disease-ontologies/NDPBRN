@@ -13,24 +13,24 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    if vendor == 'ES':
-        df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                      header=0)
-    else:
-        # df = pds.read_csv(df_path, sep='\t',
-        #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
-        #                      "DATE_COMPLETED", "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "toothrangestart",
-        #                      "toothrangeend", "SURFACE", "surfm", "surfo", "surfd", "surfl", "surff", "surf5", "ACTION_CODE",
-        #                      "ACTION_CODE_DESCRIPTION", "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID",
-        #                      "chartstatus", "DB_PRACTICE_ID"],
-        #                       header=0)
-        df = pds.read_csv(df_path, sep='\t',
-                          names=['PBRN_PRACTICE', 'LOG_ID', 'PATIENT_ID', 'BIRTH_DATE', 'SEX',
-                                 'TABLE_NAME', 'DATE_COMPLETED', 'DATE_ENTERED', 'TRAN_DATE',
-                                 'DESCRIPTION', 'TOOTH', 'SURFACE', 'ACTION_CODE', 'ACTION_CODE_DESCRIPTION',
-                                 'SERVICE_CODE',
-                                 'ADA_CODE', 'ADA_CODE_DESCRIPTION', 'TOOTH_DATA', 'surface_detail', 'PROVIDER_ID',
-                                 'DB_PRACTICE_ID'], header=0)
+    # if vendor == 'ES':
+    df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+                  header=0)
+    # else:
+    #     # df = pds.read_csv(df_path, sep='\t',
+    #     #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
+    #     #                      "DATE_COMPLETED", "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "toothrangestart",
+    #     #                      "toothrangeend", "SURFACE", "surfm", "surfo", "surfd", "surfl", "surff", "surf5", "ACTION_CODE",
+    #     #                      "ACTION_CODE_DESCRIPTION", "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID",
+    #     #                      "chartstatus", "DB_PRACTICE_ID"],
+    #     #                       header=0)
+    #     df = pds.read_csv(df_path, sep='\t',
+    #                       names=['PBRN_PRACTICE', 'LOG_ID', 'PATIENT_ID', 'BIRTH_DATE', 'SEX',
+    #                              'TABLE_NAME', 'DATE_COMPLETED', 'DATE_ENTERED', 'TRAN_DATE',
+    #                              'DESCRIPTION', 'TOOTH', 'SURFACE', 'ACTION_CODE', 'ACTION_CODE_DESCRIPTION',
+    #                              'SERVICE_CODE',
+    #                              'ADA_CODE', 'ADA_CODE_DESCRIPTION', 'TOOTH_DATA', 'surface_detail', 'PROVIDER_ID',
+    #                              'DB_PRACTICE_ID'], header=0)
 
     if vendor != 'ES':
         df.columns = df.columns.str.lower()

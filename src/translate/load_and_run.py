@@ -93,9 +93,9 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
             patietnHistoryTFile = 'A_' + str(i) + '_tooth_history.txt'
 
         if vendor.lower() == 'dentrix':
-            providerTableFile = 'Dentrix_Pract' + str(i) + '_Provider_Table.txt'
-            patientTableFile = 'Dentrix_Pract' + str(i) + '_Patient_Table.txt'
-            patietnHistoryTFile = 'Dentrix_Pract' + str(i) + '_Patient_History.txt'
+            providerTableFile = 'PRAC' + str(i) + '_Dentrix_Provider_Table.txt'
+            patientTableFile = 'PRAC' + str(i) + '_Dentrix_Patient_Table.txt'
+            patietnHistoryTFile = 'PRAC' + str(i) + '_Dentrix_ToothHistory_Table.txt'
 
         translate_provider_to_ttl_1(practice_id=str(i), vendor=vendor,
                                     input_f=input_p + providerTableFile,
@@ -135,14 +135,14 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 ## test call all for practice 1 testing
 #testAllTranslationWithPRAC_1()
 ## run all ES for practice number from 1 ~ prac_num
-runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/',
-               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/',
-               vendor='ES',
-               prac_lower_num=1,
-               prac_upper_num=1)
+# runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/',
+#                output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/',
+#                vendor='ES',
+#                prac_lower_num=42,
+#                prac_upper_num=42)
 ## test with dentrix
-#runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
-#               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/',
-#               vendor='dentrix',
-#               prac_lower_num=1,
-#               prac_upper_num=1)
+runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
+              output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/Dentrix/',
+              vendor='dentrix',
+              prac_lower_num=1,
+              prac_upper_num=5)

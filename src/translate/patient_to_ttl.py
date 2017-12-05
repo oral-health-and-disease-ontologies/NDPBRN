@@ -145,5 +145,5 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/patient.ttl')
 # translate_patient_to_ttl(practice_id='1', vendor='dentrix',
-#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/patient table.txt',
-#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/patient.ttl')
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/PRAC1_Dentrix_Patient_Table.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/Dentrix/PRAC_1/patient.trig')

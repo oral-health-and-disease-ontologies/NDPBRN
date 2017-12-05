@@ -11,11 +11,11 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice' + str(practice_id) + '_Provider_Table.txt')
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
-    #if vendor == 'ES':
-    df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
-    #else:
-        # df = pds.read_csv(df_path, sep='\t',
-        #                   names=["db_practice_id", "provider_id", "provider_title", "status", "idnum", "specialty", "speciality_descript", "isnonperson", "rsctype"], header=0)
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["db_practice_id", "provider_id", "status", "position_id", "description"], header=0)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                           names=["db_practice_id", "provider_id", "status", "position_id", "title"], header=0)
 
     with open(output_f, 'w') as f:
         # local function for printing and saving turtle output
@@ -79,9 +79,12 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
 
             # if string "office" is in position string, print office staff role and relate it to the provider:
             #if "office" in row.POSITION.lower():
-            #if vendor == 'ES':
-            if pds.notnull(row.description):
-                roleDesc = str(row.description).lower()
+            if vendor == 'ES':
+                description = row.description
+            else:
+                description = row.title
+            if pds.notnull(description):
+                roleDesc = str(description).lower()
                 if "office" in roleDesc:
                     output(ohd_ttl['declare individual uri'].
                             format(uri=office_staff_role_uri, type=office_staff_role_type, label=office_staff_role_label,
