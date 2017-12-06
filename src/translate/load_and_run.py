@@ -144,5 +144,5 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 runAllPractice(data_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
               output_p_root='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/Dentrix/',
               vendor='dentrix',
-              prac_lower_num=1,
-              prac_upper_num=5)
+              prac_lower_num=31,
+              prac_upper_num=31)

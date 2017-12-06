@@ -136,6 +136,8 @@ def test_label2uri():
 def get_date_str(date_input_str):
     try:
         date_str = str(datetime.strptime(date_input_str, '%Y-%m-%d').date())
+        ## used following for Dentrix practice 31 tooth history file (the format was like '9/21/2003', but in patient file it's '1959-8-25')
+#        date_str = str(datetime.strptime(date_input_str, '%m/%d/%Y').date())
     except Exception as ex:
         date_str = 'invalid date'
     return date_str

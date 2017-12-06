@@ -8,6 +8,7 @@ from datetime import datetime
 #from itertools import groupby
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri
+from src.util.ohd_label2uri import get_date_str
 
 def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', output_p='./', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
@@ -72,7 +73,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
                         locationId = int(locationId)
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
-                        date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
+                        date_str = get_date_str(visitDate)
 
                         visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                         # uri
@@ -186,7 +187,7 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
                         locationId = int(locationId)
                         id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
-                        date_str = str(datetime.strptime(visitDate, '%Y-%m-%d').date())
+                        date_str = get_date_str(visitDate)
 
                         visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
                         # uri
