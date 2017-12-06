@@ -75,12 +75,13 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
 
                         date_str = get_date_str(visitDate)
 
-                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
-                        # uri
-                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
-                        patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+                        if date_str != 'invalid date':
+                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                            # uri
+                            visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                            patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
 
-                        results.append([patient_uri] + [date_str])
+                            results.append([patient_uri] + [date_str])
 
                     except Exception as ex:
                         print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -189,12 +190,13 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 
                         date_str = get_date_str(visitDate)
 
-                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
-                        # uri
-                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
-                        patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+                        if date_str != 'invalid date':
+                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                            # uri
+                            visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                            patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
 
-                        results.append([patient_uri] + [visit_uri] + [date_str])
+                            results.append([patient_uri] + [visit_uri] + [date_str])
 
                     except Exception as ex:
                         print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
