@@ -565,7 +565,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         for tooth_num in tooth_num_array:
                                             origin_tooth = tooth_num
                                             if pds.notnull(tooth_num):
-                                                tooth_num = int(tooth_num)
+                                                tooth_num = str(tooth_num)
                                             ## after get_tooth_num call, tooth_num is a string either a valid tooth number or "invalid_tooth_num_{idx}"
                                             tooth_num = get_tooth_num(tooth_num, idx)
 
