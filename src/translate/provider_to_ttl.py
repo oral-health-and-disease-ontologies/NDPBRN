@@ -115,6 +115,9 @@ def translate_provider_to_ttl_1(practice_id='1', output_f='provider.ttl', input_
 #translate_provider_to_ttl_1(practice_id='2', vendor='ES',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_2/Provider_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_2/provider.trig')
+# translate_provider_to_ttl_1(practice_id='2', vendor='ES',
+#                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/Provider.txt',
+#                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/provider.trig')
 #translate_provider_to_ttl_1(practice_id='1', vendor='dentrix',
 #                             input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Provider_Table.txt',
 #                             output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/provider.ttl')

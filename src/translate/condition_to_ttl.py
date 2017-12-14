@@ -166,6 +166,9 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
             #for (idx, practiceId, locationId, pid, tooth_num, surface, p_date, ada_code, prov_id, tableName) in patient_df.itertuples():
             practiceId = practice_id
             for (idx, locationId, pid, tooth_num_in_file, surface, p_date, ada_code, prov_id, tableName, tooth_data, description) in patient_df.itertuples():
+                locationId = str(locationId).rsplit('.')[0]
+                pid = str(pid).rsplit('.')[0]
+                prov_id = str(prov_id).rsplit('.')[0]
                 if tableName.lower() == 'patient_conditions':
                     if pds.notnull(surface):
                         surface = surface.strip()
@@ -622,10 +625,10 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
 def get_tooth_num(tooth_num, idx):
     if pds.notnull(tooth_num):
         try:
-            label2uri["tooth " + str(tooth_num)]
+            label2uri["tooth " + str(tooth_num).rsplit('.')[0]]
         except Exception as ex:
             return "invalid_tooth_num_" + str(idx)
-        return str(tooth_num)
+        return str(tooth_num).rsplit('.')[0]
     else:
         return "invalid_tooth_num_" + str(idx)
 

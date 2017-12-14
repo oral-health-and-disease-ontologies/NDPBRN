@@ -76,7 +76,10 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
         # print ttl for each patient
         for (idx, pid, visitDate, dateEntered, providerId, tableName, locationId) in visit_df.itertuples():
             practiceId = practice_id
-##            if tableName.lower() == 'transactions' or tableName.lower() == 'patient_conditions':
+            locationId = str(locationId).rsplit('.')[0]
+            pid = str(pid).rsplit('.')[0]
+            providerId = str(providerId).rsplit('.')[0]
+            ##            if tableName.lower() == 'transactions' or tableName.lower() == 'patient_conditions':
             ## refactor for using all rows: only 3 values in table_name: transactions, patient_conditions and existing_services
             if tableName.lower() == 'transactions':
                modified_date = visitDate

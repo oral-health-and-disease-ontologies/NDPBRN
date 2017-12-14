@@ -68,6 +68,9 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
 
             for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
                 practiceId = practice_id
+                locationId = str(locationId).rsplit('.')[0]
+                pid = str(pid).rsplit('.')[0]
+                providerId = str(providerId).rsplit('.')[0]
                 if tableName.lower() == 'transactions':
                     try:
                         locationId = int(locationId)
@@ -183,6 +186,9 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 
             for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
                 practiceId = practice_id
+                locationId = str(locationId).rsplit('.')[0]
+                pid = str(pid).rsplit('.')[0]
+                providerId = str(providerId).rsplit('.')[0]
                 if tableName.lower() == 'transactions':
                     try:
                         locationId = int(locationId)
@@ -240,14 +246,14 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 #first_last_visit_date_ttl(practice_id='3', vendor='ES')
 #next_visit_ttl(practice_id='1', vendor='dentrix')
 #first_last_visit_date_ttl(practice_id='1', vendor='dentrix')
-#next_visit_ttl(practice_id='1', vendor='ES',
-#               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-#               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/next_visit_dates.trig',
-#               output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
-#first_last_visit_date_ttl(practice_id='1', vendor='ES',
-#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit_dates.trig',
-#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/')
+# next_visit_ttl(practice_id='1', vendor='ES',
+#               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/next_visit_dates.trig',
+#               output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/')
+# first_last_visit_date_ttl(practice_id='1', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/')
 # next_visit_ttl(practice_id='1', vendor='dentrix',
 #               input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #               output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/next_visit_dates.ttl',

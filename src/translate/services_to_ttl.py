@@ -137,6 +137,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                 #TODO: need confirm with Bill
                 locationId = 1
 
+                locationId = str(locationId).rsplit('.')[0]
+                pid = str(pid).rsplit('.')[0]
+                prov_id = str(prov_id).rsplit('.')[0]
+
                 if tableName.lower() == 'existing_services':
                     if pds.notnull(complete_date) and complete_date:
                         try:
@@ -1296,10 +1300,10 @@ def get_ada_code(ada_code, idx):
 def get_tooth_num(tooth_num, idx):
     if pds.notnull(tooth_num):
         try:
-            label2uri["tooth " + str(tooth_num)]
+            label2uri["tooth " + str(tooth_num).rsplit('.')[0]]
         except Exception as ex:
             return "invalid_tooth_num_" + str(idx)
-        return str(tooth_num)
+        return str(tooth_num).rsplit('.')[0]
     else:
         return "invalid_tooth_num_" + str(idx)
 
