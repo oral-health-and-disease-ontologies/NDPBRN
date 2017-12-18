@@ -9,6 +9,7 @@ from datetime import datetime
 #from operator import itemgetter
 from load_resources import curr_dir, ohd_ttl, label2uri
 from src.util.ohd_label2uri import get_date_str
+import csv
 
 def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', output_p='./', input_f= 'Patient_History.txt', print_ttl=True, save_ttl=True, vendor='ES'):
     #df_path = os.path.join(curr_dir, '..', 'data', 'Practice1_Patient_History_small.xlsx')
@@ -20,7 +21,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     # if vendor == 'ES':
     df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                  header=0)
+                  header=0, quoting=csv.QUOTE_NONE)
     # else:
     #     # df = pds.read_csv(df_path, sep='\t',
     #     #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
@@ -138,7 +139,7 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
     # if vendor == 'ES':
     df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                  header=0)
+                  header=0, quoting=csv.QUOTE_NONE)
     # else:
     #     # df = pds.read_csv(df_path, sep='\t',
     #     #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",

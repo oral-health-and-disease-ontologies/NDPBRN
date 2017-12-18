@@ -3,6 +3,7 @@ import logging
 import collections
 from load_resources import curr_dir, ohd_ttl, label2uri
 from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
+import csv
 
 ## no need of specific restored surface in conditions (only need specific Surface Enamel of Tooth)
 # restored_tooth_surface_label_map = {'b': 'restored buccal surface',
@@ -38,7 +39,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
         df = pds.read_csv(df_path, sep='\t',
                       names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
                              "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                      header=0)
+                      header=0, quoting=csv.QUOTE_NONE)
     else:
         #df = pds.read_csv(df_path, sep='\t',
         #              names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",

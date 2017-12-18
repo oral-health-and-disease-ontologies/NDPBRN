@@ -10,6 +10,7 @@ from load_resources import curr_dir, ohd_ttl, label2uri, load_ada_filling_materi
     load_ada_dental_implant_body_material_map, load_ada_root_removal_material_map, load_ada_removable_denture_material_map, \
     load_ada_pulp_capping_material_map, load_ada_pulp_regeneration_material_map, load_ada_debridement_material_map
 from src.util.ohd_label2uri import get_date_str, get_visit_id_suffix_with_date_str
+import csv
 
 restored_tooth_surface_label_map = {'b': 'restored buccal surface',
                                     'd': 'restored distal surface',
@@ -36,7 +37,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
     df = pds.read_csv(df_path, sep='\t',
                   names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
                          "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                  header=0)
+                  header=0, quoting=csv.QUOTE_NONE)
     # else:
     #     #df = pds.read_csv(df_path, sep='\t',
     #     #              names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
