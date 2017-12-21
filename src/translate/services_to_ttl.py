@@ -909,33 +909,37 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         output(procedure_restored_surface_relation_str)
                                                         output("\n")
 
-                                                        # existing services translation for finding and evaluatoin:
-                                                        finding_label = "dental finding for patient: " + str(patient_id) + " of " + ada_code + " on " + visit_date_str
-                                                        finding_id = str(surface_id) + "_" + ada_code + "_" + visit_date_str
-                                                        finding_uri = "dental_finding:" + finding_id
-                                                        finding_str = ohd_ttl['declare obo type with label']. \
-                                                            format(uri=finding_uri,
-                                                                   type=label2uri['dental procedure finding'].rsplit('/', 1)[-1], ## 'dental procedure finding'
-                                                                   label=finding_label,
-                                                                   practice_id_str=practiceidstring)
+                                                    # existing services translation for finding and evaluatoin:
+                                                    finding_label = "dental finding for patient: " + str(
+                                                        patient_id) + " of " + ada_code + " on " + visit_date_str
+                                                    finding_id = str(tooth_id) + "_" + surface + "_" + ada_code + "_" + visit_date_str
+                                                    finding_uri = "dental_finding:" + finding_id
+                                                    finding_str = ohd_ttl['declare obo type with label']. \
+                                                        format(uri=finding_uri,
+                                                               type=
+                                                               label2uri['dental procedure finding'].rsplit('/', 1)[-1],
+                                                               ## 'dental procedure finding'
+                                                               label=finding_label,
+                                                               practice_id_str=practiceidstring)
 
-                                                        output(finding_str)
+                                                    output(finding_str)
 
-                                                        # finding "occurence date" property
-                                                        if visit_date_str != 'invalid date':
-                                                            output(
-                                                                ohd_ttl['declare date property uri'].
-                                                                    format(uri=finding_uri,
-                                                                           type=label2uri['occurrence date'].rsplit('/', 1)[-1],
-                                                                           date=visit_date_str))
+                                                    # finding "occurence date" property
+                                                    if visit_date_str != 'invalid date':
+                                                        output(
+                                                            ohd_ttl['declare date property uri'].
+                                                                format(uri=finding_uri,
+                                                                       type=label2uri['occurrence date'].rsplit('/', 1)[
+                                                                           -1],
+                                                                       date=visit_date_str))
 
-                                                        # relation: finding 'is about' procedure
-                                                        finding_procedure_relation_str = ohd_ttl[
-                                                            'uri1 is about uri2'].format(
-                                                            uri1=finding_uri,
-                                                            uri2=restoration_procedure_uri)
-                                                        output(finding_procedure_relation_str)
-                                                        output("\n")
+                                                    # relation: finding 'is about' procedure
+                                                    finding_procedure_relation_str = ohd_ttl[
+                                                        'uri1 is about uri2'].format(
+                                                        uri1=finding_uri,
+                                                        uri2=restoration_procedure_uri)
+                                                    output(finding_procedure_relation_str)
+                                                    output("\n")
 
                                                     ## no provider for existing services
                                                     # output(procedure_provider_relation_str)
