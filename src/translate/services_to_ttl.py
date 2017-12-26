@@ -188,8 +188,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         if procedure_date_str != 'invalid date':
                             restoration_procedure_label = "restoration procedure on patient " + str(
                                 pid) + " on " + procedure_date_str  # "restoration procedure on patient 1 on 2003-05-16"
+                            if str(procedure_type) == '18':  ## for debridement and hemisections
+                                restoration_procedure_label = "hemisection procedure on patient " + str(
+                                    pid) + " on " + procedure_date_str  # "hemisection procedure on patient 1 on 2003-05-16"
                         else:
                             restoration_procedure_label = "restoration procedure on patient " + str(pid)
+                            if str(procedure_type) == '18':  ## for debridement and hemisections
+                                restoration_procedure_label = "hemisection procedure on patient " + str(pid) # "hemisection procedure on patient"
                         # TODO: double check on this, if invalid ada_code, "specific procedure" points to "dental procedure"
                         specific_procedure = label2uri["dental procedure"].rsplit('/', 1)[-1]
                         restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
@@ -692,8 +697,12 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                             # restoration procedure
                                             if procedure_date_str != 'invalid date':
                                                 restoration_procedure_label = "restoration procedure on " + tooth_label + " on " + procedure_date_str  # "restoration procedure on tooth 13 of patient 1 on 2003-05-16"
+                                                if str(procedure_type) == '18':  ## for debridement and hemisections
+                                                    restoration_procedure_label = "debridement procedure on " + tooth_label + " on " + procedure_date_str  # "debridement procedure on tooth 13 of patient 1 on 2003-05-16"
                                             else:
                                                 restoration_procedure_label = "restoration procedure on " + tooth_label
+                                                if str(procedure_type) == '18':  ## for debridement and hemisections
+                                                    restoration_procedure_label = "debridement procedure on " + tooth_label
                                             specific_procedure = label2uri[load_ada_procedure_map[ada_code]].rsplit('/', 1)[-1]
                                             restoration_procedure = ohd_ttl['declare restoration procedure'].format(cdt_code_id=cdt_code_id,
                                                                                                                     tooth_restoration_procedure=specific_procedure,
