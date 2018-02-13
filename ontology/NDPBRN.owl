@@ -2371,7 +2371,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
             </owl:Restriction>
         </rdfs:subClassOf>
         <obo:cdt_label>resin-based composite - two surfaces, posterior</obo:cdt_label>
-        <dc:identifier>C2386</dc:identifier>
+        <dc:identifier>D2386</dc:identifier>
         <rdfs:label>billing code D2386: resin-based composite - two surfaces, posterior</rdfs:label>
     </owl:Class>
     
@@ -23230,8 +23230,8 @@ EquivalentTo: xsd:integer[&gt; 2151 , &lt;= 2300]
         <rdfs:label xml:lang="en">duplicated</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/bfo/core-classes.owl">
-        <dc:source>Pierre Grenon, Barry Smith and Louis Goldberg: &quot;Biodynamic Ontology: Applying BFO in the Biomedical Domain&quot;</dc:source>
         <dc:source>Barry Smith and Pierre Grenon: &quot;The Cornucopia of Formal Ontological Relations&quot;</dc:source>
+        <dc:source>Pierre Grenon, Barry Smith and Louis Goldberg: &quot;Biodynamic Ontology: Applying BFO in the Biomedical Domain&quot;</dc:source>
         <dc:publisher>Institute for Formal Ontology and Medical Information Science (IFOMIS)</dc:publisher>
         <dc:source>Barry Smith: &quot;Beyond Concepts: Ontology as Reality Representation&quot;</dc:source>
         <dc:source>Barry Smith: &quot;Basic Tools of Formal Ontology&quot;</dc:source>

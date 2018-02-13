@@ -302,7 +302,7 @@ and recording of dental caries, missing or unerupted teeth, restorations, occlus
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/CDT_0002386">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CDT_1000013"/>
         <obo:cdt_label>resin-based composite - two surfaces, posterior</obo:cdt_label>
-        <dc:identifier>C2386</dc:identifier>
+        <dc:identifier>D2386</dc:identifier>
         <rdfs:label>billing code D2386: resin-based composite - two surfaces, posterior</rdfs:label>
     </owl:Class>
     
