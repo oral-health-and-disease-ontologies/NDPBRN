@@ -1214,9 +1214,13 @@ def test_get_tooth_array_idx():
     print indx_array
 #test_get_tooth_array_idx()
 
-#print_procedure_ttl(practice_id='1', procedure_type=1,
-#                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-#                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
+# print_procedure_ttl(practice_id='14', procedure_type=4,
+#                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_14/A_14_tooth_history.txt',
+#                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
+#                     vendor='ES')
+# print_procedure_ttl(practice_id='42', procedure_type=7,
+#                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_42/A_42_tooth_history.txt',
+#                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/',
 #                     vendor='ES')
 #print_procedure_ttl(practice_id='1', procedure_type=2,
 #                     input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',

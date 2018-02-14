@@ -10,7 +10,7 @@
 'D2751':['porcelain dental restoration material', 'predominantly base metal dental restoration material'],
 'D2752':['porcelain dental restoration material', 'noble metal dental restoration material'],
 'D2780':['high noble metal dental restoration material'],
-'D2781':['predominantly base metal'],
+'D2781':['predominantly base metal dental restoration material'],
 'D2782':['noble metal dental restoration material'],
 'D2783':['porcelain dental restoration material'],
 'D2790':['high noble metal dental restoration material'],
