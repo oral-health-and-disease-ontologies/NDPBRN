@@ -7765,6 +7765,7 @@ Typically the removal of root/crown/bone is followed by the placement of an indi
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/OHD_0000230">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OHD_0000242"/>
+        <obo:IAO_0000115></obo:IAO_0000115>
         <obo:IAO_0000117>Bill Duncan</obo:IAO_0000117>
         <obo:IAO_0000118>a restored tooth in which the tooth&apos;s pulp is removed and replaced by dental restoration material</obo:IAO_0000118>
         <obo:IAO_0000118>root canal treatment procedure</obo:IAO_0000118>
