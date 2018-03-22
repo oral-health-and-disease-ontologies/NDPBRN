@@ -13,7 +13,7 @@ insert {
     ?patient_i prop:last_visit_date ?last_visit .
 }
 where {
-    ## find instance of patient and gender (note: gender may not have a value)
+    ## find instance of patient
     ?patient_i a patient: .
     {
         select ?patient_i (min(?visit_date) as ?first_visit) where {
