@@ -99,38 +99,38 @@ def runAllPractice(data_p_root='./', output_p_root='./translated/', vendor='ES',
 
         translate_provider_to_ttl_1(practice_id=str(i), vendor=vendor,
                                     input_f=input_p + providerTableFile,
-                                    output_f=output_p + provderOutputFile)
+                                    output_f=output_p + provderOutputFile, print_ttl=False)
         translate_patient_to_ttl(practice_id=str(i), vendor=vendor,
                                  input_f=input_p + patientTableFile,
-                                 output_f=output_p + patientOutputFile)
+                                 output_f=output_p + patientOutputFile, print_ttl=False)
         translate_visit_to_ttl(practice_id=str(i), vendor=vendor,
                                input_f=input_p + patietnHistoryTFile,
-                               output_f=output_p + visitOutputFile)
+                               output_f=output_p + visitOutputFile, print_ttl=False)
         next_visit_ttl(practice_id=str(i), vendor=vendor,
                        input_f=input_p + patietnHistoryTFile,
                        output_f=output_p + nextVisitOutputFile,
-                       output_p=output_p)
+                       output_p=output_p, print_ttl=False)
         first_last_visit_date_ttl(practice_id=str(i), vendor=vendor,
                                   input_f=input_p + patietnHistoryTFile,
                                   output_f=output_p + visitFirstLastOutputFile,
-                                  output_p=output_p)
+                                  output_p=output_p, print_ttl=False)
         for j in range(1, 19):
             print_procedure_ttl(practice_id=str(i), procedure_type=str(j),
                             input_f=input_p + patietnHistoryTFile,
                             output_p=output_p,
-                            vendor=vendor)
+                            vendor=vendor, print_ttl=False)
 
         for j in range(1, 3):
             print_condition_ttl(practice_id=str(i), condition_type=str(j),
                             input_f=input_p + patietnHistoryTFile,
                             output_p=output_p,
-                            vendor=vendor)
+                            vendor=vendor, print_ttl=False)
 
         for j in range(1, 19):
             services.print_procedure_ttl(practice_id=str(i), procedure_type=str(j),
                             input_f=input_p + patietnHistoryTFile,
                             output_p=output_p,
-                            vendor=vendor)
+                            vendor=vendor, print_ttl=False)
 
 ## test call all for practice 1 testing
 #testAllTranslationWithPRAC_1()
