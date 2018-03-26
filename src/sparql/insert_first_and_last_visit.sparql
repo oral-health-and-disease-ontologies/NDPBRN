@@ -1,0 +1,40 @@
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX patient_role: <http://purl.obolibrary.org/obo/OHD_0000190>
+PREFIX inheres_in: <http://purl.obolibrary.org/obo/BFO_0000052>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX visit: <http://purl.obolibrary.org/obo/OHD_0000009>
+PREFIX realizes: <http://purl.obolibrary.org/obo/BFO_0000055>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+insert {
+    ?patient_i prop:first_visit_date ?first_visit .
+    ?patient_i prop:last_visit_date ?last_visit .
+}
+where {
+    ## find instance of patient
+    ?patient_i a patient: .
+    {
+        select ?patient_i (min(?visit_date) as ?first_visit) where {
+            ?patient_i a patient: .
+            ?patient_role_i a patient_role:; inheres_in: ?patient_i .
+            ?visit_i a visit:;
+                 realizes: ?patient_role_i;
+                 occurrence_date: ?visit_date .            
+#            filter (?patient_i = <A_10/patient/A_10_1_1255>) # testing
+        } group by ?patient_i
+    }
+    {
+        select ?patient_i (max(?visit_date) as ?last_visit) where {
+            ?patient_i a patient: .
+            ?patient_role_i a patient_role:; inheres_in: ?patient_i .
+            ?visit_i a visit:;
+                 realizes: ?patient_role_i;
+                 occurrence_date: ?visit_date .            
+#            filter (?patient_i = <A_10/patient/A_10_1_1255>) # testing
+        } group by ?patient_i
+    }
+#    filter (?patient_i = <A_10/patient/A_10_1_1255>) # testing
+}
+#limit 100 # testing

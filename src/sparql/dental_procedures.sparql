@@ -1,0 +1,170 @@
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX restored_surface: <http://purl.obolibrary.org/obo/OHD_0000208>
+PREFIX restored_buccal: <http://purl.obolibrary.org/obo/OHD_0000222>
+PREFIX restored_distal: <http://purl.obolibrary.org/obo/OHD_0000223>
+PREFIX restored_facial: <http://purl.obolibrary.org/obo/OHD_0000235>
+PREFIX restored_incisal: <http://purl.obolibrary.org/obo/OHD_0000224>
+PREFIX restored_labial: <http://purl.obolibrary.org/obo/OHD_0000225>
+PREFIX restored_lingual: <http://purl.obolibrary.org/obo/OHD_0000226>
+PREFIX restored_mesial: <http://purl.obolibrary.org/obo/OHD_0000227>
+PREFIX restored_occlusal: <http://purl.obolibrary.org/obo/OHD_0000228>
+PREFIX restored_tooth: <http://purl.obolibrary.org/obo/OHD_0000189>
+PREFIX endodontically_restored_tooth: <http://purl.obolibrary.org/obo/0000236>
+PREFIX coronally_restored_tooth: <http://purl.obolibrary.org/obo/0000237>
+PREFIX extracoronally_restored_tooth: <http://purl.obolibrary.org/obo/0000238>
+PREFIX intracoronally_restored_tooth: <http://purl.obolibrary.org/obo/0000239>
+PREFIX surgically_modified_tooth: <http://purl.obolibrary.org/obo/0000231>
+PREFIX resin_filling_proc: <http://purl.obolibrary.org/obo/OHD_0000042>
+PREFIX root_canal_treatment: <http://purl.obolibrary.org/obo/OHD_0000230>
+PREFIX material: <http://purl.obolibrary.org/obo/OHD_0000000>
+PREFIX resin: <http://purl.obolibrary.org/obo/OHD_0000036>
+PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX posterior_tooth: <http://purl.obolibrary.org/obo/OHD_0000308>
+PREFIX anterior_tooth: <http://purl.obolibrary.org/obo/OHD_0000307>
+PREFIX molar: <http://purl.obolibrary.org/obo/FMA_55638>
+PREFIX premolar: <http://purl.obolibrary.org/obo/FMA_55637>
+PREFIX canine: <http://purl.obolibrary.org/obo/FMA_55636>
+PREFIX incisor: <http://purl.obolibrary.org/obo/FMA_12823>
+PREFIX dental_proc: <http://purl.obolibrary.org/obo/OHD_0000002>
+PREFIX restoration_proc: <http://purl.obolibrary.org/obo/OHD_0000004>
+PREFIX extraction_proc: <http://purl.obolibrary.org/obo/OHD_0000057>
+PREFIX has_input: <http://purl.obolibrary.org/obo/OBI_0000293>
+PREFIX has_output: <http://purl.obolibrary.org/obo/OBI_0000299>
+PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX patient_role: <http://purl.obolibrary.org/obo/OHD_0000190>
+PREFIX gender_role: <http://purl.obolibrary.org/obo/OMRSE_00000007>
+PREFIX female_gender_role: <http://purl.obolibrary.org/obo/OMRSE_00000008>
+PREFIX male_gender_role: <http://purl.obolibrary.org/obo/OMRSE_00000007>
+PREFIX inheres_in: <http://purl.obolibrary.org/obo/BFO_0000052>
+PREFIX bearer_of: <http://purl.obolibrary.org/obo/BFO_0000053>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX birth_date: <http://purl.obolibrary.org/obo/OHD_0000050>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dentition: <http://purl.obolibrary.org/obo/FMA_75152>
+PREFIX visit: <http://purl.obolibrary.org/obo/OHD_0000009>
+PREFIX realizes: <http://purl.obolibrary.org/obo/BFO_0000055>
+PREFIX dental_finding: <http://purl.obolibrary.org/obo/OHD_0000010>
+PREFIX caries_finding: <http://purl.obolibrary.org/obo/OHD_0000024>
+PREFIX missing_tooth_finding: <http://purl.obolibrary.org/obo/OHD_0000026>
+PREFIX missing_tooth_num: <http://purl.obolibrary.org/obo/OHD_0000234>
+PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
+PREFIX lesion: <http://purl.obolibrary.org/obo/OHD_0000021>
+PREFIX buccal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth>
+PREFIX distal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth>
+PREFIX facial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth>
+PREFIX incisal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth>
+PREFIX labial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth>
+PREFIX lingual_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth>
+PREFIX mesial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth>
+PREFIX occlusal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+select distinct 
+    ?patient_id
+    (strbefore(str(?gender_name), " ") as ?gender)
+    ?dob
+    ?first_visit
+    ?last_visit
+    ?tooth_id
+    (strafter(str(?ada_num), "Tooth ") as ?tooth_num)
+    ?first_PCR
+    ?first_RCT
+    ?event_name 
+    ?event_date 
+    ?extract_date
+    ?missing_date
+    #?event_i
+
+    (if(bound(?surface_m), 1, 0) as ?m) # mesial
+    (if(bound(?surface_o), 1, 0) as ?o) # occlusal
+    (if(bound(?surface_d), 1, 0) as ?d) # distal
+    (if(bound(?surface_b), 1, 0) as ?b) # buccal
+    (if(bound(?surface_l), 1, 0) as ?l) # lingual
+    (if(bound(?surface_f), 1, 0) as ?f) # facial
+    (if(bound(?surface_incisal), 1, 0) as ?i) # incisal
+
+where {
+    ## find instance of patient and gender (note: gender may not have a value)
+    ?patient_i a patient: .
+    ?patient_i birth_date: ?dob .
+    optional {
+        ?gender_t rdfs:subClassOf gender_role:; rdfs:label ?gender_name .
+        ?gender_i sesame:directType ?gender_t; inheres_in: ?patient_i .}
+    
+    ## find first and last visit of patient
+    ?patient_i prop:first_visit_date ?first_visit;
+               prop:last_visit_date ?last_visit .
+     
+    ?tooth_t rdfs:subClassOf tooth:; ada_num: ?ada_num .
+    ?tooth_i sesame:directType ?tooth_t .
+    
+    ## used to find the first PCR
+    optional { ?tooth_i prop:first_PCR_date ?first_PCR . }
+
+    ## used to find the first RCT
+    optional { ?tooth_i prop:first_RCT_date ?first_RCT .}
+
+    ## find date (if any) the tooth was extracted
+    optional { ?tooth_i prop:extraction_date ?extract_date .}
+
+    ## find date (if any) tooth was found to be missing
+    optional { ?tooth_i prop:missing_tooth_finding_date ?missing_date .}
+
+    # find dental procedures performed on the patient's teeth
+    ?event_t rdfs:subClassOf dental_proc:; rdfs:label ?event_name .
+    ?event_i sesame:directType ?event_t; 
+             has_input: ?patient_i;
+             has_output: ?tooth_i;
+             occurrence_date: ?event_date .
+
+    ## find which surfaces (if any) where restored by the procedure
+    optional {
+        ?event_i has_output: ?surface_m . # mesial
+        ?surface_m sesame:directType restored_mesial:; part_of: ?tooth_i .}
+
+    optional {
+        ?event_i has_output: ?surface_o . #occlusal
+        ?surface_o sesame:directType restored_occlusal:; part_of: ?tooth_i . }
+
+    optional {
+        ?event_i has_output: ?surface_d . # distal
+        ?surface_d sesame:directType restored_distal:; part_of: ?tooth_i .}
+
+    optional {
+        ?event_i has_output: ?surface_b . # buccal
+        ?surface_b sesame:directType restored_buccal:; part_of: ?tooth_i .}
+
+    optional {
+        ?event_i has_output: ?surface_l . # lingual
+        ?surface_l sesame:directType restored_lingual:; part_of: ?tooth_i .}
+
+    optional {
+        ?event_i has_output: ?surface_f . # facial
+        ?surface_f sesame:directType restored_facial:; part_of: ?tooth_i .}
+
+    optional {
+        ?event_i has_output: ?surface_incisal . # incisal
+        ?surface_incisal sesame:directType restored_incisal:; part_of: ?tooth_i .}
+
+# used for testing output
+#        optional {
+#         ?surface_i a restored_surface:; part_of: ?tooth_i .
+#        ?event_i has_output: ?surface_i . 
+#            filter(!contains(str(?surface_i), "invalid"))
+#        }
+    
+    filter (?patient_i = <A_3/patient/A_3_1_1364>) 
+    
+    bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
+}
+order by 
+  ?patient_id ?tooth_id ?event_date ?event_name
+limit 100
