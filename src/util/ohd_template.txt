@@ -36,6 +36,7 @@
 @prefix surface_role: <restoration-procedure/tooth-surface-to-be-restored-role/> .
 @prefix restored_tooth_surface: <restored-tooth-surface/> .
 @prefix restoration_procedure: <restoration-procedure/> .
+@prefix extraction_procedure: <extraction_procedure/> .
 @prefix crown_procedure: <restoration-procedure/crown-procedure/> .
 @prefix filling_procedure: <restoration-procedure/filling-procedure/> .
 @prefix inlay: <restoration-procedure/inlay-procedure/> .
@@ -140,7 +141,7 @@
 
 'declare date property uri':
 """
-{uri} obo:{type} "{date}"^^xsd:datetime .
+{uri} obo:{type} "{date}T00:00:00"^^xsd:dateTime .
 """,
 
 'declare string property uri':
@@ -262,6 +263,13 @@ restoration_procedure:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
 restoration_procedure:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
 """,
 
+'declare extraction procedure':
+"""
+extraction_procedure:{cdt_code_id} rdf:type obo:{tooth_restoration_procedure} .
+extraction_procedure:{cdt_code_id} rdfs:label "{label}"^^xsd:string .
+extraction_procedure:{cdt_code_id} <http://purl.obolibrary.org/obo/OHD_0000273> "{practice_id_str}" .
+""",
+
 'declare evaluation':
 """
 evaluation:{cdt_code_id} rdf:type <http://purl.obolibrary.org/obo/OHD_0000197> .
@@ -349,7 +357,7 @@ prosthetic_tooth:{tooth_id} obo:BFO_0000050
 'relate uri part of previous visit with date':
 """
 {uri} obo:BFO_0000050
-    [obo:{type} "{date}"^^xsd:datetime;
+    [obo:{type} "{date}T00:00:00"^^xsd:dateTime;
     rdf:type obo:OHD_0000009] .
 """,
 
