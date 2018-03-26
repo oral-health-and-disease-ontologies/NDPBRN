@@ -229,6 +229,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                         output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
 
                                     tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
+                                    dentition_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
                                     # TODO - virtual cdt_code_id here, double check with Bill (without ada_code for conditions)
                                     if date_str != 'invalid date':
@@ -253,7 +254,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                           specific_tooth=get_specific_tooth('tooth ', tooth_num, idx),
                                                                                           label=tooth_label,
                                                                                           practice_id_str=practiceidstring)
-                                        dentition_uri = "dentition:" + tooth_id
+                                        dentition_uri = "dentition:" + dentition_id
                                         specific_dentition_type = label2uri['secondary dentition missing tooth ' + str(tooth_num)].rsplit('/', 1)[-1]
                                         dentition_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
                                                                                             type=specific_dentition_type,

@@ -265,114 +265,132 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         load_ada_filling_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_filling:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '2':  ## for endodontic
                                     try:
                                         load_ada_endodontic_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_endo:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '3':  ## for inlays
                                     try:
                                         load_ada_inlay_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_in:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '4':  ## for onlays
                                     try:
                                         load_ada_onlay_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_on:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '5':  ## for apicoectomy
                                     try:
                                         load_ada_apicoectomy_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_api:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '6':  ## for root amputation - no material
                                     no_material_flag = True
                                     try:
                                         load_ada_root_amputation_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_amp:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '7':  ## for crown
                                     try:
                                         load_ada_crown_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_crown:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '8':  ## for pontic
                                     try:
                                         load_ada_pontic_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_pontic:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '9':  ## for surgic tooth extraction
                                     no_material_flag = True
                                     try:
                                         load_ada_extraction_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_extract:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '10':  ## for oral evaluation
                                     no_material_flag = True
                                     try:
                                         load_ada_oral_evaluation_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '11':  ## for dental implant abutments
                                     try:
                                         load_ada_dental_implant_abutments_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '12':  ## for dental implant crown
                                     try:
                                         load_ada_dental_implant_crown_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '13':  ## for dental implant body
                                     try:
                                         load_ada_dental_implant_body_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '14':  ## for root removal - no material
                                     no_material_flag = True
                                     try:
                                         load_ada_root_removal_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_amp:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '15':  ## for removable denture
                                     try:
                                         load_ada_removable_denture_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_oral:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '16':  ## for pulp capping
                                     try:
                                         load_ada_pulp_capping_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_endo:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '17':  ## for pulp regeneration
                                     try:
                                         load_ada_pulp_regeneration_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_endo:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 elif str(procedure_type) == '18':  ## for debridement and hemisections - no material
                                     no_material_flag = True
                                     try:
                                         load_ada_debridement_material_map[ada_code]
                                         continue_flag_filter_with_procedure = True
                                     except Exception as ex_amp:
-                                        logging.exception("message")
+                                        if print_ttl == True:
+                                            logging.exception("message")
                                 else: #invalid procedure_type: stop processing here
                                     print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                     output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
@@ -481,6 +499,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
 
                                             tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
+                                            dentition_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
                                             if date_str != 'invalid date':
                                                 cdt_code_id = tooth_id + "_" + ada_code + "_" + date_str
@@ -543,7 +562,7 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                                                   specific_tooth=get_specific_tooth('tooth ', tooth_num, idx),
                                                                                                   label=tooth_label,
                                                                                                   practice_id_str=practiceidstring)
-                                                dentition_uri = "dentition:" + tooth_id
+                                                dentition_uri = "dentition:" + dentition_id
                                                 dentition_str = ohd_ttl['declare obo type'].format(uri=dentition_uri ,
                                                     type=label2uri['secondary dentition'].rsplit('/', 1)[-1],
                                                     practice_id_str=practiceidstring)
