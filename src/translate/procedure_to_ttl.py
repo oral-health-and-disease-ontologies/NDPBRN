@@ -88,8 +88,9 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
         filename = output_p + procedure_type_map[str(procedure_type)] + '.trig'
         err_filename = output_p + procedure_type_map[str(procedure_type)] + '_err.txt'
     except Exception as ex:  # invalid procedure_type: stop processing here
-        print("Invalid procedure type: " + str(procedure_type))
-        logging.exception("message")
+        if print_ttl == True:
+            print("Invalid procedure type: " + str(procedure_type))
+            logging.exception("message")
         return
 
     with open(filename, 'w') as f:
@@ -147,12 +148,14 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                     if len(ada_code) != 5:
                         date_str = get_date_str(p_date)
                         if date_str == 'invalid date':
-                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
-                                practiceId) + " idex: " + str(idx))
+                            if print_ttl == True:
+                                print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
+                                    practiceId) + " idex: " + str(idx))
                             output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(
                                 practiceId) + " idex: " + str(idx))
 
-                        print("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
+                        if print_ttl == True:
+                            print("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
                         output_err("Problem ada_code for patient: " + str(pid) + " for practice: " + str(practiceId) + " ada_code: " + ada_code +  " idex: " + str(idx))
 
                         if date_str != 'invalid date':
@@ -256,7 +259,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                         try:
                             date_str = get_date_str(p_date)
                             if date_str == 'invalid date':
-                                print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
+                                if print_ttl == True:
+                                    print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
                                 output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
 
                             locationId = int(locationId)
@@ -402,9 +406,10 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                         if print_ttl == True:
                                             logging.exception("message")
                                 else: #invalid procedure_type: stop processing here
-                                    print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
+                                    if print_ttl == True:
+                                        print("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
+                                        logging.exception("message")
                                     output_err("Invalid procedure type: " + str(procedure_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
-                                    logging.exception("message")
                                     return
 
                                 if continue_flag_filter_with_procedure:
@@ -505,7 +510,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                             tooth_num = get_tooth_num(tooth_num, idx)
 
                                             if tooth_num.startswith('invalid'):
-                                                print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                                if print_ttl == True:
+                                                    print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
                                                 output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
 
                                             tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
@@ -761,12 +767,13 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                                         convert_surface = get_surface(single_surface, idx)
 
                                                         if convert_surface.startswith("invalid"):
-                                                            print("Invalid surface for patient: " + str(
-                                                                pid) + " with ada_code: " + str(
-                                                                ada_code) + " tooth: " + str(
-                                                                origin_tooth) + " tooth_num: " + str(
-                                                                tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
-                                                                idx))
+                                                            if print_ttl == True:
+                                                                print("Invalid surface for patient: " + str(
+                                                                    pid) + " with ada_code: " + str(
+                                                                    ada_code) + " tooth: " + str(
+                                                                    origin_tooth) + " tooth_num: " + str(
+                                                                    tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
+                                                                    idx))
                                                             output_err("Invalid surface for patient: " + str(
                                                                 pid) + " with ada_code: " + str(
                                                                 ada_code) + " tooth: " + str(
@@ -824,7 +831,8 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                                 else:
                                                     ## null/empty surface when there's supposed to have surface:
-                                                    print("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
+                                                    if print_ttl == True:
+                                                        print("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
                                                     output_err("Null surface for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " surface: "  + str(surface) + " idx: " + str(idx))
 
                                                     output(tooth_str)
@@ -1182,13 +1190,15 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                                 #    print("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
                                 #    output_err("Info -- pid: " + str(pid) + " with procedure: " + str(ada_code) + " has no tooth info. " + " idx: " + str(idx))
                             except Exception as ex1:
-                                print("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                if print_ttl == True:
+                                    print("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                    logging.exception("message")
                                 output_err("Info -- pid: " + str(pid) + " procedure with problem: " + str(ada_code) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
-                                logging.exception("message")
                         except Exception as ex:
-                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
+                            if print_ttl == True:
+                                print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
+                                logging.exception("message")
                             output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
-                            logging.exception("message")
             output('}')
 
 def get_ada_code(ada_code, idx):
