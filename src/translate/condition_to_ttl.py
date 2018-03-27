@@ -621,13 +621,13 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                         except Exception as ex1:
                             if print_ttl == True:
                                 print("Info -- pid: " + str(pid) + " procedure with problem: tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                logging.exception("message")
                             output_err("Info -- pid: " + str(pid) + " procedure with problem: tooth_num: " + str(tooth_num) + " idx: " + str(idx))
-                            logging.exception("message")
                     except Exception as ex:
                         if print_ttl == True:
                             print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
+                            logging.exception("message")
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
-                        logging.exception("message")
             output('}')
 
 def get_tooth_num(tooth_num, idx):
