@@ -177,7 +177,8 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                     try:
                         date_str = get_date_str(p_date)
                         if date_str == 'invalid date':
-                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
+                            if print_ttl == True:
+                                print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
                             output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idex: " + str(idx))
 
                         locationId = int(locationId)
@@ -200,7 +201,8 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                 if any(s.lower() == description.lower() for s in load_desc_missing_tooth_list):
                                     continue_flag_filter_with_procedure = True
                             else: #invalid condition_type: stop processing here
-                                print("Invalid condition type: " + str(condition_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
+                                if print_ttl == True:
+                                    print("Invalid condition type: " + str(condition_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 output_err("Invalid condition type: " + str(condition_type) + " for patient: " + str(pid) + " for practice: " + str(practiceId))
                                 logging.exception("message")
                                 return
@@ -219,13 +221,14 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
 
                                 for tooth_num in tooth_num_array:
                                     origin_tooth = tooth_num
-                                    if pds.notnull(tooth_num):
-                                        tooth_num = int(tooth_num)
+                                    ####if pds.notnull(tooth_num):
+                                    ####    tooth_num = int(tooth_num)
                                     ## after get_tooth_num call, tooth_num is a string either a valid tooth number or "invalid_tooth_num_{idx}"
                                     tooth_num = get_tooth_num(tooth_num, idx)
 
                                     if tooth_num.startswith('invalid'):
-                                        print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                                        if print_ttl == True:
+                                            print("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
                                         output_err("Invalid tooth_num for patient: " + str(pid) + " with ada_code: " + str(ada_code) + " tooth: " + str(origin_tooth) + " tooth_num: " + str(tooth_num) + " idx: " + str(idx))
 
                                     tooth_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + str(tooth_num)
@@ -403,11 +406,12 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 convert_surface = get_surface(single_surface, idx)
 
                                                 if convert_surface.startswith("invalid"):
-                                                    print("Invalid surface for patient: " + str(
-                                                        pid) + " tooth: " + str(
-                                                        origin_tooth) + " tooth_num: " + str(
-                                                        tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
-                                                        idx))
+                                                    if print_ttl == True:
+                                                        print("Invalid surface for patient: " + str(
+                                                            pid) + " tooth: " + str(
+                                                            origin_tooth) + " tooth_num: " + str(
+                                                            tooth_num) + " surface: " + str(single_surface) + " idx: " + str(
+                                                            idx))
                                                     output_err("Invalid surface for patient: " + str(
                                                         pid) + " tooth: " + str(
                                                         origin_tooth) + " tooth_num: " + str(
@@ -426,7 +430,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                 output(surface_str)
 
                                                 finding_label = "caries finding for " + surface_label + " on " + date_str
-                                                finding_id = str(surface_id) + "_" + date_str
+                                                finding_id = str(tooth_id) + "_" + str(surface) + "_" + date_str
                                                 finding_uri = "caries_finding:" + finding_id
                                                 finding_str = ohd_ttl['declare obo type with label']. \
                                                     format(uri=finding_uri,
@@ -444,7 +448,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                                                    date=date_str))
 
                                                 lesion_label = "carious lesion of tooth for " + surface_label + " on " + date_str
-                                                lesion_id = str(surface_id) + "_" + date_str
+                                                lesion_id = str(tooth_id) +  "_" + str(surface) + "_" + date_str
                                                 lesion_uri = "carious_lesion_tooth:" + lesion_id
                                                 lesion_str = ohd_ttl['declare lesion']. \
                                                     format(lesion_uri=lesion_uri,
@@ -615,11 +619,13 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                                         # output(evaluation_tooth_output_relation_str)
                                         # output("\n")
                         except Exception as ex1:
-                            print("Info -- pid: " + str(pid) + " procedure with problem: tooth_num: " + str(tooth_num) + " idx: " + str(idx))
+                            if print_ttl == True:
+                                print("Info -- pid: " + str(pid) + " procedure with problem: tooth_num: " + str(tooth_num) + " idx: " + str(idx))
                             output_err("Info -- pid: " + str(pid) + " procedure with problem: tooth_num: " + str(tooth_num) + " idx: " + str(idx))
                             logging.exception("message")
                     except Exception as ex:
-                        print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
+                        if print_ttl == True:
+                            print("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
                         output_err("Problem procedure date for patient: " + str(pid) + " for practice: " + str(practiceId) + " idx: " + str(idx))
                         logging.exception("message")
             output('}')
@@ -684,10 +690,11 @@ def test_get_tooth_array_idx():
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
 #                    vendor='ES')
-# print_condition_ttl(practice_id='1', condition_type=2,
-#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/A_1_tooth_history_ted.txt',
-#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/es_sample/',
-#                    vendor='ES')
+# print_condition_ttl(practice_id='1', condition_type=1,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_1/A_1_tooth_history.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/',
+#                    vendor='ES',
+#                    print_ttl=False)
 ## try dentrix data
 # print_condition_ttl(practice_id='1', condition_type=1,
 #                   input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
