@@ -72,7 +72,7 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
                                                   practice_id_str=practiceidstring))
 
         ## create a hash table for handling duplicate visits
-        visit_hash_t = {}
+        ####visit_hash_t = {}
 
         # print ttl for each patient
         for (idx, pid, visitDate, dateEntered, providerId, tableName, locationId) in visit_df.itertuples():
@@ -99,40 +99,36 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
                 locationId = 1
             visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + get_visit_id_suffix_with_date_str(date_str, idx)
 
-            if visit_id not in visit_hash_t:
-                visit_hash_t[visit_id] = 1
-                #uri
-                visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+#### include all rows (even duplicated visit_id, for case: transaction and existing_services, and different providers see the same patient at same day)            if visit_id not in visit_hash_t:
+####            visit_hash_t[visit_id] = 1
+            #uri
+            visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
 
-                #declare visit
-                output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1],
-                                                                     label="dental visit " + str(visit_id),
-                                                                     practice_id_str=practiceidstring))
+            #declare visit
+            output(ohd_ttl['declare obo type with label'].format(uri=visit_uri, type=label2uri['dental visit'].rsplit('/', 1)[-1],
+                                                                 label="dental visit " + str(visit_id),
+                                                                 practice_id_str=practiceidstring))
 
-                # relate individuals
-                output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2= str('obo:') + label2uri['dental health care provider role'].rsplit('/', 1)[-1]))
-                output('\n')
-                output(ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=str('obo:') + label2uri['dental patient role'].rsplit('/', 1)[-1]))
-                if date_str != 'invalid date':
-                    output(ohd_ttl['declare date property uri'].format(uri=visit_uri, type=label2uri['occurrence date'].rsplit('/', 1)[-1], date=date_str))
-                else:
-                   output('\n')
+            if date_str != 'invalid date':
+                output(ohd_ttl['declare date property uri'].format(uri=visit_uri, type=label2uri['occurrence date'].rsplit('/', 1)[-1], date=date_str))
+            else:
+               output('\n')
 
-                # patient role: visit realize patient role
-                patientId = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
-                patient_role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=patientId)
-                patient_patient_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=patient_role_uri)
-                output(patient_patient_role_relation_str)
+            # patient role: visit realize patient role
+            patientId = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+            patient_role_uri = ohd_ttl['patient role uri by prefix'].format(patient_id=patientId)
+            patient_patient_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=patient_role_uri)
+            output(patient_patient_role_relation_str)
+            output("\n")
+
+            # provider role: visit realize probider role
+            if tableName.lower() != 'existing_services':
+                ## existing_services does not have location or provider
+                provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(providerId)
+                provider_role_uri = ohd_ttl['provider role uri by prefix'].format(provider_id=provider_id)
+                patient_provider_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=provider_role_uri)
+                output(patient_provider_role_relation_str)
                 output("\n")
-
-                # provider role: visit realize probider role
-                if tableName.lower() != 'existing_services':
-                    ## existing_services does not have location or provider
-                    provider_id = str(practiceId) + "_" + str(locationId) + "_" + str(providerId)
-                    provider_role_uri = ohd_ttl['provider role uri by prefix'].format(provider_id=provider_id)
-                    patient_provider_role_relation_str = ohd_ttl['uri1 realizes uri2'].format(uri1=visit_uri, uri2=provider_role_uri)
-                    output(patient_provider_role_relation_str)
-                    output("\n")
 
         output('}')
 #                except Exception as ex:
@@ -140,9 +136,10 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
 #                    logging.exception("message")
 
 #translate_visit_to_ttl(practice_id='3', vendor='ES')
-#translate_visit_to_ttl(practice_id='1', vendor='ES',
-#                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/PRAC_1/Patient_History.txt',
-#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/visit.trig')
+# translate_visit_to_ttl(practice_id='1', vendor='ES',
+#                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_1/A_1_tooth_history.txt',
+#                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/visit.trig',
+#                        print_ttl=False)
 #translate_visit_to_ttl(practice_id='1', vendor='dentrix',
 #                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
 #                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/visit.ttl')
