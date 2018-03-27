@@ -42,7 +42,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
         df.columns = df.columns.str.lower()
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
-    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
+    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id', 'date_entered']]
 
     with open(output_f, 'w') as f:
         with open(output_p + 'visit_date_err.txt', 'w') as f_err:
@@ -67,27 +67,42 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
 
             results = []
 
-            for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+            for (idx, pid, visitDate, providerId, tableName, locationId, dateEntered) in visit_df.itertuples():
                 practiceId = practice_id
                 locationId = str(locationId).rsplit('.')[0]
                 pid = str(pid).rsplit('.')[0]
                 providerId = str(providerId).rsplit('.')[0]
+
                 if tableName.lower() == 'transactions':
-                    try:
-                        locationId = int(locationId)
-                        id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                    modified_date = visitDate
+                else:
+                    modified_date = dateEntered
+                visitDate = modified_date
+                date_str = get_date_str(visitDate)
 
-                        date_str = get_date_str(visitDate)
+                if tableName.lower() != 'existing_services':
+                    locationId = int(locationId)
+                else:
+                    ## existing_services does not have location or provider, but all other id(s) has location_id, like patient_uri, need to get patient_uri consistent
+                    locationId = 1
 
-                        if date_str != 'invalid date':
-                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
-                            # uri
-                            visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
-                            patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+                ####                if tableName.lower() == 'transactions':
+                try:
+                    locationId = int(locationId)
+                    id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
-                            results.append([patient_uri] + [date_str])
+####                    date_str = get_date_str(visitDate)
 
-                    except Exception as ex:
+                    if date_str != 'invalid date':
+                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                        # uri
+                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                        patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+
+                        results.append([patient_uri] + [date_str])
+
+                except Exception as ex:
+                    if print_ttl == True:
                         print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
@@ -160,7 +175,7 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
         df.columns = df.columns.str.lower()
 
     #visit_df = df[['PBRN_PRACTICE', 'PATIENT_ID', 'TRAN_DATE', 'PROVIDER_ID', 'TABLE_NAME', 'DB_PRACTICE_ID']]
-    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id']]
+    visit_df = df[['patient_id', 'tran_date', 'provider_id', 'table_name', 'db_practice_id', 'date_entered']]
 
     with open(output_f, 'w') as f:
         with open(output_p + 'next_visit_date_err.txt', 'w') as f_err:
@@ -185,27 +200,42 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 
             results = []
 
-            for (idx, pid, visitDate, providerId, tableName, locationId) in visit_df.itertuples():
+            for (idx, pid, visitDate, providerId, tableName, locationId, dateEntered) in visit_df.itertuples():
                 practiceId = practice_id
                 locationId = str(locationId).rsplit('.')[0]
                 pid = str(pid).rsplit('.')[0]
                 providerId = str(providerId).rsplit('.')[0]
+
                 if tableName.lower() == 'transactions':
-                    try:
-                        locationId = int(locationId)
-                        id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
+                    modified_date = visitDate
+                else:
+                    modified_date = dateEntered
+                visitDate = modified_date
+                date_str = get_date_str(visitDate)
 
-                        date_str = get_date_str(visitDate)
+                if tableName.lower() != 'existing_services':
+                    locationId = int(locationId)
+                else:
+                    ## existing_services does not have location or provider, but all other id(s) has location_id, like patient_uri, need to get patient_uri consistent
+                    locationId = 1
 
-                        if date_str != 'invalid date':
-                            visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
-                            # uri
-                            visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
-                            patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+####                if tableName.lower() == 'transactions':
+                try:
+                    locationId = int(locationId)
+                    id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
 
-                            results.append([patient_uri] + [visit_uri] + [date_str])
+####                    date_str = get_date_str(visitDate)
 
-                    except Exception as ex:
+                    if date_str != 'invalid date':
+                        visit_id = str(practiceId) + "_" + str(locationId) + "_" + str(pid) + "_" + date_str
+                        # uri
+                        visit_uri = ohd_ttl['visit uri'].format(visit_id=visit_id)
+                        patient_uri = ohd_ttl['patient uri by prefix'].format(patient_id=id)
+
+                        results.append([patient_uri] + [visit_uri] + [date_str])
+
+                except Exception as ex:
+                    if print_ttl == True:
                         print("Problem visit for patient: " + str(pid) + " for practice: " + str(practiceId))
                         logging.exception("message")
 
@@ -263,3 +293,23 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
 #                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/visit_dates.ttl',
 #                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/')
+# first_last_visit_date_ttl(practice_id='1', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_1/A_1_tooth_history.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/',
+#                          print_ttl=False)
+# next_visit_ttl(practice_id='1', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_1/A_1_tooth_history.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/next_visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/',
+#                          print_ttl=False)
+# first_last_visit_date_ttl(practice_id='10', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_10/A_10_tooth_history.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_10/visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_10/',
+#                          print_ttl=False)
+# next_visit_ttl(practice_id='10', vendor='ES',
+#                          input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_10/A_10_tooth_history.txt',
+#                          output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_10/next_visit_dates.trig',
+#                          output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_10/',
+#                          print_ttl=False)
