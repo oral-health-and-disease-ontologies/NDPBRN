@@ -39,17 +39,14 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                              "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0, quoting=csv.QUOTE_NONE)
     else:
-        #df = pds.read_csv(df_path, sep='\t',
-        #              names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
-        #                     "DATE_COMPLETED", "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "toothrangestart",
-        #                     "toothrangeend", "SURFACE", "surfm", "surfo", "surfd", "surfl", "surff", "surf5", "ACTION_CODE",
-        #                     "ACTION_CODE_DESCRIPTION", "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID",
-        #                     "chartstatus", "DB_PRACTICE_ID"],
-        #                      header=0)
          df = pds.read_csv(df_path, sep='\t',
-                        names=['NDPBRN_ID', "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
-                             "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                           header=0)
+                  names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                         "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                         "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
+                         "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig", "treatmentarea",
+                         "addtlcodesflag"],
+                  header=0, quoting=csv.QUOTE_NONE)
+
 
 #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
     if vendor != 'ES':

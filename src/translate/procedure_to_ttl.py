@@ -33,11 +33,18 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    # if vendor == 'ES':
-    df = pds.read_csv(df_path, sep='\t',
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t',
                   names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
                          "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                   header=0, quoting=csv.QUOTE_NONE)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
+                             "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig", "treatmentarea", "addtlcodesflag"],
+                      header=0, quoting=csv.QUOTE_NONE)
     # else:
     #     #df = pds.read_csv(df_path, sep='\t',
     #     #              names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
@@ -1308,10 +1315,11 @@ def test_get_tooth_array_idx():
 #                     output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/PRAC_1/',
 #                     vendor='ES')
 ##test dentrix with 2 procedures
-#print_procedure_ttl(practice_id='1', procedure_type=1,
-#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Tooth_History.txt',
-#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',
-#                    vendor='dentrix')
+# print_procedure_ttl(practice_id='1', procedure_type=1,
+#                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC1_Dentrix_ToothHistory_Table.txt',
+#                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/',
+#                    vendor='dentrix',
+#                     print_ttl=False)
 #print_procedure_ttl(practice_id='1', procedure_type=2,
 #                    input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Tooth_History.txt',
 #                    output_p='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/',

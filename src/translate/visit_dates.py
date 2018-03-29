@@ -19,9 +19,19 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    # if vendor == 'ES':
-    df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                   header=0, quoting=csv.QUOTE_NONE)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
+                             "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
+                             "treatmentarea",
+                             "addtlcodesflag"],
+                      header=0, quoting=csv.QUOTE_NONE)
+
     # else:
     #     # df = pds.read_csv(df_path, sep='\t',
     #     #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
@@ -152,9 +162,19 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
     df_path = input_f
     #df = pds.ExcelFile(df_path).parse()
     #patient_id	birth_date	sex	table_name	date_completed	date_entered	tran_date	description	tooth	surface	action_code	action_code_description	service_code	ada_code	ada_code_description	tooth_data	surface_detail	provider_id	db_practice_id
-    # if vendor == 'ES':
-    df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
+    if vendor == 'ES':
+        df = pds.read_csv(df_path, sep='\t', names=["practice_id", "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description", "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                   header=0, quoting=csv.QUOTE_NONE)
+    else:
+        df = pds.read_csv(df_path, sep='\t',
+                      names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
+                             "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
+                             "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
+                             "treatmentarea",
+                             "addtlcodesflag"],
+                      header=0, quoting=csv.QUOTE_NONE)
+
     # else:
     #     # df = pds.read_csv(df_path, sep='\t',
     #     #               names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",

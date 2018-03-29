@@ -41,23 +41,26 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
                              "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
                       header=0, quoting=csv.QUOTE_NONE)
     else:
-        #df = pds.read_csv(df_path, sep='\t',
-        #              names=["PBRN_PRACTICE", "LOG_ID", "PATIENT_ID", "patient_status", "BIRTH_DATE", "SEX", "TABLE_NAME",
-        #                     "DATE_COMPLETED", "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "toothrangestart",
-        #                     "toothrangeend", "SURFACE", "surfm", "surfo", "surfd", "surfl", "surff", "surf5", "ACTION_CODE",
-        #                     "ACTION_CODE_DESCRIPTION", "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "PROVIDER_ID",
-        #                     "chartstatus", "DB_PRACTICE_ID"],
-        #                      header=0)
-         df = pds.read_csv(df_path, sep='\t',
-                        names=['NDPBRN_ID', "patient_id", "birth_date", "sex", "table_name", "date_completed", "date_entered", "tran_date", "description", "tooth", "surface", "action_code", "action_code_description",
-                             "service_code", "ada_code", "ada_code_description", "tooth_data", "surface_detail", "provider_id", "db_practice_id"],
-                           header=0)
+        df = pds.read_csv(df_path, sep='\t',
+                          names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME",
+                                 "DATE_COMPLETED",
+                                 "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE",
+                                 "ACTION_CODE_DESCRIPTION",
+                                 "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
+                                 "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
+                                 "treatmentarea",
+                                 "addtlcodesflag"],
+                          header=0, quoting=csv.QUOTE_NONE)
 
-#patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
+    #patient_df = df[['PBRN_PRACTICE', 'DB_PRACTICE_ID', 'PATIENT_ID', 'TOOTH', 'SURFACE', 'TRAN_DATE', 'ADA_CODE', 'PROVIDER_ID', 'TABLE_NAME']]
     if vendor != 'ES':
         df.columns = df.columns.str.lower()
-    #TODO - check on using of date_entered
-    patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']]
+    #dentrix headers changed again: use "ada_code_description" instead of "description" for dentrix:
+    if vendor == 'ES':
+        patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']]
+    else:
+        patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'ada_code_description']]
+        patient_df.columns = ['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']
 
     condition_type_map = {'1': 'caries',
                    '2': 'missing_tooth'}
