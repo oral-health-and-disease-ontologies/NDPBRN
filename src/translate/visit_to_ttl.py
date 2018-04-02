@@ -90,6 +90,22 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
             locationId = str(locationId).rsplit('.')[0]
             pid = str(pid).rsplit('.')[0]
             providerId = str(providerId).rsplit('.')[0]
+
+            if pds.notnull(pid):
+                pid = str(pid).replace('"', '')
+            if pds.notnull(visitDate):
+                visitDate = str(visitDate).replace('"', '')
+            if pds.notnull(dateEntered):
+                dateEntered = str(dateEntered).replace('"', '')
+            if pds.notnull(providerId):
+                providerId = str(providerId).replace('"', '')
+            if pds.notnull(tableName):
+                tableName = str(tableName).replace('"', '')
+            if pds.notnull(locationId):
+                locationId = str(locationId).replace('"', '')
+            if pds.notnull(practiceId):
+                practiceId = str(practiceId).replace('"', '')
+
             ##            if tableName.lower() == 'transactions' or tableName.lower() == 'patient_conditions':
             ## refactor for using all rows: only 3 values in table_name: transactions, patient_conditions and existing_services
             if tableName.lower() == 'transactions':
@@ -151,9 +167,9 @@ def translate_visit_to_ttl(practice_id='1', output_f='visit.ttl', input_f= 'Pati
 #                        input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/ES/PRAC_1/A_1_tooth_history.txt',
 #                        output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/ES/PRAC_1/visit.trig',
 #                        print_ttl=False)
-#translate_visit_to_ttl(practice_id='1', vendor='dentrix',
-#                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/Dentrix_Pract1_Patient_History.txt',
-#                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/translated/dentrix/PRAC_1/visit.ttl')
+# translate_visit_to_ttl(practice_id='1', vendor='dentrix',
+#                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/data/Dentrix/PRAC_1/PRAC1_Dentrix_ToothHistory_Table.txt',
+#                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/translate/translate_data/Dentrix/PRAC_1/visit.ttl')
 # translate_visit_to_ttl(practice_id='1', vendor='dentrix',
 #                       input_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/tooth history.txt',
 #                       output_f='/Users/cwen/development/pyCharmHome/NDPBRN/src/dentrix_sample/visit.ttl')

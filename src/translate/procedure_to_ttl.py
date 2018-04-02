@@ -145,6 +145,26 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                 locationId = str(locationId).rsplit('.')[0]
                 pid = str(pid).rsplit('.')[0]
                 prov_id = str(prov_id).rsplit('.')[0]
+
+                if pds.notnull(locationId):
+                    locationId = str(locationId).replace('"', '')
+                if pds.notnull(pid):
+                    pid = str(pid).replace('"', '')
+                if pds.notnull(tooth_num_in_file):
+                    tooth_num_in_file = str(tooth_num_in_file).replace('"', '')
+                if pds.notnull(surface):
+                    surface = str(surface).replace('"', '')
+                if pds.notnull(p_date):
+                    p_date = str(p_date).replace('"', '')
+                if pds.notnull(ada_code):
+                    ada_code = str(ada_code).replace('"', '')
+                if pds.notnull(prov_id):
+                    prov_id = str(prov_id).replace('"', '')
+                if pds.notnull(tableName):
+                    tableName = str(tableName).replace('"', '')
+                if pds.notnull(tooth_data):
+                    tooth_data = str(tooth_data).replace('"', '')
+
                 if tableName.lower() == 'transactions':
                     ada_code = str(ada_code)
                     #sometimes it has 'D' in front of numbers, sometimes there's no D

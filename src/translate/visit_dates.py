@@ -83,6 +83,21 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
                 pid = str(pid).rsplit('.')[0]
                 providerId = str(providerId).rsplit('.')[0]
 
+                if pds.notnull(pid):
+                    pid = str(pid).replace('"', '')
+                if pds.notnull(visitDate):
+                    visitDate = str(visitDate).replace('"', '')
+                if pds.notnull(dateEntered):
+                    dateEntered = str(dateEntered).replace('"', '')
+                if pds.notnull(providerId):
+                    providerId = str(providerId).replace('"', '')
+                if pds.notnull(tableName):
+                    tableName = str(tableName).replace('"', '')
+                if pds.notnull(locationId):
+                    locationId = str(locationId).replace('"', '')
+                if pds.notnull(practiceId):
+                    practiceId = str(practiceId).replace('"', '')
+
                 if tableName.lower() == 'transactions':
                     modified_date = visitDate
                 else:
@@ -225,6 +240,21 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
                 locationId = str(locationId).rsplit('.')[0]
                 pid = str(pid).rsplit('.')[0]
                 providerId = str(providerId).rsplit('.')[0]
+
+                if pds.notnull(pid):
+                    pid = str(pid).replace('"', '')
+                if pds.notnull(visitDate):
+                    visitDate = str(visitDate).replace('"', '')
+                if pds.notnull(dateEntered):
+                    dateEntered = str(dateEntered).replace('"', '')
+                if pds.notnull(providerId):
+                    providerId = str(providerId).replace('"', '')
+                if pds.notnull(tableName):
+                    tableName = str(tableName).replace('"', '')
+                if pds.notnull(locationId):
+                    locationId = str(locationId).replace('"', '')
+                if pds.notnull(practiceId):
+                    practiceId = str(practiceId).replace('"', '')
 
                 if tableName.lower() == 'transactions':
                     modified_date = visitDate

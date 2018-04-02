@@ -140,6 +140,27 @@ def print_procedure_ttl(practice_id='1', input_f='Patient_History.txt',
                 pid = str(pid).rsplit('.')[0]
                 prov_id = str(prov_id).rsplit('.')[0]
 
+                if pds.notnull(locationId):
+                    locationId = str(locationId).replace('"', '')
+                if pds.notnull(pid):
+                    pid = str(pid).replace('"', '')
+                if pds.notnull(tooth_num_in_file):
+                    tooth_num_in_file = str(tooth_num_in_file).replace('"', '')
+                if pds.notnull(surface):
+                    surface = str(surface).replace('"', '')
+                if pds.notnull(complete_date):
+                    complete_date = str(complete_date).replace('"', '')
+                if pds.notnull(enter_date):
+                    enter_date = str(enter_date).replace('"', '')
+                if pds.notnull(ada_code):
+                    ada_code = str(ada_code).replace('"', '')
+                if pds.notnull(prov_id):
+                    prov_id = str(prov_id).replace('"', '')
+                if pds.notnull(tableName):
+                    tableName = str(tableName).replace('"', '')
+                if pds.notnull(tooth_data):
+                    tooth_data = str(tooth_data).replace('"', '')
+
                 if tableName.lower() == 'existing_services':
                     if pds.notnull(complete_date) and complete_date:
                         try:
