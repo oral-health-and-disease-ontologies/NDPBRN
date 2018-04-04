@@ -25,7 +25,7 @@ def first_last_visit_date_ttl(practice_id='1', output_f='visit_dates.ttl', outpu
     else:
         df = pds.read_csv(df_path, sep='\t',
                       names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
-                             "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
                              "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
                              "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
                              "treatmentarea",
@@ -183,7 +183,7 @@ def next_visit_ttl(practice_id='1', output_f='next_visit_dates.ttl', output_p='.
     else:
         df = pds.read_csv(df_path, sep='\t',
                       names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME", "DATE_COMPLETED",
-                             "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
+                             "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE", "ACTION_CODE_DESCRIPTION",
                              "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
                              "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
                              "treatmentarea",

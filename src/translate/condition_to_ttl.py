@@ -44,7 +44,7 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
         df = pds.read_csv(df_path, sep='\t',
                           names=["NDPBRN_ID", "procid", "PATIENT_ID", "BIRTH_DATE", "SEX", "TABLE_NAME",
                                  "DATE_COMPLETED",
-                                 "DATE_ENTERED", "TRAN_DATE", "TOOTH", "SURFACE", "ACTION_CODE",
+                                 "DATE_ENTERED", "TRAN_DATE", "DESCRIPTION", "TOOTH", "SURFACE", "ACTION_CODE",
                                  "ACTION_CODE_DESCRIPTION",
                                  "SERVICE_CODE", "ADA_CODE", "ADA_CODE_DESCRIPTION", "TOOTH_DATA", "SURFACESTRINGHEX",
                                  "PROVIDER_ID", "DB_PRACTICE_ID", "toothrangestartorig", "toothrangeendorig",
@@ -56,11 +56,11 @@ def print_condition_ttl(practice_id='1', input_f='Patient_History.txt',
     if vendor != 'ES':
         df.columns = df.columns.str.lower()
     #dentrix headers changed again: use "ada_code_description" instead of "description" for dentrix:
-    if vendor == 'ES':
-        patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']]
-    else:
-        patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'ada_code_description']]
-        patient_df.columns = ['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']
+    ##if vendor == 'ES':
+    patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']]
+    ##else:
+    ##    patient_df = df[['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'ada_code_description']]
+    ##    patient_df.columns = ['db_practice_id', 'patient_id', 'tooth', 'surface', 'date_entered', 'ada_code', 'provider_id', 'table_name', 'tooth_data', 'description']
 
     condition_type_map = {'1': 'caries',
                    '2': 'missing_tooth'}
