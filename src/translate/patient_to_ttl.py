@@ -65,7 +65,7 @@ def translate_patient_to_ttl(practice_id='1', output_f='patient.ttl', input_f='P
                 #birth_date_str = birth_date.strftime('%Y-%m-%d')
             birth_date_str = get_date_str(birth_date)
             if birth_date_str == 'invalid date':
-                print("patient " + str(pid) + " has problems with birth date!!!")
+                print("Practice: " + practiceId +  " patient " + str(pid) + " has problems with birth date!!!")
 
             id = str(practiceId) + "_" + str(locationId) + "_" + str(pid)
             patient_role_type = label2uri['dental patient role']
