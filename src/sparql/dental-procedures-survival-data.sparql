@@ -1,8 +1,8 @@
 BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX graph: <http://purl.regenstrief.org/NDPBRN/dental-practice#>
 PREFIX restored_surface: <http://purl.obolibrary.org/obo/OHD_0000208>
 PREFIX restored_buccal: <http://purl.obolibrary.org/obo/OHD_0000222>
 PREFIX restored_distal: <http://purl.obolibrary.org/obo/OHD_0000223>
@@ -64,23 +64,28 @@ PREFIX labial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surfa
 PREFIX lingual_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth>
 PREFIX mesial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth>
 PREFIX occlusal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth>
+PREFIX first_visit_date: <http://purl.obolibrary.org/obo/OHD_0000218>
+PREFIX last_visit_date: <http://purl.obolibrary.org/obo/OHD_0000219>
+PREFIX exception: <http://purl.obolibrary.org/obo/OHD_0000404>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select distinct 
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+select distinct
+	?practice
     ?patient_id
-    (strbefore(str(?gender_name), " ") as ?gender)
+	?gender
     ?dob
     ?first_visit
     ?last_visit
     ?tooth_id
-    (strafter(str(?ada_num), "Tooth ") as ?tooth_num)
+    ?tooth_num
     ?first_PCR
     ?first_RCT
     ?event_name 
     ?event_date 
     ?extract_date
     ?missing_date
-    #?event_i
 
     (if(bound(?surface_m), 1, 0) as ?m) # mesial
     (if(bound(?surface_o), 1, 0) as ?o) # occlusal
@@ -94,13 +99,14 @@ where {
     ## find instance of patient and gender (note: gender may not have a value)
     ?patient_i a patient: .
     ?patient_i birth_date: ?dob .
+    ?patient_i pbrn_id: ?pbrn_id .
     optional {
         ?gender_t rdfs:subClassOf gender_role:; rdfs:label ?gender_name .
         ?gender_i sesame:directType ?gender_t; inheres_in: ?patient_i .}
     
     ## find first and last visit of patient
-    ?patient_i prop:first_visit_date ?first_visit;
-               prop:last_visit_date ?last_visit .
+    ?patient_i first_visit_date: ?first_visit;
+               last_visit_date: ?last_visit .
      
     ?tooth_t rdfs:subClassOf tooth:; ada_num: ?ada_num .
     ?tooth_i sesame:directType ?tooth_t .
@@ -112,9 +118,11 @@ where {
     optional { ?tooth_i prop:first_RCT_date ?first_RCT .}
 
     ## find date (if any) the tooth was extracted
+    #?tooth_i prop:extraction_date ?extract_date . # used for testing
     optional { ?tooth_i prop:extraction_date ?extract_date .}
 
     ## find date (if any) tooth was found to be missing
+    #?tooth_i prop:missing_tooth_finding_date ?missing_date . # used for testing
     optional { ?tooth_i prop:missing_tooth_finding_date ?missing_date .}
 
     # find dental procedures performed on the patient's teeth
@@ -152,19 +160,17 @@ where {
     optional {
         ?event_i has_output: ?surface_incisal . # incisal
         ?surface_incisal sesame:directType restored_incisal:; part_of: ?tooth_i .}
+ 
+#    filter (?patient_i = <A_3/patient/A_3_1_1025>) # testing -> tooth 2 is missing but not in data; procedures?
+#     filter(str(?pbrn_id) = "NDPBRN practice A_21")
+#    filter(str(?pbrn_id) = "NDPBRN practice B_15")
 
-# used for testing output
-#        optional {
-#         ?surface_i a restored_surface:; part_of: ?tooth_i .
-#        ?event_i has_output: ?surface_i . 
-#            filter(!contains(str(?surface_i), "invalid"))
-#        }
-    
-    filter (?patient_i = <A_3/patient/A_3_1_1364>) 
-    
     bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
     bind(strafter(str(?patient_i), "patient/") as ?patient_id)
-}
+    bind(strbefore(str(?gender_name), " ") as ?gender)
+    bind(strafter(str(?ada_num), "Tooth ") as ?tooth_num)
+    bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
+    }
 order by 
   ?patient_id ?tooth_id ?event_date ?event_name
-limit 100
+#limit 100

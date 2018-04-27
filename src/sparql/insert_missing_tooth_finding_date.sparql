@@ -15,7 +15,7 @@ PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
 insert {
 	?tooth_i prop:missing_tooth_finding_date ?missing_date .
-#    ?event_i is_about: ?dentition_i .
+#    ?event_i is_about: ?dentition_i . # testing output
 #    ?dentition_i missing_tooth_num: ?ada_num .
 } where {
     ## find instance of patient and tooth
@@ -37,6 +37,6 @@ insert {
              occurrence_date: ?missing_date .
     
 #    filter (?patient_i = <A_3/patient/A_3_1_1025>) # testing
-    filter (strafter(str(?ada_num), "Tooth ") = ?missing_num) # match ADA tooth num to missing tooth num
+    filter (strafter(str(?ada_num), "Tooth ") = str(?missing_num)) # match ADA tooth num to missing tooth num
 }
 #limit 100
