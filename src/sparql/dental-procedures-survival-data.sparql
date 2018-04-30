@@ -90,12 +90,12 @@ PREFIX last_visit_date: <http://purl.obolibrary.org/obo/OHD_0000219>
 PREFIX exception: <http://purl.obolibrary.org/obo/OHD_0000404>
 PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
-
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
 select distinct
-	?practice
+	  ?practice
     ?patient_id
-	?gender
+	  ?gender
     ?dob
     ?first_visit
     ?last_visit

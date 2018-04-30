@@ -10,6 +10,8 @@ PREFIX has_input: <http://purl.obolibrary.org/obo/OBI_0000293>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
 PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
 insert {
     ?tooth_pcr_i prop:first_PCR_date ?first_PCR .
@@ -20,7 +22,8 @@ where {
         ## find the first PCR on tooth
         select ?patient_i ?tooth_pcr_i (min(?pcr_date) as ?first_PCR)  where {
             ## find instance of patient and posterior tooth
-            ?patient_i a patient: .
+            ?patient_i a patient:;
+               		   pbrn_id: ?pbrn_id .
             ?tooth_t rdfs:subClassOf posterior_tooth: .
             ?tooth_pcr_i sesame:directType ?tooth_t;
                      part_of: ?patient_i .
@@ -29,15 +32,14 @@ where {
                         has_input: ?patient_i;
                         has_input: ?tooth_pcr_i;
                         occurrence_date: ?pcr_date .
-#            filter (?patient_i = <A_10/patient/A_10_1_1098>) # testing
-        } group by ?patient_i ?tooth_pcr_i
-        
-    } union {
-        
+#            filter(str(?pbrn_id) = "NDPBRN practice B_15") # testing
+        } group by ?patient_i ?tooth_pcr_i    
+    } union {    
         ## find the first RCT on tooth
         select ?patient_i ?tooth_rct_i (min(?rct_date) as ?first_RCT)  where {
             ## find instance of patient and tooth
-            ?patient_i a patient: .
+            ?patient_i a patient:;
+               		   pbrn_id: ?pbrn_id .
             ?tooth_t rdfs:subClassOf tooth: .
             ?tooth_rct_i sesame:directType ?tooth_t;
                      part_of: ?patient_i .
@@ -46,9 +48,8 @@ where {
                         has_input: ?patient_i;
                         has_input: ?tooth_rct_i;
                         occurrence_date: ?rct_date .
-#            filter (?patient_i = <A_10/patient/A_10_1_1098>) # testing
+#            filter(str(?pbrn_id) = "NDPBRN practice B_15") # testing
         } group by ?patient_i ?tooth_rct_i
     }
-#    filter (?patient_i = <A_10/patient/A_10_1_1098>) # testing
 }
 #limit 100 # testing

@@ -12,6 +12,8 @@ PREFIX missing_tooth_finding: <http://purl.obolibrary.org/obo/OHD_0000026>
 PREFIX missing_tooth_num: <http://purl.obolibrary.org/obo/OHD_0000234>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
 insert {
 	?tooth_i prop:missing_tooth_finding_date ?missing_date .
@@ -19,7 +21,8 @@ insert {
 #    ?dentition_i missing_tooth_num: ?ada_num .
 } where {
     ## find instance of patient and tooth
-    ?patient_i a patient: .
+    ?patient_i a patient:;
+               pbrn_id: ?pbrn_id .
     
     ?tooth_t rdfs:subClassOf tooth:; ada_num: ?ada_num .
     ?tooth_i sesame:directType ?tooth_t; part_of: ?patient_i .
@@ -36,7 +39,7 @@ insert {
              is_about: ?dentition_i;
              occurrence_date: ?missing_date .
     
-#    filter (?patient_i = <A_3/patient/A_3_1_1025>) # testing
+#    filter(str(?pbrn_id) = "NDPBRN practice B_15") # testing
     filter (strafter(str(?ada_num), "Tooth ") = str(?missing_num)) # match ADA tooth num to missing tooth num
 }
 #limit 100

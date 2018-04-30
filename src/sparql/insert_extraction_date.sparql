@@ -26,16 +26,21 @@ PREFIX missing_tooth_finding: <http://purl.obolibrary.org/obo/OHD_0000026>
 PREFIX missing_tooth_num: <http://purl.obolibrary.org/obo/OHD_0000234>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
 insert {
     ?tooth_i prop:extraction_date ?extract_date .
 }
 where {
-    ?patient_i a patient: .
+    ?patient_i a patient:;
+               pbrn_id: ?pbrn_id .
+    
     ?tooth_t rdfs:subClassOf posterior_tooth: .
     ?tooth_i sesame:directType ?tooth_t;
              part_of: ?patient_i .
     ?extraction_proc_i sesame:directType extraction_proc:;
                        has_input: ?tooth_i;
                        occurrence_date: ?extract_date .
+#     filter(str(?pbrn_id) = "NDPBRN practice B_15") # testing
 }
