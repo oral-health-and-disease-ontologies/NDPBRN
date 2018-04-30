@@ -23,8 +23,11 @@ where {
 		 ## find instance of patient and posterior tooth
 		 ?patient_i a patient:;
                	pbrn_id: ?pbrn_id .
-#		 ?tooth_t rdfs:subClassOf posterior _tooth: .
-		 ?tooth_t rdfs:subClassOf tooth: .
+     
+     ## depending on the need get posterior tooth types or all
+		 ?tooth_t rdfs:subClassOf posterior_tooth: .
+#		 ?tooth_t rdfs:subClassOf tooth: .
+
 		 ?tooth_pcr_i sesame:directType ?tooth_t;
 							part_of: ?patient_i .
 		
