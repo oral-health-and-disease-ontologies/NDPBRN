@@ -24,7 +24,7 @@ where {
 		 ?patient_i a patient:;
                	pbrn_id: ?pbrn_id .
      
-     ## depending on the need get posterior tooth types or all
+     ## depending on the need get posterior tooth types or all tooth types
 		 ?tooth_t rdfs:subClassOf posterior_tooth: .
 #		 ?tooth_t rdfs:subClassOf tooth: .
 
