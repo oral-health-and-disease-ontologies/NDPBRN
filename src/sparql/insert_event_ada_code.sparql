@@ -1,0 +1,30 @@
+########################################################################################################
+# This query inserts ADA code information about instances of a procedures or evaluations.
+# This is useful for retrieving the ADA code data without having to access the ADA class.
+# It helps speed up access to this information by simply querying for:
+# 
+#   ?event_i prop:ada_code ?ada_code . 
+#
+########################################################################################################
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX encounter: <http://purl.obolibrary.org/obo/OGMS_0000097>
+PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+# construct 
+insert
+{   
+    ?event_i prop:ada_code ?ada_code . 
+}
+where 
+{
+    ?encounter_t rdfs:subClassOf encounter: .
+    ?event_i sesame:directType ?encounter_t .
+    ?code_i  is_about: ?event_i;
+             sesame:directType ?code_t .
+    ?code_t dc:identifier ?ada_code .
+} # limit 100

@@ -1,3 +1,12 @@
+########################################################################################################
+# This query inserts the date on which a given tooth was found to be missing
+# This is useful for retrieving missing date of a tooth.
+# It helps speed up access to this information by simply querying for:
+# 
+#   ?tooth_i prop:missing_tooth_finding_date ?missing_date .
+#
+########################################################################################################
+
 BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

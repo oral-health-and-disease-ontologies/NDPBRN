@@ -1,4 +1,4 @@
-######################################################################################
+########################################################################################################
 # This query extacts dental procedure data in the form needed
 # to perform survival analyis.
 #
@@ -8,16 +8,18 @@
 #   prop:first_PCR_date   					 - the date the first PCR was performed
 #   prop:extraction_date  					 - the date the tooth was extracted
 #   prop:missing_tooth_finding_date  - the date the tooth was found missing
+#   prop:ada_code                    - the ADA code assocated with the procedure or evalulation
 #
 # These properties are not part of the native data in the repository.
 # They are inserted into the the reposistories using the following SPARQL files:
 #   - insert_first_pcr_rct.sparql
 #   - insert_extraction_date.sparql
 #   - insert_missing_tooth_finding_date.sparql
+#   - insert_event_ada_code.sparql
 #
 # These queries precompute data needed for the survivial dataset.
 # This data could be computed natively, but this provides an optimization.
-######################################################################################
+########################################################################################################
 
 BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

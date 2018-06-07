@@ -1,3 +1,13 @@
+########################################################################################################
+# This query inserts the first and last vist of a patient.
+# This is useful for retrieving the first and last visit dates for a paitent.
+# It helps speed up access to this information by simply querying for:
+# 
+#   ?patient_i prop:first_visit_date ?first_visit .
+#   ?patient_i prop:last_visit_date ?last_visit .
+#
+########################################################################################################
+
 BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
