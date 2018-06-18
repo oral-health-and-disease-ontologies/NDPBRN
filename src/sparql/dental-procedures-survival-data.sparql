@@ -1,6 +1,5 @@
 ########################################################################################################
-# This query extacts dental procedure data in the form needed
-# to perform survival analyis.
+# This query finds dental procedure data needed to perform survival analyis.
 #
 # IMPORTANT!
 # This query makes use of the following properties:
