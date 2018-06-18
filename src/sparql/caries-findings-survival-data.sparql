@@ -225,4 +225,4 @@ where {
 #  ?surface_m ?surface_o ?surface_d ?surface_b ?surface_l ?surface_f ?surface_incisal
 order by 
   ?patient_id ?tooth_id ?event_date ?event_name
-limit 1000
+# limit 1000
