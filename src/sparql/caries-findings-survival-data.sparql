@@ -124,7 +124,10 @@ where {
         ?gender_t rdfs:subClassOf gender_role:; rdfs:label ?gender_name .
         ?gender_i sesame:directType ?gender_t; inheres_in: ?patient_i .
     }
-     
+    
+    ## find first and last visit of patient
+    ?patient_i first_visit_date: ?first_visit;
+               last_visit_date: ?last_visit .
     ## find caries findings about tooth
     ?tooth_t rdfs:subClassOf tooth:; ada_num: ?ada_num .
     ?tooth_i sesame:directType ?tooth_t; part_of: ?patient_i .
