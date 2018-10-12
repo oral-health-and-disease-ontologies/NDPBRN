@@ -102,7 +102,8 @@ select distinct
 	?tooth_num
 	?first_PCR
 	?first_RCT
-	?event_name 
+	?event_name
+	?ada_code 
 	?event_date 
 	?extract_date
 	?missing_date
@@ -134,6 +135,7 @@ where {
     
     ?event_t rdfs:subClassOf caries_finding:; rdfs:label ?event_name .
     ?event_i sesame:directType ?event_t; occurrence_date: ?event_date .
+    optional {?event_i prop:ada_code ?ada_code .}
     
     ?lesion_i a lesion:;  part_of: ?tooth_i.
     ?event_i is_about: ?lesion_i .
