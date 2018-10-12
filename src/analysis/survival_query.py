@@ -4,7 +4,7 @@ import pandas as pds
 import itertools
 
 if __name__ == "__main__":
-    endpoint = r"http://10.5.40.59:7200/repositories/EDR"
+    endpoint = r"http://localhost:7200/repositories/EDR"
     
     # intitialize sparql wrapper instance
     sparql = sw2(endpoint)
