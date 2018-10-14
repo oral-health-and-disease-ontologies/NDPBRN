@@ -32,8 +32,8 @@ def get_survival_query(query_type, limit=100, use_order_by=False):
 if __name__ == "__main__":
     pds.set_option('display.width', 500)
     #  build query string
-    # query = get_survival_query("procedure", 10)
-    query = get_survival_query("caries", 0)
+    query = get_survival_query("procedure", 0)
+    # query = get_survival_query("caries", 0)
     # query = get_test_query(5)
 
     # print(query)
@@ -50,4 +50,5 @@ if __name__ == "__main__":
     print(df.head())
     print("len: " , len(df))
 
-    df.to_csv("survival_results.txt", index_label="row")
+    # df.to_csv("caries_survival_results.txt", index_label="row")
+    df.to_csv("procedure_survival_results.txt", index_label="row")
