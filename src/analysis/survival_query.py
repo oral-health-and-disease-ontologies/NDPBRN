@@ -29,18 +29,16 @@ def get_survival_query(query_type, limit=100, use_order_by=False):
 
     return query
 
-if __name__ == "__main__":
-    pds.set_option('display.width', 500)
+def save_caries_results(limit=100, result_format="json", print_query=False):
     #  build query string
-    query = get_survival_query("procedure", 0)
-    # query = get_survival_query("caries", 0)
+    query = get_survival_query("caries", limit=limit)
     # query = get_test_query(5)
 
-    # print(query)
+    if print_query:
+        print(query)
 
     # build sparql object
-    format_string = "json"
-    sparql = make_sparql_wrapper(get_endpiont(), result_format=format_string)
+    sparql = make_sparql_wrapper(get_endpiont(), result_format=result_format)
 
     # get results from endpoint
     sparql.setQuery(query)
@@ -48,7 +46,36 @@ if __name__ == "__main__":
 
     df = make_sparql_df(results)
     print(df.head())
-    print("len: " , len(df))
+    print("len: ", len(df))
+
+    df.to_csv("caries_survival_results.txt", index=False)
+
+
+def save_procedures_reults(limit=100, result_format="json", print_query=False):
+    #  build query string
+    query = get_survival_query("procedure", limit=0)
+    # query = get_test_query(5)
+
+    if print_query:
+        print(query)
+
+    # build sparql object
+    sparql = make_sparql_wrapper(get_endpiont(), result_format=result_format)
+
+    # get results from endpoint
+    sparql.setQuery(query)
+    results = sparql.query().convert()
+
+    df = make_sparql_df(results)
+    print(df.head())
+    print("len: ", len(df))
 
     # df.to_csv("caries_survival_results.txt", index_label="row")
-    df.to_csv("procedure_survival_results.txt", index_label="row")
+    df.to_csv("procedure_survival_results.txt", index=False)
+
+if __name__ == "__main__":
+    # pds.set_option('display.width', 500)
+    save_caries_results(limit=0)
+    save_procedures_reults(limit=0)
+
+

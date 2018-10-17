@@ -4,8 +4,9 @@ import itertools
 from os import path
 from io import BytesIO
 
+
 def make_sparql_df(results):
-    df = pds.DataFrame() # create empty dataframe
+    df = pds.DataFrame()  # create empty dataframe
 
     for var in itertools.chain(results.variables):
         # create a list of values
@@ -44,6 +45,7 @@ def make_sparql_wrapper(endpoint, result_format="json", query_method="POST"):
     wrapper.setReturnFormat(result_format)
     wrapper.setMethod(query_method)
     return wrapper
+
 
 def get_test_query(limit=5):
     my_path = path.abspath(path.dirname(__file__))
