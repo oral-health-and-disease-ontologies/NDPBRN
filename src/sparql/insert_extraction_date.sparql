@@ -45,7 +45,7 @@ where {
     ?patient_i a patient:;
                pbrn_id: ?pbrn_id .
     
-    ?tooth_t rdfs:subClassOf posterior_tooth: .
+    ?tooth_t rdfs:subClassOf tooth: .
     ?tooth_i sesame:directType ?tooth_t;
              part_of: ?patient_i .
     ?extraction_proc_i sesame:directType extraction_proc:;
