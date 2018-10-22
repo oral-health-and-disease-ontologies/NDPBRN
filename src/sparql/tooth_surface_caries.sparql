@@ -6,21 +6,20 @@ PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
 PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
-PREFIX restored_surface: <http://purl.obolibrary.org/obo/OHD_0000208>
-PREFIX restored_mesial: <http://purl.obolibrary.org/obo/OHD_0000227>
-PREFIX restored_occlusal: <http://purl.obolibrary.org/obo/OHD_0000228>
-PREFIX restored_distal: <http://purl.obolibrary.org/obo/OHD_0000223>
-PREFIX restored_buccal: <http://purl.obolibrary.org/obo/OHD_0000222>
-PREFIX restored_labial: <http://purl.obolibrary.org/obo/OHD_0000225>
-PREFIX restored_lingual: <http://purl.obolibrary.org/obo/OHD_0000226>
-PREFIX restored_incisal: <http://purl.obolibrary.org/obo/OHD_0000224>
+PREFIX surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth>
+PREFIX mesial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth>
+PREFIX occlusal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth>
+PREFIX distal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth>
+PREFIX buccal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth>
+PREFIX labial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth>
+PREFIX lingual_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth>
+PREFIX incisal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth>
+PREFIX caries_finding: <http://purl.obolibrary.org/obo/OHD_0000024>
+PREFIX lesion: <http://purl.obolibrary.org/obo/OHD_0000021> 
 PREFIX dental_procedure: <http://purl.obolibrary.org/obo/OHD_0000002>
-PREFIX extraction_procedure: <http://purl.obolibrary.org/obo/OHD_0000057>
-PREFIX procedure_finding: <http://purl.obolibrary.org/obo/OHD_0000221>
 PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
-PREFIX  has_output: <http://purl.obolibrary.org/obo/OBI_0000299>
-PREFIX  occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
@@ -36,84 +35,102 @@ where {
         a tooth:;
         prop:ada_tooth_number ?tooth_num;
         part_of: ?patient_i .
-    
-    ## find restored surface that are part of tooth
+   
+    ## find surface that is part of tooth
 #    ?surface_i
-#        a restored_surface:;
+#        a surface:;
 #        part_of: ?tooth_i;
 #        prop:surface_letter ?surface .
+   
+    ## findings about lesions on tooth
+    ?event_t 
+        rdfs:subClassOf caries_finding:; 
+        rdfs:label ?event_name .
+    ?event_i
+        sesame:directType ?event_t;
+        occurrence_date: ?event_date;
+        is_about: [a lesion:; part_of: ?tooth_i] .
+#        is_about: [a lesion:; part_of: ?surface_i] . # test
     
-    # find dental procedures performed on the tooth's surface
-    ?event_i 
-		a dental_procedure:;
-	    has_output: [a restored_surface:; part_of: ?tooth_i] .
-#        has_output: ?surface_i .
-    
-    ## find which surfaces were restored by the procedure
+    ## find which surfaces the finding is about
     optional {
         ?event_i 
-            has_output: ?mesial . # mesial
+            is_about: ?lesion_m . # mesial lesial
+        ?lesion_m 
+            a lesion:; 
+            part_of: ?mesial . 
         ?mesial 
-            sesame:directType restored_mesial:;
+            sesame:directType mesial_surface:;
             prop:surface_letter ?surface_m;
             part_of: ?tooth_i .
     } 
     optional {
         ?event_i 
-            has_output: ?occlusal . #occlusal
+            is_about: ?lesion_o . #occlusal lesion
+        ?lesion_o 
+            a lesion:; 
+            part_of: ?occlusal .
         ?occlusal 
-            sesame:directType restored_occlusal:; 
+            sesame:directType occlusal_surface:; 
             prop:surface_letter ?surface_o;
             part_of: ?tooth_i . 
     } 
     optional {
         ?event_i 
-            has_output: ?distal . # distal
+            is_about: ?lesion_d . # distal lesion
+        ?lesion_d 
+            a lesion:; 
+            part_of: ?distal .
         ?distal 
-            sesame:directType restored_distal:; 
+            sesame:directType distal_surface:; 
             prop:surface_letter ?surface_d;
             part_of: ?tooth_i .
     } 
     optional {
         ?event_i 
-            has_output: ?buccal . # buccal
+            is_about: ?lesion_b . # buccal lesion
+        ?lesion_b 
+            a lesion:; 
+            part_of: ?buccal .
         ?buccal 
-            sesame:directType restored_buccal:; 
+            sesame:directType buccal_surface:; 
             prop:surface_letter ?surface_b;
             part_of: ?tooth_i .
     } 
     optional {
         ?event_i 
-            has_output: ?lingual . # lingual
+			is_about: ?lesion_l . # lingual lesion
+        ?lesion_l 
+            a lesion:; 
+            part_of: ?lingual .
         ?lingual
-            sesame:directType restored_lingual:; 
+            sesame:directType lingual_surface:; 
             prop:surface_letter ?surface_l;
             part_of: ?tooth_i .
     } 
     optional {
         ?event_i 
-            has_output: ?facial . # facial/labial
+            is_about: ?lesion_f . # facial/labial lesion
+        ?lesion_f 
+            a lesion:; 
+            part_of: ?facial .
         ?facial 
-            sesame:directType restored_labial:; 
+            sesame:directType labial_surface:; 
             prop:surface_letter ?surface_f;
             part_of: ?tooth_i .
     } 
     optional {
         ?event_i 
-            has_output: ?incisal . # incisal
+            is_about: ?lesion_incisal . # incisal lesion
+        ?lesion_incisal 
+            a lesion:; 
+            part_of: ?incisal .
         ?incisal 
-            sesame:directType restored_incisal:; 
+            sesame:directType incisal_surface:; 
             prop:surface_letter ?surface_incisal;
             part_of: ?tooth_i .
     }
  
-    # remove procedures that are existing services
-    filter not exists {
-        ?procedure_finding 
-            a procedure_finding:;
-            is_about: ?event_i .
-    }
-    
     bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
     bind(strafter(str(?patient_i), "patient/") as ?patient_id)
     bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)

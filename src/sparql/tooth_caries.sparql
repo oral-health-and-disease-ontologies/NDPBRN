@@ -6,13 +6,20 @@ PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
 PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth>
+PREFIX mesial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth>
+PREFIX occlusal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth>
+PREFIX distal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth>
+PREFIX buccal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth>
+PREFIX labial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth>
+PREFIX lingual_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth>
+PREFIX incisal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth>
+PREFIX caries_finding: <http://purl.obolibrary.org/obo/OHD_0000024>
+PREFIX lesion: <http://purl.obolibrary.org/obo/OHD_0000021> 
 PREFIX dental_procedure: <http://purl.obolibrary.org/obo/OHD_0000002>
-PREFIX extraction_procedure: <http://purl.obolibrary.org/obo/OHD_0000057>
-PREFIX procedure_finding: <http://purl.obolibrary.org/obo/OHD_0000221>
 PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
-PREFIX  has_output: <http://purl.obolibrary.org/obo/OBI_0000299>
-PREFIX  occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
@@ -28,23 +35,22 @@ where {
         a tooth:;
         prop:ada_tooth_number ?tooth_num;
         part_of: ?patient_i .
-    
-    # find dental procedures performed on the patient's teeth
+   
+    ## find surface that is part of tooth
+#    ?surface_i
+#        a surface:;
+#        part_of: ?tooth_i;
+#        prop:surface_letter ?surface .
+   
+    ## findings about lesions on tooth
     ?event_t 
-        rdfs:subClassOf dental_procedure:;
+        rdfs:subClassOf caries_finding:; 
         rdfs:label ?event_name .
-    ?event_i 
+    ?event_i
         sesame:directType ?event_t;
-        has_output: ?tooth_i;
         occurrence_date: ?event_date;
-        prop:ada_code ?ada_code .
-    
-    # remove procedures that are existing services
-    filter not exists {
-        ?procedure_finding 
-            a procedure_finding:;
-            is_about: ?event_i .
-    }
+        is_about: [a lesion:; part_of: ?tooth_i] .
+#        is_about: [a lesion:; part_of: ?surface_i] . # test
     
     bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
     bind(strafter(str(?patient_i), "patient/") as ?patient_id)

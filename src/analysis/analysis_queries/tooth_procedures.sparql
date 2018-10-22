@@ -18,7 +18,7 @@ PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
 select distinct ?practice ?patient_id ?tooth_id ?tooth_num ?ada_code ?event_name ?event_date ?event_id
 where {
-    ## find instance of patient and patient's DOB
+    ## find instance of patient
     ?patient_i 
         a patient:;
         pbrn_id: ?pbrn_id .
