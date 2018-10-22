@@ -1,2 +1,2 @@
 order by 
-  ?patient_id ?tooth_id ?event_date ?event_name
+  ?practice d?patient_id ?tooth_id ?event_date ?event_name
