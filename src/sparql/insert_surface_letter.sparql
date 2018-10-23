@@ -1,0 +1,28 @@
+PREFIX surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Surface_enamel_of_tooth>
+PREFIX buccal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Buccal_surface_enamel_of_tooth>
+PREFIX distal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Distal_surface_enamel_of_tooth>
+PREFIX facial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Facial_surface_enamel_of_tooth>
+PREFIX incisal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Incisal_surface_enamel_of_tooth>
+PREFIX labial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Labial_surface_enamel_of_tooth>
+PREFIX lingual_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Lingual_surface_enamel_of_tooth>
+PREFIX mesial_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Mesial_surface_enamel_of_tooth>
+PREFIX occlusal_surface: <http://purl.obolibrary.org/obo/FMA_no_fmaid_Occlusal_surface_enamel_of_tooth>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+insert {
+    ?surface_i prop:surface_letter ?surface .
+} where {
+    ?surface_i 
+        a surface:;
+        sesame:directType ?surface_t .
+    values (?surface_t ?surface) {
+        (mesial_surface: "m")
+        (occlusal_surface: "o")
+        (distal_surface: "d")
+        (buccal_surface: "b")
+        (labial_surface: "f")
+        (lingual_surface: "l")
+        (incisal_surface: "i")
+    }
+} 

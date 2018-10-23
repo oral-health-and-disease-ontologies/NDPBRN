@@ -1,0 +1,29 @@
+PREFIX restored_surface: <http://purl.obolibrary.org/obo/OHD_0000208>
+PREFIX restored_buccal_surface: <http://purl.obolibrary.org/obo/OHD_0000222>
+PREFIX restored_distal_surface: <http://purl.obolibrary.org/obo/OHD_0000223>
+PREFIX restored_facial_surface: <http://purl.obolibrary.org/obo/OHD_0000235>
+PREFIX restored_incisal_surface: <http://purl.obolibrary.org/obo/OHD_0000224>
+PREFIX restored_labial_surface: <http://purl.obolibrary.org/obo/OHD_0000225>
+PREFIX restored_lingual_surface: <http://purl.obolibrary.org/obo/OHD_0000226>
+PREFIX restored_mesial_surface: <http://purl.obolibrary.org/obo/OHD_0000227>
+PREFIX restored_occlusal_surface: <http://purl.obolibrary.org/obo/OHD_0000228>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+insert {
+    ?surface_i prop:surface_letter ?surface .
+} where {
+    ?surface_i 
+        a restored_surface:;
+        sesame:directType ?surface_t .
+        
+    values (?surface_t ?surface) {
+        (restored_mesial_surface: "m")
+        (restored_occlusal_surface: "o")
+        (restored_distal_surface: "d")
+        (restored_buccal_surface: "b")
+        (restored_labial_surface: "f")
+        (restored_lingual_surface: "l")
+        (restored_incisal_surface: "i")
+    }
+} 
