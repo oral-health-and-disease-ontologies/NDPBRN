@@ -29,6 +29,22 @@ def get_survival_query(query_type, limit=100, use_order_by=False):
 
     return query
 
+
+
+def get_sparql_query(query_file, limit=100):
+    my_path = path.abspath(path.dirname(__file__))
+    query_path = path.join(my_path, r"""../sparql""", query_file)
+
+    # contents of query file
+    with open(query_path) as f:
+        query = f.read()
+
+    if limit > 0:
+        limit_string = " \nlimit %s" % str(limit)
+        query = query + limit_string
+
+    return query
+
 def save_caries_results(limit=100, result_format="json", print_query=False):
     #  build query string
     query = get_survival_query("caries", limit=limit)
@@ -73,9 +89,41 @@ def save_procedures_reults(limit=100, result_format="json", print_query=False):
     # df.to_csv("caries_survival_results.txt", index_label="row")
     df.to_csv("procedure_survival_results.txt", index=False)
 
+def save_query_results(query, filename, result_format="json", print_query=False):
+    if print_query:
+        print(query)
+
+    # build sparql object
+    sparql = make_sparql_wrapper(get_endpiont(), result_format=result_format)
+
+    # get results from endpoint
+    sparql.setQuery(query)
+    results = sparql.query().convert()
+
+    df = make_sparql_df(results)
+    print(df.head())
+    print("len: ", len(df))
+
+    # df.to_csv("caries_survival_results.txt", index_label="row")
+    df.to_csv(filename, index=False)
+
 if __name__ == "__main__":
-    # pds.set_option('display.width', 500)
-    save_caries_results(limit=0)
-    save_procedures_reults(limit=0)
+    pds.set_option('display.width', 500)
+    # save_caries_results(limit=0)
+    # save_procedures_reults(limit=0)
 
+    # save patient demographic info
+    query = get_sparql_query("patient_demographics.sparql", limit=100)
+    save_query_results(query, "patients.csv")
 
+    # save patient teeth info
+    query = get_sparql_query("patient_teeth.sparql", limit=100)
+    save_query_results(query, "patient_teeth.csv")
+
+    # save tooth procedure info
+    query = get_sparql_query("tooth_procedures.sparql_no_es", limit=100)
+    save_query_results(query, "tooth_procedures_no_es.csv")
+
+    # save surface info about tooth procedures
+    query = get_sparql_query("tooth_surface_procedures_no_es.sparql", limit=100)
+    save_query_results(query, "tooth_surface_procedures_no_es.csv")

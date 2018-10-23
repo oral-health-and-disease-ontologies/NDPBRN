@@ -23,13 +23,10 @@ PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select distinct ?practice ?patient_id ?tooth_id ?tooth_num ?ada_code ?event_name ?event_date ?event_id
+select distinct ?event_id ?event_name ?event_date ?ada_code ?tooth_id ?tooth_num
+## NB: ?ada_code is intentionally null, this is for appending to tooth
+##     procedure dataset (i.e., getting the columns to line up)
 where {
-    ## find instance of patient
-    ?patient_i 
-        a patient:;
-        pbrn_id: ?pbrn_id .
-    
     ## find patients' teeth
     ?tooth_i
         a tooth:;
@@ -37,6 +34,7 @@ where {
         part_of: ?patient_i .
    
     ## find surface that is part of tooth
+    ## this is used for testing
 #    ?surface_i
 #        a surface:;
 #        part_of: ?tooth_i;
@@ -50,10 +48,8 @@ where {
         sesame:directType ?event_t;
         occurrence_date: ?event_date;
         is_about: [a lesion:; part_of: ?tooth_i] .
-#        is_about: [a lesion:; part_of: ?surface_i] . # test
+#        is_about: [a lesion:; part_of: ?surface_i] . # used for testing
     
-    bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
-    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
     bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
     bind(strafter(str(?event_i), "http://purl.regenstrief.org/NDPBRN/dental-practice/") as ?event_id)
 }

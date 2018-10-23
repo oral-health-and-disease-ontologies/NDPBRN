@@ -16,13 +16,8 @@ PREFIX  occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select distinct ?practice ?patient_id ?tooth_id ?tooth_num ?ada_code ?event_name ?event_date ?event_id
+select distinct ?event_id ?event_name ?event_date ?ada_code ?tooth_id ?tooth_num  
 where {
-    ## find instance of patient
-    ?patient_i 
-        a patient:;
-        pbrn_id: ?pbrn_id .
-    
     ## find patients' teeth
     ?tooth_i
         a tooth:;
@@ -46,8 +41,6 @@ where {
             is_about: ?event_i .
     }
     
-    bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
-    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
     bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
     bind(strafter(str(?event_i), "http://purl.regenstrief.org/NDPBRN/dental-practice/") as ?event_id)
 }

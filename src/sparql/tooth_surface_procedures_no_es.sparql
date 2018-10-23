@@ -124,8 +124,8 @@ where {
     bind(if(bound(?occlusal), 1, 0) as ?o) # occlusal
     bind(if(bound(?distal), 1, 0) as ?d) # distal
     bind(if(bound(?buccal), 1, 0) as ?b) # buccal
-    bind(if(bound(?lingual), 1, 0) as ?f) # lingual
-    bind(if(bound(?facial), 1, 0) as ?l) # facial
+    bind(if(bound(?lingual), 1, 0) as ?l) # lingual
+    bind(if(bound(?facial), 1, 0) as ?f) # facial
     bind(if(bound(?incisal), 1, 0) as ?i) # incisal
 }
 # limit 100
