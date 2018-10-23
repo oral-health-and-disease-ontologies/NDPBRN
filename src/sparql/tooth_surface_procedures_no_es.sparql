@@ -24,7 +24,7 @@ PREFIX  occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select distinct ?tooth_id ?tooth_num ?m ?o ?d ?b ?l ?f ?i ?event_id
+select distinct ?event_id ?tooth_id ?tooth_num ?m ?o ?d ?b ?l ?f ?i
 where {
     ## find instance of patient and patient's DOB
     ?patient_i 
