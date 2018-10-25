@@ -112,7 +112,7 @@ if __name__ == "__main__":
     # save_caries_results(limit=0)
     # save_procedures_reults(limit=0)
 
-    result_limit = 100 # set number of results to return
+    result_limit = 0 # set number of results to return
 
     # save patient demographic info
     query = get_sparql_query("patient_demographics.sparql", result_limit)
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     # save surface info about tooth caries
     query = get_sparql_query("tooth_surface_caries.sparql", result_limit)
-    save_query_results(query, "tooth_surface_caries.sparql")
+    save_query_results(query, "tooth_surface_caries.csv")
 
     # save tooth procedure info
     query = get_sparql_query("tooth_procedures_no_es.sparql", result_limit)
