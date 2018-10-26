@@ -23,6 +23,10 @@ where {
         prop:ada_tooth_number ?tooth_num;
         part_of: ?patient_i .
     
+    ## find first PCR/RCT dates
+    optional { ?tooth_i prop:first_PCR_date ?first_PCR . }
+	optional { ?tooth_i prop:first_RCT_date ?first_RCT .}
+	
     ## find date (if any) the tooth was extracted
     #?tooth_i prop:extraction_date ?extract_date . # used for testing
     optional {
