@@ -10,7 +10,7 @@ PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select distinct ?practice ?patient_id ?tooth_id ?tooth_num ?extract_date ?missing_date ?exception
+select distinct ?practice ?patient_id ?tooth_id ?tooth_num ?first_PCR ?first_RCT ?extract_date ?missing_date ?exception
 where {
     ## find instance of patient and patient's DOB
     ?patient_i 
