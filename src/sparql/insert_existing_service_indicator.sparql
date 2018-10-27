@@ -1,0 +1,35 @@
+########################################################################################################
+# This query inserts a flag to indicate if a procedures was an existing service.
+# A prop:ada_code value of '1' means the procedure was found to be an existing service.
+# A value of '0' means it was NOT and an existing service.
+#
+# It speeds up access to this information by simply querying for:
+#   ?event_i prop:existing_service ?existing . 
+#
+########################################################################################################
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX encounter: <http://purl.obolibrary.org/obo/OGMS_0000097>
+PREFIX procedure_finding: <http://purl.obolibrary.org/obo/OHD_0000221>
+PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+# construct 
+insert
+{
+    ?event_i prop:existing_service ?existing_service .
+}
+where 
+{
+    # find dental encounters
+    ?event_i a encounter: .
+    
+    # find existing service findings that are about the encounter
+    optional {
+    	?procedure_finding a procedure_finding:; is_about: ?event_i .
+    }
+    
+    bind(if(bound(?procedure_finding), 1, 0) as ?existing_service)  
+} 
+#limit 100
