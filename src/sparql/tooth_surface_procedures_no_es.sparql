@@ -37,17 +37,15 @@ where {
         prop:ada_tooth_number ?tooth_num;
         part_of: ?patient_i .
     
-    ## find restored surface that are part of tooth
-#    ?surface_i
-#        a restored_surface:;
-#        part_of: ?tooth_i;
-#        prop:surface_letter ?surface .
     
     # find dental procedures performed on the tooth's surface
     ?event_i 
-		a dental_procedure:;
+			a dental_procedure:;
+			prop:existing_service ?existing_service;
 	    has_output: [a restored_surface:; part_of: ?tooth_i] .
-#        has_output: ?surface_i .
+    
+    ## filter for procedures that were NOT existing services
+    filter(?existing_service = 0) 
     
     ## find which surfaces were restored by the procedure
     optional {
