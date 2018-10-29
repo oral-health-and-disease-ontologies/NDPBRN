@@ -26,8 +26,11 @@ where {
         part_of: ?patient_i .
     
     # find dental procedures performed on the patient's teeth
+        ?event_t 
+        rdfs:subClassOf dental_procedure:; 
+        rdfs:label ?event_name .
     ?event_i 
-    		a dental_procedure:;
+    		sesame:directType ?event_t;
         has_input: ?tooth_i;
         occurrence_date: ?event_date;
         prop:ada_code ?ada_code;
@@ -35,7 +38,6 @@ where {
     
     ## filter for procedures that were NOT existing services
     filter(?existing_service = 0) 
-    
    
     bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
     bind(strafter(str(?event_i), "http://purl.regenstrief.org/NDPBRN/dental-practice/") as ?event_id)

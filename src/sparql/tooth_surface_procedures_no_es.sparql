@@ -105,12 +105,6 @@ where {
             part_of: ?tooth_i .
     }
  
-    # remove procedures that are existing services
-    filter not exists {
-        ?procedure_finding 
-            a procedure_finding:;
-            is_about: ?event_i .
-    }
     
     bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
     bind(strafter(str(?patient_i), "patient/") as ?patient_id)

@@ -30,14 +30,7 @@ where {
         a tooth:;
         prop:ada_tooth_number ?tooth_num;
         part_of: ?patient_i .
-   
-    ## find surface that is part of tooth
-    ## this is used for testing
-#    ?surface_i
-#        a surface:;
-#        part_of: ?tooth_i;
-#        prop:surface_letter ?surface .
-   
+      
     ## findings about lesions on tooth
     ?event_t 
         rdfs:subClassOf caries_finding:; 
@@ -46,7 +39,6 @@ where {
         sesame:directType ?event_t;
         occurrence_date: ?event_date;
         is_about: [a lesion:; part_of: ?tooth_i] .
-#        is_about: [a lesion:; part_of: ?surface_i] . #used for testing
     
     ## find which surfaces the finding is about
     optional {

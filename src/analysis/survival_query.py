@@ -115,25 +115,25 @@ if __name__ == "__main__":
     result_limit = 0 # set number of results to return
 
     # save patient demographic info
-    # query = get_sparql_query("patient_demographics.sparql", result_limit)
-    # save_query_results(query, "patients.csv")
+    query = get_sparql_query("patients_with_procedures_demographics.sparql", result_limit)
+    save_query_results(query, "patients.csv")
 
     # save patient teeth info
-    query = get_sparql_query("patient_teeth.sparql", result_limit)
+    query = get_sparql_query("patient_teeth_with_procedures.sparql", result_limit)
     save_query_results(query, "patient_teeth.csv")
 
     # save tooth caries info
-    # query = get_sparql_query("tooth_caries.sparql", result_limit)
-    # save_query_results(query, "tooth_caries.csv")
-    #
-    # # save surface info about tooth caries
-    # query = get_sparql_query("tooth_surface_caries.sparql", result_limit)
-    # save_query_results(query, "tooth_surface_caries.csv")
-    #
-    # # save tooth procedure info
-    # query = get_sparql_query("tooth_procedures_no_es.sparql", result_limit)
-    # save_query_results(query, "tooth_procedures_no_es.csv")
-    #
-    # # save surface info about tooth procedures
-    # query = get_sparql_query("tooth_surface_procedures_no_es.sparql", result_limit)
-    # save_query_results(query, "tooth_surface_procedures_no_es.csv")
+    query = get_sparql_query("tooth_caries.sparql", result_limit)
+    save_query_results(query, "tooth_caries.csv")
+
+    # save surface info about tooth caries
+    query = get_sparql_query("tooth_surface_caries.sparql", result_limit)
+    save_query_results(query, "tooth_surface_caries.csv")
+
+    # save tooth procedure info
+    query = get_sparql_query("tooth_procedures_no_es.sparql", result_limit)
+    save_query_results(query, "tooth_procedures_no_es.csv")
+
+    # save surface info about tooth procedures
+    query = get_sparql_query("tooth_surface_procedures_no_es.sparql", result_limit)
+    save_query_results(query, "tooth_surface_procedures_no_es.csv")
