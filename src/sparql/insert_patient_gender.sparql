@@ -1,0 +1,39 @@
+########################################################################################################
+# This query inserts gender information about patients.
+# This is useful for retrieving the patient's gender without having to access the gender role class.
+# It helps speed up access to this information by simply querying for:
+# 
+#   ?patient_i prop:gender ?gender . 
+#
+########################################################################################################
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX inheres_in: <http://purl.obolibrary.org/obo/BFO_0000052>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX gender_role: <http://purl.obolibrary.org/obo/OMRSE_00000007>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+#construct 
+insert
+{   
+    ?patient_i prop:gender ?gender . 
+}
+where 
+{
+		## find patients
+    ?patient_i a patient: .
+    
+    ## find label of patients' gender
+    ?gender_t 
+        rdfs:subClassOf gender_role:;
+        rdfs:label ?gender_name .
+    ?gender_i
+        sesame:directType ?gender_t;
+        inheres_in: ?patient_i .
+    
+    # reduce label ot just 'male', 'female', 'gender'
+    bind(strbefore(str(?gender_name), " ") as ?gender)
+} 
+#limit 100
