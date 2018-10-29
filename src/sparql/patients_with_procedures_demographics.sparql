@@ -1,0 +1,42 @@
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX gender_role: <http://purl.obolibrary.org/obo/OMRSE_00000007>
+PREFIX inheres_in: <http://purl.obolibrary.org/obo/BFO_0000052>
+PREFIX birth_date: <http://purl.obolibrary.org/obo/OHD_0000050>
+PREFIX first_visit_date: <http://purl.obolibrary.org/obo/OHD_0000218>
+PREFIX last_visit_date: <http://purl.obolibrary.org/obo/OHD_0000219>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX dental_procedure: <http://purl.obolibrary.org/obo/OHD_0000002>
+PREFIX has_participant: <http://purl.obolibrary.org/obo/BFO_0000057>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+select distinct ?practice ?patient_id ?gender ?dob ?first_visit ?last_visit
+where {
+    ## find instance of patient
+    ?patient_i 
+        a patient:;
+        birth_date: ?dob;
+        pbrn_id: ?pbrn_id;
+        prop:gender ?gender;
+        first_visit_date: ?first_visit;
+        last_visit_date: ?last_visit .
+        
+    ## find procedures that patient participated in
+    ## this limits the query to only patients that had a procedure
+    ?event_i 
+    	a dental_procedure:;
+    	has_participant: ?patient_i;
+    	prop:existing_service ?existing_service .
+    
+    ## filter for procedures that were NOT existing services
+    filter(?existing_service = 0) 
+    
+    bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
+    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
+}
+#limit 100

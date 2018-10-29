@@ -1,0 +1,53 @@
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX dental_procedure: <http://purl.obolibrary.org/obo/OHD_0000002>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX has_input: <http://purl.obolibrary.org/obo/OBI_0000293>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+select distinct ?patient_id ?tooth_id ?tooth_num ?first_PCR ?first_RCT ?extract_date ?missing_date
+where {
+    ## find instance of patient
+    ?patient_i 
+        a patient:;
+        pbrn_id: ?pbrn_id .
+    
+    ## find patients' teeth
+    ?tooth_i
+        a tooth:;
+        prop:ada_tooth_number ?tooth_num;
+        part_of: ?patient_i .
+    
+    ## find first PCR/RCT dates
+    optional { ?tooth_i prop:first_PCR_date ?first_PCR . }
+	  optional { ?tooth_i prop:first_RCT_date ?first_RCT .}
+	
+    ## find date (if any) the tooth was extracted or was found missing
+    optional { ?tooth_i prop:extraction_date ?extract_date . }
+    optional { ?tooth_i prop:missing_tooth_finding_date ?missing_date .}
+    
+    ## find teeth involved in a dental procedure
+    ?event_i 
+    	a dental_procedure:;
+    	has_input: ?tooth_i;
+    	occurrence_date: ?event_date;
+      prop:ada_code ?ada_code;
+    	prop:existing_service ?existing_service .
+    
+    ## filter for procedures that were NOT existing services
+    filter(?existing_service = 0) 
+    
+    
+    bind(strafter(str(?pbrn_id), "NDPBRN practice ") as ?practice)
+    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+}
+#limit 100
