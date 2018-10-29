@@ -26,8 +26,9 @@ where {
         first_visit_date: ?first_visit;
         last_visit_date: ?last_visit .
         
-    ## find procedures that patient participated in
-    ## this limits the query to only patients that had a procedure
+    ## find procedures that patients participated in
+    ## this limits the query to only patients that had a transactin/procedure
+    ## (i.e., no existing service)
     ?event_i 
     	a dental_procedure:;
     	has_participant: ?patient_i;
