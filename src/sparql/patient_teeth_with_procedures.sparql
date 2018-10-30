@@ -5,6 +5,9 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX birth_date: <http://purl.obolibrary.org/obo/OHD_0000050>
+PREFIX first_visit_date: <http://purl.obolibrary.org/obo/OHD_0000218>
+PREFIX last_visit_date: <http://purl.obolibrary.org/obo/OHD_0000219>
 PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
 PREFIX dental_procedure: <http://purl.obolibrary.org/obo/OHD_0000002>
 PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
@@ -18,7 +21,11 @@ where {
     ## find instance of patient
     ?patient_i 
         a patient:;
-        pbrn_id: ?pbrn_id .
+        birth_date: ?dob;
+        pbrn_id: ?pbrn_id;
+        prop:gender ?gender;
+        first_visit_date: ?first_visit;
+        last_visit_date: ?last_visit .
     
     ## find patients' teeth
     ?tooth_i
