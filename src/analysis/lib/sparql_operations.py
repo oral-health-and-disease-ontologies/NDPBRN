@@ -4,24 +4,66 @@ import itertools
 from os import path
 from io import BytesIO
 
+def get_sparql_variables(results, sparql_wrapper="SPARQLWrapper2"):
+    if "sparqlwrapper2" == sparql_wrapper.lower():
+        return results.variables
+    else:
+        return results['head']['vars']
 
-def make_sparql_df(results):
-    df = pds.DataFrame()  # create empty dataframe
 
-    for var in itertools.chain(results.variables):
-        # create a list of values
-        # getValues returns a list of 'Value' objects
-        # e.g., [Value(literal:'x'), Value(x:'y'), ...]
-        temp = [val.value
-                for val in results.getValues(var)]
+def get_sparql_bindings(results, sparql_wrapper="SPARQLWrapper2"):
+    if "sparqlwrapper2" == sparql_wrapper.lower():
+        return results.bindings
+    else:
+        return results['results']['bindings']
 
-        # convert temp into Series, this is needed in case
-        # temp is an empty list, using a Series will fill
-        # column with NaN
-        df[var] = pds.Series(temp)
 
-    return df
+def get_sparql_binding_variable_value(binding, variable, sparql_wrapper="SPARQLWrapper2"):
+    if "sparqlwrapper2" == sparql_wrapper.lower():
+        return binding[variable].value
+    else:
+        return binding[variable]['value']
 
+
+def make_sparql_dict_list(bindings, variables, sparql_wrapper="SPARQLWrapper2"):
+    dict_list = []  # list to contain dictionaries
+    for binding in itertools.chain(bindings):
+        values = []  # for each binding create a list of values
+        for var in itertools.chain(variables):
+            if var in binding:  # check for columns that don't have values
+                values.append(get_sparql_binding_variable_value(binding, var, sparql_wrapper))
+            else:
+                values.append(None)
+        temp_dict = dict(zip(variables, values))
+        dict_list.append(temp_dict)  # append dict of values into data list
+
+    return dict_list
+
+
+def make_sparql_df(results, sparql_wrapper="SPARQLWrapper2"):
+    variables = get_sparql_variables(results, sparql_wrapper)
+    bindings = get_sparql_bindings(results, sparql_wrapper)
+
+    # create a list of dictionaries to use as data for dataframe
+    data_list = make_sparql_dict_list(bindings, variables, sparql_wrapper)
+
+    df = pds.DataFrame(data_list) # create dataframe from data list
+    return df[variables] # return dataframe with columns reordered
+
+
+def make_sparql2_df(results, sparql_wrapper="SPARQLWrapper2"):
+    df = pds.DataFrame(columns=results.variables)  # create empty dataframe with variables as columns
+
+    for b in itertools.chain(results.bindings):
+        values = []                                # for each binding create a list of values
+        for var in itertools.chain(results.variables):
+            if var in b:                           # check for columns that don't have values
+                values.append(b[var].value)
+            else:
+                values.append(None)
+        df.loc[len(df)] = values                   # append list as a row in dataframe
+
+    return df # return dataframe
 
 def iterprint(obj, limit=5, print_index=False):
     for idx, x in enumerate(obj, 1):
@@ -33,10 +75,12 @@ def iterprint(obj, limit=5, print_index=False):
             print(x)
 
 
-def make_sparql_wrapper(endpoint, result_format="json", query_method="POST"):
+def make_sparql_wrapper(endpoint, result_format="json", query_method="POST", sparql_wrapper="SPARQLWrapper2"):
     result_format = result_format.lower()
 
-    if ("json" == result_format) or ("jsonld" == result_format):
+    # print(sparql_wrapper)
+    # if ("json" == result_format) or ("jsonld" == result_format):
+    if "sparqlwrapper2" == sparql_wrapper.lower():
         wrapper = SPARQLWrapper2(endpoint)
     else:
         wrapper = SPARQLWrapper(endpoint)
@@ -78,12 +122,13 @@ def df_from_sparql(results, result_format="json"):
 def df_from_sparql_json(results):
     # transform query results into dataframe
     values = {}
-    for v in itertools.chain(results.variables):
+    # for v in itertools.chain(results.variables):
+    for v in results.variables:
         temp = [x[v].value for x in itertools.chain(results.bindings)]
         values[v] = temp
     # values # test output
 
-    df = pds.DataFrame(values)
+    df = pds.DataFrame(values, columns=results.variables)
     return df
 
 

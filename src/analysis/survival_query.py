@@ -108,7 +108,8 @@ def save_query_results(query, filename, result_format="json", print_query=False)
     df.to_csv(filename, index=False)
 
 if __name__ == "__main__":
-    pds.set_option('display.width', 500)
+    # pds.set_option('display.width', 500)
+    pds.set_option('display.max_columns', None)
     # save_caries_results(limit=0)
     # save_procedures_reults(limit=0)
 
