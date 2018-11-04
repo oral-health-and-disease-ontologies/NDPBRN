@@ -5,38 +5,46 @@ from os import path
 from io import BytesIO
 
 def get_sparql_variables(results, sparql_wrapper="SPARQLWrapper2"):
-    if "sparqlwrapper2" == sparql_wrapper.lower():
-        return results.variables
-    else:
-        return results['head']['vars']
+    return results.variables if ("sparqlwrapper2" == sparql_wrapper.lower()) else results['head']['vars']
+    # if "sparqlwrapper2" == sparql_wrapper.lower():
+    #     results.variables
+    # else:
+    #     return results['head']['vars']
 
 
 def get_sparql_bindings(results, sparql_wrapper="SPARQLWrapper2"):
-    if "sparqlwrapper2" == sparql_wrapper.lower():
-        return results.bindings
-    else:
-        return results['results']['bindings']
+    return results.bindings \
+              if ("sparqlwrapper2" == sparql_wrapper.lower()) else results['results']['bindings']
+    # if "sparqlwrapper2" == sparql_wrapper.lower():
+    #     return results.bindings
+    # else:
+    #     return results['results']['bindings']
 
 
 def get_sparql_binding_variable_value(binding, variable, sparql_wrapper="SPARQLWrapper2"):
-    if "sparqlwrapper2" == sparql_wrapper.lower():
-        return binding[variable].value
-    else:
-        return binding[variable]['value']
+    return binding[variable].value \
+             if ("sparqlwrapper2" == sparql_wrapper.lower()) else binding[variable]['value']
+    # if "sparqlwrapper2" == sparql_wrapper.lower():
+    #     return binding[variable].value
+    # else:
+    #     return binding[variable]['value']
 
 
 def make_sparql_dict_list(bindings, variables, sparql_wrapper="SPARQLWrapper2"):
+    def binding_value(binding, var): # helper function for returning values
+        return \
+            get_sparql_binding_variable_value(binding, var, sparql_wrapper) if (var in binding) else None
+
     dict_list = []  # list to contain dictionaries
     for binding in itertools.chain(bindings):
-        values = []  # for each binding create a list of values
-        for var in itertools.chain(variables):
-            if var in binding:  # check for columns that don't have values
-                values.append(get_sparql_binding_variable_value(binding, var, sparql_wrapper))
-            else:
-                values.append(None)
-        temp_dict = dict(zip(variables, values))
-        dict_list.append(temp_dict)  # append dict of values into data list
+        ## create values using a list comprehension; functions same as code below
+        values = [binding_value(binding, var) for var in itertools.chain(variables)]
+        dict_list.append(dict(zip(variables, values)))
 
+        # values = []  # for each binding create a list of values
+        # for var in itertools.chain(variables):
+        #     values.append(binding_value(binding, var))
+        # dict_list.append(dict(zip(variables, values)))  # append dict of values into data list
     return dict_list
 
 
