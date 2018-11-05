@@ -99,6 +99,24 @@ def make_sparql_wrapper(endpoint, result_format="json", query_method="POST", spa
     return wrapper
 
 
+def make_sparql_query_from_file(query_file, limit=100, offset=0):
+    my_path = path.abspath(path.dirname(__file__))
+    query_path = path.join(my_path, r"""../sparql""", query_file)
+
+    with open(query_path) as f:  # read contents of query file
+        query = f.read()
+
+    if limit > 0:   # add limit criteria to query
+        limit_string = " \nlimit %s" % str(limit)
+        query = query + limit_string
+
+	if offset > 0:   # add offset criteria to query
+        offset_string = " \noffset %s" % str(limit)
+        query = query + offset_string
+
+    return query
+
+
 def get_test_query(limit=5):
     my_path = path.abspath(path.dirname(__file__))
     query_path = path.join(my_path, r"""../analysis_queries/test_query.txt""")
