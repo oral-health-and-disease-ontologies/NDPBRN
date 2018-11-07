@@ -1,0 +1,33 @@
+tooth,tooth_label,molar,premolar,canine,incisor,upper,lower,posterior,anterior,right,left,right upper,right lower,left upper,left lower
+1,Right upper third secondary molar tooth,1,0,0,0,1,0,1,0,1,0,1,0,0,0
+2,Right upper second secondary molar tooth,1,0,0,0,1,0,1,0,1,0,1,0,0,0
+3,Right upper first secondary molar tooth,1,0,0,0,1,0,1,0,1,0,1,0,0,0
+4,Right upper second secondary premolar tooth,0,1,0,0,1,0,1,0,1,0,1,0,0,0
+5,Right upper first secondary premolar tooth,0,1,0,0,1,0,1,0,1,0,1,0,0,0
+6,Right upper secondary canine tooth,0,0,1,0,1,0,0,1,1,0,1,0,0,0
+7,Right upper lateral secondary incisor tooth,0,0,0,1,1,0,0,1,1,0,1,0,0,0
+8,Right upper central secondary incisor tooth,0,0,0,1,1,0,0,1,1,0,1,0,0,0
+9,Left upper central secondary incisor tooth,0,0,0,1,1,0,0,1,0,1,0,0,1,0
+10,Left upper lateral secondary incisor tooth,0,0,0,1,1,0,0,1,0,1,0,0,1,0
+11,Left upper secondary canine tooth,0,0,1,0,1,0,0,1,0,1,0,0,1,0
+12,Left upper first secondary premolar tooth,0,1,0,0,1,0,1,0,0,1,0,0,1,0
+13,Left upper second secondary premolar tooth,0,1,0,0,1,0,1,0,0,1,0,0,1,0
+14,Left upper first secondary molar tooth,1,0,0,0,1,0,1,0,0,1,0,0,1,0
+15,Left upper second secondary molar tooth,1,0,0,0,1,0,1,0,0,1,0,0,1,0
+16,Left upper third secondary molar tooth,1,0,0,0,1,0,1,0,0,1,0,0,1,0
+17,Left lower third secondary molar tooth,1,0,0,0,0,1,1,0,0,1,0,0,0,1
+18,Left lower second secondary molar tooth,1,0,0,0,0,1,1,0,0,1,0,0,0,1
+19,Left lower first secondary molar tooth,1,0,0,0,0,1,1,0,0,1,0,0,0,1
+20,Left lower second secondary premolar tooth,0,1,0,0,0,1,1,0,0,1,0,0,0,1
+21,Left lower first secondary premolar tooth,0,1,0,0,0,1,1,0,0,1,0,0,0,1
+22,Left lower secondary canine tooth,0,0,1,0,0,1,0,1,0,1,0,0,0,1
+23,Left lower lateral secondary incisor tooth,0,0,0,1,0,1,0,1,0,1,0,0,0,1
+24,Left lower central secondary incisor tooth,0,0,0,1,0,1,0,1,0,1,0,0,0,1
+25,Right lower central secondary incisor tooth,0,0,0,1,0,1,0,1,1,0,0,1,0,0
+26,Right lower lateral secondary incisor tooth,0,0,0,1,0,1,0,1,1,0,0,1,0,0
+27,Right lower secondary canine tooth,0,0,1,0,0,1,0,1,1,0,0,1,0,0
+28,Right lower first secondary premolar tooth,0,1,0,0,0,1,1,0,1,0,0,1,0,0
+29,Right lower second secondary premolar tooth,0,1,0,0,0,1,1,0,1,0,0,1,0,0
+30,Right lower first secondary molar tooth,1,0,0,0,0,1,1,0,1,0,0,1,0,0
+31,Right lower second secondary molar tooth,1,0,0,0,0,1,1,0,1,0,0,1,0,0
+32,Right lower third secondary molar tooth,1,0,0,0,0,1,1,0,1,0,0,1,0,0
