@@ -9,11 +9,16 @@ select distinct ?patient_id ?gender ?dob ?practice where {
     ?patient_i a patient:;
                birth_date: ?bdate;
                npbrn_id: ?npbrn_id;
-             sesame:directType ?gender_type .
+               sesame:directType ?gender_type .
+               
     ?tooth_i a tooth:;
-           part_of: ?patient_i .
+             part_of: ?patient_i;
+             sesame:directType ?tooth_t .
+    ?tooth_t ada_num: ?ada_num .
+           
     ?proc_i a procedure:;
           has_specified_input: ?tooth_i .
+          
     filter (!isblank(?patient_i))
 
     bind(strafter(str(?patient_i), "patient/") as ?patient_id)
