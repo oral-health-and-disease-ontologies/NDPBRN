@@ -1,0 +1,46 @@
+## name: proc-material-info.sparql
+## author: Bill Duncan
+## purpose: 
+## 	find materials used crowns (inluding onlays), fillings (including inlays), and veneers
+##	prefixes are defined in prefixes.sparql
+
+select distinct
+    ?patient_id
+    ?tooth_id
+    ?tooth_num
+    ?proc_id
+    ?restoration_type
+    ?material
+where {
+    values ?restoration_proc {crown_procedure: filling_procedure: veneer_procedure:}
+    ?patient_i a patient: .
+    ?tooth_i a tooth:;
+             part_of: ?patient_i;
+             sesame:directType ?tooth_t .
+    ?tooth_t ada_num: ?ada_num .
+    
+    ?material_i a material:;
+                sesame:directType ?material_t .
+    ?material_t rdfs:label ?material_label .
+    
+    ?proc_i a ?restoration_proc;
+            sesame:directType ?proc_t;
+            has_specified_input: ?tooth_i;
+            has_specified_input: ?material_i .
+    ?proc_t rdfs:label ?proc_label .
+    ?restoration_proc rdfs:label ?restoraton_label .
+    
+    filter (!isblank(?patient_i))
+    filter (!isblank(?tooth_i))
+    filter (!isblank(?proc_i))
+    
+    bind (strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind (strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+    bind (strafter(str(?proc_i), "procedure/") as ?proc_id)
+    bind (strbefore(str(?restoraton_label), " restoration procedure") as ?restoration_type)
+    bind (strafter(?ada_num, "Tooth ") as ?tooth_num)
+    bind (strbefore(str(?material_label), " dental restoration material") as ?material)
+    
+}
+
+limit 10

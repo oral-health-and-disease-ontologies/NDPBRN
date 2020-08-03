@@ -1,0 +1,43 @@
+## name: proc-material-info.sparql
+## author: Bill Duncan
+## purpose: 
+## 	find tooth type metadata for each tooth
+##	prefixes are defined in prefixes.sparql
+
+select distinct
+    ?patient_id
+    ?tooth_id
+    ?tooth_num
+    ?anterior
+    ?posterior
+    ?incisor
+    ?canine
+    ?premolar
+    ?molar
+where {
+    values ?tooth_type {incisor: canine: premolar: molar:}
+    ?patient_i a patient: .
+    ?tooth_i a ?tooth_type;
+             part_of: ?patient_i;
+             sesame:directType ?tooth_t . 
+    ?tooth_t ada_num: ?ada_num .
+    
+    ?proc_i a procedure:;
+            has_specified_input: ?tooth_i.
+    
+    filter (!isblank(?patient_i))
+    filter (!isblank(?tooth_i))
+    filter (!isblank(?tooth_t))
+    filter (!isblank(?proc_i))
+    
+    bind (strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind (strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+    bind (strafter(?ada_num, "Tooth ") as ?tooth_num)
+    bind (if(?tooth_type in (incisor:, canine:), 1, 0) as ?anterior)
+    bind (if(?tooth_type in (premolar:, molar:), 1, 0) as ?posterior)
+    bind (if(?tooth_type = incisor:, 1, 0) as ?incisor)
+    bind (if(?tooth_type = canine:, 1, 0) as ?canine)
+    bind (if(?tooth_type = premolar:, 1, 0) as ?premolar)
+    bind (if(?tooth_type = molar:, 1, 0) as ?molar)
+}
+

@@ -1,0 +1,49 @@
+## name: tooth-procedure-info.sparql
+## author: Bill Duncan
+## purpose: 
+##	find teeth (and their surfaces) that underwent a procedure
+##	prefixes are defined in prefixes.sparql
+
+select 
+    ?patient_id
+    ?tooth_id
+    ?tooth_num
+    ?proc_id
+    ?event
+    ?event_date
+    ?cdt_code
+    ?cdt_label
+where {
+    ?patient_i a patient: .
+    ?tooth_i a tooth:;
+             part_of: ?patient_i;
+             sesame:directType ?tooth_t .
+    ?tooth_t ada_num: ?ada_num .
+            
+    ?proc_i a procedure:;
+            sesame:directType ?proc_t;
+            has_specified_input: ?tooth_i;
+            occur_date: ?occur_date .
+    ?proc_t rdfs:label ?proc_label .
+    
+    ?code_i a cdt_code:;
+               	sesame:directType ?code_t;
+                is_about: ?proc_i .
+    
+    ?code_t dc:identifier ?cdt_code;
+            obo:cdt_label ?cdt_label .
+    
+    
+    filter (!isblank(?patient_i))
+    filter (!isblank(?tooth_i))
+    filter (!isblank(?proc_i))
+    
+    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind(strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+    bind(strafter(str(?proc_i), "procedure/") as ?proc_id)
+    bind(str(?proc_label) as ?event) # removes the laguage tags
+    bind(strafter(?ada_num, "Tooth ") as ?tooth_num)
+    bind(strbefore(str(?occur_date), "T") as ?event_date)
+    
+}
+

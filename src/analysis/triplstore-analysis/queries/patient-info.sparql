@@ -1,0 +1,24 @@
+## name: patient-info.sparql
+## author: Bill Duncan
+## purpose: 
+##	find surfaces restored by procedures
+##	prefixes are defined in prefixes.sparql
+
+select distinct ?patient_id ?gender ?dob ?practice where {
+    values ?gender_type {obo:OHD_0000049 obo:OHD_0000054}
+    ?patient_i a patient:;
+               birth_date: ?bdate;
+               npbrn_id: ?npbrn_id;
+             sesame:directType ?gender_type .
+    ?tooth_i a tooth:;
+           part_of: ?patient_i .
+    ?proc_i a procedure:;
+          has_specified_input: ?tooth_i .
+    filter (!isblank(?patient_i))
+
+    bind(strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind(strbefore(str(?bdate), "T") as ?dob)
+    bind(strafter(str(?npbrn_id), "NDPBRN practice ") as ?practice)
+    bind (if(?gender_type = obo:OHD_0000049, "female", "male") as ?gender )
+}
+
