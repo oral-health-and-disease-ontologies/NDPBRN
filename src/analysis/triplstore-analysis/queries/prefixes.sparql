@@ -52,4 +52,6 @@ PREFIX incisor: <http://purl.obolibrary.org/obo/FMA_12823>
 PREFIX canine: <http://purl.obolibrary.org/obo/FMA_55636>
 PREFIX premolar: <http://purl.obolibrary.org/obo/FMA_55637>
 PREFIX molar: <http://purl.obolibrary.org/obo/FMA_55638>
+PREFIX first_visit: <http://purl.obolibrary.org/obo/OHD_0000218>
+PREFIX last_visit: <http://purl.obolibrary.org/obo/OHD_0000219>
 
