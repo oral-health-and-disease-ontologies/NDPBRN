@@ -7,10 +7,9 @@
 select distinct
     ?patient_id
     ?tooth_id
-    ?tooth_i
+    ?tooth_id
     ?tooth_num
-    ?proc_i
-    ?surface_i
+    ?proc_id
     ?m
     ?o
     ?d
@@ -20,37 +19,73 @@ select distinct
     ?i
 where {
     ?patient_i a patient: .
+	    
+    ## find teeth that have a restored surface
     ?tooth_i a tooth:;
              part_of: ?patient_i;
              sesame:directType ?tooth_t .
     ?tooth_t ada_num: ?ada_num .
     
-    ?surface_i a restored_surface:;
-               sesame:directType ?surface_t .
-    
+    ## find procedures that output a restored surface
+	?surface_i a restored_surface: .
     ?proc_i a procedure:;
             sesame:directType ?proc_t;
             has_specified_input: ?tooth_i;
             has_specified_output: ?surface_i;
             occur_date: ?occur_date .
     
+    ## find which surfaces were restored
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_m .
+        ?surface_m  sesame:directType  restored_mesial: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_o .
+        ?surface_o  sesame:directType  restored_occlusal: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_d .
+        ?surface_d  sesame:directType  restored_distal: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_b .
+        ?surface_b  sesame:directType  restored_buccal: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_l .
+        ?surface_l  sesame:directType  restored_lingual: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_f .
+        ?surface_f  sesame:directType  restored_labial: .
+    }
+    optional
+    { 
+        ?proc_i  has_specified_output: ?surface_incisal .
+      	?surface_incisal sesame:directType  restored_incisal: .
+    }
+    
     filter (!isblank(?patient_i))
     filter (!isblank(?tooth_i))
     filter (!isblank(?proc_i))
     filter (!isblank(?surface_i))
-    filter (!isblank(?surface_t))
     
     bind (strafter(str(?patient_i), "patient/") as ?patient_id)
     bind (strafter(str(?tooth_i), "tooth/") as ?tooth_id)
     bind (strafter(str(?proc_i), "procedure/") as ?proc_id)
     bind (strafter(?ada_num, "Tooth ") as ?tooth_num)
-    bind(if(?surface_t = restored_buccal:, 1, 0) as ?b)
-    bind(if(?surface_t = restored_distal:, 1, 0) as ?d)
-    bind(if(?surface_t = restored_mesial:, 1, 0) as ?m)
-    bind(if(?surface_t = restored_labial:, 1, 0) as ?f)
-    bind(if(?surface_t = restored_lingual:, 1, 0) as ?l)
-    bind(if(?surface_t = restored_incisal:, 1, 0) as ?i)
-    bind(if(?surface_t = restored_occlusal:, 1, 0) as ?o)
-    
-} 
+    bind(if(bound(?surface_m), 1, 0) as ?m)
+    bind(if(bound(?surface_o), 1, 0) as ?o)
+    bind(if(bound(?surface_d), 1, 0) as ?d)
+    bind(if(bound(?surface_b), 1, 0) as ?b)
+    bind(if(bound(?surface_l), 1, 0) as ?l)
+    bind(if(bound(?surface_f), 1, 0) as ?f)
+    bind(if(bound(?surface_incisal), 1, 0) as ?i) 
+}
 

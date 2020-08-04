@@ -16,6 +16,7 @@ PREFIX restored_distal: <http://purl.obolibrary.org/obo/OHD_0000223>
 PREFIX restored_mesial: <http://purl.obolibrary.org/obo/OHD_0000227>
 PREFIX restored_labial: <http://purl.obolibrary.org/obo/OHD_0000225>
 PREFIX restored_lingual: <http://purl.obolibrary.org/obo/OHD_0000226>
+PREFIX restored_facial: <http://purl.obolibrary.org/obo/OHD_0000235>
 PREFIX restored_incisal: <http://purl.obolibrary.org/obo/OHD_0000224>
 PREFIX restored_occlusal: <http://purl.obolibrary.org/obo/OHD_0000228>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>

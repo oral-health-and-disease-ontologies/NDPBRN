@@ -43,7 +43,6 @@ where {
     bind(strafter(str(?proc_i), "procedure/") as ?proc_id)
     bind(str(?proc_label) as ?event) # removes the laguage tags
     bind(strafter(?ada_num, "Tooth ") as ?tooth_num)
-    bind(strbefore(str(?occur_date), "T") as ?event_date)
-    
+    bind(strbefore(str(?occur_date), "T") as ?event_date)   
 }
 
