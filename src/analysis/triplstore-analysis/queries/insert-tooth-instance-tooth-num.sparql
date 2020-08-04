@@ -1,0 +1,25 @@
+## name: insert-tooth-instance-tooth-num.sparql
+## author: Bill Duncan
+## purpose: 
+##  Inserts the ADA tooth number for each tooth instance. It provides a shortcut for
+##  retrieving the tooth number for an individual tooth by allowing you to simply
+##  query for:
+##  	?tooth_i prop:ada_tooth_number ?tooth_num .
+
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516> 
+PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065> 
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/> 
+
+#construct 
+insert {
+    ?tooth_i prop:ada_tooth_number ?tooth_num .
+} 
+where {
+    ?tooth_t rdfs:subClassOf tooth:;
+             ada_num: ?ada_num .
+    ?tooth_i a ?tooth_t .
+    bind(strafter(str(?ada_num), "Tooth ") as ?tooth_num) 
+}
