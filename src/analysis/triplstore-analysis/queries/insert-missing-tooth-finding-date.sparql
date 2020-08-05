@@ -9,6 +9,7 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
 PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
 PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
@@ -25,28 +26,28 @@ insert
 {
 	?tooth_i prop:missing_tooth_finding_date ?missing_date .
 } where {
-    ## find instance of patient and tooth
-    ?patient_i a patient: .
+    ## find patients and teeth
+    ?patient_i a patient:;
+               has_part: ?tooth_i .
     
-    ?tooth_i sesame:directType ?tooth_t; 
-             part_of: ?patient_i .
-    ?tooth_t ada_num: ?ada_num .
-
-    ## find patients dentitions
+    ## find dentition's missing tooth numbers
     ?dentition_i a dentition:;
-                 missing_tooth_num: ?missing_num;
-                 part_of: ?patient_i .
+                 part_of: ?patient_i;
+                 missing_tooth_num: ?tooth_num .
     
+    ## get the date of the missing tooth finding
+    ?finding_i a missing_tooth_finding:; 
+               is_about: ?dentition_i;
+               occurrence_date: ?missing_date .
     
-    ## find missing tooth findings about the dentition
-    ?event_t rdfs:subClassOf missing_tooth_finding:; 
-             rdfs:label ?event_name .
+    ## find teeth teeth that are part of the patient
+    ## and have a tooth number that matches the dentition's missint tooth number
+    ?tooth_i prop:ada_tooth_number ?missing_num;
+    		 sesame:directType ?tooth_t . # for some reason this speeds the query up
              
-    ?event_i a ?event_t; 
-             is_about: ?dentition_i;
-             occurrence_date: ?missing_date .
-    
-    ## match ADA tooth num to missing tooth num
-    filter (strafter(str(?ada_num), "Tooth ") = str(?missing_num))
+    filter (!isblank(?patient_i))
+    filter (!isblank(?dentition_i))
+    filter (!isblank(?finding_i))
 }
+
 
