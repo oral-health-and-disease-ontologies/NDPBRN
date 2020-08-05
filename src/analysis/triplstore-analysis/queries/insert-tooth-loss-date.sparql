@@ -1,14 +1,15 @@
-## name: insert-missing-tooth-finding-date.sparql
+## name: insert-tooth-loss-date.sparql
 ## author: Bill Duncan
 ## purpose:
-##   This query inserts the date on which a given tooth was found to be missing
-##   This is useful for retrieving missing date of a tooth.
+##   This query inserts the date on which a given tooth lost.
+##   This could be due to an extraction or the result of a finding.
 ##   It helps speed up access to this information by simply querying for: 
-##     ?tooth_i prop:missing_tooth_finding_date ?missing_date
+##     ?tooth_i prop:tooth_loss_date ?loss_date
 
 ## NB: This query depends on running previously running:
-## 	* insert-tooth-instance-tooth-num.sparql
+## 	* insert-tooth-instance-tooth-num.sparql first
 ##  * insert-missing-tooth-finding-number.sparql
+##  * insert-missing-tooth-finding-reference.sparql (which depends on the previous two)
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -28,27 +29,29 @@ PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 #construct
 insert 
 {
-	?tooth_i prop:missing_tooth_finding_date ?missing_date .
+	?tooth_i prop:tooth_loss_date ?loss_date .
 } where {
-    ## find patients, teeth, and dentitions
-    ?patient_i a patient:;
-               has_part: ?tooth_i ;
-               has_part: ?dentition_i .
-    ?tooth_i a tooth:;
-        	 prop:ada_tooth_number ?tooth_num .
-    ?dentition_i a dentition: .
-    
-    ## get the date of the missing tooth finding
-    ## the same tooth number as the tooth (i.e., ?tooth_num)
-    ?finding_i a missing_tooth_finding:; 
-               is_about: ?dentition_i;
-               prop:missing_tooth_number ?tooth_num;
-               occurrence_date: ?missing_date .
-    
-    filter (!isblank(?patient_i))
+		## find teeth and missing tooth findings
+		?tooth_i a tooth: .
+		?finding_i a missing_tooth_finding:;
+							 prop:references ?tooth_i;
+		
+		## find first extraction date (in case there is more than one)
+		{
+			select (min(?date) as ?extraction_date) where {
+				?tooth_i prop:tooth_extraction_date ?date
+			}
+		}
+		
+		## find first missing finding date (in case there is more than one)
+    {
+			select (min(?date) as ?finding_date) where {
+				?finding_i prop:missing_tooth_finding_date ?date
+			}
+		}
+		
     filter (!isblank(?tooth_i))
     filter (!isblank(?finding_i))
-    filter (!isblank(?dentition_i))
 }
 
 

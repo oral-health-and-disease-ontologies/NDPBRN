@@ -1,10 +1,11 @@
-## name: insert-missing-tooth-finding-date.sparql
+## name: insert-missing-tooth-finding-reference.sparql
 ## author: Bill Duncan
 ## purpose:
-##   This query inserts the date on which a given tooth was found to be missing
-##   This is useful for retrieving missing date of a tooth.
+##   This query inserts a relation between a missing tooth finding and the tooth that was
+##   found to be missing.
+##   This is useful for retrieving previously existing teeth that then went missing.
 ##   It helps speed up access to this information by simply querying for: 
-##     ?tooth_i prop:missing_tooth_finding_date ?missing_date
+##     ?finding_i prop:references ?tooth_i
 
 ## NB: This query depends on running previously running:
 ## 	* insert-tooth-instance-tooth-num.sparql
@@ -28,7 +29,7 @@ PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 #construct
 insert 
 {
-	?tooth_i prop:missing_tooth_finding_date ?missing_date .
+	?finding_i prop:references ?tooth_i .
 } where {
     ## find patients, teeth, and dentitions
     ?patient_i a patient:;
@@ -42,13 +43,11 @@ insert
     ## the same tooth number as the tooth (i.e., ?tooth_num)
     ?finding_i a missing_tooth_finding:; 
                is_about: ?dentition_i;
-               prop:missing_tooth_number ?tooth_num;
-               occurrence_date: ?missing_date .
+               prop:missing_tooth_number ?tooth_num .
     
     filter (!isblank(?patient_i))
     filter (!isblank(?tooth_i))
     filter (!isblank(?finding_i))
     filter (!isblank(?dentition_i))
 }
-
 
