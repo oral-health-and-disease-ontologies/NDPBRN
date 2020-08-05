@@ -1,0 +1,40 @@
+## name: insert-tooth-extraction-date.sparql
+## author: Bill Duncan
+## purpose:
+## This query inserts the date on which a given tooth was extracted.
+## This is useful for retrieving missing date of a tooth.
+## It helps speed up access to this information by simply querying for: 
+##   ?tooth_i prop:tooth_extraction_date ?extraction_date
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX ada_num: <http://purl.obolibrary.org/obo/OHD_0000065>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX tooth_extraction: <http://purl.obolibrary.org/obo/OHD_0000057>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+construct
+#insert 
+{
+    ?tooth_i prop:tooth_extraction_date ?extraction_date .
+}
+where {
+		## find instance of patient and tooth
+    ?patient_i a patient: .
+    
+    ?tooth_i a tooth:;
+             part_of: ?patient_i;
+             sesame:directType ?tooth_t .
+    ?tooth_t ada_num: ?ada_num .
+             
+    ## find tooth extraction procedures on ?tooth_i and date of extraction
+    ?extraction_proc_i sesame:directType tooth_extraction:;
+                       has_input: ?tooth_i;
+                       occurrence_date: ?extraction_date .
+}
+
+
