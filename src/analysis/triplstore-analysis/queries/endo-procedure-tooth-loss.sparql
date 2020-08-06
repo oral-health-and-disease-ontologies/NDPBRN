@@ -1,0 +1,25 @@
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX endodontic_procedure: <http://purl.obolibrary.org/obo/OHD_0000003>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX has_part: <http://purl.obolibrary.org/obo/BFO_0000051>
+PREFIX has_specified_input: <http://purl.obolibrary.org/obo/OBI_0000293>
+PREFIX occur_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX last_visit: <http://purl.obolibrary.org/obo/OHD_0000219>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+
+select ?tooth_i ?proc_date ?lost ?observation_date where {
+    ?patient_i a patient:;
+               last_visit: ?last_visit;
+               has_part: ?tooth_i .
+    ?tooth_i a tooth: .
+    optional {
+        ?tooth_i prop:tooth_loss_date ?loss_date .
+    }
+    ?proc_i a endodontic_procedure:;
+            occur_date: ?proc_date;
+            has_specified_input: ?tooth_i .
+    
+    bind (if (bound(?loss_date), 1, 0) as ?lost)
+    bind (if (bound(?loss_date), ?loss_date, ?last_visit) as ?observation_date)
+} limit 100
