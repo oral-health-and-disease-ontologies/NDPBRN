@@ -8,8 +8,8 @@
 
 ## NB: This query depends on running previously running:
 ## 	* insert-tooth-instance-tooth-num.sparql first
-##  * insert-missing-tooth-finding-number.sparql
-##  * insert-missing-tooth-finding-reference.sparql (which depends on the previous two)
+##  * insert-missing-tooth-finding-date.sparql
+##  * insert-tooth-extraction-date.sparql
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -26,32 +26,20 @@ PREFIX is_about: <http://purl.obolibrary.org/obo/IAO_0000136>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
-#construct
+#construct # testing
 insert 
 {
 	?tooth_i prop:tooth_loss_date ?loss_date .
 } where {
-		## find teeth and missing tooth findings
-		?tooth_i a tooth: .
-		?finding_i a missing_tooth_finding:;
-							 prop:references ?tooth_i;
-		
-		## find first extraction date (in case there is more than one)
-		{
-			select (min(?date) as ?extraction_date) where {
-				?tooth_i prop:tooth_extraction_date ?date
-			}
-		}
-		
-		## find first missing finding date (in case there is more than one)
-    {
-			select (min(?date) as ?finding_date) where {
-				?finding_i prop:missing_tooth_finding_date ?date
-			}
-		}
-		
-    filter (!isblank(?tooth_i))
-    filter (!isblank(?finding_i))
+		## find the first date the tooth was lost (either extracted or reported missing)
+    select ?tooth_i (min(?date) as ?loss_date) where {
+        ?tooth_i a tooth:;
+                 prop:ada_tooth_number ?tooth_num .
+        {
+            ?tooth_i prop:tooth_extraction_date ?date .      # date of extraction
+        } union {
+            ?tooth_i prop:missing_tooth_finding_date ?date . # date of missing finding
+        }
+    } group by ?tooth_i
+    # limit 100 # testing
 }
-
-
