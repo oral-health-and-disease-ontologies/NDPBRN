@@ -1,0 +1,39 @@
+## name: insert-rct-date.sparql
+## author: Bill Duncan
+## purpose:
+## 	This query inserts the dates on which a RCT was performed on a tooth.
+## 	This is useful for retrieving RCT dates.
+## 	It helps speed up access to this information by simply querying for:
+##   ?tooth_rct_i prop:rct_date ?date .
+
+## NB: This query depends on running previously running:
+## 	* insert-tooth-instance-tooth-num.sparql first
+
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX resin_filling_proc: <http://purl.obolibrary.org/obo/OHD_0000042>
+PREFIX root_canal_treatment: <http://purl.obolibrary.org/obo/OHD_0000230>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX posterior_tooth: <http://purl.obolibrary.org/obo/OHD_0000308>
+PREFIX has_input: <http://purl.obolibrary.org/obo/OBI_0000293>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+# construct # testing
+insert 
+{
+    ?tooth_i prop:pcr_date ?pcr_date .
+    ?tooth_i prop:rct_date ?rct_date .
+} where {
+    ?tooth_i a tooth:;
+             prop:ada_tooth_number ?tooth_num .
+		?rct_proc_i a root_canal_treatment:;
+								has_input: ?tooth_i;
+								occurrence_date: ?rct_date .
+}
+#limit 100 # testing
