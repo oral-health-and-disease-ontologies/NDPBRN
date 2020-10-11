@@ -24,10 +24,9 @@ PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
 PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
 
-# construct # testing
+#construct # testing
 insert 
 {
-    ?tooth_i prop:pcr_date ?pcr_date .
     ?tooth_i prop:rct_date ?rct_date .
 } where {
     ?tooth_i a tooth:;
