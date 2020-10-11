@@ -13,14 +13,14 @@ select ?tooth_i ?proc_date ?lost ?observation_date where {
     ?patient_i a patient:;
                last_visit: ?last_visit;
                has_part: ?tooth_i .
-    ?tooth_i a tooth: .
+               
+    ?tooth_i a tooth:;
+             prop:first_rct_date ?proc_date
+             
     optional {
         ?tooth_i prop:tooth_loss_date ?loss_date .
     }
-    ?proc_i a endodontic_procedure:;
-            occur_date: ?proc_date;
-            has_specified_input: ?tooth_i .
     
     bind (if (bound(?loss_date), 1, 0) as ?lost)
     bind (if (bound(?loss_date), ?loss_date, ?last_visit) as ?observation_date)
-} limit 100
+} limit 100 # testing
