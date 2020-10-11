@@ -1,0 +1,52 @@
+## name: insert-first-pcr-rct.sparql
+## author: Bill Duncan
+## purpose:
+## 	This query inserts the date on which the first PCR or first RCT was performed on a tooth.
+## 	This is useful for retrieving the first PCR date or first RCT date.
+## 	It helps speed up access to this information by simply querying for:
+##   ?tooth_pcr_i prop:first_pcr_date ?first_pcr .
+##   ?tooth_rct_i prop:first_rct_date ?first_rct .
+
+## NB: This query depends on running previously running:
+## 	* insert-pcr-date.sparql
+## 	* insert-rct-date.sparql
+
+BASE <http://purl.regenstrief.org/NDPBRN/dental-practice/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX resin_filling_proc: <http://purl.obolibrary.org/obo/OHD_0000042>
+PREFIX root_canal_treatment: <http://purl.obolibrary.org/obo/OHD_0000230>
+PREFIX part_of: <http://purl.obolibrary.org/obo/BFO_0000050>
+PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX posterior_tooth: <http://purl.obolibrary.org/obo/OHD_0000308>
+PREFIX has_input: <http://purl.obolibrary.org/obo/OBI_0000293>
+PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
+PREFIX occurrence_date: <http://purl.obolibrary.org/obo/OHD_0000015>
+PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
+PREFIX pbrn_id: <http://purl.obolibrary.org/obo/OHD_0000273>
+PREFIX sesame: <http://www.openrdf.org/schema/sesame#>
+
+#construct # testing
+insert 
+{
+    ?tooth_pcr_i prop:first_pcr_date ?first_pcr .
+    ?tooth_rct_i prop:first_rct_date ?first_rct .
+}
+where {
+    {
+        ## find the first PCR on tooth
+        select ?tooth_pcr_i (min(?pcr_date) as ?first_pcr)  where {
+            ?tooth_pcr_i a tooth:;
+                         prop:ada_tooth_number ?tooth_num;
+                         prop:pcr_date ?pcr_date .
+        } group by ?tooth_pcr_i    
+    } union {
+        ## find the first RCT on tooth
+        select ?tooth_rct_i (min(?rct_date) as ?first_rct)  where {
+            ?tooth_rct_i a tooth:;
+                         prop:ada_tooth_number ?tooth_num;
+                         prop:rct_date ?rct_date .
+        } group by ?patient_i ?tooth_rct_i
+    }
+}
+#limit 100 # testing
