@@ -1,0 +1,14 @@
+pip>=20.2.3
+pandas
+pandasql
+xlrd
+rdflib
+sparqlwrapper
+seaborn
+matplotlib
+tabulate
+functools
+lifelines
+ipykernel
+jupyter
+jupyterlab
