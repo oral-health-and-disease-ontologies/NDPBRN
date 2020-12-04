@@ -7,7 +7,6 @@ sparqlwrapper
 seaborn
 matplotlib
 tabulate
-functools
 lifelines
 ipykernel
 jupyter

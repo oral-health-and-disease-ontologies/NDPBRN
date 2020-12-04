@@ -1,3 +1,4 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX patient: <http://purl.obolibrary.org/obo/OHD_0000012>
 PREFIX endodontic_procedure: <http://purl.obolibrary.org/obo/OHD_0000003>
 PREFIX root_canal_treatment: <http://purl.obolibrary.org/obo/OHD_0000230>
@@ -7,20 +8,58 @@ PREFIX has_specified_input: <http://purl.obolibrary.org/obo/OBI_0000293>
 PREFIX occur_date: <http://purl.obolibrary.org/obo/OHD_0000015>
 PREFIX last_visit: <http://purl.obolibrary.org/obo/OHD_0000219>
 PREFIX tooth: <http://purl.obolibrary.org/obo/FMA_12516>
+PREFIX incisor: <http://purl.obolibrary.org/obo/FMA_12823>
+PREFIX canine: <http://purl.obolibrary.org/obo/FMA_55636>
+PREFIX premolar: <http://purl.obolibrary.org/obo/FMA_55637>
+PREFIX molar: <http://purl.obolibrary.org/obo/FMA_55638>
 PREFIX prop: <http://purl.regenstrief.org/NDPBRN/property/>
 
-select ?tooth_i ?proc_date ?lost ?observation_date where {
+select distinct 
+	?patient_id 
+	?tooth_id 
+	?gender 
+	?tooth_num
+	?proc_date 
+	?lost
+	?incisor
+	?canine
+	?premolar
+	?molar
+	?anterior
+	?posterior
+	?observation_date 
+where {
+    ## find patient info
     ?patient_i a patient:;
-               last_visit: ?last_visit;
-               has_part: ?tooth_i .
-               
-    ?tooth_i a tooth:;
-             prop:first_rct_date ?proc_date
-             
-    optional {
-        ?tooth_i prop:tooth_loss_date ?loss_date .
-    }
+               prop:gender ?gender;
+               last_visit: ?last_visit .
     
+    ## specify tooth types           
+    values ?tooth_type { incisor: canine: premolar: molar:} .
+    
+    ## find instances of each tooth type
+    ?tooth_i a ?tooth_type;
+             part_of: ?patient_i;
+             prop:ada_tooth_number ?tooth_num;
+             prop:first_rct_date ?proc_date .
+    
+    ## determine if tooth was lost (optional)         
+    optional {?tooth_i prop:tooth_loss_date ?loss_date . } .
+    
+    ## bind variables for whether tooth was lost and the observation if lost
     bind (if (bound(?loss_date), 1, 0) as ?lost)
     bind (if (bound(?loss_date), ?loss_date, ?last_visit) as ?observation_date)
-} limit 100 # testing
+    
+    ## bind variables for tooth types
+    bind (if(?tooth_type = incisor:, 1, 0) as ?incisor)
+    bind (if(?tooth_type = canine:, 1, 0) as ?canine)
+    bind (if(?tooth_type = premolar:, 1, 0) as ?premolar)
+    bind (if(?tooth_type = molar:, 1, 0) as ?molar)
+    bind (if(?tooth_type in (incisor:, canine:), 1, 0) as ?anterior)
+    bind (if(?tooth_type in (premolar:, molar:), 1, 0) as ?posterior)
+    
+    ## truncate patient and tooth IRIs to be ids
+    bind (strafter(str(?patient_i), "patient/") as ?patient_id)
+    bind (strafter(str(?tooth_i), "tooth/") as ?tooth_id)
+    
+} #limit 100 # testing
